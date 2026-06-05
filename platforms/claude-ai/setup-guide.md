@@ -1,8 +1,15 @@
 # Claude.ai Project — Setup Guide
 
-## Create the project at claude.ai
+Set up your own Quality Engineering Assistant in Claude.ai in under 10 minutes.
+This creates a private AI assistant that knows your quality engineering skills — 8D, FMEA, NCR, audits — and works inside your Claude.ai account.
 
-1. Go to claude.ai → **Projects** → **New Project**
+> **Prefer a no-setup option?** Use the ready-made [ChatGPT GPT](https://chatgpt.com/g/g-6a22e9e03f8881918c35741d618bad54-quality-engineering-assistant) instead — no configuration needed.
+
+---
+
+## Step 1 — Create the project
+
+1. Go to [claude.ai](https://claude.ai) → **Projects** → **New Project**
 
 2. **Name:**
    ```
@@ -10,48 +17,60 @@
    ```
 
 3. **Project Instructions:**
-   Paste the full content of `project-instructions.md`
+   Open [`project-instructions.md`](project-instructions.md) in this folder and paste the full content into the **Project Instructions** field.
 
-4. **Add knowledge files** (drag & drop or upload):
-   All 16 files are pre-renamed and ready in **`platforms/claude-ai/knowledge/`**.
-   Download that folder and upload all files directly — no renaming needed.
+---
 
-   | File | Content |
-   |------|---------|
-   | `8d-problem-solving.md` | Core skill |
-   | `8d-template.md` | 8D fillable template |
-   | `5why-root-cause.md` | Core skill |
-   | `fishbone-analysis.md` | Core skill |
-   | `is-is-not-scoping.md` | Core skill |
-   | `pfmea-process.md` | Core skill |
-   | `ap-table.md` | AP table reference |
-   | `action-priority-ap.md` | Core skill |
-   | `ncr-writing.md` | Core skill |
-   | `car-corrective-action.md` | Core skill |
-   | `8d-report-writing.md` | Core skill |
-   | `iso-9001-internal-audit.md` | Core skill |
-   | `iatf-16949-audit.md` | Core skill |
-   | `d0-d8-guide.md` | D0–D8 gate criteria reference |
-   | `oem-requirements.md` | OEM-specific AP requirements |
-   | `oem-formats.md` | OEM 8D submission formats |
+## Step 2 — Upload knowledge files
 
-   > When skills are updated, re-copy the updated files into `platforms/claude-ai/knowledge/` before re-uploading.
+1. Download the [`knowledge/`](knowledge/) folder from this repository
+2. Upload all 16 files to the project (drag & drop or use the upload button)
 
-5. **Test before sharing:**
-   - Start conversation: "Evaluate this 8D: [paste a weak example]"
-   - Start conversation: "Help me with a 5-Why for a connector failure"
-   - Confirm responses follow the validation gate logic
+| File | Content |
+|------|---------|
+| `8d-problem-solving.md` | Full 8D methodology D0–D8 |
+| `8d-template.md` | Fillable 8D report template |
+| `5why-root-cause.md` | 5-Why root cause analysis |
+| `fishbone-analysis.md` | Fishbone / Ishikawa 6M |
+| `is-is-not-scoping.md` | Is / Is-Not problem scoping |
+| `pfmea-process.md` | PFMEA 7-step AIAG-VDA 2019 |
+| `ap-table.md` | Action Priority table |
+| `action-priority-ap.md` | AP classification and OEM rules |
+| `ncr-writing.md` | Non-Conformance Report writing |
+| `car-corrective-action.md` | Corrective Action Request |
+| `8d-report-writing.md` | 8D customer report (OEM formats) |
+| `iso-9001-internal-audit.md` | ISO 9001 internal audit |
+| `iatf-16949-audit.md` | IATF 16949 supplemental audit |
+| `d0-d8-guide.md` | D0–D8 gate criteria reference |
+| `oem-requirements.md` | OEM-specific AP requirements |
+| `oem-formats.md` | OEM 8D submission formats |
 
-## Sharing with others
+---
 
-Claude.ai Projects can be shared via link with other Claude users.
-Useful for: sharing with a quality team, testing with colleagues before broader launch.
+## Step 3 — Test before using
 
-Note: Claude.ai Projects require a Claude account. Not as frictionless as ChatGPT's GPT Store for anonymous users — prioritise the ChatGPT GPT for widest reach.
+Start a conversation with each of these to confirm everything is working:
 
-## Keeping it updated
+- `"Evaluate this 8D: [paste a weak example]"` → should flag gaps per discipline
+- `"Help me run a 5-Why for a connector intermittent failure"` → should ask for evidence at each step
+- `"Write an NCR for a dimensional non-conformance"` → should ask for measured values and spec
+- `"Start an ISO 9001 internal audit for clause §8"` → should ask open questions, require evidence
 
-When the SKILL.md files are updated in the GitHub repo:
-1. Download the updated files
-2. Re-upload to the project (replace existing)
-The project instructions remain the same — only the knowledge files change.
+---
+
+## Keeping it up to date
+
+When the skills are updated in the [GitHub repository](https://github.com/RBraga01/Quality-Engineering-Skills):
+
+1. Download the updated files from `platforms/claude-ai/knowledge/`
+2. Remove the old files from your Claude.ai project
+3. Upload the new versions
+
+The Project Instructions stay the same — only the knowledge files change.
+
+---
+
+## Note on sharing
+
+Claude.ai Projects are private to your account by default. You can share a project link with other Claude users on your team.
+A Claude account is required — it is not anonymous like the ChatGPT GPT Store.
