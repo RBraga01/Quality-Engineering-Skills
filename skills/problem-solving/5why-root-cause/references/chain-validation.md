@@ -3,6 +3,24 @@
 Reference for building, validating, and rejecting 5-Why chains.
 Use alongside the [5why-root-cause](../SKILL.md) skill.
 
+> **Scope:** This guide focuses on **validation logic** — how to test whether a chain is correct.
+> For the step-by-step execution workflow, see [5why-root-cause SKILL.md](../SKILL.md).
+
+---
+
+## Required Chain Validation Checklist
+
+Use this checklist before accepting any 5-Why chain as complete.
+
+- [ ] Each Why passes the "therefore" test (read backwards — logical at every step)
+- [ ] Each step has objective evidence — no step marked "Validated: Yes" without supporting data
+- [ ] No branching — one chain per cause path; separate chains for separate causes
+- [ ] Chain ends in a systemic root cause (not "human error" or a symptom)
+- [ ] Reversal check passes completely from end to beginning
+- [ ] Root cause validated: reproducibility test + elimination test both attempted
+- [ ] Separate escape chain completed (if used in 8D D4 context)
+- [ ] Validated root cause feeds directly into a corrective action (8D D5 or CAPA)
+
 ---
 
 ## What Makes a Valid Why Chain
@@ -54,6 +72,8 @@ Each "Why" answer must be supported by:
 
 If evidence is unavailable, mark the step as "hypothesis — to be verified" and treat the chain
 as unvalidated until evidence is obtained.
+
+**No step may be marked "Validated: Yes" without objective evidence.** A chain with unconfirmed steps is a hypothesis chain — useful for investigation direction, but not acceptable for D4 closure or CAPA submission.
 
 ---
 
@@ -182,3 +202,23 @@ Root cause of escape: [systemic detection system gap]
 Both chains must be validated independently.
 Both root causes must appear in D4 of the 8D report.
 Both root causes must have corresponding PCAs in D5.
+
+---
+
+## From Validated Root Cause to Corrective Action
+
+A validated root cause is only useful if it drives an action. The chain is not complete until the corrective action direction is defined.
+
+| Root cause type | Corrective action direction |
+|-----------------|----------------------------|
+| Missing procedure / work instruction | Write or update the procedure to close the gap |
+| FMEA gap (failure mode not identified) | Update PFMEA: add failure mode, assign AP, define prevention/detection control |
+| Training system failure | Define competence standard; add OJT verification; update competence matrix |
+| Absent poka-yoke | Design and implement an error-proofing device for this failure mode |
+| Process design gap | Revise process to add the missing prevention step |
+| Measurement system inadequacy | Upgrade gauge; perform MSA; add calibration step |
+
+**Validated root causes feed directly into:**
+- **8D D5** — Permanent Corrective Actions (one PCA per root cause)
+- **CAPA** — Corrective Action Request linked to this chain
+- **PFMEA update** — new or revised failure mode entry with updated O/D ratings
