@@ -3,6 +3,9 @@
 Guide for constructing an interface matrix and boundary diagram for Design FMEA.
 Use alongside the [dfmea-design](../SKILL.md) skill.
 
+> **Scope:** This document covers interface analysis reference logic — boundary diagrams, matrix construction, failure patterns, tolerance stack-up, and validation methods.
+> For the step-by-step DFMEA execution workflow, see [dfmea-design SKILL.md](../SKILL.md).
+
 ---
 
 ## Required Execution Checklist
