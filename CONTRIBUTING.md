@@ -2,6 +2,17 @@
 
 Thank you for contributing. Every submission adds real methodology knowledge that quality engineers worldwide will use.
 
+## Governance
+
+| Role | Who | Can do independently |
+|------|-----|----------------------|
+| Lead manager | @RBraga01 | All structural decisions, platform connectors, releases |
+| Contributor | @migmcc and others | Skill content — new skills, corrections, improvements |
+
+**All contributions go through a PR.** No direct pushes to `master`.  
+Structural changes (platforms, agents, new domains, README) require a GitHub Issue with label `proposal` first.  
+See `CLAUDE.md` for the full rules.
+
 ## Skill format
 
 Each skill lives in its own directory under `skills/<domain>/<skill-name>/`.
