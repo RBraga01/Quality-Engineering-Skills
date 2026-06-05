@@ -9,16 +9,35 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.0"
+  version: "1.1"
   iso-9001: "8.1"
   iatf-16949: "8.3.3.3"
-  aiag-reference: "AIAG-VDA FMEA Handbook 2019, Step 5"
+  aiag-reference: "AIAG-VDA FMEA Handbook 2019, Steps 1–7"
   domain: quality-engineering
   subdomain: risk-analysis
   industries: automotive,electronics,aerospace,medical,general
 ---
 
 # Process FMEA (PFMEA) — AIAG-VDA 2019
+
+## Goal
+
+Identify and prioritise process risk before production — using the AIAG-VDA 2019 7-step approach — so that high-priority failure modes are eliminated or controlled before they reach the customer, and the result feeds directly into the Control Plan and Work Instructions.
+
+## Required Execution Checklist
+
+- [ ] Scope defined: process step boundaries, model year, team assembled with cross-functional representation
+- [ ] Process Flow Diagram (PFD) available and used as Step 2 input
+- [ ] All process steps in the PFD have a corresponding entry in Structure Analysis (Step 2)
+- [ ] Every process step has at least one Function defined in Step 3
+- [ ] Failure chain complete for each function: Effect → Mode → Cause (in this direction — not reversed)
+- [ ] All Failure Causes are evidence-based — no unverified assumptions used as final causes
+- [ ] S/O/D ratings agreed by the cross-functional team and documented
+- [ ] All Special Characteristics have S=9 or S=10
+- [ ] Every H-AP item has a named owner, target date, and is tracked to closure
+- [ ] PFMEA detection controls match the Control Plan; prevention controls match Work Instructions
+
+---
 
 ## When to use
 
@@ -65,6 +84,8 @@ For each process step, identify the **4M inputs**: Man, Machine, Method, Materia
 
 This structure becomes the "what can go wrong" framework in Step 4.
 
+**Consistency check:** Every Process Step defined here must have at least one Function defined in Step 3. A process step with no function is incomplete — it cannot be analysed for failure in Step 4.
+
 ---
 
 ### Step 3 — Function Analysis
@@ -103,6 +124,8 @@ Work in this direction (Effect first, then Mode, then Cause):
 - Material: "Wrong bolt grade loaded", "Lubrication not applied"
 
 **Multiple causes per failure mode are normal** — each FC gets its own row.
+
+**Failure Cause validation:** Failure Causes must be supported by objective evidence or structured root cause analysis (e.g., [5-Why](../../problem-solving/5why-root-cause/)). Unverified assumptions — "probably," "may be," "could be" — must not be entered as final Failure Causes. For post-escape PFMEA updates, the FC must match the validated root cause from the 8D or CAPA, not a revised opinion.
 
 ---
 
@@ -173,6 +196,8 @@ Use the AP table (see [action-priority-ap](../action-priority-ap/) skill for ful
 
 **Critical rule:** S = 9 or 10 → AP is always H regardless of O and D.
 
+**Ratings discipline:** All S/O/D ratings must be agreed by the cross-functional team — not assigned unilaterally by one engineer. Where team members disagree, document the rationale for the rating chosen. Ratings without team consensus are not acceptable for PPAP submission or customer OEM review.
+
 ---
 
 ### Step 6 — Optimization
@@ -191,6 +216,8 @@ For each action:
 3. **Improve detection**: add or improve detection control (least preferred — doesn't prevent defect, only catches it)
 
 Avoid the common trap of only improving detection (lowering D) — this catches defects but doesn't prevent them.
+
+**Tracking discipline:** All actions must be logged in the PFMEA and tracked to closure with objective evidence (completed action description + implementation date + revised S/O/D ratings). Open H-AP items past their target date must be escalated to management with a documented reason for delay and a revised target date. A PFMEA with overdue open H-AP items is not acceptable for PPAP submission or OEM audit.
 
 ---
 
@@ -215,6 +242,8 @@ Before releasing the PFMEA:
 - [ ] No H-AP items remain open without documented escalation reason
 - [ ] Detection controls in PFMEA match the Control Plan
 - [ ] Prevention controls in PFMEA match Work Instructions
+- [ ] All Failure Causes are evidence-based (no unverified assumptions used as final causes)
+- [ ] PFMEA review triggered by one of the mandatory events: process change, quality escape (post-8D update), or annual review (IATF 16949 §8.3.3.3)
 
 ## Output Format
 
