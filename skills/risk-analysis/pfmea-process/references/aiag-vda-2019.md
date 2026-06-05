@@ -1,3 +1,17 @@
+---
+name: aiag-vda-2019
+type: reference
+parent_skill: pfmea-process
+author: RBraga01
+version: "1.0"
+status: approved
+created: "2026-06-01"
+last_updated: "2026-06-03"
+updated_by: RBraga01
+reviewed_by: RBraga01
+license: MIT
+---
+
 # PFMEA — AIAG-VDA 2019 Reference
 
 Reference for Process FMEA per the AIAG-VDA FMEA Handbook (2019 joint edition).

@@ -8,12 +8,18 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.0"
+  version: "1.1"
   iatf-16949: "8.3.3.3"
   aiag-reference: "AIAG-VDA FMEA Handbook 2019, Step 5, Table 5-3"
   domain: quality-engineering
   subdomain: risk-analysis
   industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-01"
+  last_updated: "2026-06-03"
+  updated_by: migmcc
+  reviewed_by: RBraga01
+  standard_edition: "AIAG-VDA FMEA Handbook 2019"
 ---
 
 # Action Priority (AP) — AIAG-VDA 2019
@@ -206,3 +212,10 @@ At the start of each use, ask the user:
 > Default: A."
 
 Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-03 | @migmcc | Polished AP classification logic, added OEM CSR requirements table |

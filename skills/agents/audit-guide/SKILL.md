@@ -9,12 +9,18 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.0"
+  version: "1.1"
   iso-9001: "9.2"
   iatf-16949: "9.2.2"
   domain: quality-engineering
   subdomain: agents
   industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-01"
+  last_updated: "2026-06-04"
+  updated_by: migmcc
+  reviewed_by: RBraga01
+  standard_edition: "ISO 9001:2015 / IATF 16949:2016"
 ---
 
 # Audit Guide Agent
@@ -220,3 +226,10 @@ Apply the chosen format to all outputs generated during the session. If the plat
 - Acknowledge good work: a fair auditor is a credible auditor
 - At every step, remind the user: verbal confirmation is not objective evidence
 - Sampling is not optional — one conforming record does not confirm systemic conformity
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-04 | @migmcc | Polished clause-by-clause audit workflow, finding classification and report generation |

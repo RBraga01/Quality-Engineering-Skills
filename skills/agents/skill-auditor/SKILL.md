@@ -11,10 +11,16 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.0"
+  version: "1.1"
   domain: quality-engineering
   subdomain: agents
   industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-05"
+  last_updated: "2026-06-05"
+  updated_by: RBraga01
+  reviewed_by: RBraga01
+  standard_edition: "Quality-Engineering-Skills Framework 1.0"
 ---
 
 # Skill Auditor Agent
@@ -70,13 +76,14 @@ If the user pastes multiple files, audit each separately then run cross-skill co
 ### Structure (0–2)
 
 Award 1 point each:
-- Frontmatter is complete: `name`, `description`, `license`, `metadata` (author, version, domain, subdomain, industries)
-- All required sections present: When to use, Workflow or equivalent, Validation criteria or gates, Output Format
+- Frontmatter is complete: `name`, `description`, `license`, `metadata` with all required fields — `author`, `version`, `domain`, `subdomain`, `industries`, `status`, `created`, `last_updated`, `updated_by`, `reviewed_by`, `standard_edition`
+- All required sections present: When to use, Workflow or equivalent, Validation criteria or gates, Output Format, Changelog
 
 Deduct 0.5 for each:
 - `description` trigger phrases not in first 400 characters
 - `description` exceeds 1024 characters
 - `name` does not match directory name
+- Any document control field missing (`status`, `reviewed_by`, `standard_edition`, `last_updated`)
 
 ### Execution (0–3)
 
@@ -123,6 +130,8 @@ Award 0 if:
 ## LEVEL 2 — REFERENCE File Audit
 
 Reference files are explanatory, not executable. They support SKILL.md files with detailed methodology, tables, and examples.
+
+**Required frontmatter for REFERENCE/ASSET files:** `name`, `type`, `parent_skill`, `author`, `version`, `status`, `created`, `last_updated`, `updated_by`, `reviewed_by`, `license`. Missing frontmatter is a Major Finding.
 
 ### Scoring model
 
@@ -190,6 +199,8 @@ A skill MUST be blocked (not merged) if any of the following are true:
   - Accepts verbal confirmation or opinion as sufficient evidence
   - Contradicts another skill in the framework
   - Missing Output Format section
+  - Missing Changelog section
+  - Missing document control fields: `status`, `reviewed_by`, or `standard_edition` absent from frontmatter
   - Methodology is incorrect (contradicts cited standard)
   - `name` does not match directory name
 
@@ -238,3 +249,10 @@ Use this to contextualise the score:
 | 5 — Audit-ready | 9–10 | Automated + self-consistent + cross-skill verified |
 
 Target for all skills in this repo: **Level 4 minimum, Level 5 at launch.**
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0 | 2026-06-05 | @RBraga01 | Initial release - scoring model, quality gates, maturity model |
+| 1.1 | 2026-06-05 | @RBraga01 | Added document control field checks to Structure scoring, block conditions, and Level 2 reference audit |

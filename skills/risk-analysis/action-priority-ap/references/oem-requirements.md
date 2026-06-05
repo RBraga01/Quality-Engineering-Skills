@@ -1,3 +1,17 @@
+---
+name: oem-requirements
+type: reference
+parent_skill: action-priority-ap
+author: RBraga01
+version: "1.0"
+status: approved
+created: "2026-06-01"
+last_updated: "2026-06-03"
+updated_by: migmcc
+reviewed_by: RBraga01
+license: MIT
+---
+
 # OEM Action Priority Requirements — Reference
 
 OEM-specific requirements for Action Priority (AP) in PFMEA and DFMEA.

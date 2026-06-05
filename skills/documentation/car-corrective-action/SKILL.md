@@ -8,12 +8,18 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.0"
+  version: "1.1"
   iso-9001: "10.2"
   iatf-16949: "10.2.3"
   domain: quality-engineering
   subdomain: documentation
   industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-01"
+  last_updated: "2026-06-04"
+  updated_by: migmcc
+  reviewed_by: RBraga01
+  standard_edition: "ISO 9001:2015"
 ---
 
 # Corrective Action Request (CAR) Writing
@@ -214,3 +220,10 @@ At the start of each use, ask the user:
 > Default: A."
 
 Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-04 | @migmcc | Expanded CAR linkage to D5-D6, added effectiveness verification requirements |

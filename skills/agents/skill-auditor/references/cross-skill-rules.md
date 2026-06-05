@@ -1,3 +1,17 @@
+---
+name: cross-skill-rules
+type: reference
+parent_skill: skill-auditor
+author: RBraga01
+version: "1.0"
+status: approved
+created: "2026-06-01"
+last_updated: "2026-06-05"
+updated_by: RBraga01
+reviewed_by: RBraga01
+license: MIT
+---
+
 # Cross-Skill Consistency Rules
 
 Reference for the skill-auditor agent.

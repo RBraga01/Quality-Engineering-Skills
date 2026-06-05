@@ -56,6 +56,12 @@ metadata:
   domain: quality-engineering
   subdomain: problem-solving    # problem-solving | risk-analysis | documentation | audit
   industries: automotive,electronics,aerospace,medical,general
+  status: approved              # approved | draft | deprecated
+  created: "YYYY-MM-DD"
+  last_updated: "YYYY-MM-DD"
+  updated_by: your-github-username
+  reviewed_by: RBraga01
+  standard_edition: "ISO 9001:2015"   # primary standard edition, e.g. "AIAG-VDA FMEA Handbook 2019"
 ---
 
 # Skill Title
@@ -155,16 +161,49 @@ description: >-
 
 ## Submission checklist
 
+**Frontmatter**
 - [ ] `name` field matches the directory name exactly
 - [ ] `description` trigger phrases appear within the first 400 characters
 - [ ] `description` contains at least 3 literal phrases users would naturally type
 - [ ] `description` is ≤ 1024 characters total
+- [ ] All document control fields present: `status`, `created`, `last_updated`, `updated_by`, `reviewed_by`, `standard_edition`
 - [ ] Framework mappings are accurate (check the standard before claiming a clause)
+
+**Content**
 - [ ] Content reflects actual methodology — no generic AI text
 - [ ] References cite specific standard editions (e.g., "AIAG-VDA FMEA 2019, Step 5")
 - [ ] `## Output Format` section included with the standard ask mechanism (see above)
-- [ ] If a `references/` or `assets/` file is linked in SKILL.md, the file exists on disk
+- [ ] `## Changelog` section included at the end of the file (see format below)
+- [ ] If a `references/` or `assets/` file is linked in SKILL.md, the file exists on disk and has frontmatter
 - [ ] Tested with at least one AI agent before submitting
+
+**Changelog format** (required at end of every SKILL.md):
+
+```markdown
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0 | YYYY-MM-DD | @your-github-username | Initial release |
+```
+
+**Reference/asset file frontmatter** (required for every file in `references/` or `assets/`):
+
+```markdown
+---
+name: filename-without-extension
+type: reference        # or "asset" for templates/forms
+parent_skill: skill-name
+author: your-github-username
+version: "1.0"
+status: approved
+created: "YYYY-MM-DD"
+last_updated: "YYYY-MM-DD"
+updated_by: your-github-username
+reviewed_by: RBraga01
+license: MIT
+---
+```
 
 ## Pull request process
 

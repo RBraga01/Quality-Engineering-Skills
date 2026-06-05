@@ -9,12 +9,18 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.0"
+  version: "1.1"
   iatf-16949: "8.3.3.3"
   aiag-reference: "AIAG-VDA FMEA Handbook 2019"
   domain: quality-engineering
   subdomain: agents
   industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-01"
+  last_updated: "2026-06-04"
+  updated_by: migmcc
+  reviewed_by: RBraga01
+  standard_edition: "AIAG-VDA FMEA Handbook 2019"
 ---
 
 # FMEA Reviewer Agent
@@ -214,3 +220,10 @@ Apply the chosen format to all outputs generated during the session. If the plat
 - If the FMEA is well-constructed, say so clearly — a balanced review is more credible
 - Focus on what matters: AP table compliance and H-AP coverage are the priority issues
 - CSR requirements are binding contractual obligations — treat CSR gaps with the same severity as AIAG-VDA violations
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-04 | @migmcc | Polished AP compliance review workflow and OEM CSR binding requirements |

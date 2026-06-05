@@ -14,6 +14,12 @@ metadata:
   domain: quality-engineering
   subdomain: problem-solving
   industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-01"
+  last_updated: "2026-06-03"
+  updated_by: RBraga01
+  reviewed_by: RBraga01
+  standard_edition: "ISO 9001:2015 / IATF 16949:2016"
 ---
 
 # 8D Problem Solving
@@ -264,3 +270,10 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 - [D0–D8 detailed guide](references/d0-d8-guide.md)
 - [8D report template](assets/8d-template.md)
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-03 | @RBraga01 | Added Required Execution Checklist, D-level validation criteria, OEM gate rules |

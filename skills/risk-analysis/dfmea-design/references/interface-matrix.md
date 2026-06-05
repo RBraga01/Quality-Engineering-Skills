@@ -1,3 +1,17 @@
+---
+name: interface-matrix
+type: reference
+parent_skill: dfmea-design
+author: RBraga01
+version: "1.0"
+status: approved
+created: "2026-06-01"
+last_updated: "2026-06-03"
+updated_by: RBraga01
+reviewed_by: RBraga01
+license: MIT
+---
+
 # Interface Matrix — DFMEA Reference
 
 Guide for constructing an interface matrix and boundary diagram for Design FMEA.

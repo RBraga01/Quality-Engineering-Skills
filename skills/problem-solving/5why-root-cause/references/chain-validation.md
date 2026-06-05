@@ -1,3 +1,17 @@
+---
+name: chain-validation
+type: reference
+parent_skill: 5why-root-cause
+author: RBraga01
+version: "1.0"
+status: approved
+created: "2026-06-01"
+last_updated: "2026-06-03"
+updated_by: RBraga01
+reviewed_by: RBraga01
+license: MIT
+---
+
 # 5-Why Chain Validation Guide
 
 Reference for building, validating, and rejecting 5-Why chains.

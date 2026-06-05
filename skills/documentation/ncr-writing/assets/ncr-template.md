@@ -1,3 +1,17 @@
+---
+name: ncr-template
+type: asset
+parent_skill: ncr-writing
+author: RBraga01
+version: "1.0"
+status: approved
+created: "2026-06-01"
+last_updated: "2026-06-03"
+updated_by: migmcc
+reviewed_by: RBraga01
+license: MIT
+---
+
 # NCR Template — Non-Conformance Report
 
 **Instructions:** Fill every mandatory field. Leave no field blank — write "N/A" with a reason

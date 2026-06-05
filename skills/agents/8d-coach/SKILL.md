@@ -9,12 +9,18 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.0"
+  version: "1.1"
   iso-9001: "10.2"
   iatf-16949: "10.2.3"
   domain: quality-engineering
   subdomain: agents
   industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-01"
+  last_updated: "2026-06-04"
+  updated_by: migmcc
+  reviewed_by: RBraga01
+  standard_edition: "ISO 9001:2015 / IATF 16949:2016"
 ---
 
 # 8D Coach Agent
@@ -216,3 +222,10 @@ Apply the chosen format to all outputs generated during the session. If the plat
 - Be constructive: after rejecting an answer, explain what a good answer looks like
 - Never accept vague answers — always ask for specifics (dates, numbers, document references)
 - Treat the user as a capable quality engineer who needs structure, not someone who doesn't know quality
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-04 | @migmcc | Polished gate validation logic, D3 rejection rules and ICA verification |

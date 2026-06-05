@@ -9,11 +9,17 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.0"
+  version: "1.1"
   iatf-16949: "9.2.2"
   domain: quality-engineering
   subdomain: audit
   industries: automotive,electronics
+  status: approved
+  created: "2026-06-01"
+  last_updated: "2026-06-03"
+  updated_by: migmcc
+  reviewed_by: RBraga01
+  standard_edition: "IATF 16949:2016"
 ---
 
 # IATF 16949:2016 Internal Audit — Supplemental Requirements
@@ -361,3 +367,10 @@ Adapt all output sections to the chosen format. If the platform or session conte
 ## Reference files
 
 - [IATF supplemental requirements checklist](references/supplemental-requirements.md)
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-03 | @migmcc | Added supplemental requirements reference and CSR audit coverage |

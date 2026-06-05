@@ -1,3 +1,17 @@
+---
+name: ap-table
+type: asset
+parent_skill: pfmea-process
+author: RBraga01
+version: "1.0"
+status: approved
+created: "2026-06-01"
+last_updated: "2026-06-03"
+updated_by: RBraga01
+reviewed_by: RBraga01
+license: MIT
+---
+
 # AIAG-VDA Action Priority (AP) Table
 
 Reference: AIAG-VDA FMEA Handbook 2019, Step 5, Table 5-3

@@ -1,3 +1,17 @@
+---
+name: supplemental-requirements
+type: reference
+parent_skill: iatf-16949-audit
+author: RBraga01
+version: "1.0"
+status: approved
+created: "2026-06-01"
+last_updated: "2026-06-03"
+updated_by: migmcc
+reviewed_by: RBraga01
+license: MIT
+---
+
 # IATF 16949:2016 — Supplemental Requirements Reference
 
 The 16 IATF-specific supplemental requirements that extend ISO 9001:2015.

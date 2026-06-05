@@ -16,6 +16,12 @@ metadata:
   domain: quality-engineering
   subdomain: risk-analysis
   industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-01"
+  last_updated: "2026-06-03"
+  updated_by: RBraga01
+  reviewed_by: RBraga01
+  standard_edition: "AIAG-VDA FMEA Handbook 2019"
 ---
 
 # Process FMEA (PFMEA) — AIAG-VDA 2019
@@ -262,3 +268,10 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 - [AIAG-VDA 2019 step-by-step guide](references/aiag-vda-2019.md)
 - [Action Priority table](assets/ap-table.md)
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-03 | @RBraga01 | Expanded 7-step workflow with AP gate requirements and PPAP integration |

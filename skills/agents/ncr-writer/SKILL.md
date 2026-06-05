@@ -9,12 +9,18 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.0"
+  version: "1.1"
   iso-9001: "8.7"
   iatf-16949: "8.7.1"
   domain: quality-engineering
   subdomain: agents
   industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-01"
+  last_updated: "2026-06-04"
+  updated_by: migmcc
+  reviewed_by: RBraga01
+  standard_edition: "ISO 9001:2015"
 ---
 
 # NCR Writer Agent
@@ -215,3 +221,10 @@ After generating the draft, review and remove any of the following if present:
 - Apologies or emotional language
 - Blame statements
 - Future-tense commitments ("we will fix this") — those go in the CAR
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-04 | @migmcc | Polished NCR drafting workflow, objective-evidence language requirements |

@@ -1,3 +1,17 @@
+---
+name: clause-questions
+type: reference
+parent_skill: iso-9001-internal-audit
+author: RBraga01
+version: "1.0"
+status: approved
+created: "2026-06-01"
+last_updated: "2026-06-03"
+updated_by: migmcc
+reviewed_by: RBraga01
+license: MIT
+---
+
 # ISO 9001:2015 Internal Audit Question Bank
 
 Clause-by-clause audit questions with evidence anchors.
