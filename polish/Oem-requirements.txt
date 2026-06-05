@@ -1,0 +1,241 @@
+Auditoria a: https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/skills/risk-analysis/action-priority-ap/references/oem-requirements.md
+
+AUDIT DETALHADO
+________________________________________
+✅ 1. Conceito base — CSR override (PERFEITO)
+✔ Muito bem definido:
+OEM CSR overrides AIAG-VDA baseline
+
+👉 Este é um dos pontos MAIS críticos e frequentemente mal aplicado.
+________________________________________
+🔥 Destaque forte
+thresholds mais apertados ✅
+deadlines vinculativos (PPAP / SOP) ✅
+formatos específicos ✅
+escalation obrigatório ✅
+👉 Isto posiciona corretamente o documento como:
+➡️ compliance layer (não metodologia base)
+________________________________________
+🔧 Micro melhoria
+Adicionar uma frase forte:
+Markdown
+CSR requirements are binding contractual obligations, not guidelines.
+
+Show more lines
+👉 reforça mindset correto
+________________________________________
+✅ 2. Ford (EXCELENTE)
+✔ Muito completo:
+H-AP → mandatory action ou EJ ✅
+EJ → SQE approval ✅
+PPAP dependency ✅
+SC rules claras ✅
+annual review ✅
+________________________________________
+🔥 Destaque crítico
+Without approved EJ → non-compliant
+
+👉 isto é exatamente o tipo de statement audit-proof
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+EJ must include risk assessment and monitoring plan (where applicable)
+
+👉 aumenta robustez técnica do EJ
+________________________________________
+✅ 3. GM (MUITO FORTE)
+✔ Excelente:
+BIQS linkage ✅
+PPAP closure definition (action + verification) ✅
+90-day escalation ✅
+derogation com risk quantification ✅
+________________________________________
+🔥 Destaque forte
+Closed = implemented AND verified
+
+👉 isto elimina o clássico erro:
+“ação planeada = fechado”
+________________________________________
+🔧 Pequeno upgrade
+Adicionar:
+BIQS scoring impact must be monitored as part of supplier performance management.
+
+👉 liga com governance contínuo
+________________________________________
+✅ 4. VW / Audi (TOP LEVEL)
+✔ Muito forte:
+action statement completo ✅
+countersign obrigatório ✅
+SOP block ✅
+________________________________________
+🔥 Destaque crítico
+SOP cannot proceed with open H-AP
+
+👉 isto é gate real de produção
+________________________________________
+🔧 Melhoria pequena
+Adicionar:
+Time-bound commitments must include interim risk containment measures.
+
+👉 melhora robustez quando há exceções
+________________________________________
+✅ 5. BMW (EXCELENTE)
+✔ Muito bem feito:
+open issues list ✅
+integração com project gates ✅
+bloqueio de gate ✅
+residual risk control ✅
+________________________________________
+🔥 Destaque forte
+Gate approval blocked by H-AP
+
+👉 isso é governance real de projeto
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Open Issues List must be version-controlled and traceable across project phases.
+
+👉 evita perda de rastreabilidade
+________________________________________
+✅ 6. Stellantis (Muito bom)
+✔ Correto:
+escalation via SQE ✅
+sem decisão unilateral ✅
+PPAP dependency ✅
+________________________________________
+🔥 Destaque
+No unilateral supplier decision
+
+👉 isto é fundamental para suppliers
+________________________________________
+🔧 Melhoria pequena
+Adicionar:
+SQE approval must be documented and retained as audit evidence.
+
+________________________________________
+✅ 7. Tabela comparativa (MUITO BOA)
+✔ Excelente valor:
+rápida leitura ✅
+fácil comparação ✅
+cobre pontos críticos ✅
+________________________________________
+👉 Isto é:
+➡️ ferramenta prática real para supplier quality
+________________________________________
+🔧 Melhoria opcional
+Adicionar coluna:
+Residual risk acceptance allowed? (Yes / Conditional / Rare)
+
+👉 ajuda decisão rápida
+________________________________________
+✅ 8. Practical Guidance (EXCELENTE — MUITO VALOR)
+✔ Muito forte:
+passos antes de PPAP ✅
+comportamento em auditoria ✅
+reação a escape ✅
+________________________________________
+🔥 Destaque crítico
+Never argue H-AP acceptable without justification
+
+👉 isto é literalmente:
+➡️ evitar major finding automático
+________________________________________
+🔥 Outro ponto forte
+update O after field failure → AP may change
+
+👉 isto liga:
+realidade campo → FMEA viva
+________________________________________
+🔗 9. Integração com o teu framework (PERFEITA)
+Este documento conecta:
+✅ action-priority-ap (lógica)
+✅ PFMEA / DFMEA (execução)
+✅ 8D (trigger de atualização)
+✅ PPAP / APQP (governance)
+________________________________________
+👉 cria fluxo completo:
+Plain Text
+Failure → 8D → RCA → FMEA update → AP re-evaluation → OEM compliance → PPAP gate
+Show more lines
+➡️ isto é nível supplier system completo
+________________________________________
+🚨 GAPS REAIS (poucos mas importantes)
+________________________________________
+❗ 1. Falta de “Required Compliance Checklist”
+👉 crítico para uso real
+________________________________________
+✅ Sugestão HIGH IMPACT
+Markdown
+# Required OEM AP Compliance Checklist
+
+☐ All H-AP items have assigned owner and target date
+☐ All H-AP items are either closed or formally escalated
+☐ All no-action decisions have OEM-required approval (SQE or equivalent)
+☐ All H-AP items are closed (or approved) before PPAP submission
+☐ Revised AP reflects implemented and verified actions
+☐ Special Characteristics meet OEM-specific requirements
+☐ FMEA updated after latest quality escape
+Show more lines
+________________________________________
+❗ 2. Falta distinção “corporate vs OEM override”
+________________________________________
+✅ Sugestão
+Adicionar no início:
+Markdown
+This document complements AIAG-VDA guidelines. In case of conflict, OEM-specific requirements always take precedence.
+Show more lines
+________________________________________
+❗ 3. Falta reforço de evidência documental
+________________________________________
+✅ Sugestão
+Markdown
+All actions, approvals, and escalations must be documented and retained as audit evidence.
+Show more lines
+________________________________________
+❗ 4. Falta ligação explícita a timing crítico
+________________________________________
+✅ Sugestão
+Markdown
+H-AP status must be reviewed at every project milestone (design review, process review, PPAP).
+Show more lines
+________________________________________
+❗ 5. Falta “risk acceptance governance” formal
+Já tens implícito, mas pode ser reforçado:
+________________________________________
+✅ Sugestão
+Markdown
+Residual risk acceptance must include:
+- justification
+- risk assessment
+- mitigation or monitoring plan
+- OEM approval (when required)
+Show more lines
+________________________________________
+🧠 SCORE FINAL
+Área
+Score
+OEM compliance accuracy
+✅ 9.8
+Practical usability
+✅ 9.5
+Audit readiness
+✅ 10
+Governance completeness
+✅ 9
+Integration
+✅ 10
+________________________________________
+🏁 CONCLUSÃO (executive)
+👉 Este documento está:
+🟢 nível “supplier quality governance standard”
+extremamente prático
+muito alinhado com OEM reality
+forte para auditoria
+forte para PPAP
+________________________________________
+🔧 Para chegar a 10/10
+Adicionar checklist de compliance
+Reforçar document retention
+Clarificar override CSR vs AIAG
+Definir governance de risk acceptance
+Ligar explicitamente a milestones

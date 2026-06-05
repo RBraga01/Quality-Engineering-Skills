@@ -1,0 +1,335 @@
+Auditoria a:  https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/skills/audit/iatf-16949-audit/references/supplemental-requirements.md
+
+AUDIT DETALHADO
+________________________________________
+✅ 1. Estrutura geral (TOP LEVEL)
+✔ Muito bem construído:
+Para cada requisito tens:
+✔ clause
+✔ what it requires
+✔ audit questions
+✔ evidence
+👉 Isto é exatamente o que um auditor precisa em campo.
+________________________________________
+🔥 Destaque
+Requirement → Questions → Evidence
+
+👉 isto transforma o documento em:
+guia prático
+consistente
+auditável
+________________________________________
+🔧 PATCH (HIGH VALUE)
+Adicionar no topo:
+Markdown
+# How to use
+Audit the process first, then use these questions to verify compliance. Do not use this as a checklist without process understanding.
+Show more lines
+👉 evita “checkbox auditing”
+________________________________________
+✅ 2. Cobertura dos Supplemental Requirements (EXCELENTE)
+👉 Cobres corretamente os principais blocos críticos:
+CSR ✅
+Risk ✅
+Competence ✅
+SC ✅
+Supplier ✅
+Control Plan ✅
+Traceability ✅
+Change control ✅
+SPC ✅
+Audits ✅
+Problem solving ✅
+Error proofing ✅
+CI ✅
+👉 Isto está completo e bem selecionado.
+________________________________________
+✅ 3. CSR (§4.3.2) — MUITO FORTE
+✔ Excelente:
+tracking ✅
+update ✅
+training ✅
+________________________________________
+🔥 Destaque crítico
+👉 Muito bom foco em:
+CSR revision vs QMS update
+________________________________________
+🔧 PATCH
+Markdown
+CSR updates must trigger documented review and update of affected QMS documents (PFMEA, CP, WI).
+Show more lines
+________________________________________
+✅ 4. Authority to stop shipment (§5.3.1) — EXCELENTE
+✔ Muito forte:
+production stop ✅
+shipment stop ✅
+real usage ✅
+________________________________________
+🔥 Este ponto é CRÍTICO em IATF
+👉 raramente bem implementado → excelente inclusão
+________________________________________
+🔧 PATCH
+Markdown
+Evidence should include at least one real case or escalation record where authority was exercised.
+Show more lines
+________________________________________
+✅ 5. Risk analysis (§6.1.2.1) — FORTE
+✔ Muito bom:
+inclui feedback loop ✅
+inclui field data ✅
+________________________________________
+🔥 Destaque
+lessons learned integration
+
+👉 alinhado com DFMEA / PFMEA loop
+________________________________________
+🔧 PATCH
+Markdown
+Risk analysis must be updated after customer complaints, field failures, or major NCRs.
+Show more lines
+________________________________________
+✅ 6. Competence (7.x) — MUITO BOM
+✔ Forte:
+effectiveness ≠ training ✅
+auditor competence ✅
+supplier auditor competence ✅
+________________________________________
+🔥 Destaque
+training is not competence
+
+👉 correto e importante
+________________________________________
+🔧 PATCH
+Markdown
+Competence must be demonstrated and periodically re-evaluated, not only initially assessed.
+Show more lines
+________________________________________
+✅ 7. Special Characteristics (§8.3.3.3) — TOP LEVEL
+✔ Muito forte:
+cascade completa ✅
+control methods ✅
+consistency ✅
+________________________________________
+🔥 Destaque crítico
+👉 alinhado com todo o teu sistema (DFMEA → PFMEA → CP → WI)
+________________________________________
+🔧 PATCH (IMPORTANTE)
+Markdown
+Inconsistency in SC identification across documents must be treated as a major non-conformance.
+Show more lines
+________________________________________
+✅ 8. Supplier management (§8.4.x) — MUITO FORTE
+✔ Excelente:
+directed buy ✅
+performance monitoring ✅
+SCAR logic ✅
+________________________________________
+🔥 Destaque
+👉 inclui:
+escalation
+conditional approval
+________________________________________
+🔧 PATCH
+Markdown
+Supplier performance thresholds must trigger defined escalation actions (SCAR, controlled shipping, re-audit).
+Show more lines
+________________________________________
+✅ 9. Control Plan (§8.5.1.1) — EXCELENTE
+✔ Muito forte:
+coverage ✅
+SC linkage ✅
+reaction plan ✅
+________________________________________
+🔥 Destaque
+reaction when out of control
+
+👉 excelente foco em execução real
+________________________________________
+🔧 PATCH
+Markdown
+Verify that reaction plans are understood and applied at the workstation, not only documented.
+Show more lines
+________________________________________
+✅ 10. Traceability (§8.5.2.1) — TOP LEVEL
+✔ Muito bom:
+backward trace ✅
+recall readiness ✅
+simulation ✅
+________________________________________
+🔥 Destaque
+recall simulation
+
+👉 nível avançado — excelente
+________________________________________
+🔧 PATCH
+Markdown
+Traceability system must be tested periodically (e.g., mock recall within defined timeframe).
+Show more lines
+________________________________________
+✅ 11. Temporary change (§8.5.6.1.1) — MUITO FORTE
+✔ Excelente:
+approval ✅
+expiry ✅
+tracking ✅
+________________________________________
+🔥 Destaque crítico
+👉 este é um dos maiores findings reais → muito bem coberto
+________________________________________
+🔧 PATCH
+Markdown
+Expired temporary changes must be escalated immediately and blocked until resolved.
+Show more lines
+________________________________________
+✅ 12. Customer notification (§8.7.1.1) — FORTE
+✔ Muito bom:
+proactive ✅
+documented ✅
+________________________________________
+🔥 Destaque
+even if internally detected
+
+👉 correto e importante
+________________________________________
+🔧 PATCH
+Markdown
+Notification timing must meet CSR-defined deadlines (e.g., within 24 hours for safety-related issues).
+Show more lines
+________________________________________
+✅ 13. SPC / capability (§9.1.1.1) — TOP LEVEL
+✔ Muito forte:
+Cpk ✅
+threshold ✅
+reaction ✅
+________________________________________
+🔥 Destaque
+real-time control charts
+
+👉 excelente — foco operação
+________________________________________
+🔧 PATCH
+Markdown
+Low capability must trigger reaction plan and potential containment actions.
+Show more lines
+________________________________________
+✅ 14. Audit programme (§9.2.2.x) — EXCELENTE
+✔ Muito forte:
+manufacturing process audit ✅
+product audit ✅
+________________________________________
+🔥 Destaque
+👉 inclui os 3 streams → crítico
+________________________________________
+🔧 PATCH
+Markdown
+Failure to conduct any of the three audit types is a major non-conformance.
+Show more lines
+________________________________________
+✅ 15. Problem solving (§10.2.3) — EXCELENTE
+✔ Muito bom:
+8D ✅
+linkage PFMEA ✅
+lessons learned ✅
+________________________________________
+🔥 Destaque
+👉 alinhamento perfeito com teu framework
+________________________________________
+🔧 PATCH
+Markdown
+All significant non-conformities must trigger structured problem solving (8D or equivalent).
+Show more lines
+________________________________________
+✅ 16. Error proofing (§10.2.4) — MUITO FORTE
+✔ Excelente:
+identification ✅
+testing ✅
+failure handling ✅
+________________________________________
+🔥 Destaque
+test frequency required
+
+________________________________________
+🔧 PATCH
+Markdown
+Failure or bypass of error-proofing must trigger immediate reaction and CAPA.
+Show more lines
+________________________________________
+⚠️ PRINCIPAL RISCO DETETADO
+❗ “Too perfect → can become checklist”
+👉 Tal como no ISO question bank:
+risco de uso passivo
+risco de não seguir processo
+________________________________________
+✅ MITIGAÇÃO CRÍTICA
+Adicionar:
+Markdown
+Use this reference to guide audit questioning. Always verify by observing the process, interviewing personnel, and reviewing records.
+Show more lines
+________________________________________
+🚨 GAPS REAIS
+________________________________________
+❗ 1. Falta “Global Supplemental Audit Checklist”
+✅ PATCH (HIGH IMPACT)
+Markdown
+# IATF Supplemental Audit Checklist
+
+☐ CSR register current and implemented
+☐ Authority to stop production/shipment defined and used
+☐ Risk analysis includes field data and lessons learned
+☐ Special Characteristics consistent across all documents
+☐ Supplier monitoring and escalation active
+☐ Control Plan linked to PFMEA and updated
+☐ Traceability tested and effective
+☐ Temporary changes controlled and time-limited
+☐ Customer notification process defined and used
+☐ SPC and capability monitored with reaction plans
+☐ All audit streams conducted (QMS, process, product)
+☐ Problem solving applied with VOE and lessons learned
+☐ Error-proofing implemented and tested
+Show more lines
+________________________________________
+❗ 2. Falta ligação explícita a evidência objetiva
+✅ PATCH
+Markdown
+All audit conclusions must be based on objective evidence, not verbal confirmation.
+Show more lines
+________________________________________
+❗ 3. Falta guidance de sampling
+✅ PATCH
+Markdown
+Verify multiple records, operators, and time periods to ensure systemic conformity.
+Show more lines
+________________________________________
+❗ 4. Falta priorização por risco
+✅ PATCH
+Markdown
+High-risk processes (safety, SC, customer complaints) must be prioritised during audit.
+Show more lines
+________________________________________
+🧠 SCORE FINAL
+Área
+Score
+IATF coverage
+✅ 9.8
+Practical audit value
+✅ 9.7
+Integration with system
+✅ 10
+Governance
+✅ 9.3
+Risk of misuse
+⚠️ 8.8
+________________________________________
+🏁 CONCLUSÃO (executive)
+👉 Este documento está:
+🟢 nível “IATF audit handbook” — muito alto
+completo
+consistente
+aplicável
+alinhado com OEM reality
+________________________________________
+🔧 Para chegar a 10/10
+Adicionar checklist global
+Reforçar evidência objetiva
+Introduzir sampling guidance
+Mitigar checklist auditing
+Priorizar por risco

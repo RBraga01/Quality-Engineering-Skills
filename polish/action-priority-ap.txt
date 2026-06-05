@@ -1,0 +1,262 @@
+Auditoria a: https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/skills/risk-analysis/action-priority-ap/SKILL.md
+
+AUDIT DETALHADO
+________________________________________
+✅ 1. Estrutura SKILL.md (muito boa)
+✔ Tens:
+name claro ✅
+description bem orientada ao uso ✅
+When to use implícito no description e no corpo ✅
+workflow de avaliação ✅
+output handling ✅
+👉 O posicionamento está bom e o propósito é claro:
+atribuir AP
+auditar AP compliance
+explicar a lógica de decisão
+________________________________________
+🔧 Melhoria pequena
+Adicionar no topo uma secção explícita:
+Markdown
+# Goal
+Assign and audit Action Priority (AP) ratings correctly using the AIAG-VDA 2019 method, ensuring high-risk items receive justified action or formal risk acceptance.
+Show more lines
+👉 Isto ajuda muito o agent a perceber se está:
+a classificar
+a rever
+a auditar
+________________________________________
+✅ 2. Explicação “Why AP replaces RPN” (EXCELENTE)
+Esta parte está muito forte.
+✔ Muito bom:
+explicas corretamente o problema do RPN ✅
+usas exemplos claros ✅
+atacas o problema de “gaming detection” ✅
+explicas ausência de threshold obrigatório ✅
+________________________________________
+🔥 Destaque forte
+Este ponto está particularmente bem escrito:
+teams learned to lower RPN cheaply by improving detection
+👉 Isto é exatamente uma das falhas históricas do RPN e demonstra bom entendimento da mudança AIAG‑VDA.
+________________________________________
+✅ 3. Lógica de classificação AP (FORTE)
+✔ Tens a essência correta:
+S=9/10 → H sempre ✅
+S e O vêm primeiro ✅
+D ajuda a modular risco residual ✅
+H exige ação ou aceitação formal ✅
+👉 Muito bom. Esta parte está alinhada com o objetivo do AP:
+não reduzir tudo a um produto matemático
+priorizar risco real
+________________________________________
+🔧 Melhoria importante
+A frase:
+Plain Text
+S = 8 + O = 6–10 + D = 6–10
+Show more lines
+está útil, mas pode criar uma sensação de regra “hard-coded” incompleta se alguém usar isto sem consultar a tabela completa.
+✅ Sugestão
+Logo antes da tabela resumida, acrescentar:
+Markdown
+The examples below are summary patterns. Final AP assignment must always be confirmed against the full AP table.
+Show more lines
+👉 Isso evita:
+simplificação excessiva
+aplicação errada por memorização parcial
+________________________________________
+✅ 4. Workflow de decisão (MUITO BOM)
+✔ Muito bem estruturado:
+Assign S
+Check if S=9/10
+Assign O
+Assign D
+Lookup AP
+👉 Isto está correto e executável.
+________________________________________
+🔥 Ponto forte
+O workflow está suficientemente simples para um agent seguir sem se perder.
+
+Isso é ótimo.
+________________________________________
+🔧 Melhoria de robustez
+Adicionar uma regra explícita:
+Markdown
+Do not assign AP unless S, O, and D are already justified based on the linked failure effect, failure cause, and current controls.
+Show more lines
+👉 porque o AP só é tão bom quanto os ratings base.
+________________________________________
+✅ 5. Resumo por bracket de severidade (bom, mas com atenção)
+✔ O conceito é bom
+A divisão por:
+S=9–10
+S=8
+S=7
+S=6
+S=1–5
+é útil para auditoria rápida e leitura operacional.
+________________________________________
+⚠️ Ponto de atenção relevante
+Ao resumir a tabela oficial para “brackets”, corres sempre o risco de:
+perder nuance
+criar interpretações simplificadas
+gerar falsos negativos/positivos se alguém usar isto sem o AP table completo
+________________________________________
+✅ Sugestão crítica
+No bloco “Action priority by S bracket”, acrescentar:
+Markdown
+This is a practical summary for working use. For disputed cases or audits, confirm against the full AP table.
+Show more lines
+👉 Isto torna o documento muito mais seguro.
+________________________________________
+✅ 6. H / M / L treatment rules (EXCELENTE)
+✔ Muito forte:
+H = ação obrigatória ✅
+H sem ação → escalation + sign-off ✅
+M = equipa avalia e documenta ✅
+L = sem ação, mas racional documentado ✅
+👉 Isto está excelente para:
+auditoria
+governance
+comportamento esperado do team
+________________________________________
+🔥 Destaque
+Plain Text
+H-AP items must never be silently ignored
+Show more lines
+👉 linguagem muito boa, forte e alinhada com audit culture.
+________________________________________
+✅ 7. Audit use case (MUITO BOM)
+Esta secção agrega muito valor.
+✔ Boas perguntas de auditoria:
+S=9/10 têm H? ✅
+H tem owner + due date? ✅
+H sem ação tem escalonamento? ✅
+revised AP só após ação implementada? ✅
+SC com S=9/10? ✅
+👉 Isto está muito bem pensado e aumenta a utilidade prática do skill.
+________________________________________
+🔧 Pequena melhoria
+Adicionar mais uma pergunta crítica:
+Markdown
+Are S, O, and D justified with data or engineering rationale, or were they guessed?
+Show more lines
+👉 Porque muitos problemas de AP vêm de ratings maus, não da tabela.
+________________________________________
+✅ 8. Customer-specific notes (MUITO BOM)
+✔ Muito útil
+Incluíste OEM notes para:
+Ford ✅
+GM ✅
+VW/Audi ✅
+BMW ✅
+Stellantis ✅
+👉 Isto dá uma camada prática muito boa.
+________________________________________
+⚠️ Cuidado metodológico
+As CSRs mudam com o tempo e por região / portal / edição documental.
+
+Como referência operacional está ótimo, mas como “truth source” devia ser enquadrado como guidance e não como regra fixa eterna.
+________________________________________
+✅ Sugestão
+Reforçar a nota final com:
+Markdown
+Customer-Specific Requirements (CSR) are revision-controlled and may change. Always verify the latest customer requirement before release, PPAP, or customer submission.
+Show more lines
+👉 Isto protege o conteúdo de ficar “quase certo mas desatualizado”.
+________________________________________
+✅ 9. Integração com o teu framework (EXCELENTE)
+Este skill encaixa diretamente com:
+✅ pfmea-process
+✅ dfmea-design
+✅ future ap-table
+✅ audits de FMEA
+✅ governance de H-items
+👉 Faz parte de um loop muito claro:
+Plain Text
+Failure Cause → S/O/D → AP → Action → Revised AP
+Show more lines
+E ainda fecha com:
+PFMEA optimization
+DFMEA optimization
+PPAP/quality gate logic
+________________________________________
+🚨 GAPS REAIS
+________________________________________
+❗ 1. Falta “Required Execution Checklist”
+Tal como nos outros, isto melhoraria muito a consistência.
+✅ Sugestão HIGH IMPACT
+Markdown
+# Required AP Review Checklist
+
+☐ Confirm the linked Failure Effect, Mode, and Cause are correct
+☐ Confirm S is based on the Failure Effect
+☐ Confirm O is based on the Failure Cause with current prevention controls
+☐ Confirm D is based on current detection controls
+☐ Assign AP using the full AIAG-VDA AP table
+☐ For every H-AP item, define action or documented escalation
+☐ Reassess AP only after action implementation
+☐ Verify Special Characteristics are rated S = 9 or 10
+Show more lines
+👉 Isto aumentaria muito a qualidade do skill.
+________________________________________
+❗ 2. Falta distinção explícita entre “summary logic” e “official full table”
+Já tens referência ao assets/ap-table.md, mas convém ser mais explícito.
+✅ Sugestão
+Adicionar no início:
+Markdown
+This skill explains AP logic and decision patterns. Use the full AP table for final rating assignment.
+``
+Show more lines
+👉 Muito importante para audit-safety.
+________________________________________
+❗ 3. Falta ligação explícita a revised AP governance
+Hoje já dizes:
+revised AP precisa de ação implementada
+Mas falta uma regra mais forte:
+✅ Sugestão
+Markdown
+Do not lower AP based on planned actions. Revised AP may only be assigned after action implementation is verified.
+Show more lines
+👉 Isto é crítico em auditorias.
+________________________________________
+❗ 4. Falta reforço de data/rationale para S/O/D
+Sem isso, o AP pode estar “formalmente certo” com ratings errados.
+✅ Sugestão
+Markdown
+All S/O/D ratings must be supported by test data, field history, capability data, or documented engineering judgement.
+Show more lines
+________________________________________
+❗ 5. Falta tratar “M” com um pouco mais de rigor
+Atualmente está correto, mas pode ser reforçado.
+✅ Sugestão
+Markdown
+M-AP does not mean “no action needed.” It means action is not mandatory, but the team must document its decision.
+Show more lines
+👉 Isto fecha um gap muito comum.
+________________________________________
+🧠 SCORE FINAL
+Área
+Score
+AP methodology correctness
+✅ 9.5
+Audit usefulness
+✅ 9.5
+Agent usability
+✅ 9
+Governance rigor
+✅ 8.8
+Protection against misuse
+✅ 8.5
+________________________________________
+🏁 CONCLUSÃO (executive)
+👉 Este skill está muito bom e claramente usável em ambiente real.
+Pontos mais fortes
+excelente explicação do porquê do AP
+boa lógica para H/M/L
+secção de auditoria muito útil
+boa integração com PFMEA / DFMEA
+Para chegar a 10/10
+Adicionar checklist no topo
+Reforçar que a tabela resumida não substitui a tabela oficial completa
+Proibir baixar AP com ações apenas planeadas
+Exigir justificação para S/O/D
+Reforçar que M ≠ ignorar

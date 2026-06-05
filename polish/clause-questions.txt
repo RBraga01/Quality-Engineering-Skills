@@ -1,0 +1,284 @@
+Auditoria a: https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/skills/audit/iso-9001-internal-audit/references/clause-questions.md
+
+AUDIT DETALHADO
+________________________________________
+✅ 1. Estrutura geral (EXCELENTE)
+✔ Muito bem definido:
+perguntas → ✅
+evidência → ✅
+👉 isto é CRÍTICO:
+➡️ evita auditorias baseadas em opinião
+________________________________________
+🔥 Destaque
+Each question → evidence anchor
+
+👉 isto transforma o documento em:
+ferramenta real
+não apenas teoria
+________________________________________
+🔧 Melhoria pequena
+Adicionar no topo:
+Markdown
+# How to use
+Use open questions and follow up with evidence verification. Do not accept verbal answers without objective evidence.
+Show more lines
+👉 reforça comportamento do auditor
+________________________________________
+✅ 2. Qualidade das perguntas (TOP LEVEL)
+✔ Muito forte:
+perguntas abertas ✅
+orientadas ao processo ✅
+não leading ✅
+________________________________________
+🔥 Destaque crítico
+Perguntas tipo:
+How do you manage…?
+What happens when…?
+
+👉 isto é exatamente o que diferencia:
+auditor competente
+
+vs
+checklist operator
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Ask for examples and recent records — not only procedures.
+Show more lines
+👉 ajuda a validar implementação real
+________________________________________
+✅ 3. Evidência (EXCELENTE — ponto mais forte)
+✔ Muito bom:
+Cada secção inclui:
+evidência esperada ✅
+exemplos concretos ✅
+________________________________________
+🔥 Destaque
+Exemplo:
+Evidence: calibration certificate, out-of-cal procedure
+
+👉 isto facilita:
+consistência entre auditores
+redução de subjectividade
+________________________________________
+🔧 Melhoria pequena
+Adicionar regra global:
+Markdown
+One record is not sufficient to confirm conformity — use sampling.
+Show more lines
+👉 importante para maturidade da auditoria
+________________________________________
+✅ 4. §4 — Context (FORTE)
+✔ Muito bom:
+perguntas corretas ✅
+evidência clara ✅
+________________________________________
+🔥 Destaque
+Inclui:
+método (SWOT/PESTLE) ✅
+atualização ✅
+________________________________________
+🔧 Melhoria
+Markdown
+How does this context influence quality objectives and risks?
+Show more lines
+👉 melhora ligação com §6
+________________________________________
+✅ 5. §5 — Leadership (MUITO FORTE)
+✔ Bem orientado:
+engagement ✅
+comunicação ✅
+policy ✅
+________________________________________
+🔥 Destaque
+Pergunta ao operador:
+can they explain policy
+
+👉 excelente prática audit
+________________________________________
+🔧 Upgrade
+Markdown
+Can top management explain current QMS performance and key risks without preparation?
+Show more lines
+👉 muito usado em auditorias externas
+________________________________________
+✅ 6. §6 — Planning (FORTE)
+✔ Bom:
+riscos ✅
+objetivos ✅
+change ✅
+________________________________________
+🔥 Destaque
+effectiveness of actions
+
+👉 muito bom
+________________________________________
+⚠️ Gap leve
+Falta foco mais claro na execução dos riscos.
+________________________________________
+✅ Sugestão
+Markdown
+Are risk actions tracked with owner, due date, and status?
+Show more lines
+________________________________________
+✅ 7. §7 — Support (EXCELENTE)
+✔ Muito forte:
+recursos ✅
+infraestrutura ✅
+M&TE ✅
+competência ✅
+________________________________________
+🔥 Destaque crítico
+What happens when gauge is out of calibration?
+
+👉 excelente pergunta audit
+________________________________________
+🔧 Pequena melhoria
+Markdown
+Can operators identify the calibration status of the equipment they use?
+Show more lines
+________________________________________
+✅ 8. §8 — Operation (TOP LEVEL)
+👉 Uma das secções mais fortes
+✔ Muito bom:
+customer requirements ✅
+suppliers ✅
+production control ✅
+NCR ✅
+________________________________________
+🔥 Destaque
+How are customers notified when NC delivered?
+
+👉 muito relevante e muitas vezes negligenciado
+________________________________________
+🔧 Melhorias
+Adicionar:
+Markdown
+How are Control Plans and work instructions aligned with actual practice?
+Show more lines
+👉 liga com PFMEA / execution
+________________________________________
+✅ 9. §9 — Performance Evaluation (MUITO BOM)
+✔ Forte:
+KPIs ✅
+satisfaction ✅
+internal audit ✅
+management review ✅
+________________________________________
+🔥 Destaque
+How are results reported to management?
+
+👉 muito bom — foco real
+________________________________________
+🔧 Pequena melhoria
+Markdown
+Are negative trends analysed and acted upon?
+Show more lines
+________________________________________
+✅ 10. §10 — Improvement (EXCELENTE)
+✔ Muito bom:
+CAPA ✅
+effectiveness ✅
+CI ✅
+________________________________________
+🔥 Destaque
+Is QMS updated after corrective actions?
+
+👉 muito bom
+________________________________________
+🔧 Pequena melhoria
+Markdown
+Are similar processes reviewed to prevent recurrence?
+Show more lines
+👉 liga com 8D D7
+________________________________________
+⚠️ PRINCIPAL RISCO DETETADO
+👉 Este é o único risco real do documento:
+❗ “Checklist auditing”
+Mesmo sendo bom, pode ser usado como:
+lista linear
+sem pensamento crítico
+sem follow-up
+________________________________________
+✅ Mitigação (CRÍTICA)
+Adicionar no topo:
+Markdown
+Do not use this question bank as a checklist. Use it to guide process-based auditing.
+Follow the process flow, then select relevant questions.
+Show more lines
+________________________________________
+🚨 GAPS REAIS
+________________________________________
+❗ 1. Falta “Required Audit Behaviour Checklist”
+✅ Sugestão HIGH IMPACT
+Markdown
+# Required Audit Behaviour
+
+☐ Ask open questions (no yes/no)
+☐ Follow the process flow
+☐ Verify with objective evidence
+☐ Use sampling (multiple records / people)
+☐ Trace findings across the process
+☐ Challenge inconsistencies
+☐ Do not rely on one data point
+Show more lines
+________________________________________
+❗ 2. Falta guidance de sampling
+✅ Sugestão
+Markdown
+Sample at least:
+- 2–3 records
+- 2–3 employees
+- different time periods
+Show more lines
+________________________________________
+❗ 3. Falta ligação clara a findings
+✅ Sugestão
+Markdown
+If evidence does not match the requirement → raise a finding (Major / Minor / OFI).
+Show more lines
+________________________________________
+❗ 4. Falta integração explícita com audit report
+✅ Sugestão
+Markdown
+Document all findings with:
+- Requirement
+- Evidence
+- Statement of non-conformity
+Show more lines
+________________________________________
+❗ 5. Falta priorização por risco
+✅ Sugestão
+Markdown
+Prioritize high-risk processes (customer-facing, production, measurement, supplier control).
+Show more lines
+________________________________________
+🧠 SCORE FINAL
+Área
+Score
+ISO alignment
+✅ 9.5
+Practical usefulness
+✅ 9.7
+Evidence focus
+✅ 10
+Process audit maturity
+✅ 9
+Risk of misuse
+⚠️ 8.5
+________________________________________
+🏁 CONCLUSÃO (executive)
+👉 Este documento está:
+🟢 excelente e pronto para uso real
+muito prático
+bem estruturado
+fortemente orientado a evidência
+altamente útil para auditor
+________________________________________
+🔧 Para chegar a 10/10
+Evitar checklist auditing (regra explícita)
+Adicionar sampling guidance
+Incluir comportamento do auditor
+Ligar a findings e report
+Introduzir priorização por risco

@@ -1,0 +1,269 @@
+Auditoria a: https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/skills/documentation/ncr-writing/SKILL.md
+
+AUDIT DETALHADO
+________________________________________
+✅ 1. Conceito base (EXCELENTE)
+✔ Regra crítica perfeita:
+NCR = WHAT, not WHY
+
+👉 Isto é dos pontos mais importantes do documento inteiro.
+________________________________________
+🔥 Destaque
+Root cause belongs in 8D / CAPA
+
+👉 Isto resolve um erro MASSIVO em empresas:
+mistura NCR + RCA → perda de credibilidade
+________________________________________
+🔧 Melhoria pequena
+Adicionar reforço:
+Markdown
+The NCR must remain neutral and factual. It is a legal-quality record and may be reviewed by customers or auditors.
+Show more lines
+👉 aumenta consciencialização
+________________________________________
+✅ 2. Estrutura do NCR (MUITO FORTE)
+✔ Excelente organização:
+Header ✅
+Description ✅
+Evidence ✅
+Severity ✅
+Segregation ✅
+Disposition ✅
+Containment ✅
+👉 Isto cobre completamente o esperado em:
+auditoria IATF
+supplier complaint
+customer escalation
+________________________________________
+✅ 3. Descrição da não-conformidade (TOP TIER)
+✔ Muito forte:
+requirement ✅
+actual ✅
+gap ✅
+________________________________________
+🔥 Destaque crítico
+Exemplo dado:
+com números ✅
+com drawing ref ✅
+com tolerância ✅
+👉 exatamente como um auditor espera
+________________________________________
+🔥 Muito bom
+Comparação “Good vs Bad”
+👉 extremamente útil para garantir consistência no uso
+________________________________________
+🔧 Pequena melhoria (HIGH IMPACT)
+Adicionar regra explícita:
+Markdown
+Every NCR description must be independently understandable without additional explanation.
+Show more lines
+👉 essencial para auditoria
+________________________________________
+✅ 4. Objective Evidence (EXCELENTE)
+✔ Muito bem:
+measurement ✅
+photos ✅
+samples ✅
+traceability ✅
+________________________________________
+🔥 Destaque
+Samples retained: yes/no + location
+
+👉 isto é frequentemente esquecido → muito bom aqui
+________________________________________
+🔧 Melhoria pequena
+Adicionar:
+Markdown
+All evidence must be traceable to the specific NCR (traceable IDs or references).
+Show more lines
+________________________________________
+✅ 5. Severity classification (MUITO BOM)
+✔ Clara:
+Critical ✅
+Major ✅
+Minor ✅
+OFI ✅
+________________________________________
+🔥 Destaque forte
+When in doubt, grade higher
+
+👉 isto está alinhado com prática real
+________________________________________
+⚠️ GAP IMPORTANTE
+A definição de Critical pode ser reforçada para alinhamento total OEM:
+________________________________________
+✅ Sugestão
+Markdown
+Critical includes: safety risk, regulatory non-compliance, or potential field failure that cannot be contained internally.
+Show more lines
+👉 aproxima mais do nível OEM
+________________________________________
+✅ 6. Segregation (TOP — MUITO FORTE)
+✔ Excelente:
+quantidade ✅
+localização ✅
+estado ✅
+________________________________________
+🔥 Destaque crítico
+Segregation must happen before NCR closure
+
+👉 Isto é:
+➡️ requisito IATF direto (8.7)
+________________________________________
+🔧 Upgrade (relevante)
+Adicionar:
+Markdown
+Segregation must occur immediately upon detection, before NCR documentation is completed.
+Show more lines
+👉 melhora ordem correta das ações
+________________________________________
+✅ 7. Disposition (EXCELENTE)
+✔ Muito completo:
+UAI ✅
+Rework ✅
+Repair ✅
+RTS ✅
+Scrap ✅
+________________________________________
+🔥 Destaque forte
+Never approve UAI verbally
+
+👉 isto é um clássico audit finding → excelente inclusão
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Disposition must be approved by authorized personnel per defined approval matrix.
+Show more lines
+👉 melhora governance
+________________________________________
+✅ 8. Immediate containment (MUITO BOM)
+✔ Correto:
+ligação ao 8D ✅
+ações reais ✅
+________________________________________
+🔥 Destaque
+List containment actions taken
+
+👉 mantém NCR factual + ligado ao sistema
+________________________________________
+🔧 Pequena melhoria
+Markdown
+Containment actions must be time-stamped and traceable.
+Show more lines
+________________________________________
+✅ 9. Exemplo completo (EXCELENTE)
+✔ Muito forte:
+realista ✅
+técnico ✅
+auditável ✅
+________________________________________
+👉 Este exemplo sozinho já:
+ensina uso correto
+reduz erros drasticamente
+________________________________________
+✅ 10. Common mistakes (EXCELENTE)
+✔ Cobres bem:
+vague descriptions ✅
+root cause leakage ✅
+missing traceability ✅
+severity error ✅
+UAI misuse ✅
+lack of segregation ✅
+________________________________________
+🔥 Destaque
+root cause in NCR → remove
+
+👉 isto é exatamente o tipo de erro que clientes criticam
+________________________________________
+✅ 11. Integração com o teu sistema (PERFEITA)
+Este skill encaixa com:
+✅ 8D (trigger)
+✅ 5Why (RCA)
+✅ PFMEA updates
+✅ Supplier claims
+________________________________________
+👉 fluxo completo:
+Plain Text
+NCR → containment → 8D → RCA → PFMEA update → corrective action
+Show more lines
+➡️ nível sistema completo
+________________________________________
+🚨 GAPS REAIS
+________________________________________
+❗ 1. Falta “Required Execution Checklist”
+👉 MUITO importante para consistência
+________________________________________
+✅ Sugestão HIGH IMPACT
+Markdown
+# Required NCR Checklist
+
+☐ Requirement clearly referenced (drawing/spec)
+☐ Actual value or observed defect recorded (quantified)
+☐ Gap between required and actual defined
+☐ Evidence attached or referenced
+☐ Severity correctly classified
+☐ Affected quantity and population at risk identified
+☐ Material segregated and identified
+☐ Disposition defined and approved
+☐ Containment actions documented (if applicable)
+Show more lines
+________________________________________
+❗ 2. Falta reforço “legal / audit record”
+________________________________________
+✅ Sugestão
+Markdown
+An NCR is a controlled quality record and may be used in audits, customer reviews, and legal contexts. All content must be objective and defensible.
+Show more lines
+________________________________________
+❗ 3. Falta distinção clara entre “detection point” e “customer impact”
+________________________________________
+✅ Sugestão
+Markdown
+Detection point must reflect where the defect was found, not where it originated.
+Show more lines
+👉 evita confusão com RCA
+________________________________________
+❗ 4. Falta ligação explícita a traceability system
+________________________________________
+✅ Sugestão
+Markdown
+All NCRs must be traceable to production records, batches, and inspection logs.
+``
+Show more lines
+________________________________________
+❗ 5. Falta regra para linguagem (tone control)
+________________________________________
+✅ Sugestão
+Markdown
+Avoid subjective language (e.g., "poor quality", "bad parts"). Use measurable and observable facts only.
+Show more lines
+________________________________________
+🧠 SCORE FINAL
+Área
+Score
+Method correctness
+✅ 9.5
+Audit readiness
+✅ 10
+Practical usability
+✅ 9.5
+Governance
+✅ 9
+Agent usability
+✅ 9
+________________________________________
+🏁 CONCLUSÃO (executive)
+👉 Este skill está:
+🟢 nível auditor / customer-facing (muito alto)
+técnico
+objetivo
+consistente
+pronto para uso real
+________________________________________
+🔧 Para chegar a 10/10
+Adicionar checklist no topo
+Reforçar legal/audit nature
+Melhorar definição de Critical
+Forçar linguagem objetiva (sem subjetividade)
+Reforçar traceability

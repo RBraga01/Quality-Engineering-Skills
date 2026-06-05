@@ -1,0 +1,233 @@
+Auditoria a: https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/skills/risk-analysis/dfmea-design/references/interface-matrix.md
+
+AUDIT DETALHADO
+________________________________________
+✅ 1. Conceito base — Interfaces (TOP TIER)
+✔ Excelente fundamento
+Most design failures occur at interfaces
+
+👉 Isto está:
+100% correto
+alinhado com failures reais em automotive
+________________________________________
+🔥 Muito forte
+Cobres interfaces entre:
+componente ↔ componente ✅
+componente ↔ ambiente ✅
+componente ↔ processo ✅
+componente ↔ utilizador ✅
+👉 isto é systems engineering completo
+________________________________________
+✅ 2. Boundary Diagram (EXCELENTE)
+✔ Muito bem estruturado:
+inside vs outside ✅
+external elements ✅
+interaction arrows ✅
+________________________________________
+🔥 Destaque
+Label interaction type + condition
+
+👉 isto diferencia:
+desenho básico
+
+vs
+engenharia real (com parâmetros)
+________________________________________
+🔧 Micro melhoria
+Adicionar:
+All interface arrows must include direction (input/output) and operating range.
+
+👉 aumenta precisão técnica
+________________________________________
+✅ 3. Interface Matrix Construction (TOP LEVEL)
+✔ Muito bem definido:
+elementos listados ✅
+matrix construída ✅
+interação definida ✅
+________________________________________
+🔥 Destaque forte
+Tabela de tipos:
+F / E / T / C / O ✅
+👉 simples, escalável e reutilizável
+________________________________________
+🔧 Pequeno upgrade
+Adicionar:
+Multiple interaction types per interface must be explicitly listed (e.g., F + T + C).
+
+👉 já implícito, mas reforçar melhora execução
+________________________________________
+✅ 4. Ligação directa a DFMEA (EXCELENTE)
+✔ Tens mapping perfeito:
+Interface Matrix
+DFMEA
+interaction
+structure
+function
+function
+failure mode
+failure mode
+effect
+failure effect
+control
+detection
+👉 isto é arquitetura perfeita
+________________________________________
+🔥 Destaque
+Interface failure modes → DFMEA Step 4
+
+👉 isto garante que:
+DFMEA não perde falhas críticas
+________________________________________
+✅ 5. Failure Mode Identification (EXCELENTE)
+✔ Muito bem estruturado:
+pergunta correta ✅
+exemplo concreto ✅
+ligação clara ✅
+________________________________________
+🔥 Muito forte
+Exemplo:
+thermal → deformation → intermittent connection
+
+👉 isto é:
+físico
+realista
+auditável
+________________________________________
+✅ 6. Failure Patterns (EXCELENTE — ALTO VALOR)
+Este é um dos pontos mais fortes.
+✔ Tens categorias completas:
+Mechanical
+wear ✅
+stress ✅
+vibration ✅
+Electrical
+resistance ✅
+short ✅
+EMC ✅
+Thermal
+resistance ✅
+runaway ✅
+Chemical
+corrosion ✅
+degradation ✅
+________________________________________
+🔥 Isto é MUITO importante
+👉 acelera muito DFMEA real
+➡️ engineers deixam de “inventar causas”
+________________________________________
+✅ 7. Tolerance Stack-Up (TOP ENGINEERING)
+✔ Excelente inclusão
+worst case gap ✅
+worst case overlap ✅
+clearance vs interference ✅
+________________________________________
+🔥 Destaque crítico
+Special Characteristics on interface dimensions
+
+👉 isto liga diretamente:
+DFMEA → PFMEA → Control Plan
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Statistical tolerance stack-up should be used when process capability data is available.
+
+👉 alinha com práticas modernas
+________________________________________
+✅ 8. Checklist final (MUITO BOM)
+✔ Forte:
+boundary ✅
+elements ✅
+interactions ✅
+failure modes ✅
+tolerance ✅
+DVP ✅
+________________________________________
+👉 já está:
+➡️ audit-ready checklist
+________________________________________
+🔧 Pequena melhoria (HIGH IMPACT)
+Adicionar:
+☐ All interfaces have at least one validated failure mode (no empty interactions)
+
+👉 evita mortes silenciosas no DFMEA
+________________________________________
+🔗 9. Integração com o teu framework (PERFEITA)
+Este componente liga diretamente com:
+✅ DFMEA → Step 2 + Step 4
+✅ PFMEA → interfaces → assembly risks
+✅ 8D → interface failures (campo comum)
+✅ 5Why → validação das causas
+________________________________________
+👉 cria fluxo poderoso:
+Interface → failure mode → 5Why → DFMEA update → PFMEA → Control Plan
+
+➡️ isto é nível system thinking enterprise
+________________________________________
+🚨 GAPS REAIS (muito poucos)
+________________________________________
+❗ 1. Falta “Required Execution Checklist” no topo
+Mesmo padrão dos outros
+________________________________________
+✅ Sugestão HIGH IMPACT
+Markdown
+# Required Interface Analysis Checklist
+
+☐ Define system boundary (inside vs outside)
+☐ Identify all external elements (components, environment, user, process)
+☐ Build interface matrix with interaction types
+☐ Identify failure modes for each interface
+☐ Assign system-level effects for each failure
+☐ Validate critical interfaces (analysis or test)
+☐ Check tolerance stack-up for mechanical interfaces
+☐ Transfer interface failures to DFMEA
+☐ Ensure DVP includes interface validation tests
+Show more lines
+________________________________________
+❗ 2. Falta ligação explícita a validação (analysis/test)
+________________________________________
+✅ Sugestão
+Critical interface failure modes must be validated using analysis (FEA, simulation) or testing (DVP).
+
+👉 fecha loop com DFMEA
+________________________________________
+❗ 3. Falta priorização de interfaces (todas ≠ iguais)
+________________________________________
+✅ Sugestão
+Prioritize interfaces based on severity and likelihood — not all interfaces carry equal risk.
+
+👉 ajuda foco real
+________________________________________
+❗ 4. Falta ligação explícita a misuse scenarios
+Já mencionas user, mas podes reforçar:
+________________________________________
+✅ Sugestão
+Include misuse and abuse scenarios in interface analysis (e.g., over-torque, incorrect installation).
+
+👉 crítico em automotive
+________________________________________
+🧠 SCORE FINAL
+Área
+Score
+Systems engineering quality
+✅ 10
+DFMEA alignment
+✅ 9.5
+Practical usability
+✅ 9.5
+Audit readiness
+✅ 9.5
+Completeness
+✅ 9
+________________________________________
+🏁 CONCLUSÃO (executive)
+👉 Este documento é:
+🟢 referência avançada — nível systems engineering real
+extremamente bem estruturado
+muito aplicável
+cheio de valor prático
+________________________________________
+Para chegar a 10/10
+Adicionar checklist no topo
+Forçar validação (analysis/test)
+Introduzir priorização de interfaces
+Reforçar misuse scenarios

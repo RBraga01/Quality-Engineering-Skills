@@ -1,0 +1,271 @@
+Auditoria a: https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/skills/documentation/8d-report-writing/SKILL.md
+
+AUDIT DETALHADO
+________________________________________
+✅ 1. Posicionamento do skill (EXCELENTE)
+✔ Muito bem definido:
+This skill covers writing quality — methodology is elsewhere
+
+👉 Isto é arquitetura perfeita:
+8D skill → execução
+8D report → comunicação
+________________________________________
+🔥 Destaque crítico
+8D is a legal and commercial document
+
+👉 Isto muda completamente o mindset de quem escreve
+
+→ excelente inclusão
+________________________________________
+🔧 Melhoria pequena
+Adicionar reforço:
+Markdown
+The 8D report may be used for supplier performance evaluation, audits, and commercial decisions.
+Show more lines
+👉 aumenta awareness de impacto
+________________________________________
+✅ 2. OEM format awareness (MUITO BOM)
+✔ Forte:
+múltiplos OEM ✅
+sistemas de submissão ✅
+recomendação de usar template atual ✅
+________________________________________
+🔥 Destaque
+Templates change
+
+👉 isto é MUITO importante → evita não conformidades
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Always align with the specific customer format and mandatory fields — do not modify OEM templates.
+Show more lines
+________________________________________
+✅ 3. D0–D3 (EXCELENTE EXECUÇÃO)
+________________________________________
+✅ D0 — Emergency Response
+✔ Muito bem:
+safety status ✅
+ação concreta ✅
+evidência ✅
+________________________________________
+🔧 Micro melhoria:
+Markdown
+Always state explicitly whether safety/regulatory risk is present or not.
+Show more lines
+________________________________________
+✅ D1 — Team
+✔ Forte:
+funções ✅
+cross-functional ✅
+________________________________________
+🔧 Sugestão:
+Markdown
+Include team leader and customer contact point (if applicable).
+Show more lines
+________________________________________
+✅ D2 — Problem Description (TOP TIER)
+👉 Este é um dos melhores blocos
+✔ Tens:
+valores ✅
+spec ✅
+claim ref ✅
+quantificação ✅
+________________________________________
+🔧 Pequena melhoria crítica:
+Markdown
+D2 must match exactly the NCR or customer claim description.
+Show more lines
+👉 consistência documental → muito importante
+________________________________________
+✅ D3 — Containment (EXCELENTE)
+✔ Muito forte:
+passado ✅
+data ✅
+eficácia ✅
+________________________________________
+🔥 Destaque crítico:
+future tense = not containment
+
+👉 excelente regra
+________________________________________
+🔧 Pequena melhoria:
+Markdown
+Containment must be active until D6 verification is complete.
+Show more lines
+________________________________________
+✅ 4. D4 — Root Cause (TOP LEVEL)
+👉 Este é dos melhores blocos do skill
+✔ Inclui:
+occurrence ✅
+escape ✅
+validação ✅
+exemplo real ✅
+________________________________________
+🔥 Destaque crítico
+validated, not hypothesis
+
+👉 alinhado com:
+5Why skill
+chain-validation
+________________________________________
+✅ Outro ponto forte
+Exemplo técnico (CNC feed rate) → excelente
+________________________________________
+🔧 Pequena melhoria (HIGH IMPACT):
+Markdown
+Root cause must be supported by evidence (test, data, or experiment), not logical reasoning alone.
+Show more lines
+👉 reforça ainda mais rigor
+________________________________________
+✅ 5. D5 — Corrective Actions (FORTE)
+✔ Muito bom:
+ação ligada à causa ✅
+específica ✅
+responsável ✅
+________________________________________
+🔥 Destaque:
+generic actions = not acceptable
+
+________________________________________
+🔧 Pequena melhoria:
+Markdown
+Each corrective action must reference the specific root cause it addresses (RCO or RCE).
+
+Show more lines
+________________________________________
+✅ 6. D6 — Verification (EXCELENTE)
+✔ Forte:
+data ✅
+comparação ✅
+ICA removal ✅
+________________________________________
+🔥 Destaque crítico:
+proof, not statement
+
+________________________________________
+🔧 GAP importante (já visto noutros módulos)
+Markdown
+Verification sample size must be justified based on defect rate and risk.
+Show more lines
+👉 evita número arbitrário implícito
+________________________________________
+✅ 7. D7 — Prevention (EXCELENTE)
+✔ Muito forte:
+PFMEA ✅
+CP ✅
+WI ✅
+horizontal ✅
+________________________________________
+🔥 Destaque:
+horizontal deployment
+
+👉 muitos suppliers falham aqui → excelente inclusão
+________________________________________
+🔧 Pequena melhoria:
+Markdown
+All updates must be implemented and active in production, not only documented.
+Show more lines
+________________________________________
+✅ 8. D8 — Closure (CORRETO)
+✔ Simples e eficaz:
+approval ✅
+recognition ✅
+filing ✅
+________________________________________
+🔧 Pequena melhoria:
+Markdown
+Customer must be formally notified of closure with final 8D report.
+Show more lines
+________________________________________
+✅ 9. Tone and language (EXCELENTE — um dos melhores pontos)
+👉 Este é um dos maiores diferenciadores do skill
+✔ Muito bem:
+remove linguagem emocional ✅
+força precisão ✅
+________________________________________
+🔥 Destaque forte:
+apologetic language reduces credibility
+
+👉 isto é muito real no contexto OEM
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Use consistent tense: past for completed actions, present for current state.
+Show more lines
+________________________________________
+🚨 GAPS REAIS
+________________________________________
+❗ 1. Falta “Required Execution Checklist”
+👉 HIGH IMPACT
+________________________________________
+✅ Sugestão
+Markdown
+# Required 8D Report Checklist
+
+☐ D2 fully quantified and matches customer claim
+☐ D3 containment implemented and verified (past tense)
+☐ D4 includes occurrence and escape root causes with validation
+☐ D5 actions directly address root causes
+☐ D6 includes objective verification data
+☐ D7 includes PFMEA, CP, WI updates and horizontal deployment
+☐ D8 includes closure approval and customer notification
+☐ No speculative or subjective language used
+Show more lines
+________________________________________
+❗ 2. Falta ligação explícita a evidência documental
+________________________________________
+✅ Sugestão
+Markdown
+All statements in the 8D must be supported by attached or referenced evidence.
+Show more lines
+________________________________________
+❗ 3. Falta regra sobre attachments
+________________________________________
+✅ Sugestão
+Markdown
+Attach all supporting evidence: photos, measurement data, WI revisions, PFMEA updates, and test results.
+Show more lines
+________________________________________
+❗ 4. Falta consistência com NCR
+________________________________________
+✅ Sugestão
+Markdown
+D2 must be consistent with the NCR and customer complaint data.
+Show more lines
+________________________________________
+❗ 5. Falta regra sobre timeline
+________________________________________
+✅ Sugestão
+Markdown
+All dates must be chronological and consistent across D0–D8.
+Show more lines
+________________________________________
+🧠 SCORE FINAL
+Área
+Score
+OEM alignment
+✅ 9.8
+Writing quality
+✅ 10
+Audit readiness
+✅ 9.5
+Execution clarity
+✅ 9.5
+Governance
+✅ 9
+________________________________________
+🏁 CONCLUSÃO (executive)
+👉 Este skill está:
+🟢 nível OEM submission-ready (excelente)
+tecnicamente sólido
+extremamente bem orientado à escrita
+muito alinhado com realidade de cliente
+________________________________________
+🔧 Para chegar a 10/10
+Adicionar checklist
+Reforçar ligação a evidência
+Garantir consistência com NCR
+Reforçar disciplina temporal
+Formalizar gestão de anexos

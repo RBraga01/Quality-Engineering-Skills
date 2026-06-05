@@ -1,0 +1,316 @@
+Auditoria a: https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/skills/audit/iso-9001-internal-audit/SKILL.md
+
+AUDIT DETALHADO
+________________________________________
+✅ 1. Posicionamento do skill (EXCELENTE)
+✔ Muito bem definido
+Tens um âmbito claro:
+planeamento do programa de auditoria ✅
+execução de auditoria interna ✅
+preparação para auditoria externa ✅
+formação de auditores ✅
+👉 Isto é muito bom porque o skill não fica preso só ao “checklist de perguntas”; cobre o ciclo completo.
+________________________________________
+🔧 Melhoria pequena
+Adicionar logo no topo:
+Markdown
+# Goal
+Plan, conduct, and document an ISO 9001:2015 internal audit using objective evidence, correct finding classification, and clear audit reporting.
+Show more lines
+👉 ajuda bastante o agent a perceber o objetivo operativo.
+________________________________________
+✅ 2. Classificação de findings (MUITO FORTE)
+✔ Muito bom
+As definições de:
+Major NC ✅
+Minor NC ✅
+OFI ✅
+estão corretas e audit-safe.
+________________________________________
+🔥 Destaque crítico
+Plain Text
+Downgrading a major to minor ... is an audit integrity failure
+Show more lines
+👉 Excelente. Isto é linguagem de auditor real e reforça independência/integridade.
+________________________________________
+🔧 Pequena melhoria
+Adicionar um critério intermédio mais explícito para ajudar consistência:
+Markdown
+Repeated minor non-conformances in the same process may constitute a major non-conformance due to systemic failure.
+Show more lines
+👉 isto é muito relevante em prática real.
+________________________________________
+✅ 3. Cobertura clause-by-clause (EXCELENTE)
+✔ Muito completa
+A cobertura de §4 a §10 está muito sólida.
+Tens:
+perguntas úteis ✅
+foco em evidência ✅
+exemplos de evidência ✅
+👉 Isto faz do skill um bom question bank operacional.
+________________________________________
+✅ 4. §4 — Context / Scope / Processes (MUITO BOM)
+✔ Correto e útil
+Cobres bem:
+contexto da organização ✅
+partes interessadas ✅
+scope ✅
+processos e interações ✅
+________________________________________
+🔥 Ponto forte
+A referência a:
+SWOT / PEST
+stakeholder register
+turtle diagrams / process map
+👉 muito boa, porque traz exemplos concretos.
+________________________________________
+🔧 Melhoria pequena
+Adicionar uma pergunta crítica em §4.4:
+Markdown
+Are process risks, KPIs, and owners defined for each QMS process?
+Show more lines
+👉 reforça ligação entre processo e desempenho.
+________________________________________
+✅ 5. §5 — Leadership (FORTE)
+✔ Muito bem orientado
+Gostei especialmente de:
+Plain Text
+not just sign the policy
+Show more lines
+👉 Excelente — isso separa liderança real de “paper compliance”.
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Can top management explain current quality objectives, major risks, and customer performance issues without relying on the quality manager?
+Show more lines
+👉 isto é uma pergunta muito forte em auditorias reais.
+________________________________________
+✅ 6. §6 — Planning / Risks / Objectives / Changes (MUITO BOM)
+✔ Forte:
+riscos e oportunidades ✅
+objetivos SMART ✅
+change planning ✅
+________________________________________
+🔥 Destaque
+A parte de:
+recursos
+responsável
+timeline
+nos objetivos está particularmente bem pensada.
+________________________________________
+🔧 Gap relevante
+Falta reforçar ligação entre riscos e ação concreta.
+✅ Sugestão
+Adicionar:
+Markdown
+For each significant risk, is there a defined action, owner, due date, and follow-up evidence?
+Show more lines
+👉 isso torna §6.1 bem mais auditável.
+________________________________________
+✅ 7. §7 — Support (EXCELENTE)
+✔ Muito forte
+Esta secção está muito robusta, especialmente:
+calibration / M&TE ✅
+competence ✅
+document control ✅
+________________________________________
+🔥 Destaques críticos
+“What happens when a gauge is found out-of-calibration?” ✅
+“only current versions at point of use?” ✅
+👉 isto é muito auditor-style e muito útil.
+________________________________________
+🔧 Pequena melhoria
+No §7.2 / §7.3, adicionava:
+Markdown
+Can sampled employees explain what they do if they detect a non-conforming output?
+Show more lines
+👉 junta competência + awareness + operação.
+________________________________________
+✅ 8. §8 — Operation (TOP LEVEL)
+✔ Muito bem construído
+A secção operacional está forte, sobretudo:
+customer requirements ✅
+supplier control ✅
+production/service control ✅
+traceability ✅
+non-conforming outputs ✅
+________________________________________
+🔥 Destaque forte
+§8.7 está bem feito e consistente com o teu bloco NCR.
+👉 Excelente coerência do framework.
+________________________________________
+🔧 Pequena melhoria
+Adicionar em §8.5.1:
+Markdown
+Are process controls defined and maintained in alignment with Control Plan / work instructions?
+
+Show more lines
+👉 fecha melhor o loop com PFMEA / Control Plan.
+________________________________________
+✅ 9. §9 — Performance Evaluation (EXCELENTE)
+✔ Muito forte
+Tens boa cobertura em:
+KPIs ✅
+customer satisfaction ✅
+internal audit ✅
+management review ✅
+________________________________________
+🔥 Destaque
+A pergunta:
+Plain Text
+Are action items followed up from previous reviews?
+Show more lines
+👉 muito boa. Isso vai direto ao coração da eficácia do management review.
+________________________________________
+🔧 Pequena melhoria
+No §9.2, adicionaria:
+Markdown
+Is the audit programme based on process importance, prior results, and risk?
+Show more lines
+👉 isso alinha melhor com o requisito normativo e a lógica de programação baseada em risco.
+________________________________________
+✅ 10. §10 — Improvement / CAPA / CI (MUITO BOM)
+✔ Forte:
+continual improvement ✅
+corrective action ✅
+effectiveness review ✅
+recurrence prevention ✅
+________________________________________
+🔥 Destaque
+A referência a:
+8D
+PDCA
+Lean
+Six Sigma
+é muito boa para evidenciar maturidade do sistema.
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Are corrective actions proportionate to the effect of the non-conformity?
+Show more lines
+👉 esta é formulação muito típica da ISO 9001 e reforça alinhamento.
+________________________________________
+✅ 11. Audit report structure (EXCELENTE)
+✔ Muito bom
+O formato do relatório está:
+claro ✅
+utilizável ✅
+auditável ✅
+________________________________________
+🔥 Destaque
+Inclui:
+findings summary ✅
+evidence ✅
+strengths ✅
+required actions ✅
+👉 isto é ótimo porque evita relatórios só negativos.
+________________________________________
+🔧 Pequena melhoria
+Adicionar um campo para:
+Markdown
+Audit criteria:
+ISO 9001:2015 clauses, internal procedures, customer-specific requirements (if applicable)
+Show more lines
+👉 melhora completude formal do relatório.
+________________________________________
+✅ 12. Common audit mistakes (TOP)
+✔ Excelente secção
+Muito boas inclusões:
+leading questions ✅
+accepting verbal answers ✅
+clause-hunting vs process approach ✅
+downgrading under pressure ✅
+not following up previous findings ✅
+________________________________________
+🔥 Destaque crítico
+Plain Text
+show me, let me see
+Show more lines
+👉 ótimo audit mindset.
+________________________________________
+🚨 GAPS REAIS
+________________________________________
+❗ 1. Falta “Required Audit Checklist” no topo
+👉 esta é a melhoria com maior impacto.
+✅ Sugestão HIGH IMPACT
+Markdown
+# Required Internal Audit Checklist
+
+☐ Define audit scope, criteria, and objectives
+☐ Verify auditor competence and independence
+☐ Audit the process using open questions and objective evidence
+☐ Classify findings correctly (Major / Minor / OFI)
+☐ Record evidence clearly and traceably
+☐ Check effectiveness of previous corrective actions
+☐ Confirm process performance and KPIs
+☐ Issue a balanced audit report (findings + strengths)
+☐ Track corrective actions to closure
+``
+Show more lines
+________________________________________
+❗ 2. Falta reforço da abordagem process-based
+Embora já menciones isso, ainda está muito “clause bank”-oriented.
+✅ Sugestão
+Adicionar logo no início:
+Markdown
+Preferred audit method: audit the process flow first, then map evidence to ISO clauses.
+Show more lines
+👉 isso melhora muito o posicionamento e evita “checklist auditing”.
+________________________________________
+❗ 3. Falta secção de amostragem
+Isto é importante em auditoria real.
+✅ Sugestão
+Markdown
+Use sampling: interview multiple people, review multiple records, and verify actual practice at the workplace.
+One record is not enough to confirm systemic conformity.
+Show more lines
+________________________________________
+❗ 4. Falta governance do follow-up
+Já tens follow-up implícito, mas podia ser mais forte.
+✅ Sugestão
+Markdown
+All Major and Minor NCs must enter corrective action tracking with owner, due date, and effectiveness verification.
+Show more lines
+________________________________________
+❗ 5. Falta orientação sobre redação de findings
+Tens o report format, mas falta uma regra muito útil.
+✅ Sugestão
+Markdown
+Each finding should include:
+- Requirement
+- Objective evidence
+- Statement of non-conformity
+Avoid conclusions without linking evidence to the specific requirement.
+Show more lines
+👉 isto aumenta muito a qualidade dos relatórios.
+________________________________________
+🧠 SCORE FINAL
+Área
+Score
+ISO 9001 alignment
+✅ 9.5
+Audit usability
+✅ 9.5
+Report quality
+✅ 9
+Process approach maturity
+✅ 8.8
+Governance / follow-up
+✅ 9
+________________________________________
+🏁 CONCLUSÃO (executive)
+👉 Este skill está:
+🟢 muito forte e claramente audit-program ready
+bom para formação
+bom para auditoria interna
+bom para preparação de certificação
+coerente com o resto do framework
+________________________________________
+🔧 Para chegar a 10/10
+Adicionar checklist de auditoria
+Reforçar explicitamente a abordagem process-based
+Adicionar guidance de sampling
+Fortalecer follow-up / corrective action tracking
+Formalizar regra de escrita de findings

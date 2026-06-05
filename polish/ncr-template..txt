@@ -1,0 +1,306 @@
+Auditoria a: https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/skills/documentation/ncr-writing/assets/ncr-template.md
+
+AUDIT DETALHADO
+________________________________________
+✅ 1. Instruções iniciais (EXCELENTE)
+✔ Muito forte:
+Leave no field blank → N/A with reason
+
+👉 isto é exatamente o que auditores querem
+________________________________________
+🔥 Destaque crítico
+Do not include root cause, opinion, or hypothesis
+
+👉 mantém consistência perfeita com o skill
+________________________________________
+🔧 Melhoria pequena (HIGH IMPACT)
+Adicionar:
+Markdown
+This document is a controlled quality record and must be completed with accurate, traceable, and auditable information.
+Show more lines
+👉 reforça impacto “audit mindset”
+________________________________________
+✅ 2. HEADER (TOP LEVEL)
+✔ Muito completo:
+traceability ✅
+supplier ✅
+batch ✅
+quantities ✅
+detection point ✅
+________________________________________
+🔥 Destaque
+Quantity inspected + non-conforming + rate
+
+👉 isto é excelente → muitas empresas não têm isto
+________________________________________
+⚠️ Pequeno gap importante
+Falta um campo crítico:
+________________________________________
+✅ Sugestão
+Adicionar:
+Customer (if applicable)
+
+👉 essencial para:
+claims
+customer visibility
+escalations
+________________________________________
+✅ Outra melhoria útil
+Plant / Site
+
+👉 importante para empresas multi-site
+________________________________________
+✅ 3. Non-conformance description (EXCELENTE)
+✔ Muito forte:
+template claro ✅
+exemplo técnico ✅
+guidance forte ✅
+________________________________________
+🔥 Destaque crítico
+Estrutura:
+requirement → actual → deviation
+
+👉 isto é exatamente “audit-proof language”
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+The description must be understandable without reviewing attachments.
+
+👉 reduz dependência de anexos
+________________________________________
+✅ 4. Evidence section (MUITO BOM)
+✔ Forte:
+fotos ✅
+measurement ✅
+spec reference ✅
+________________________________________
+🔧 Gap pequeno mas relevante
+________________________________________
+✅ Sugestão
+Adicionar campo:
+Measurement equipment used (with calibration status)
+
+👉 importante para:
+audit MSA
+confiança nos dados
+________________________________________
+✅ 5. Severity classification (FORTE)
+✔ Muito bem estruturado:
+tabela clara ✅
+seleção explícita ✅
+justificação obrigatória ✅
+________________________________________
+🔥 Destaque
+Severity justification (one sentence)
+
+👉 excelente prática
+________________________________________
+⚠️ Gap pequeno mas importante
+________________________________________
+✅ Sugestão melhoria
+Adicionar:
+If Critical is selected → immediate escalation to quality management required
+
+👉 melhora governance
+________________________________________
+✅ 6. Immediate Segregation (EXCELENTE — MUITO FORTE)
+✔ Muito bem feito:
+checklist ✅
+responsável ✅
+data ✅
+________________________________________
+🔥 Destaque crítico
+Mandatory before continuing
+
+👉 isto é perfeito → enforce correto comportamento
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Time of segregation (HH:MM)
+
+👉 melhora rastreabilidade
+________________________________________
+✅ 7. Stock Status (EXCELENTE)
+✔ Muito forte:
+segregado ✅
+suspeito ✅
+já enviado ✅
+em trânsito ✅
+________________________________________
+👉 isto é:
+➡️ nível profissional alto (quase nunca bem implementado)
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Total population at risk
+
+👉 importante para decisões rápidas
+________________________________________
+✅ 8. Disposition (TOP LEVEL)
+✔ Extremamente bem estruturado:
+requisitos por tipo ✅
+approvals ✅
+método detalhado ✅
+________________________________________
+🔥 Destaque crítico
+Rework method ≠ “fix it”
+
+👉 isto evita erros clássicos
+________________________________________
+🔥 Outro ponto forte
+Repair requires customer deviation
+
+👉 alinhado com prática OEM
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Disposition approval authority (matrix reference)
+
+👉 melhora governance
+________________________________________
+✅ 9. Approvals (EXCELENTE)
+✔ Completo:
+QE ✅
+QM ✅
+produção ✅
+cliente ✅
+________________________________________
+👉 Isto está:
+➡️ alinhado com responsabilidade real
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Electronic approval allowed (Yes/No / system reference)
+
+👉 ajuda digitalização
+________________________________________
+✅ 10. CAPA / 8D Escalation (EXCELENTE)
+✔ Muito forte:
+ligação direta ✅
+obrigatório para Critical/Major ✅
+tracking ✅
+________________________________________
+🔥 Destaque crítico
+👉 isto liga NCR → sistema → resolução
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Reason if CAPA/8D is not required
+
+👉 evita decisões sem justificação
+________________________________________
+✅ 11. Closure (MUITO BOM)
+✔ Forte:
+completion ✅
+re-inspection ✅
+closure ✅
+________________________________________
+🔧 Melhoria relevante
+Adicionar:
+Verification of effectiveness (Yes/No + reference)
+
+👉 isto aproxima ainda mais do CAPA mindset
+________________________________________
+✅ 12. Language Guide (EXCELENTE — MUITO VALOR)
+✔ Muito forte:
+DO vs DO NOT ✅
+exemplos claros ✅
+________________________________________
+🔥 Destaque crítico
+Do NOT include root cause
+
+👉 consistência perfeita com todo o framework
+________________________________________
+🚨 GAPS REAIS (CRÍTICOS MAS FÁCEIS DE CORRIGIR)
+________________________________________
+❗ 1. Falta “Required Execution Checklist”
+👉 maior melhoria possível
+________________________________________
+✅ Sugestão HIGH IMPACT
+Markdown
+# NCR Completion Checklist
+
+☐ All header fields completed (no blanks)
+☐ Requirement, actual, and deviation clearly defined
+☐ Evidence attached and traceable
+☐ Severity selected and justified
+☐ All affected material identified and segregated
+☐ Stock status fully defined (including shipped/in transit)
+☐ Disposition defined and approved
+☐ CAPA/8D triggered if required
+☐ NCR reviewed and approved
+Show more lines
+________________________________________
+❗ 2. Falta reforço legal / audit record
+________________________________________
+✅ Sugestão
+Markdown
+This NCR is a legal-quality record and must be accurate, objective, and auditable.
+Show more lines
+________________________________________
+❗ 3. Falta ligação explícita a traceability system
+________________________________________
+✅ Sugestão
+Markdown
+All entries must be traceable to production, inspection, and logistics records.
+Show more lines
+________________________________________
+❗ 4. Falta “customer impact” visível
+________________________________________
+✅ Sugestão
+Adicionar campo:
+Customer impact (if known)
+
+👉 muito útil para priorização
+________________________________________
+❗ 5. Falta controlo de versão do NCR template
+________________________________________
+✅ Sugestão
+Template version / revision
+
+👉 importante em contexto auditado
+________________________________________
+🧠 SCORE FINAL
+Área
+Score
+Compliance (ISO/IATF)
+✅ 10
+Audit readiness
+✅ 9.8
+Practical usability
+✅ 9.5
+Governance
+✅ 9
+Completeness
+✅ 9.5
+________________________________________
+🏁 CONCLUSÃO (executive)
+👉 Este template está:
+🟢 nível enterprise / audit-proof / ready-to-use
+extremamente sólido
+coerente com o skill
+estruturado
+aplicável imediatamente
+________________________________________
+🔧 Para chegar a 10/10
+Adicionar checklist de execução
+Reforçar legal/audit record
+Introduzir campos:
+
+
+
+
+
+
+Customer
+Measurement equipment
+Total population at risk
+Melhorar governance:
+
+
+
+
+
+escalation Critical
+approval matrix
+Melhorar traceability / versão

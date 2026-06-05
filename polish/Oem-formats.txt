@@ -1,0 +1,261 @@
+Auditoria a: https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/skills/documentation/8d-report-writing/references/oem-formats.md
+
+AUDIT DETALHADO
+________________________________________
+✅ 1. Estrutura global (TOP TIER)
+✔ Muito bem feito:
+comparação inicial ✅
+deep-dive por OEM ✅
+mistakes reais ✅
+instruções operacionais ✅
+👉 Cobre:
+visão geral
+execução
+compliance
+auditoria
+________________________________________
+🔥 Destaque forte
+Tabela:
+Element | Ford | BMW | VW | GM | Stellantis
+
+👉 isto é extremamente útil para:
+decisão rápida
+formação
+preparação de submissions
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+This table is a summary. Always confirm requirements in the latest OEM template and CSR.
+Show more lines
+👉 protege contra oversimplificação
+________________________________________
+✅ 2. Ford TOPS-8D (EXCELENTE)
+✔ Muito forte:
+ERA obrigatório ✅
+Is/Is-Not estruturado ✅
+root cause separation ✅
+verification field ✅
+D7 com referências ✅
+________________________________________
+🔥 Destaque crítico
+ERA evaluated before timer starts
+
+👉 isto é detalhe avançado — excelente inclusão
+________________________________________
+🔧 Pequena melhoria
+Markdown
+Missing or weak ERA may result in immediate rejection before technical review.
+Show more lines
+________________________________________
+✅ 3. BMW G8D (MUITO FORTE)
+✔ Excelente:
+customer vs supplier problem ✅
+defect rate comparativo ✅
+separação RCA ✅
+ligação FMEA ✅
+________________________________________
+🔥 Destaque
+live 8D presentation
+
+👉 isto é completamente real em BMW
+________________________________________
+🔧 Pequena melhoria
+Markdown
+Reports must be consistent with any presented data — discrepancies between written and verbal responses are treated as non-compliance.
+Show more lines
+________________________________________
+✅ 4. VW / Audi (TOP LEVEL)
+✔ Muito forte:
+causal chain 3 níveis ✅
+Is/Is-Not obrigatório ✅
+secured quantity ✅
+audit D7 ✅
+________________________________________
+🔥 Destaque crítico
+secured quantity
+
+👉 isto é específico VW e frequentemente falhado
+________________________________________
+🔧 Pequena melhoria
+Markdown
+Missing secured quantity may result in rejection of D3 containment.
+Show more lines
+________________________________________
+✅ 5. GM Global 8D (MUITO BOM)
+✔ Forte:
+BIQS linkage ✅
+lessons learned register ✅
+verification requirements ✅
+________________________________________
+🔥 Destaque
+score impact
+
+👉 isto liga diretamente a performance supplier
+________________________________________
+🔧 Pequena melhoria
+Markdown
+Late 8D submissions impact supplier performance score and escalation status.
+
+Show more lines
+________________________________________
+✅ 6. Stellantis (CORRETO E COMPLETO)
+✔ Muito bom:
+MAQMSR ✅
+SQE approval ✅
+timing ✅
+________________________________________
+🔥 Destaque
+no-action requires SQE approval
+
+👉 alinhado com AP governance
+________________________________________
+🔧 Pequena melhoria
+Markdown
+Closure without SQE approval for H-AP acceptance is not valid.
+``
+Show more lines
+________________________________________
+✅ 7. Timing requirements (EXCELENTE)
+✔ Muito bem:
+D3 timing ✅
+full 8D timing ✅
+safety vs non-safety ✅
+________________________________________
+🔥 Destaque crítico
+24h expectation
+
+👉 isto é standard OEM → muito importante
+________________________________________
+🔧 Pequena melhoria
+Markdown
+Delays in D3 or final 8D submission must be proactively communicated to the OEM SQE, with justification.
+Show more lines
+________________________________________
+✅ 8. Common mistakes (TOP — MUITO VALOR)
+👉 Este é um dos blocos mais fortes
+✔ Excelente:
+future tense ✅
+missing D0 ✅
+weak root cause ✅
+missing references ✅
+wrong template ✅
+missing signature ✅
+________________________________________
+🔥 Destaque crítico
+Sending own template → rejected
+
+👉 isto acontece MUITO na prática
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Mismatch between NCR, 8D, and customer claim data → rejection risk.
+Show more lines
+________________________________________
+✅ 9. Template retrieval (EXCELENTE)
+✔ Muito bom:
+dá caminhos concretos ✅
+reforça atualização ✅
+________________________________________
+🔥 Destaque
+do not use >12 months template
+
+👉 excelente
+________________________________________
+🔧 Pequena melhoria
+Markdown
+Always confirm template version before submission (template revision/date).
+Show more lines
+________________________________________
+🔗 10. Integração com teu framework (PERFEITA)
+Este documento liga todos os anteriores:
+✅ 8D writing (execução)
+✅ 8D skill (metodologia)
+✅ NCR (input D2 consistency)
+✅ PFMEA/AP (D7 governance)
+________________________________________
+👉 cria fluxo final perfeito:
+Plain Text
+NCR → 8D → OEM format → submission → SQE approval → closure → score impact
+Show more lines
+➡️ nível enterprise real
+________________________________________
+🚨 GAPS REAIS (FINOS MAS IMPORTANTES)
+________________________________________
+❗ 1. Falta “Submission Checklist” (HIGH IMPACT)
+👉 isto é o maior upgrade possível
+________________________________________
+✅ Sugestão
+Markdown
+# 8D Submission Checklist (OEM)
+
+☐ Correct OEM template used (latest version)
+☐ D0 / ERA completed (if required)
+☐ D2 matches customer claim exactly
+☐ D3 containment implemented and evidence provided
+☐ D4 includes occurrence and escape root causes (validated)
+☐ D5 actions linked to root causes
+☐ D6 includes objective verification data
+☐ D7 includes PFMEA, CP, WI updates with revision numbers
+☐ D8 includes champion sign-off
+☐ All required OEM-specific fields completed (Is/Is-Not, secured quantity, etc.)
+☐ All supporting evidence attached
+Show more lines
+________________________________________
+❗ 2. Falta reforço de evidência obrigatória
+________________________________________
+✅ Sugestão
+Markdown
+All claims in the 8D must be supported by attached evidence (data, documents, records).
+Show more lines
+________________________________________
+❗ 3. Falta ligação explícita a rejection scenarios
+________________________________________
+✅ Sugestão
+Markdown
+Incomplete or non-compliant 8Ds are typically returned by OEMs and may negatively affect supplier ratings.
+Show more lines
+________________________________________
+❗ 4. Falta consistência com NCR
+________________________________________
+✅ Sugestão
+Markdown
+Ensure consistency between NCR, customer complaint, and 8D report data.
+Show more lines
+________________________________________
+❗ 5. Falta governance de versões e submissão
+________________________________________
+✅ Sugestão
+Markdown
+Maintain a controlled copy of each submitted 8D with version and submission date.
+Show more lines
+________________________________________
+🧠 SCORE FINAL
+Área
+Score
+OEM compliance
+✅ 10
+Practical usability
+✅ 9.8
+Audit readiness
+✅ 9.8
+Risk mitigation
+✅ 9.5
+Completeness
+✅ 9.5
+________________________________________
+🏁 CONCLUSÃO (executive)
+👉 Este documento está:
+🟢 nível OEM supplier handbook — excelente
+extremamente prático
+altamente aplicável
+diretamente útil para evitar rejeições
+muito bem alinhado com realidade de SQE
+________________________________________
+🔧 Para chegar a 10/10
+Adicionar submission checklist
+Reforçar evidência obrigatória
+Cobrir rejection scenarios
+Garantir consistência NCR ↔ 8D
+Introduzir governance de versões

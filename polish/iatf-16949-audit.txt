@@ -1,0 +1,348 @@
+Auditoria a: https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/skills/audit/iatf-16949-audit/SKILL.md
+
+AUDIT DETALHADO
+________________________________________
+✅ 1. Posicionamento do skill (EXCELENTE)
+✔ Muito bem definido
+Tens logo no início a distinção certa:
+ISO 9001 audit skill = base do QMS
+IATF audit skill = complementos automotive
+👉 Isto está arquiteturalmente muito bem pensado.
+
+Evita redundância e deixa claro que isto é uma camada suplementar, não um sistema isolado.
+________________________________________
+🔧 Melhoria pequena
+Adicionar no topo algo como:
+Markdown
+# Goal
+Audit the automotive-specific supplemental requirements of IATF 16949:2016, including CSR compliance and the three mandatory internal audit streams.
+Show more lines
+👉 ajuda o agent a entrar em “modo automotive compliance” logo de início.
+________________________________________
+✅ 2. Os 3 tipos de auditoria obrigatórios (§9.2.2.1) (TOP LEVEL)
+✔ Excelente
+Esta secção está muito forte porque ataca um dos erros mais comuns:
+QMS audit ✅
+manufacturing process audit ✅
+product audit ✅
+________________________________________
+🔥 Destaque crítico
+A frase implícita:
+muitas organizações só fazem clause-based audit
+é absolutamente real.
+👉 Este bloco, tal como está, já tem muito valor porque:
+educa
+corrige um erro sistémico
+força estrutura correta do audit programme
+________________________________________
+🔧 Melhoria pequena
+Adicionar uma regra mais forte:
+Markdown
+All three audit streams must be planned, executed, and recorded within the audit programme cycle.
+Show more lines
+👉 reforça que não basta “ter intenção”.
+________________________________________
+✅ 3. CSR — §4.3.2 (EXCELENTE)
+👉 Este é dos blocos mais fortes do skill.
+✔ Muito bem coberto:
+CSR register ✅
+revisão de updates ✅
+implementação no QMS ✅
+awareness por customer ✅
+________________________________________
+🔥 Destaque crítico
+Dizer que este é o “most commonly non-conforming clause” é muito acertado.
+👉 Em contexto automotive, isto é mesmo dos maiores gaps reais.
+________________________________________
+🔧 Melhoria alta relevância
+Adicionar:
+Markdown
+CSR review must be revision-controlled and linked to implementation evidence in affected documents.
+Show more lines
+👉 isto fecha melhor a rastreabilidade:
+CSR revision
+QMS implementation
+document update
+________________________________________
+✅ 4. Corporate responsibility (§5.1.1.1) (MUITO BOM)
+✔ Correto
+Incluíste ethics / anti-bribery / escalation — muito bem.
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Are employees aware of how to report ethical concerns confidentially?
+Show more lines
+👉 reforça aplicação real, não apenas existência documental.
+________________________________________
+✅ 5. Risk analysis + contingency plans (§6.1.2.x) (EXCELENTE)
+✔ Muito forte
+A parte de contingência está muito bem feita.
+Incluis:
+equipment failure ✅
+supplier failure ✅
+labour shortage ✅
+IT/infrastructure ✅
+natural disaster ✅
+________________________________________
+🔥 Destaque crítico
+Perguntas sobre:
+revisão anual
+teste / simulação
+top management knowing activation
+👉 isto é excelente e muito alinhado com IATF real.
+________________________________________
+🔧 Pequeno upgrade
+Adicionar:
+Markdown
+Do contingency plans include customer communication and recovery priorities?
+Show more lines
+👉 isso melhora muito readiness real em incidentes.
+________________________________________
+✅ 6. Internal auditor competency (§7.2.3) (FORTE)
+✔ Muito bom
+Cobre:
+formação ✅
+process knowledge ✅
+independência ✅
+________________________________________
+🔥 Destaque
+Boa distinção entre:
+internal auditor competency
+supplier/customer audit contact competency
+👉 muito boa maturidade do documento
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Is auditor effectiveness periodically reviewed based on audit quality and finding accuracy?
+Show more lines
+👉 isso leva o sistema para um nível mais maduro.
+________________________________________
+✅ 7. Design / Special Characteristics (§8.3.2.1, §8.3.3.3) (TOP LEVEL)
+✔ Muito forte
+Cobres muito bem:
+identificação SC ✅
+cascata DFMEA → PFMEA → CP → WI ✅
+consistência de símbolos ✅
+awareness no operador ✅
+________________________________________
+🔥 Destaque crítico
+A exigência de consistência entre todos os documentos está excelente e totalmente coerente com o resto do teu framework.
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Any inconsistency in SC identification across documents should be treated as a significant audit finding due to control failure.
+Show more lines
+👉 isto aumenta a severidade correta do tema.
+________________________________________
+✅ 8. Supplier monitoring / directed buy (§8.4.x) (MUITO BOM)
+✔ Bem construído
+Tens:
+directed buy ✅
+approved supplier list ✅
+quality monitoring mesmo com directed supplier ✅
+quarterly review ✅
+escalation for poor performers ✅
+________________________________________
+🔥 Destaque
+Muito bom incluir:
+“not just quality level”
+conforming delivery
+👉 isso mostra entendimento real do supplier management.
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Are supplier development or escalation actions triggered based on defined performance thresholds?
+Show more lines
+👉 melhora objetividade do processo.
+________________________________________
+✅ 9. Control Plan / Traceability / Temporary changes (§8.5.x) (EXCELENTE)
+✔ Muito forte
+Esta secção está muito sólida, especialmente:
+control plan per production part ✅
+linkage to PFMEA ✅
+traceability backward within 24h ✅
+temporary deviations with expiry control ✅
+________________________________________
+🔥 Destaques críticos
+Can suspect material be isolated within 24 hours?
+expired deviations actively closed or extended
+👉 isto é mesmo mindset automotive real.
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Are reaction plans in the Control Plan understood and applied at the point of use?
+Show more lines
+👉 isso aproxima mais da realidade shopfloor.
+________________________________________
+✅ 10. Customer notification / problem solving / error proofing (§8.7.1.1 / §10.2.3 / §10.2.4) (TOP TIER)
+✔ Excelente bloco
+Incluis:
+customer notification ✅
+8D consistency ✅
+occurrence + escape ✅
+effectiveness verification ✅
+poka-yoke testing ✅
+________________________________________
+🔥 Destaque crítico
+A exigência:
+poka-yoke tested at every start of production
+
+é excelente e muito automotive.
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Are failed error-proofing checks treated as production stop / reaction plan triggers where applicable?
+Show more lines
+👉 aumenta robustez operacional.
+________________________________________
+✅ 11. Management review supplemental inputs (§9.3.2.1) (MUITO BOM)
+✔ Muito forte
+Inclui:
+COPQ ✅
+warranty ✅
+field performance ✅
+CSR status ✅
+feasibility ✅
+👉 Isto está muito bem e ajuda muito preparação de auditoria de 3rd party.
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Are decisions from these IATF-specific inputs translated into actions with owners and due dates?
+
+Show more lines
+👉 melhora follow-up real.
+________________________________________
+✅ 12. Manufacturing process audit — turtle diagram approach (EXCELENTE)
+👉 Este é um dos pontos mais fortes do skill.
+✔ Muito bom
+Trazes:
+Man ✅
+Machine ✅
+Method ✅
+Material ✅
+Measurement ✅
+Environment ✅
+Output ✅
+Customer feedback ✅
+👉 Isso está muito bem estruturado e muito utilizável em chão de fábrica.
+________________________________________
+🔥 Destaque crítico
+A referência a:
+score do process audit
+VDA 6.3-like logic
+é muito boa.
+________________________________________
+🔧 Pequena melhoria
+Adicionar:
+Markdown
+Each turtle element should be verified by direct observation, interview, and record review.
+Show more lines
+👉 isto evita auditoria superficial.
+________________________________________
+✅ 13. Common IATF audit failures (EXCELENTE)
+✔ Muito forte
+Lista muito relevante e realista:
+CSR desatualizado ✅
+no manufacturing process audits ✅
+contingency never tested ✅
+temp deviations open ✅
+SC inconsistency ✅
+error-proofing not tested ✅
+problem solving weak ✅
+________________________________________
+🔥 Destaque
+Esta secção tem enorme valor porque:
+ajuda auditor
+ajuda preparação
+ajuda gestão a perceber riscos reais
+________________________________________
+🚨 GAPS REAIS
+________________________________________
+❗ 1. Falta “Required IATF Audit Checklist”
+👉 este é o maior upgrade possível.
+✅ Sugestão HIGH IMPACT
+Markdown
+# Required IATF Audit Checklist
+
+☐ Verify all three audit streams are planned and executed
+☐ Confirm CSR register is current and implemented
+☐ Check contingency plans are documented, reviewed, and tested
+☐ Verify special characteristics are consistent across all documents
+☐ Confirm supplier monitoring and escalation are active
+☐ Check Control Plan ↔ PFMEA linkage
+☐ Verify traceability and suspect material isolation capability
+☐ Review temporary deviations for approval and expiry control
+☐ Verify problem-solving methodology is applied with VOE
+☐ Confirm management review includes IATF supplemental inputs
+Show more lines
+________________________________________
+❗ 2. Falta guidance sobre product audit
+Tu dizes que existem 3 streams, mas o skill depois foca-se sobretudo em:
+QMS audit
+manufacturing process audit
+👉 O product audit fica pouco desenvolvido.
+✅ Sugestão
+Adicionar uma mini-secção:
+Markdown
+Product audit focus:
+- product conformity to drawing/specification
+- packaging and labelling compliance
+- traceability and release status
+- audit frequency based on risk, customer issues, and product criticality
+Evidence: product audit reports, measurement records, packaging inspection, release documentation
+Show more lines
+👉 isto fecha melhor §9.2.2.1.
+________________________________________
+❗ 3. Falta frequência / coverage rule mais forte
+✅ Sugestão
+Markdown
+All manufacturing processes must be audited at least annually, with increased frequency for high-risk or poor-performing areas.
+Show more lines
+________________________________________
+❗ 4. Falta guidance sobre scoring / escalation de process audit
+✅ Sugestão
+Markdown
+Low process audit scores must trigger corrective action, management review, and re-audit planning.
+Show more lines
+________________________________________
+❗ 5. Falta regra explícita sobre evidência objetiva vs verbal
+Está implícito, mas aqui convinha repetir.
+✅ Sugestão
+Markdown
+Do not accept verbal confirmation without objective evidence and workplace verification.
+Show more lines
+________________________________________
+🧠 SCORE FINAL
+Área
+Score
+IATF supplemental coverage
+✅ 9.6
+Automotive audit usefulness
+✅ 9.7
+Process audit strength
+✅ 9.5
+Completeness
+✅ 9
+Governance / follow-up
+✅ 9.2
+________________________________________
+🏁 CONCLUSÃO (executive)
+👉 Este skill está:
+🟢 muito forte e claramente automotive audit-ready
+bem alinhado com IATF real
+forte em CSR, SC, contingência e process audit
+muito bom para preparação de auditoria interna ou de certificação
+________________________________________
+🔧 Para chegar a 10/10
+Adicionar checklist no topo
+Reforçar product audit stream
+Tornar frequência / coverage mais explícitos
+Adicionar regra para scoring / escalation
+Reforçar “objective evidence only”
