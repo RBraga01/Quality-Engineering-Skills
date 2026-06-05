@@ -1,0 +1,65 @@
+{
+  "timeZone": "UTC",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/gmail.addons.execute",
+    "https://www.googleapis.com/auth/calendar.addons.execute",
+    "https://www.googleapis.com/auth/docs.addons.execute",
+    "https://www.googleapis.com/auth/sheets.addons.execute",
+    "https://www.googleapis.com/auth/drive.addons.execute"
+  ],
+  "addOns": {
+    "common": {
+      "name": "Quality Engineering Assistant",
+      "logoUrl": "https://raw.githubusercontent.com/RBraga01/Quality-Engineering-Skills/master/platforms/gemini/logo.png",
+      "layoutProperties": {
+        "primaryColor": "#0ea5e9",
+        "secondaryColor": "#10b981"
+      },
+      "homepageTrigger": {
+        "runFunction": "onHomepage"
+      },
+      "universalActions": [
+        {
+          "label": "8D Coach",
+          "runFunction": "start8DCoach"
+        },
+        {
+          "label": "NCR Writer",
+          "runFunction": "startNCRWriter"
+        },
+        {
+          "label": "Root Cause Analysis",
+          "runFunction": "startRCA"
+        },
+        {
+          "label": "Audit Guide",
+          "runFunction": "startAuditGuide"
+        },
+        {
+          "label": "About QE Skills",
+          "openLink": {
+            "url": "https://github.com/RBraga01/Quality-Engineering-Skills"
+          }
+        }
+      ]
+    },
+    "docs": {
+      "onFileScopeGrantedTrigger": {
+        "runFunction": "onDocOpen"
+      }
+    },
+    "sheets": {
+      "onFileScopeGrantedTrigger": {
+        "runFunction": "onSheetOpen"
+      }
+    },
+    "gmail": {
+      "contextualTriggers": [
+        {
+          "unconditional": {},
+          "onTriggerFunction": "onGmailMessage"
+        }
+      ]
+    }
+  }
+}

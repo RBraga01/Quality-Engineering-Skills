@@ -1,0 +1,256 @@
+openapi: "3.0.3"
+info:
+  title: Quality Engineering Skills API
+  description: >
+    REST API for Quality-Engineering-Skills. Provides 8D coaching, FMEA review,
+    NCR writing, root cause analysis, and ISO 9001 / IATF 16949 audit guidance.
+    Powered by Quality-Engineering-Skills (github.com/RBraga01/Quality-Engineering-Skills).
+  version: "1.0.0"
+  contact:
+    email: enter_on_junior@hotmail.com
+  license:
+    name: MIT
+    url: https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/LICENSE
+
+servers:
+  - url: https://api.quality-engineering-skills.io/v1
+    description: Production (Week 5 — not yet live)
+
+# NOTE: This is a stub specification required by the M365 Copilot plugin manifest format.
+# The public API ships in Week 5. Until then, use the Copilot Studio bot (platforms/teams/)
+# or Claude.ai Project (platforms/claude-ai/) for immediate deployment.
+
+paths:
+  /8d/coach:
+    post:
+      operationId: coach_8d
+      summary: Start or continue an 8D investigation
+      description: >
+        Guides the user through a complete 8D problem-solving investigation
+        with validation gates at each discipline (D0–D8).
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                complaint_description:
+                  type: string
+                  description: Brief description of the defect or customer complaint
+                start_discipline:
+                  type: string
+                  enum: [D0, D1, D2, D3, D4, D5, D6, D7, D8]
+                  default: D0
+                  description: Discipline to start from
+                session_id:
+                  type: string
+                  description: Session ID to continue an existing 8D investigation
+      responses:
+        "200":
+          description: 8D coaching response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CoachingResponse"
+
+  /8d/evaluate:
+    post:
+      operationId: evaluate_8d
+      summary: Evaluate an existing 8D report
+      description: >
+        Reviews and scores an existing 8D report against ISO 9001 §10.2 /
+        IATF 16949 §10.2.3 criteria. Returns Pass/Fail per discipline.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [report_text]
+              properties:
+                report_text:
+                  type: string
+                  description: Full text of the 8D report to evaluate
+      responses:
+        "200":
+          description: 8D evaluation report
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EvaluationReport"
+
+  /rca/start:
+    post:
+      operationId: root_cause_analysis
+      summary: Start a structured 5-Why root cause analysis
+      description: >
+        Runs an interactive 5-Why session with evidence validation,
+        circular reasoning detection, and reversibility testing.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                problem_statement:
+                  type: string
+                  description: The problem to analyse
+                session_id:
+                  type: string
+                  description: Session ID to continue an existing session
+      responses:
+        "200":
+          description: RCA session response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CoachingResponse"
+
+  /ncr/write:
+    post:
+      operationId: write_ncr
+      summary: Generate professional NCR text
+      description: >
+        Converts bullet-point observations into objective-evidence NCR text
+        with severity grading and disposition recommendation.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                observations:
+                  type: string
+                  description: Bullet-point observations about the non-conformance
+                part_number:
+                  type: string
+                  description: Part number and revision affected
+                quantity:
+                  type: string
+                  description: Quantity affected
+      responses:
+        "200":
+          description: Generated NCR text
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentResponse"
+
+  /audit/start:
+    post:
+      operationId: audit_guide
+      summary: Start an interactive internal audit
+      description: >
+        Runs clause-by-clause internal audit for ISO 9001 or IATF 16949.
+        Classifies findings as Major NC / Minor NC / OFI.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                standard:
+                  type: string
+                  enum: ["ISO 9001", "IATF 16949", "both"]
+                  default: "ISO 9001"
+                scope:
+                  type: string
+                  description: Full QMS, specific clauses, or specific process
+                session_id:
+                  type: string
+      responses:
+        "200":
+          description: Audit session response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CoachingResponse"
+
+  /fmea/review:
+    post:
+      operationId: fmea_review
+      summary: Review a PFMEA or DFMEA against AIAG-VDA 2019
+      description: >
+        Returns structured gap report: missing failure modes, incorrect AP ratings,
+        unaddressed H-AP items, missing special characteristics.
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fmea_text:
+                  type: string
+                  description: FMEA content or description to review
+                fmea_type:
+                  type: string
+                  enum: [PFMEA, DFMEA]
+                  default: PFMEA
+      responses:
+        "200":
+          description: FMEA gap report
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DocumentResponse"
+
+components:
+  schemas:
+    CoachingResponse:
+      type: object
+      properties:
+        session_id:
+          type: string
+        current_step:
+          type: string
+        message:
+          type: string
+          description: Agent response to display to the user
+        validation_status:
+          type: string
+          enum: [pass, fail, pending]
+        next_question:
+          type: string
+
+    EvaluationReport:
+      type: object
+      properties:
+        overall_quality:
+          type: string
+          enum: [Strong, Acceptable, "Needs revision", Inadequate]
+        disciplines:
+          type: array
+          items:
+            type: object
+            properties:
+              discipline:
+                type: string
+              status:
+                type: string
+                enum: [Pass, Fail]
+              finding:
+                type: string
+        top_issues:
+          type: array
+          maxItems: 3
+          items:
+            type: string
+
+    DocumentResponse:
+      type: object
+      properties:
+        generated_text:
+          type: string
+        severity:
+          type: string
+          enum: [Critical, Major, Minor]
+        flags:
+          type: array
+          items:
+            type: string
+          description: Missing information flags

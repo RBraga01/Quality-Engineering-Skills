@@ -1,0 +1,136 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.2/schema.json",
+  "schema_version": "v2.2",
+  "name_for_human": "Quality Engineering Assistant",
+  "name_for_model": "quality_engineering_assistant",
+  "description_for_human": "8D coaching, FMEA review, NCR writing, root cause analysis, and ISO 9001 / IATF 16949 internal audit. Powered by Quality-Engineering-Skills.",
+  "description_for_model": "Quality engineering methodology assistant. Use this plugin when the user asks about: 8D problem solving (D0-D8), FMEA (PFMEA, DFMEA, Action Priority), NCR (non-conformance report) writing, root cause analysis (5-Why, fishbone, Is/Is-Not), corrective action (CAR, PDCA), ISO 9001 or IATF 16949 internal audit. Applies automotive supplier quality standards: ISO 9001:2015, IATF 16949:2016, AIAG-VDA FMEA 2019.",
+  "contact_email": "enter_on_junior@hotmail.com",
+  "legal_info_url": "https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/LICENSE",
+  "privacy_policy_url": "https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/LICENSE",
+  "logo_url": "https://raw.githubusercontent.com/RBraga01/Quality-Engineering-Skills/master/platforms/m365/logo.png",
+  "functions": [
+    {
+      "name": "coach_8d",
+      "description": "Guide the user through an 8D investigation step by step (D0 to D8) with validation gates at each discipline. Use when user says: open 8D, start 8D, 8D coach, help with 8D, problem solving.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "complaint_description": {
+            "type": "string",
+            "description": "Brief description of the defect or customer complaint to investigate"
+          },
+          "start_discipline": {
+            "type": "string",
+            "enum": ["D0", "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8"],
+            "description": "Which discipline to start from. Default D0."
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "evaluate_8d",
+      "description": "Review and score an existing 8D report against ISO 9001 §10.2 / IATF 16949 §10.2.3 criteria. Returns Pass/Fail per discipline plus top issues. Use when user says: review my 8D, evaluate 8D, score 8D, check 8D report.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "report_text": {
+            "type": "string",
+            "description": "The 8D report text to evaluate"
+          }
+        },
+        "required": ["report_text"]
+      }
+    },
+    {
+      "name": "root_cause_analysis",
+      "description": "Run a structured 5-Why session with evidence validation. Detects circular reasoning, tests reversibility, produces documented Why chain. Use when user says: root cause, 5 why, drill down, why did this happen.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "problem_statement": {
+            "type": "string",
+            "description": "The problem to analyse"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "write_ncr",
+      "description": "Generate professional NCR (Non-Conformance Report) text from bullet-point inputs. Applies objective-evidence language, severity grading (Critical/Major/Minor), and disposition. Use when user says: write NCR, create NCR, document defect, reject supplier.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "observations": {
+            "type": "string",
+            "description": "Bullet-point observations about the non-conformance"
+          },
+          "part_number": {
+            "type": "string",
+            "description": "Part number and revision affected"
+          },
+          "quantity": {
+            "type": "string",
+            "description": "Quantity affected (e.g. 45 of 500 inspected = 9%)"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "audit_guide",
+      "description": "Run an interactive internal audit clause-by-clause for ISO 9001 or IATF 16949. Classifies findings as Major NC / Minor NC / OFI. Generates audit report. Use when user says: start audit, internal audit, ISO 9001 audit, IATF audit, clause review.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "standard": {
+            "type": "string",
+            "enum": ["ISO 9001", "IATF 16949", "both"],
+            "description": "Standard to audit against"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Audit scope — full QMS, specific clauses, or specific process"
+          }
+        },
+        "required": []
+      }
+    },
+    {
+      "name": "fmea_review",
+      "description": "Review an existing PFMEA or DFMEA against AIAG-VDA 2019. Returns structured gap report: missing failure modes, incorrect AP ratings, unaddressed H-AP items. Use when user says: review FMEA, audit FMEA, check PFMEA, FMEA gaps.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "fmea_text": {
+            "type": "string",
+            "description": "FMEA content or description to review"
+          },
+          "fmea_type": {
+            "type": "string",
+            "enum": ["PFMEA", "DFMEA"],
+            "description": "Type of FMEA"
+          }
+        },
+        "required": []
+      }
+    }
+  ],
+  "runtimes": [
+    {
+      "type": "OpenApi",
+      "auth": {
+        "type": "None"
+      },
+      "spec": {
+        "url": "https://api.quality-engineering-skills.io/openapi.yaml"
+      },
+      "run_for_functions": ["coach_8d", "evaluate_8d", "root_cause_analysis", "write_ncr", "audit_guide", "fmea_review"]
+    }
+  ],
+  "capabilities": {
+    "localization": {}
+  }
+}
