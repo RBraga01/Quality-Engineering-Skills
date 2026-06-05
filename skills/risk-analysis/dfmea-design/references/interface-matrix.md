@@ -5,6 +5,23 @@ Use alongside the [dfmea-design](../SKILL.md) skill.
 
 ---
 
+## Required Execution Checklist
+
+☐ Define system boundary (inside vs outside scope)
+☐ Identify all external elements (components, environment, user, process, maintenance)
+☐ Build interface matrix — assign interaction type for every element pair
+☐ Identify at least one failure mode for every interface cell with an interaction type
+☐ All interfaces have at least one validated failure mode (no silent/empty interactions)
+☐ Assign system-level effects for each interface failure
+☐ Include misuse and abuse scenarios in user interface analysis
+☐ Analyse tolerance stack-up for all critical mechanical interfaces
+☐ Validate critical interfaces using analysis (FEA, simulation) or testing (DVP)
+☐ Prioritise interfaces by severity and likelihood — focus resources on high-risk interactions
+☐ Transfer interface failure modes to DFMEA Step 4
+☐ Confirm DVP includes validation tests for all critical interfaces
+
+---
+
 ## Why Interfaces Matter
 
 Most design failures occur at **interfaces**, not within a single component.
@@ -32,25 +49,28 @@ The component, subsystem, or system being designed.
 **External elements (outside scope)**
 - Other components in the assembly (customer-supplied or other design teams)
 - Environment: thermal, vibration, humidity, electromagnetic, chemical
-- User / operator (including misuse scenarios)
+- User / operator (including misuse and abuse scenarios — over-torque, incorrect installation, off-label use)
 - Assembly process (fixtures, torques, handling)
 - Maintenance / service (access, tools, replacement cycles)
 
 **Interface arrows**
 Draw an arrow for each interaction across the boundary. Label each arrow with:
 - The type of interaction (force, signal, thermal, fluid, chemical)
-- The nominal condition and range (if known)
+- The direction: input to system, output from system, or bidirectional
+- The nominal condition and operating range (if known)
+
+All interface arrows must include direction (input/output) and operating range.
 
 ### Example — ECU boundary diagram
 
 ```
-Environment (Temp -40°C to +125°C, vibration 10-2000 Hz)
+Environment (Temp -40°C to +125°C, vibration 10-2000 Hz) → input
         ↕
-Wiring harness ←→ [ECU] ←→ CAN bus
+Wiring harness ←→ [ECU] ←→ CAN bus (bidirectional, 500 kbit/s)
                     ↕
-              Mounting bracket (vibration load transfer)
+              Mounting bracket (vibration load transfer → input)
                     ↕
-           Vehicle ground (electrical reference)
+           Vehicle ground (electrical reference → input)
 ```
 
 ---
@@ -74,6 +94,8 @@ For each pair of elements, identify whether they interact and how.
 | Optical / radiation | O | EMC, light, UV |
 | No interaction | — | |
 
+When multiple interaction types exist at the same interface, list all of them explicitly (e.g., F + T + C). Do not collapse multiple types into a single symbol.
+
 ### Example — Connector interface matrix
 
 |  | PCB | Backshell | Wire | Environment | User |
@@ -93,6 +115,15 @@ For each "F", "E", "T", or "C" cell, ask:
 - Chemical failure mode: connector body corrodes in salt spray environment → housing fracture under vibration
 
 These become Failure Modes in Step 4 of the DFMEA.
+
+### Step 4: Prioritise interfaces
+
+Not all interfaces carry equal risk. Prioritise based on:
+- **Severity** of the worst system effect if the interface fails
+- **Likelihood** of failure given the operating environment
+- **Detectability** — interfaces that fail silently are highest priority
+
+Focus DFMEA depth and DVP effort on high-severity, hard-to-detect interfaces first.
 
 ---
 
@@ -147,8 +178,25 @@ Worst-case overlap = nominal gap − sum of all tolerance contributions (− dir
 - Maximum clearance at worst-case (prevents slop / rattling / loss of function)
 - Special Characteristics on dimensions that directly control an interface
 
+When process capability data is available, use statistical tolerance stack-up (RSS method) instead of worst-case arithmetic. Statistical analysis reflects real production variation and avoids over-constraining tolerances.
+
 Document the tolerance stack-up analysis in Step 1 (Planning) and reference it in Step 4
 when assigning failure modes to interface dimensions.
+
+---
+
+## Interface Validation
+
+Critical interface failure modes must be validated — documentation alone is not sufficient.
+
+| Validation method | When to use |
+|-------------------|-------------|
+| FEA / simulation | Mechanical stress, thermal, fluid — early in design phase |
+| Bench test | Single interface, controlled conditions — pre-prototype |
+| DVP system test | Full interface under production-representative conditions |
+| HALT / HASS | Accelerated stress to find hidden interface weaknesses |
+
+Link each critical interface failure mode to a DVP test entry. If no test exists, this is an open risk that must be documented with a management acceptance or an action to add the test.
 
 ---
 
@@ -168,9 +216,15 @@ when assigning failure modes to interface dimensions.
 ## Checklist — Interface Matrix Complete?
 
 - [ ] Boundary diagram drawn — inside and outside scope are clear
-- [ ] All external elements identified (adjacent components, environment, user, process)
+- [ ] All external elements identified (adjacent components, environment, user, process, maintenance)
 - [ ] Interface type identified for every element pair that interacts
+- [ ] Multiple interaction types listed explicitly where applicable (not collapsed)
+- [ ] All interface arrows include direction and operating range
+- [ ] Misuse and abuse scenarios included in user interface analysis
 - [ ] At least one failure mode candidate for every interface cell with an interaction type
-- [ ] Tolerance stack-up analysed for all critical mechanical interfaces
+- [ ] All interfaces have at least one validated failure mode (no silent/empty interactions)
+- [ ] Interfaces prioritised by severity and likelihood
+- [ ] Tolerance stack-up analysed for all critical mechanical interfaces (statistical method if Cpk data available)
+- [ ] Critical interfaces validated by analysis or test (DVP entry exists)
 - [ ] Interface failure modes transferred to DFMEA Step 4
 - [ ] DVP entries exist for all Detection controls at interfaces
