@@ -24,6 +24,24 @@ Use Is/Is-Not at the start of any quality investigation to precisely define what
 
 Most effective in 8D D2 (problem description), CAPA scoping, and any situation where the defect is intermittent, batch-specific, or location-specific.
 
+## Critical rule — facts only
+
+**The IS column contains only documented, measured facts.** Hypotheses, assumptions, and opinions belong in the hypothesis list, not in the matrix. If a cell contains an assumption rather than a fact, the entire analysis is compromised.
+
+If data is not yet available: mark the cell as "Unknown — to be investigated" and identify what investigation is needed before proceeding.
+
+## Required Is/Is-Not Checklist
+
+☐ All five dimensions completed — What, Which, Where, When, How many — or marked "Unknown — to be investigated"
+☐ IS column contains only documented facts and measured values — no assumptions, no hypotheses
+☐ IS NOT column completed for each dimension — this is where hypotheses get eliminated; do not leave blank
+☐ Vague IS statements converted to specific facts with numbers (batch, quantity, percentage)
+☐ At least three hypotheses generated and tested against the full matrix
+☐ Eliminated hypotheses documented with the specific IS/IS-NOT entry that contradicts them
+☐ Is/Is-Not output referenced in the NCR problem description and carried forward to Fishbone or 5-Why
+
+---
+
 ## The Is/Is-Not Matrix
 
 Work through each dimension. For each: what DO you observe? What do you specifically NOT observe?
@@ -70,9 +88,11 @@ Example: "IS: First observed 2026-05-12, all shifts. IS NOT: Before 2026-05-10."
 |----|--------|
 | Defect rate (parts per million, percentage) | What rate is NOT observed |
 | Quantity affected | Quantity not affected |
-| Trend (increasing, stable, decreasing) | |
+| Trend (increasing, stable, decreasing) | No trend in unaffected population |
 
 Example: "IS: 23.5% of parts in affected batches (47/200). IS NOT: Any defects in batches before 2026-05-10 (0/500 inspected)."
+
+---
 
 ## Using the matrix to eliminate hypotheses
 
@@ -88,31 +108,42 @@ Once the matrix is complete, generate hypotheses and test each against the IS/IS
 - IS NOT: Not found at our outgoing inspection → **contradicts** (if we measure 100%, our gauge would catch it)
 → Hypothesis eliminated
 
-Any hypothesis that cannot explain ALL items in the IS and IS-NOT columns is eliminated or requires modification.
+Any hypothesis that cannot explain ALL items in the IS and IS-NOT columns is eliminated or requires modification. Document the specific contradiction for each eliminated hypothesis.
+
+---
 
 ## Workflow
 
 1. Gather data: inspection records, production records, customer complaint details
-2. Fill in the matrix — only include facts, not hypotheses
+2. Fill in the matrix — only include facts, not hypotheses; mark gaps as "Unknown — to be investigated"
 3. Identify the "clue" — what distinctive pattern appears (specific batch, specific location, specific time)?
-4. List candidate hypotheses
+4. List candidate hypotheses (minimum three)
 5. Test each hypothesis against the full matrix
-6. Eliminate those that contradict the data
+6. Eliminate those that contradict the data — document the contradiction
 7. Carry forward surviving hypotheses into Fishbone or 5-Why
+8. Reference the Is/Is-Not matrix in the NCR problem description — the IS "What" entry is the basis for the NCR non-conformance description
+
+---
 
 ## Output format
 
 A complete Is/Is-Not matrix (table format) with:
-- All five dimensions completed with specific facts
-- Surviving hypotheses listed with explanation of why they fit the matrix
-- Eliminated hypotheses listed with the specific contradiction
+- All five dimensions completed with specific facts (or "Unknown — to be investigated")
+- Surviving hypotheses listed with explanation of why they fit the full matrix
+- Eliminated hypotheses listed with the specific contradiction that rules each one out
+
+---
 
 ## Common mistakes
 
-- **Listing assumptions as IS** — only documented, measured facts go in the matrix
-- **Leaving cells empty** — if you don't know, mark "unknown — to be investigated"
+- **Listing assumptions as IS** — only documented, measured facts go in the matrix; assumptions generate false hypotheses
+- **Leaving cells empty** — if you don't know, mark "Unknown — to be investigated"; empty cells mean the analysis is incomplete
 - **Not using IS NOT** — the IS NOT column is where hypotheses get eliminated; skipping it wastes investigation time
-- **Vague IS statements** — "some parts are bad" → must be: "23.5% of batch 2026-05-12 are non-conforming on dimension X"
+- **Vague IS statements** — "some parts are bad" → must be: "23.5% of batch 2026-05-12 are non-conforming on dimension X (47/200 units measured)"
+- **Testing only one or two hypotheses** — generate at least three before starting elimination; premature narrowing misses the real cause
+- **Not linking output to NCR** — the Is/Is-Not "What IS" entry must match the NCR problem description exactly
+
+---
 
 ## Output Format
 

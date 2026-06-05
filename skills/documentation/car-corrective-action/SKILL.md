@@ -26,7 +26,7 @@ A CAR is written in response to:
 - An internal or external audit finding (Major or Minor non-conformance)
 - A recurring non-conformance requiring systemic correction
 
-The CAR is the documented evidence that the problem was analysed, corrected, and prevented from recurring. ISO 9001 §10.2.1 requires documented information of the actions taken and their results.
+The CAR is the documented evidence that the problem was analysed, corrected, and prevented from recurring. ISO 9001 §10.2.1 requires documented information of the actions taken and their results. For IATF 16949 audit Major NCs, CARs must typically be closed within 90 days; check the applicable CSR for customer-specific closure deadlines.
 
 ## Key distinction from NCR
 
@@ -39,6 +39,8 @@ The CAR is the documented evidence that the problem was analysed, corrected, and
 
 A CAR references the NCR but extends it into corrective action territory.
 
+---
+
 ## CAR structure
 
 ### 1. Header
@@ -50,11 +52,12 @@ A CAR references the NCR but extends it into corrective action territory.
 | Date opened | |
 | Owner | Responsible person (name, not function) |
 | Target closure date | |
+| Closure authority | Named person with authority to close this CAR (quality manager or equivalent) |
 | Actual closure date | (filled on closure) |
 
 ### 2. Problem summary
 
-One or two sentences summarising the NCR or finding. Objective, factual.
+One or two sentences summarising the NCR or finding. Objective, factual. Must match the NCR description exactly — no new interpretation.
 
 Example:
 > "47 of 200 connector units in lot 2026-05-12-A had pin insertion depth 0.6–1.5 mm below lower specification limit (5.0 ± 0.3 mm). Detected at incoming inspection (NCR-2026-0047)."
@@ -88,7 +91,13 @@ Why: Not detected at our outgoing inspection → Why: no depth measurement in ou
 inspection plan → Root cause: Control Plan does not include pin depth at outgoing.
 ```
 
-**Validation:** state how the root cause was confirmed (reproduction test, data correlation, physical evidence).
+**Validation:** state how the root cause was confirmed. Acceptable validation methods:
+- Reproduction test (demonstrated that removing/restoring the root cause produces/prevents the defect)
+- Data correlation (statistical relationship between root cause variable and defect occurrence)
+- Physical evidence (inspection of the failed part or process reveals the causal mechanism)
+- Direct record review (confirms the absence of the required control)
+
+A root cause supported only by team opinion (not validated by evidence) cannot be used as the basis for CAR closure.
 
 ### 5. Corrective actions
 
@@ -127,17 +136,26 @@ This is where most CARs fail. The action is implemented, but nobody checks wheth
 3. **Volume/duration:** what sample size or time period constitutes sufficient evidence?
 4. **Target:** what result confirms the action was effective?
 
-**Typical VOE approach for a process change:**
-- Produce a minimum of [300 units / 30 shifts / 3 months] with the new process
-- Zero recurrence of the original defect mode during this period
-- Confirm with inspection data
+**VOE minimum volume guidance:**
+- For a defect with known base rate: the VOE sample must be large enough to observe at least one recurrence if the action had failed. Example: if baseline defect rate was 5%, a zero-defect sample of 60 units gives 95% confidence the rate is now below 5%.
+- For process parameter changes: minimum 30 consecutive production cycles under the new conditions, or as defined by the Control Plan sampling frequency × 3 periods.
+- For detection control improvements: minimum one full inspection cycle of the affected product family with zero escapes.
+- Minimum in all cases: state the volume used and the basis for choosing it. "Zero defects in 10 units" is not a valid VOE for a high-volume process.
 
 **VOE result:**
 - Record the actual results after the monitoring period
 - State: Effective / Not effective
 - If not effective: return to root cause analysis and repeat
 
-### 8. Systemic prevention and horizontal deployment
+### 8. AP revision (AIAG-VDA, if applicable)
+
+If the non-conformance relates to a PFMEA failure mode with an Action Priority (AP) rating:
+
+- After verified implementation of the corrective action, the PFMEA must be updated with a revised S, O, and/or D rating
+- The revised AP (AP-revised) must reflect the improvement — it must be lower than the original AP or documented with justification if unchanged
+- Revised AP is recorded only after VOE is complete, not at the time of action planning
+
+### 9. Systemic prevention and horizontal deployment
 
 Ask: could this same root cause exist in similar parts, processes, or product families?
 
@@ -146,7 +164,7 @@ If yes:
 - Document the actions taken to extend the corrective action
 - Evidence that horizontal deployment is complete
 
-### 9. Lessons learned
+### 10. Lessons learned
 
 One or two sentences capturing the key learning for future reference:
 
@@ -158,22 +176,31 @@ File in the lessons learned register and reference in PFMEA update.
 
 ## Closure criteria
 
-A CAR may only be closed when ALL of the following are true:
-- [ ] Root causes of occurrence and escape are documented with evidence
-- [ ] Corrective actions are implemented and documented
-- [ ] VOE is complete and confirms effectiveness
-- [ ] PFMEA is updated (revised failure mode entry)
+A CAR may only be closed when ALL of the following are true, and the closure authority (named in the header) has signed off:
+
+- [ ] Root causes of occurrence and escape are documented with validation evidence
+- [ ] Corrective actions are implemented and documented with revision numbers and approval dates
+- [ ] VOE is complete with documented sample volume and confirms effectiveness
+- [ ] PFMEA is updated (revised failure mode entry, revised AP if applicable)
 - [ ] Control Plan is updated (if detection control changed)
 - [ ] Work Instructions are updated (if process control changed)
 - [ ] Horizontal deployment is documented
-- [ ] Customer notified of closure (if CAR was triggered by customer complaint)
+- [ ] Customer notified of closure (if CAR was triggered by customer complaint or CSR-required notification)
+- [ ] Closure authority sign-off obtained
+
+---
 
 ## Common mistakes
 
 - **"Retrain operators"** as a corrective action for human error — this is never sufficient alone; the system that allowed the error must be changed
 - **Closing without VOE** — the most common reason for recurring non-conformances
+- **VOE on insufficient sample** — "zero defects in 5 units" is not effectiveness verification; define the minimum volume before collecting data
 - **Implementing actions without updating PFMEA and Control Plan** — next audit will find the gap
 - **Generic actions** — "review procedures" → not specific; must state which procedure, revised to say what, by whom, by when
+- **Closing without named authority sign-off** — any team member closing a CAR without defined authority is a governance gap
+- **Missing AP revision** — when PCA addresses a PFMEA failure mode, the revised AP must be recorded after VOE
+
+---
 
 ## Output Format
 
