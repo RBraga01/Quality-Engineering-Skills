@@ -36,6 +36,8 @@ I have a customer complaint — where do I start?
 
 ### 5. Knowledge (files to upload)
 Upload these files from the repository for retrieval-augmented responses:
+
+**Core skills (13):**
 - `skills/problem-solving/8d-problem-solving/SKILL.md`
 - `skills/problem-solving/8d-problem-solving/assets/8d-template.md`
 - `skills/problem-solving/5why-root-cause/SKILL.md`
@@ -49,6 +51,11 @@ Upload these files from the repository for retrieval-augmented responses:
 - `skills/documentation/8d-report-writing/SKILL.md`
 - `skills/audit/iso-9001-internal-audit/SKILL.md`
 - `skills/audit/iatf-16949-audit/SKILL.md`
+
+**Reference files (3 — high value, add depth for OEM and 8D):**
+- `skills/problem-solving/8d-problem-solving/references/d0-d8-guide.md`
+- `skills/risk-analysis/action-priority-ap/references/oem-requirements.md`
+- `skills/documentation/8d-report-writing/references/oem-formats.md`
 
 ### 6. Capabilities
 - [x] Web Search — OFF (not needed, knowledge is self-contained)
@@ -85,11 +92,12 @@ Suggested: blue background, white gear icon with "QE" text — professional, rec
 
 ## Verification checklist before publishing
 
-- [ ] Instructions pasted from gpt-instructions.md
-- [ ] All 13 knowledge files uploaded
+- [ ] Instructions pasted from `gpt-instructions.md`
+- [ ] All 16 knowledge files uploaded (13 skills + 3 reference files)
 - [ ] 5 conversation starters set
 - [ ] Description under 300 characters
 - [ ] Test each conversation starter — confirm the GPT responds correctly
 - [ ] Test: paste a weak 8D and confirm the evaluator flags the gaps
 - [ ] Test: start a 5-Why — confirm it challenges at each step
+- [ ] Test: ask for OEM-specific 8D format — confirm Ford/BMW/VW differences are returned
 - [ ] Publish to GPT Store (Everyone)
