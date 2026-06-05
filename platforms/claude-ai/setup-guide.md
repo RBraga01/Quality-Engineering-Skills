@@ -13,22 +13,29 @@
    Paste the full content of `project-instructions.md`
 
 4. **Add knowledge files** (drag & drop or upload):
-   Upload these files from the repository:
-   - `skills/problem-solving/8d-problem-solving/SKILL.md`
-   - `skills/problem-solving/8d-problem-solving/assets/8d-template.md`
-   - `skills/problem-solving/5why-root-cause/SKILL.md`
-   - `skills/problem-solving/fishbone-analysis/SKILL.md`
-   - `skills/problem-solving/is-is-not-scoping/SKILL.md`
-   - `skills/problem-solving/pdca-improvement/SKILL.md`
-   - `skills/risk-analysis/pfmea-process/SKILL.md`
-   - `skills/risk-analysis/pfmea-process/assets/ap-table.md`
-   - `skills/risk-analysis/dfmea-design/SKILL.md`
-   - `skills/risk-analysis/action-priority-ap/SKILL.md`
-   - `skills/documentation/ncr-writing/SKILL.md`
-   - `skills/documentation/car-corrective-action/SKILL.md`
-   - `skills/documentation/8d-report-writing/SKILL.md`
-   - `skills/audit/iso-9001-internal-audit/SKILL.md`
-   - `skills/audit/iatf-16949-audit/SKILL.md`
+   All 16 files are pre-renamed and ready in **`platforms/claude-ai/knowledge/`**.
+   Download that folder and upload all files directly — no renaming needed.
+
+   | File | Content |
+   |------|---------|
+   | `8d-problem-solving.md` | Core skill |
+   | `8d-template.md` | 8D fillable template |
+   | `5why-root-cause.md` | Core skill |
+   | `fishbone-analysis.md` | Core skill |
+   | `is-is-not-scoping.md` | Core skill |
+   | `pfmea-process.md` | Core skill |
+   | `ap-table.md` | AP table reference |
+   | `action-priority-ap.md` | Core skill |
+   | `ncr-writing.md` | Core skill |
+   | `car-corrective-action.md` | Core skill |
+   | `8d-report-writing.md` | Core skill |
+   | `iso-9001-internal-audit.md` | Core skill |
+   | `iatf-16949-audit.md` | Core skill |
+   | `d0-d8-guide.md` | D0–D8 gate criteria reference |
+   | `oem-requirements.md` | OEM-specific AP requirements |
+   | `oem-formats.md` | OEM 8D submission formats |
+
+   > When skills are updated, re-copy the updated files into `platforms/claude-ai/knowledge/` before re-uploading.
 
 5. **Test before sharing:**
    - Start conversation: "Evaluate this 8D: [paste a weak example]"

@@ -35,27 +35,32 @@ I have a customer complaint — where do I start?
 ```
 
 ### 5. Knowledge (files to upload)
-Upload these files from the repository for retrieval-augmented responses:
 
-**Core skills (13):**
-- `skills/problem-solving/8d-problem-solving/SKILL.md`
-- `skills/problem-solving/8d-problem-solving/assets/8d-template.md`
-- `skills/problem-solving/5why-root-cause/SKILL.md`
-- `skills/problem-solving/fishbone-analysis/SKILL.md`
-- `skills/problem-solving/is-is-not-scoping/SKILL.md`
-- `skills/risk-analysis/pfmea-process/SKILL.md`
-- `skills/risk-analysis/pfmea-process/assets/ap-table.md`
-- `skills/risk-analysis/action-priority-ap/SKILL.md`
-- `skills/documentation/ncr-writing/SKILL.md`
-- `skills/documentation/car-corrective-action/SKILL.md`
-- `skills/documentation/8d-report-writing/SKILL.md`
-- `skills/audit/iso-9001-internal-audit/SKILL.md`
-- `skills/audit/iatf-16949-audit/SKILL.md`
+All 16 files are pre-renamed and ready to upload from:
+**`platforms/chatgpt/knowledge/`**
 
-**Reference files (3 — high value, add depth for OEM and 8D):**
-- `skills/problem-solving/8d-problem-solving/references/d0-d8-guide.md`
-- `skills/risk-analysis/action-priority-ap/references/oem-requirements.md`
-- `skills/documentation/8d-report-writing/references/oem-formats.md`
+Download that folder and upload all 16 files directly — no renaming needed.
+
+| File | Source |
+|------|--------|
+| `8d-problem-solving.md` | Core skill |
+| `8d-template.md` | 8D fillable template |
+| `5why-root-cause.md` | Core skill |
+| `fishbone-analysis.md` | Core skill |
+| `is-is-not-scoping.md` | Core skill |
+| `pfmea-process.md` | Core skill |
+| `ap-table.md` | AP table reference |
+| `action-priority-ap.md` | Core skill |
+| `ncr-writing.md` | Core skill |
+| `car-corrective-action.md` | Core skill |
+| `8d-report-writing.md` | Core skill |
+| `iso-9001-internal-audit.md` | Core skill |
+| `iatf-16949-audit.md` | Core skill |
+| `d0-d8-guide.md` | D0–D8 gate criteria reference |
+| `oem-requirements.md` | OEM-specific AP requirements |
+| `oem-formats.md` | OEM 8D submission formats |
+
+> When skills are updated in `skills/`, re-copy the updated files into `platforms/chatgpt/knowledge/` before re-uploading to the GPT.
 
 ### 6. Capabilities
 - [x] Web Search — OFF (not needed, knowledge is self-contained)
