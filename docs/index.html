@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality Engineering Skills — AI Methodologies for ISO 9001, IATF 16949 & AIAG-VDA</title>
+<meta name="description" content="The canonical quality engineering skill library for AI agents. 18 structured methodologies — 8D, PFMEA, DFMEA, NCR, audits — for automotive, electronics, aerospace and medical industries. Free and open source.">
+<style>
+/* ── RESET & TOKENS ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:        #060b0f;
+  --bg2:       #0a1018;
+  --surface:   #0f1820;
+  --border:    rgba(255,255,255,.07);
+  --border2:   rgba(255,255,255,.13);
+  --text:      #dde6ef;
+  --muted:     #5c7a93;
+  --teal:      #0ea5e9;
+  --teal-d:    #0369a1;
+  --emerald:   #10b981;
+  --amber:     #f59e0b;
+  --blue:      #3b82f6;
+  --purple:    #8b5cf6;
+  --red:       #ef4444;
+  --white:     #ffffff;
+  --r:         14px;
+  --r-sm:      8px;
+  --shadow:    0 4px 24px rgba(0,0,0,.45);
+  --shadow-lg: 0 12px 48px rgba(0,0,0,.65);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp   { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+@keyframes shimmer  { 0%,100%{opacity:.5} 50%{opacity:1} }
+@keyframes gradient-x { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+@keyframes glow-teal { 0%,100%{box-shadow:0 0 20px rgba(14,165,233,.2)} 50%{box-shadow:0 0 40px rgba(14,165,233,.5)} }
+@keyframes count-up { from{opacity:0;transform:scale(.8)} to{opacity:1;transform:scale(1)} }
+@keyframes scan     { 0%{transform:translateY(-100%);opacity:0} 40%{opacity:.6} 100%{transform:translateY(200%);opacity:0} }
+
+.reveal { opacity:0; transform:translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  display: flex; align-items:center; justify-content:space-between;
+  padding: 0 40px; height: 64px;
+  background: rgba(6,11,15,.88);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+.nav-logo-icon {
+  width:32px; height:32px; border-radius:8px;
+  background: linear-gradient(135deg, #0369a1, #0ea5e9);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900; color:white; font-size:.85rem; letter-spacing:-.02em;
+}
+.nav-logo-text { font-weight:700; font-size:1rem; color:var(--white); }
+.nav-logo-badge {
+  font-size:.65rem; padding:2px 7px; border-radius:999px;
+  background:rgba(14,165,233,.12); color:var(--teal); border:1px solid rgba(14,165,233,.28);
+  font-weight:600; letter-spacing:.04em;
+}
+.nav-right { display:flex; align-items:center; gap:10px; }
+.btn-gpt {
+  display:flex; align-items:center; gap:7px;
+  padding:7px 14px; border-radius:8px;
+  background:rgba(16,163,127,.1); border:1px solid rgba(16,163,127,.25);
+  color:#34d399; font-weight:600; font-size:.82rem; text-decoration:none;
+  transition: background .15s, transform .15s;
+}
+.btn-gpt:hover { background:rgba(16,163,127,.18); transform:translateY(-1px); }
+.btn-github {
+  display:flex; align-items:center; gap:7px;
+  padding:7px 14px; border-radius:8px;
+  background:var(--white); color:#0d1117;
+  font-weight:700; font-size:.82rem; text-decoration:none;
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-github:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(255,255,255,.2); }
+.btn-github svg, .btn-gpt svg { width:15px; height:15px; flex-shrink:0; }
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding: 120px 40px 80px;
+  position:relative; overflow:hidden; text-align:center;
+}
+.hero-bg {
+  position:absolute; inset:0; z-index:0;
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(14,165,233,.16) 0%, transparent 60%),
+              radial-gradient(ellipse 50% 40% at 85% 80%, rgba(16,185,129,.1) 0%, transparent 50%),
+              radial-gradient(ellipse 40% 40% at 5% 55%, rgba(245,158,11,.06) 0%, transparent 50%);
+}
+.hero-grid {
+  position:absolute; inset:0; z-index:0;
+  background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+}
+/* Scan line on grid */
+.hero-grid::after {
+  content:''; position:absolute; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(14,165,233,.5), transparent);
+  animation: scan 6s linear infinite;
+}
+.hero-content { position:relative; z-index:1; max-width:820px; }
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 16px; border-radius:999px;
+  background:rgba(14,165,233,.08); border:1px solid rgba(14,165,233,.22);
+  color:var(--teal); font-size:.78rem; font-weight:600; letter-spacing:.06em;
+  margin-bottom:28px;
+  animation: fadeIn 1s ease both;
+}
+.hero-eyebrow-dot { width:6px;height:6px;border-radius:50%;background:var(--teal); animation:shimmer 2s ease infinite; }
+.hero h1 {
+  font-size: clamp(2.6rem, 6.5vw, 5rem);
+  font-weight:900; letter-spacing:-.04em; line-height:1.06;
+  margin-bottom:20px;
+  animation: fadeUp .8s ease .1s both;
+}
+.hero h1 .grad {
+  background: linear-gradient(135deg, var(--teal) 0%, #38bdf8 35%, var(--emerald) 70%, var(--amber) 100%);
+  background-size:200% 200%; animation:gradient-x 5s ease infinite;
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.hero-sub {
+  font-size:1.1rem; color:var(--muted); max-width:580px; margin:0 auto 40px;
+  animation: fadeUp .8s ease .2s both; line-height:1.7;
+}
+.hero-ctas {
+  display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:60px;
+  animation: fadeUp .8s ease .3s both;
+}
+.btn-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:12px 24px; border-radius:10px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-d));
+  color:white; font-weight:700; font-size:.95rem; text-decoration:none;
+  animation: glow-teal 3s ease infinite;
+  transition: transform .15s, filter .15s;
+}
+.btn-primary:hover { transform:translateY(-2px); filter:brightness(1.1); }
+.btn-secondary {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:12px 24px; border-radius:10px;
+  background:rgba(255,255,255,.05); border:1px solid var(--border2);
+  color:var(--text); font-weight:600; font-size:.95rem; text-decoration:none;
+  transition: background .15s, transform .15s;
+}
+.btn-secondary:hover { background:rgba(255,255,255,.09); transform:translateY(-2px); }
+
+/* Hero stats */
+.hero-stats {
+  display:flex; gap:0; border:1px solid var(--border); border-radius:var(--r);
+  overflow:hidden; animation: fadeUp .8s ease .4s both;
+  background:var(--surface);
+}
+.hero-stat {
+  flex:1; padding:18px 24px; text-align:center;
+  border-right:1px solid var(--border);
+}
+.hero-stat:last-child { border-right:none; }
+.hero-stat-n { font-size:1.9rem; font-weight:900; line-height:1; margin-bottom:4px; }
+.hero-stat-l { font-size:.72rem; color:var(--muted); text-transform:uppercase; letter-spacing:.08em; }
+.n-teal    { color:var(--teal); }
+.n-emerald { color:var(--emerald); }
+.n-amber   { color:var(--amber); }
+.n-blue    { color:var(--blue); }
+
+/* Standards badges */
+.standards-row {
+  display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:28px;
+  animation: fadeUp .8s ease .5s both;
+}
+.std-badge {
+  font-size:.68rem; font-weight:700; padding:4px 10px; border-radius:999px;
+  border:1px solid; letter-spacing:.03em;
+}
+.std-iso   { background:rgba(14,165,233,.08); color:#7dd3fc; border-color:rgba(14,165,233,.22); }
+.std-iatf  { background:rgba(16,185,129,.08); color:#6ee7b7; border-color:rgba(16,185,129,.22); }
+.std-aiag  { background:rgba(245,158,11,.08); color:#fcd34d; border-color:rgba(245,158,11,.22); }
+.std-vda   { background:rgba(139,92,246,.08); color:#c4b5fd; border-color:rgba(139,92,246,.22); }
+
+/* ── SECTIONS ── */
+.section { padding:88px 40px; max-width:1160px; margin:0 auto; }
+.section-tag {
+  display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--teal); margin-bottom:12px;
+}
+.section h2 {
+  font-size:clamp(1.75rem, 3.2vw, 2.5rem); font-weight:800; letter-spacing:-.03em;
+  margin-bottom:8px; color:var(--white);
+}
+.section-sub { color:var(--muted); font-size:.95rem; margin-bottom:48px; max-width:560px; line-height:1.7; }
+hr.sep { border:none; border-top:1px solid var(--border); }
+
+/* ── COMPARE ── */
+.compare { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.cmp {
+  border-radius:var(--r); padding:32px;
+  border:1px solid var(--border);
+  transition: transform .2s, box-shadow .2s;
+}
+.cmp:hover { transform:translateY(-3px); box-shadow:var(--shadow); }
+.cmp.before { background:rgba(239,68,68,.04); border-color:rgba(239,68,68,.2); }
+.cmp.after  { background:rgba(16,185,129,.04); border-color:rgba(16,185,129,.2); }
+.cmp h3 { font-size:.9rem; font-weight:700; margin-bottom:20px; }
+.cmp.before h3 { color:var(--red); }
+.cmp.after  h3 { color:var(--emerald); }
+.cmp-row { display:flex; gap:10px; align-items:flex-start; margin-bottom:13px; font-size:.87rem; color:var(--text); line-height:1.5; }
+.cmp-row .ic { flex-shrink:0; font-size:.9rem; margin-top:1px; }
+
+/* ── 8D PIPELINE ── */
+.pipeline-wrap { overflow-x:auto; padding-bottom:8px; }
+.pipeline {
+  display:flex; align-items:stretch; gap:0; min-width:960px;
+}
+.pipe {
+  flex:1; background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r); padding:18px 10px; text-align:center;
+  position:relative; transition:transform .2s, border-color .2s, box-shadow .2s;
+  cursor:default;
+}
+.pipe:hover { transform:translateY(-4px); border-color:var(--border2); box-shadow:var(--shadow); }
+.pipe:not(:last-child) { margin-right:18px; }
+.pipe:not(:last-child)::after {
+  content:'→';
+  position:absolute; right:-16px; top:50%; transform:translateY(-50%);
+  color:var(--muted); font-size:1rem; z-index:1;
+}
+.pipe.gate-d4 { background:rgba(245,158,11,.05); border-color:rgba(245,158,11,.3); }
+.pipe.gate-d4:hover { border-color:var(--amber); box-shadow:0 8px 24px rgba(245,158,11,.15); }
+.pipe.gate-d3 { background:rgba(14,165,233,.05); border-color:rgba(14,165,233,.28); }
+.pipe.gate-d3:hover { border-color:var(--teal); box-shadow:0 8px 24px rgba(14,165,233,.15); }
+.pipe-d    { font-size:.6rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+.pipe-icon { font-size:1.6rem; margin-bottom:8px; display:block; }
+.pipe-title { font-size:.75rem; font-weight:700; color:var(--white); margin-bottom:4px; }
+.pipe-sub   { font-size:.63rem; color:var(--muted); line-height:1.4; }
+.pipe.gate-d4 .pipe-title { color:var(--amber); }
+.pipe.gate-d3 .pipe-title { color:var(--teal); }
+
+/* ── DOMAIN CARDS ── */
+.domain-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+.domain-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r); padding:28px;
+  transition:transform .2s, border-color .2s, box-shadow .2s;
+  border-left-width:3px;
+}
+.domain-card:hover { transform:translateY(-4px); border-color:var(--border2); box-shadow:var(--shadow); }
+.dc-teal   { border-left-color:var(--teal); }
+.dc-amber  { border-left-color:var(--amber); }
+.dc-blue   { border-left-color:var(--blue); }
+.dc-emerald{ border-left-color:var(--emerald); }
+.domain-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+.domain-icon {
+  width:42px; height:42px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center; font-size:1.3rem; flex-shrink:0;
+}
+.dc-teal    .domain-icon { background:rgba(14,165,233,.1); }
+.dc-amber   .domain-icon { background:rgba(245,158,11,.1); }
+.dc-blue    .domain-icon { background:rgba(59,130,246,.1); }
+.dc-emerald .domain-icon { background:rgba(16,185,129,.1); }
+.domain-card h3 { font-size:.95rem; font-weight:700; color:var(--white); }
+.domain-card .std-ref { font-size:.7rem; color:var(--muted); margin-top:1px; }
+.skill-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.skill-list li {
+  display:flex; align-items:center; gap:10px; font-size:.83rem; color:var(--text);
+}
+.skill-list li::before {
+  content:''; width:5px; height:5px; border-radius:50%; flex-shrink:0;
+}
+.dc-teal    .skill-list li::before { background:var(--teal); }
+.dc-amber   .skill-list li::before { background:var(--amber); }
+.dc-blue    .skill-list li::before { background:var(--blue); }
+.dc-emerald .skill-list li::before { background:var(--emerald); }
+.skill-list .skill-std { font-size:.68rem; color:var(--muted); margin-left:auto; white-space:nowrap; }
+
+/* ── AGENT CARDS ── */
+.agent-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.agent-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r); padding:22px;
+  transition:transform .2s, border-color .2s, box-shadow .2s;
+  position:relative; overflow:hidden;
+}
+.agent-card::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 60% 40% at 50% 0%, var(--agent-glow,rgba(14,165,233,.06)), transparent);
+  opacity:0; transition:opacity .3s;
+}
+.agent-card:hover { transform:translateY(-4px); border-color:var(--border2); box-shadow:var(--shadow); }
+.agent-card:hover::before { opacity:1; }
+.agent-icon { font-size:1.5rem; margin-bottom:12px; display:block; position:relative; z-index:1; }
+.agent-card h3 { font-size:.88rem; font-weight:700; color:var(--white); margin-bottom:6px; position:relative; z-index:1; }
+.agent-card p  { font-size:.76rem; color:var(--muted); line-height:1.55; position:relative; z-index:1; }
+.agent-type {
+  display:inline-block; margin-top:10px; font-size:.63rem; font-weight:700; padding:2px 8px;
+  border-radius:999px; text-transform:uppercase; letter-spacing:.06em;
+  position:relative; z-index:1;
+}
+.type-interactive { background:rgba(14,165,233,.1); color:var(--teal); border:1px solid rgba(14,165,233,.25); }
+.type-evaluator   { background:rgba(245,158,11,.1); color:var(--amber); border:1px solid rgba(245,158,11,.25); }
+.type-framework   { background:rgba(16,185,129,.1); color:var(--emerald); border:1px solid rgba(16,185,129,.25); }
+
+/* ── QUALITY GATES ── */
+.gates-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+.gate-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r); padding:20px; display:flex; gap:16px;
+  align-items:flex-start; border-left-width:3px;
+  transition:transform .2s, box-shadow .2s;
+}
+.gate-card:hover { transform:translateX(3px); box-shadow:var(--shadow); }
+.gate-card h3   { font-size:.84rem; font-weight:700; color:var(--white); margin-bottom:4px; }
+.gate-card p    { font-size:.77rem; color:var(--muted); line-height:1.55; }
+.gate-card .gi  { font-size:1.3rem; flex-shrink:0; margin-top:2px; }
+.g-amber  { border-left-color:var(--amber); }
+.g-red    { border-left-color:var(--red); }
+.g-teal   { border-left-color:var(--teal); }
+.g-emerald{ border-left-color:var(--emerald); }
+.g-blue   { border-left-color:var(--blue); }
+
+/* ── PLATFORMS ── */
+.platforms-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.platform-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r); padding:26px 18px; text-align:center;
+  transition:transform .2s, border-color .2s, box-shadow .2s;
+  position:relative; overflow:hidden;
+}
+.platform-card::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse 60% 40% at 50% 0%, var(--glow-color,rgba(14,165,233,.08)), transparent);
+  opacity:0; transition:opacity .3s;
+}
+.platform-card:hover { transform:translateY(-5px); border-color:var(--border2); box-shadow:var(--shadow-lg); }
+.platform-card:hover::before { opacity:1; }
+.plat-logo {
+  width:52px; height:52px; border-radius:13px;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 14px; position:relative; z-index:1;
+}
+.platform-card h3  { font-size:.9rem; font-weight:700; color:var(--white); margin-bottom:5px; position:relative; z-index:1; }
+.platform-card p   { font-size:.73rem; color:var(--muted); line-height:1.5; position:relative; z-index:1; }
+.plat-badge {
+  display:inline-block; margin-top:10px;
+  font-size:.63rem; font-weight:700; padding:3px 8px;
+  border-radius:999px; text-transform:uppercase; letter-spacing:.06em;
+  position:relative; z-index:1;
+}
+.badge-live    { background:rgba(16,185,129,.12); color:var(--emerald); border:1px solid rgba(16,185,129,.3); }
+.badge-guide   { background:rgba(14,165,233,.12); color:var(--teal); border:1px solid rgba(14,165,233,.3); }
+.badge-coming  { background:rgba(92,92,92,.12); color:#94a3b8; border:1px solid rgba(92,92,92,.25); }
+
+.plat-chatgpt .plat-logo { background:rgba(16,163,127,.1); border:1px solid rgba(16,163,127,.2); }
+.plat-claude  .plat-logo { background:rgba(255,127,80,.1); border:1px solid rgba(255,127,80,.2); }
+.plat-teams   .plat-logo { background:rgba(70,113,195,.1); border:1px solid rgba(70,113,195,.2); }
+.plat-gemini  .plat-logo { background:rgba(66,133,244,.1); border:1px solid rgba(66,133,244,.2); }
+.plat-chatgpt { --glow-color:rgba(16,163,127,.08); }
+.plat-claude  { --glow-color:rgba(255,127,80,.08); }
+.plat-teams   { --glow-color:rgba(70,113,195,.08); }
+.plat-gemini  { --glow-color:rgba(66,133,244,.08); }
+
+/* ── QUICK START ── */
+.qs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.qs-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r); padding:28px 24px;
+  transition:transform .2s, box-shadow .2s, border-color .2s;
+}
+.qs-card:hover { transform:translateY(-3px); border-color:var(--border2); box-shadow:var(--shadow); }
+.qs-num {
+  width:36px; height:36px; border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),var(--teal-d));
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:.88rem; color:white; margin-bottom:16px;
+  box-shadow:0 4px 12px rgba(14,165,233,.3);
+}
+.qs-card h3 { font-size:.95rem; font-weight:700; color:var(--white); margin-bottom:6px; }
+.qs-card p  { font-size:.82rem; color:var(--muted); margin-bottom:16px; line-height:1.6; }
+.qs-card a  {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:.8rem; font-weight:600; text-decoration:none;
+  color:var(--teal); transition:opacity .15s;
+}
+.qs-card a:hover { opacity:.75; }
+.qs-card a::after { content:'→'; }
+
+/* Code inline */
+code {
+  background:rgba(255,255,255,.06); border:1px solid var(--border);
+  padding:2px 7px; border-radius:5px; font-family:monospace; font-size:.84em; color:#7dd3fc;
+}
+.code-block {
+  position:relative; background:#060e16; border:1px solid rgba(255,255,255,.08);
+  border-radius:8px; overflow:hidden; margin-top:10px;
+}
+.code-block pre { margin:0; padding:14px 48px 14px 16px; overflow-x:auto; }
+.code-block code {
+  font-family:'Fira Code','Cascadia Code','Consolas',monospace;
+  font-size:.76rem; color:#a5d8ff; white-space:pre;
+  background:none; border:none; padding:0;
+}
+.copy-btn {
+  position:absolute; top:8px; right:8px;
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.11);
+  color:var(--muted); font-size:.62rem; font-weight:600; padding:4px 10px;
+  border-radius:5px; cursor:pointer; transition:background .15s, color .15s;
+}
+.copy-btn:hover { background:rgba(255,255,255,.13); color:var(--text); }
+.copy-btn.copied { background:rgba(16,185,129,.14); color:var(--emerald); border-color:rgba(16,185,129,.3); }
+
+/* ── FAQ ── */
+.faq-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(460px, 1fr)); gap:32px; align-items:start; }
+.faq-group-label {
+  font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em;
+  color:var(--teal); margin-bottom:16px; padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+.faq-item {
+  border:1px solid var(--border); border-radius:var(--r-sm);
+  background:var(--surface); margin-bottom:8px; overflow:hidden;
+  transition:border-color .2s;
+}
+.faq-item:hover { border-color:var(--border2); }
+.faq-item[open] { border-color:rgba(14,165,233,.3); }
+.faq-item summary {
+  padding:15px 20px; font-weight:600; font-size:.88rem; color:var(--white);
+  cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;
+  gap:12px; user-select:none;
+}
+.faq-item summary::-webkit-details-marker { display:none; }
+.faq-item summary::after {
+  content:'+'; flex-shrink:0; width:20px; height:20px;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.05); border-radius:50%;
+  font-size:1rem; line-height:1; color:var(--muted);
+  transition:transform .25s ease, background .2s;
+}
+.faq-item[open] summary::after { content:'−'; transform:rotate(180deg); background:rgba(14,165,233,.14); color:var(--teal); }
+.faq-item[open] summary { color:var(--teal); }
+.faq-body {
+  padding:0 20px 18px; font-size:.84rem; color:var(--muted); line-height:1.7;
+  animation:fadeUp .2s ease both;
+}
+.faq-body p { margin-bottom:10px; }
+.faq-body p:last-child { margin-bottom:0; }
+.faq-body ul, .faq-body ol { padding-left:18px; margin-bottom:10px; }
+.faq-body li { margin-bottom:5px; }
+.faq-body strong { color:var(--text); }
+@media(max-width:900px) { .faq-grid { grid-template-columns:1fr; } }
+
+/* ── CTA ── */
+.cta-section {
+  background:linear-gradient(135deg, #060f18, #091620);
+  border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+  padding:80px 40px; text-align:center;
+}
+.cta-section h2 { font-size:2rem; font-weight:800; color:var(--white); margin-bottom:8px; letter-spacing:-.02em; }
+.cta-section p  { color:var(--muted); margin-bottom:32px; }
+.cta-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.star-cta {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 28px; border-radius:12px;
+  background:var(--white); color:#0d1117;
+  font-weight:800; font-size:1rem; text-decoration:none;
+  transition:transform .2s, filter .2s;
+}
+.star-cta:hover { transform:scale(1.03); filter:brightness(1.05); }
+.gpt-cta {
+  display:inline-flex; align-items:center; gap:10px;
+  padding:14px 28px; border-radius:12px;
+  background: linear-gradient(135deg, #0ea5e9, #0369a1);
+  color:white; font-weight:800; font-size:1rem; text-decoration:none;
+  animation: glow-teal 3s ease infinite;
+  transition:transform .2s;
+}
+.gpt-cta:hover { transform:scale(1.03); }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--bg); padding:40px;
+  border-top:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between;
+  flex-wrap:wrap; gap:16px;
+}
+.footer-logo { display:flex; align-items:center; gap:10px; }
+.footer-logo .licon {
+  width:28px; height:28px; border-radius:7px;
+  background:linear-gradient(135deg,#0369a1,#0ea5e9);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900; color:white; font-size:.78rem;
+}
+.footer-logo span { font-weight:700; font-size:.88rem; color:var(--white); }
+footer p { font-size:.78rem; color:var(--muted); }
+.footer-links { display:flex; gap:20px; }
+.footer-links a { font-size:.78rem; color:var(--muted); text-decoration:none; transition:color .15s; }
+.footer-links a:hover { color:var(--text); }
+
+/* ── AUTHORS ── */
+.authors-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
+.author-card {
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r); padding:24px; display:flex; gap:16px;
+  transition:transform .2s, border-color .2s, box-shadow .2s;
+}
+.author-card:hover { transform:translateY(-3px); border-color:var(--border2); box-shadow:var(--shadow); }
+.author-avatar {
+  width:46px; height:46px; border-radius:50%; flex-shrink:0;
+  background:linear-gradient(135deg,var(--teal-d),var(--teal));
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:1rem; color:white;
+}
+.author-name  { font-size:.92rem; font-weight:700; color:var(--white); }
+.author-role  { font-size:.73rem; color:var(--teal); margin:2px 0 6px; }
+.author-bio   { font-size:.76rem; color:var(--muted); line-height:1.5; }
+.author-link  {
+  display:inline-flex; align-items:center; gap:5px;
+  font-size:.72rem; font-weight:600; color:var(--muted);
+  text-decoration:none; margin-top:8px; transition:color .15s;
+}
+.author-link:hover { color:var(--teal); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px) {
+  nav { padding:0 20px; }
+  .hero { padding:100px 24px 60px; }
+  .section { padding:64px 24px; }
+  .compare { grid-template-columns:1fr; }
+  .platforms-grid { grid-template-columns:repeat(2,1fr); }
+  .domain-grid  { grid-template-columns:1fr; }
+  .agent-grid   { grid-template-columns:repeat(2,1fr); }
+  .qs-grid      { grid-template-columns:1fr; }
+  .hero-stats { flex-direction:column; }
+  .hero-stat { border-right:none; border-bottom:1px solid var(--border); }
+  .hero-stat:last-child { border-bottom:none; }
+  footer { flex-direction:column; text-align:center; }
+  .footer-links { justify-content:center; }
+}
+@media(max-width:600px) {
+  .hero h1 { font-size:2.2rem; }
+  .agent-grid { grid-template-columns:1fr; }
+  .platforms-grid { grid-template-columns:1fr 1fr; }
+  .nav-logo-badge { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">QE</div>
+    <span class="nav-logo-text">Quality Engineering Skills</span>
+    <span class="nav-logo-badge">v1.1</span>
+  </a>
+  <div class="nav-right">
+    <a class="btn-gpt" href="https://chatgpt.com/g/g-6a22e9e03f8881918c35741d618bad54-quality-engineering-assistant" target="_blank" rel="noopener">
+      <svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-7.504-3.366 10.079 10.079 0 0 0-9.612 6.977 9.967 9.967 0 0 0-6.664 4.834 10.08 10.08 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 7.504 3.366 10.08 10.08 0 0 0 9.617-6.981 9.967 9.967 0 0 0 6.663-4.834 10.079 10.079 0 0 0-1.243-11.813zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496zM6.392 31.006a7.471 7.471 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.24-2.744zM4.297 13.62A7.469 7.469 0 0 1 8.2 10.333c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.012L7.044 23.86a7.504 7.504 0 0 1-2.747-10.24zm27.658 6.437-9.724-5.615 3.367-1.943a.121.121 0 0 1 .114-.012l8.048 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.647-1.13zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.135 7.763zm-21.063 6.929-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756 6.94 6.94 0 0 0-.236.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.006 11.225zm1.829-3.943 4.33-2.501 4.332 2.498v4.998l-4.331 2.5-4.331-2.5V18z" fill="currentColor"/>
+      </svg>
+      Try on ChatGPT
+    </a>
+    <a class="btn-github" href="https://github.com/RBraga01/Quality-Engineering-Skills" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+      </svg>
+      Star on GitHub
+    </a>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Free · Open Source · MIT License
+    </div>
+    <h1>Quality engineering skills<br>for <span class="grad">AI agents</span></h1>
+    <p class="hero-sub">The canonical reference that every AI agent in the quality domain pulls from. 18 structured methodologies — 8D, PFMEA, DFMEA, NCR, audits — that work across ChatGPT, Claude, Gemini, and more.</p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="https://chatgpt.com/g/g-6a22e9e03f8881918c35741d618bad54-quality-engineering-assistant" target="_blank" rel="noopener">
+        Try the GPT — Free →
+      </a>
+      <a class="btn-secondary" href="#methodologies">Explore the skills</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-n n-teal">13</div><div class="hero-stat-l">Skill Files</div></div>
+      <div class="hero-stat"><div class="hero-stat-n n-emerald">6</div><div class="hero-stat-l">AI Agents</div></div>
+      <div class="hero-stat"><div class="hero-stat-n n-amber">4+</div><div class="hero-stat-l">Platforms</div></div>
+      <div class="hero-stat"><div class="hero-stat-n n-blue">0</div><div class="hero-stat-l">Setup for GPT</div></div>
+    </div>
+    <div class="standards-row">
+      <span class="std-badge std-iso">ISO 9001:2015</span>
+      <span class="std-badge std-iatf">IATF 16949:2016</span>
+      <span class="std-badge std-aiag">AIAG-VDA FMEA 2019</span>
+      <span class="std-badge std-vda">VDA</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ COMPARE ══════════ -->
+<section class="section reveal">
+  <div class="section-tag">The Problem</div>
+  <h2>Your AI doesn't know quality methodology</h2>
+  <p class="section-sub">Without QES, an AI gives you generic advice. With QES, it applies the same validation rules an experienced QE engineer would use on a real customer complaint.</p>
+  <div class="compare">
+    <div class="cmp before">
+      <h3>❌ AI without Quality Engineering Skills</h3>
+      <div class="cmp-row"><span class="ic">😕</span><span>Accepts "operator error" as a root cause without challenge</span></div>
+      <div class="cmp-row"><span class="ic">😕</span><span>Writes "we will inspect going forward" as D3 containment</span></div>
+      <div class="cmp-row"><span class="ic">😕</span><span>Generates a single root cause instead of two (occurrence + escape)</span></div>
+      <div class="cmp-row"><span class="ic">😕</span><span>Doesn't know Ford 8D, BMW G8D, or VW QMSS format differences</span></div>
+      <div class="cmp-row"><span class="ic">😕</span><span>Assigns RPN instead of AIAG-VDA 2019 Action Priority (AP)</span></div>
+      <div class="cmp-row"><span class="ic">😕</span><span>Accepts verbal confirmation as audit evidence</span></div>
+    </div>
+    <div class="cmp after">
+      <h3>✅ AI with Quality Engineering Skills</h3>
+      <div class="cmp-row"><span class="ic">🎯</span><span>Challenges "human error" — asks why it was possible at all</span></div>
+      <div class="cmp-row"><span class="ic">🎯</span><span>Rejects future-tense containment — D3 must be past tense with date</span></div>
+      <div class="cmp-row"><span class="ic">🎯</span><span>Requires two validated root causes: occurrence AND escape chain</span></div>
+      <div class="cmp-row"><span class="ic">🎯</span><span>Generates OEM-specific 8D reports — Ford, BMW, VW, Stellantis</span></div>
+      <div class="cmp-row"><span class="ic">🎯</span><span>Applies AIAG-VDA 2019 AP logic — S=9/10 is always High Priority</span></div>
+      <div class="cmp-row"><span class="ic">🎯</span><span>Demands objective evidence — "Show me the record"</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════ 8D PIPELINE ══════════ -->
+<section class="section reveal">
+  <div class="section-tag">The Methodology</div>
+  <h2>Every 8D follows the same validated path</h2>
+  <p class="section-sub">The 8D Coach agent enforces discipline-by-discipline progression. No skipping. No moving forward until each gate passes.</p>
+  <div class="pipeline-wrap">
+    <div class="pipeline">
+      <div class="pipe">
+        <div class="pipe-d">D0</div><span class="pipe-icon">🚨</span>
+        <div class="pipe-title">Emergency</div>
+        <div class="pipe-sub">Safety risk + suspect material status</div>
+      </div>
+      <div class="pipe">
+        <div class="pipe-d">D1</div><span class="pipe-icon">👥</span>
+        <div class="pipe-title">Team</div>
+        <div class="pipe-sub">Cross-functional — quality + production + engineering</div>
+      </div>
+      <div class="pipe">
+        <div class="pipe-d">D2</div><span class="pipe-icon">📐</span>
+        <div class="pipe-title">Problem</div>
+        <div class="pipe-sub">Measured values vs. spec. No root cause allowed yet.</div>
+      </div>
+      <div class="pipe gate-d3">
+        <div class="pipe-d">D3 ●</div><span class="pipe-icon">🔒</span>
+        <div class="pipe-title">Containment</div>
+        <div class="pipe-sub">Past tense + date + verification evidence</div>
+      </div>
+      <div class="pipe gate-d4">
+        <div class="pipe-d">D4 ✦</div><span class="pipe-icon">🔬</span>
+        <div class="pipe-title">Root Cause</div>
+        <div class="pipe-sub">TWO chains required — occurrence AND escape</div>
+      </div>
+      <div class="pipe">
+        <div class="pipe-d">D5</div><span class="pipe-icon">⚙️</span>
+        <div class="pipe-title">Corrections</div>
+        <div class="pipe-sub">Each PCA directly addresses a D4 root cause</div>
+      </div>
+      <div class="pipe">
+        <div class="pipe-d">D6</div><span class="pipe-icon">📊</span>
+        <div class="pipe-title">Verify</div>
+        <div class="pipe-sub">Production data after PCA. Quantified run.</div>
+      </div>
+      <div class="pipe">
+        <div class="pipe-d">D7</div><span class="pipe-icon">📋</span>
+        <div class="pipe-title">Prevent</div>
+        <div class="pipe-sub">PFMEA + CP + WI updated. Horizontal deployment.</div>
+      </div>
+      <div class="pipe">
+        <div class="pipe-d">D8</div><span class="pipe-icon">✅</span>
+        <div class="pipe-title">Close</div>
+        <div class="pipe-sub">Champion sign-off. Customer notification.</div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:.75rem; color:var(--muted); margin-top:14px;">● D3 gate: containment must physically prevent escape — not "we will inspect going forward" · ✦ D4 gate: two validated root cause chains required, supported by objective evidence</p>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════ SKILL DOMAINS ══════════ -->
+<section class="section reveal" id="methodologies">
+  <div class="section-tag">The Skills</div>
+  <h2>18 methodologies across 4 domains</h2>
+  <p class="section-sub">Every skill is grounded in a specific standard edition. No generic advice — structured workflow with validation gates.</p>
+  <div class="domain-grid">
+
+    <div class="domain-card dc-teal reveal">
+      <div class="domain-header">
+        <div class="domain-icon">🔧</div>
+        <div>
+          <h3>Problem Solving</h3>
+          <div class="std-ref">ISO 9001:2015 §10.2 · IATF 16949:2016 §10.2.3</div>
+        </div>
+      </div>
+      <ul class="skill-list">
+        <li>8D Problem Solving — D0 through D8, gate validation<span class="skill-std">8D · G8D · TOPS-8D</span></li>
+        <li>5-Why Root Cause Analysis — dual chain, evidence status<span class="skill-std">ISO 9001 §10.2</span></li>
+        <li>Fishbone / Ishikawa — 6M framework, evaluation matrix<span class="skill-std">ISO 9001 §10.2</span></li>
+        <li>Is / Is-Not Scoping — Ford D2 tool, hypothesis elimination<span class="skill-std">ISO 9001 §10.2</span></li>
+        <li>PDCA Improvement Cycle — Plan-Do-Check-Act with gate criteria<span class="skill-std">ISO 9001 §10.3</span></li>
+      </ul>
+    </div>
+
+    <div class="domain-card dc-amber reveal">
+      <div class="domain-header">
+        <div class="domain-icon">⚠️</div>
+        <div>
+          <h3>Risk Analysis</h3>
+          <div class="std-ref">AIAG-VDA FMEA Handbook 2019 · IATF 16949:2016 §8.3.3.3</div>
+        </div>
+      </div>
+      <ul class="skill-list">
+        <li>PFMEA — 7-step AIAG-VDA 2019 workflow<span class="skill-std">AIAG-VDA 2019</span></li>
+        <li>DFMEA — interface matrix, DFMEA-to-PFMEA handoff<span class="skill-std">AIAG-VDA 2019</span></li>
+        <li>Action Priority (AP) — H/M/L classification, OEM CSR rules<span class="skill-std">AIAG-VDA Step 5</span></li>
+      </ul>
+    </div>
+
+    <div class="domain-card dc-blue reveal">
+      <div class="domain-header">
+        <div class="domain-icon">📄</div>
+        <div>
+          <h3>Documentation</h3>
+          <div class="std-ref">ISO 9001:2015 §8.7 · §10.2</div>
+        </div>
+      </div>
+      <ul class="skill-list">
+        <li>NCR Writing — objective-evidence language, severity classification<span class="skill-std">ISO 9001 §8.7</span></li>
+        <li>Corrective Action Request (CAR) — D5–D6 linkage, effectiveness<span class="skill-std">ISO 9001 §10.2</span></li>
+        <li>8D Report Writing — OEM-specific formats (Ford, BMW, VW, Stellantis)<span class="skill-std">IATF §10.2.3</span></li>
+      </ul>
+    </div>
+
+    <div class="domain-card dc-emerald reveal">
+      <div class="domain-header">
+        <div class="domain-icon">🔍</div>
+        <div>
+          <h3>Audit</h3>
+          <div class="std-ref">ISO 9001:2015 · IATF 16949:2016 §9.2.2</div>
+        </div>
+      </div>
+      <ul class="skill-list">
+        <li>ISO 9001 Internal Audit — clause-by-clause, evidence-based<span class="skill-std">ISO 9001:2015</span></li>
+        <li>IATF 16949 Supplemental Audit — CSR register, 3 audit streams<span class="skill-std">IATF 16949:2016</span></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════ AGENTS ══════════ -->
+<section class="section reveal">
+  <div class="section-tag">The Agents</div>
+  <h2>6 interactive AI agents</h2>
+  <p class="section-sub">Agents are interactive, multi-step sessions. They guide you through complex quality workflows, validate at every step, and reject weak answers.</p>
+  <div class="agent-grid">
+
+    <div class="agent-card reveal" style="--agent-glow:rgba(14,165,233,.07)">
+      <span class="agent-icon">🎓</span>
+      <h3>8D Coach</h3>
+      <p>Step-by-step 8D facilitation D0→D8. Validates each discipline, blocks progress until gates pass. Rejects "will inspect going forward".</p>
+      <span class="agent-type type-interactive">Interactive</span>
+    </div>
+
+    <div class="agent-card reveal" style="--agent-glow:rgba(245,158,11,.07)">
+      <span class="agent-icon">📋</span>
+      <h3>FMEA Reviewer</h3>
+      <p>Reviews PFMEA or DFMEA for AP compliance. Flags every H-AP item without justified action. Reports OEM CSR binding requirements.</p>
+      <span class="agent-type type-evaluator">Evaluator</span>
+    </div>
+
+    <div class="agent-card reveal" style="--agent-glow:rgba(16,185,129,.07)">
+      <span class="agent-icon">🔬</span>
+      <h3>RCA Facilitator</h3>
+      <p>Interactive 5-Why session one step at a time. Detects circular reasoning. Requires two independent chains: occurrence AND escape.</p>
+      <span class="agent-type type-interactive">Interactive</span>
+    </div>
+
+    <div class="agent-card reveal" style="--agent-glow:rgba(59,130,246,.07)">
+      <span class="agent-icon">✍️</span>
+      <h3>NCR Writer</h3>
+      <p>Converts bullet points into professional NCR text. Enforces objective-evidence language. Flags missing measured values.</p>
+      <span class="agent-type type-evaluator">Evaluator</span>
+    </div>
+
+    <div class="agent-card reveal" style="--agent-glow:rgba(14,165,233,.07)">
+      <span class="agent-icon">🔎</span>
+      <h3>Audit Guide</h3>
+      <p>Clause-by-clause ISO 9001 or IATF 16949 audit. Only open questions. Never accepts verbal confirmation as evidence.</p>
+      <span class="agent-type type-interactive">Interactive</span>
+    </div>
+
+    <div class="agent-card reveal" style="--agent-glow:rgba(16,185,129,.07)">
+      <span class="agent-icon">⚙️</span>
+      <h3>Skill Auditor</h3>
+      <p>Scores SKILL.md files 0–10 across 5 dimensions. Generates copy-paste improvements. Blocks PRs when score &lt; 8.</p>
+      <span class="agent-type type-framework">Framework</span>
+    </div>
+
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════ QUALITY GATES ══════════ -->
+<section class="section reveal">
+  <div class="section-tag">The Rules</div>
+  <h2>Gates that cannot be bypassed</h2>
+  <p class="section-sub">Every agent enforces these rules. They are not suggestions — they are based on what actually gets rejected by Ford, BMW, and VW SQEs.</p>
+  <div class="gates-grid">
+    <div class="gate-card g-amber reveal">
+      <div class="gi">🔬</div>
+      <div><h3>Two Root Causes — Always</h3><p>D4 requires a root cause of OCCURRENCE (why did it happen?) AND a root cause of ESCAPE (why wasn't it caught?). One chain is never sufficient.</p></div>
+    </div>
+    <div class="gate-card g-red reveal">
+      <div class="gi">🚫</div>
+      <div><h3>"Human Error" Is Not a Root Cause</h3><p>The agent asks why human error was possible. "Operator didn't follow procedure" triggers another why: why was non-conformance to procedure possible?</p></div>
+    </div>
+    <div class="gate-card g-teal reveal">
+      <div class="gi">📅</div>
+      <div><h3>D3 Must Be Past Tense</h3><p>Containment must have an implementation date in the past. "We will inspect going forward" is rejected. Containment stays active until D6 evidence confirms effectiveness.</p></div>
+    </div>
+    <div class="gate-card g-amber reveal">
+      <div class="gi">⚠️</div>
+      <div><h3>AP=H Requires Justified Action</h3><p>Every High Priority AP item needs a mandatory action or a formally documented engineering justification. AP=H without action is a block — per AIAG-VDA and OEM CSR.</p></div>
+    </div>
+    <div class="gate-card g-red reveal">
+      <div class="gi">📎</div>
+      <div><h3>Evidence — Not Verbal Confirmation</h3><p>Audit: "Can you show me the records?" not "Do you have records?" A conforming verbal answer never counts. One record does not confirm systemic conformity.</p></div>
+    </div>
+    <div class="gate-card g-emerald reveal">
+      <div class="gi">📋</div>
+      <div><h3>D7 — Three Documents Updated</h3><p>Before D8 closure: PFMEA updated, Control Plan updated, Work Instructions updated. All three required. Horizontal deployment to similar processes assessed.</p></div>
+    </div>
+    <div class="gate-card g-teal reveal">
+      <div class="gi">📐</div>
+      <div><h3>D2 — Measured Values vs. Spec</h3><p>Problem description must include the measured value, the specification, and the part number + revision. No root cause speculation in D2. No vague descriptions.</p></div>
+    </div>
+    <div class="gate-card g-blue reveal">
+      <div class="gi">🏭</div>
+      <div><h3>Special Characteristics — Document Consistency</h3><p>SC symbols must be consistent across drawing, DFMEA, PFMEA, Control Plan, and Work Instructions. Any inconsistency is treated as a Major audit finding.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════ PLATFORMS ══════════ -->
+<section class="section reveal">
+  <div class="section-tag">Platforms</div>
+  <h2>Works where quality engineers work</h2>
+  <p class="section-sub">Same methodology. Same validation rules. Whatever platform your team uses.</p>
+  <div class="platforms-grid">
+
+    <!-- ChatGPT -->
+    <div class="platform-card plat-chatgpt reveal">
+      <div class="plat-logo">
+        <svg width="34" height="34" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-7.504-3.366 10.079 10.079 0 0 0-9.612 6.977 9.967 9.967 0 0 0-6.664 4.834 10.08 10.08 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 7.504 3.366 10.08 10.08 0 0 0 9.617-6.981 9.967 9.967 0 0 0 6.663-4.834 10.079 10.079 0 0 0-1.243-11.813zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496z" fill="#10a37f"/>
+        </svg>
+      </div>
+      <h3>ChatGPT Custom GPT</h3>
+      <p>Live now in the GPT Store. No setup. Click and start your 8D, NCR, or audit.</p>
+      <span class="plat-badge badge-live">Live Now</span>
+    </div>
+
+    <!-- Claude.ai -->
+    <div class="platform-card plat-claude reveal">
+      <div class="plat-logo">
+        <svg width="34" height="34" viewBox="0 0 46 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M26.042 0h-6.084L7.625 33.999h6.417l2.834-7.776h11.249l2.833 7.776H37.375L26.042 0zm-7.498 20.624 3.456-9.498 3.457 9.498h-6.913z" fill="#CC785C"/>
+        </svg>
+      </div>
+      <h3>Claude.ai Project</h3>
+      <p>Private project with full knowledge files. Setup guide available — takes under 10 minutes.</p>
+      <span class="plat-badge badge-guide">Setup Guide</span>
+    </div>
+
+    <!-- Microsoft Teams -->
+    <div class="platform-card plat-teams reveal">
+      <div class="plat-logo">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.625 6.75h-3.75v8.25c0 2.07-1.68 3.75-3.75 3.75H9.375A3.375 3.375 0 0 0 12.75 21h7.875A2.625 2.625 0 0 0 23.25 18.375V9.375A2.625 2.625 0 0 0 20.625 6.75z" fill="#5059C9"/>
+          <path d="M13.125 3H5.625A2.625 2.625 0 0 0 3 5.625v7.5A2.625 2.625 0 0 0 5.625 15.75h7.5A2.625 2.625 0 0 0 15.75 13.125v-7.5A2.625 2.625 0 0 0 13.125 3z" fill="#7B83EB"/>
+          <path d="M9.375 10.5a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5z" fill="white"/>
+        </svg>
+      </div>
+      <h3>Microsoft Teams</h3>
+      <p>Copilot Studio connector and M365 AppSource listing planned for Week 4.</p>
+      <span class="plat-badge badge-coming">Week 4</span>
+    </div>
+
+    <!-- Gemini -->
+    <div class="platform-card plat-gemini reveal">
+      <div class="plat-logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#4285F4" opacity=".15"/>
+          <path d="M12 2v20c2.76-2.5 4-5.5 4-10s-1.24-7.5-4-10z" fill="#4285F4"/>
+          <path d="M12 2v20c-2.76-2.5-4-5.5-4-10s1.24-7.5 4-10z" fill="#34A853"/>
+        </svg>
+      </div>
+      <h3>Gemini / Google</h3>
+      <p>Gemini for Workspace and Gemini CLI integration planned alongside Teams rollout.</p>
+      <span class="plat-badge badge-coming">Week 4</span>
+    </div>
+
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════ QUICK START ══════════ -->
+<section class="section reveal" id="start">
+  <div class="section-tag">Quick Start</div>
+  <h2>Three ways to start in 60 seconds</h2>
+  <p class="section-sub">Pick the path that fits your context. No account required for the ChatGPT GPT.</p>
+  <div class="qs-grid">
+
+    <div class="qs-card reveal">
+      <div class="qs-num">1</div>
+      <h3>Try on ChatGPT — no setup</h3>
+      <p>The 8D Evaluator, NCR Writer, Root Cause Facilitator, and Audit Guide are live. Paste your 8D or NCR and get a structured gap report instantly.</p>
+      <a href="https://chatgpt.com/g/g-6a22e9e03f8881918c35741d618bad54-quality-engineering-assistant" target="_blank" rel="noopener">Open Quality Engineering GPT</a>
+    </div>
+
+    <div class="qs-card reveal">
+      <div class="qs-num">2</div>
+      <h3>Set up a Claude.ai Project</h3>
+      <p>10-minute setup: create a project, paste the instructions, upload 16 knowledge files. Full methodology available in your private Claude workspace.</p>
+      <a href="https://github.com/RBraga01/Quality-Engineering-Skills/tree/master/platforms/claude-ai" target="_blank" rel="noopener">Read the setup guide</a>
+    </div>
+
+    <div class="qs-card reveal">
+      <div class="qs-num">3</div>
+      <h3>Clone for Claude Code</h3>
+      <p>Integrate directly into your quality system or build on top of the skill library. MIT licensed, fork-ready.</p>
+      <div class="code-block">
+        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <pre><code>npx skills add RBraga01/Quality-Engineering-Skills</code></pre>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════ FAQ ══════════ -->
+<section class="section reveal" id="faq">
+  <div class="section-tag">FAQ</div>
+  <h2>Frequently asked questions</h2>
+  <p class="section-sub">Everything you need to know about using Quality Engineering Skills.</p>
+  <div class="faq-grid">
+
+    <div class="faq-group reveal">
+      <div class="faq-group-label">Getting Started</div>
+
+      <details class="faq-item">
+        <summary>What is Quality Engineering Skills?</summary>
+        <div class="faq-body">
+          <p>Quality Engineering Skills is an open-source library of structured quality methodology files for AI agents. It gives any AI — ChatGPT, Claude, Gemini — the same domain knowledge and validation rules that a senior quality engineer would apply.</p>
+          <p>Instead of asking an AI "how do I run a 5-Why?" and getting generic advice, a QES-powered agent asks you for evidence at each step, challenges circular reasoning, and tells you whether your root cause chain is strong enough to close the 8D.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I need to know quality engineering to use this?</summary>
+        <div class="faq-body">
+          <p>No — that's the point. The agents guide you through each methodology step by step and explain what a good answer looks like when they challenge yours. You learn the methodology by doing it under guidance.</p>
+          <p>That said, practitioners with quality engineering background will get more value faster, because they can recognise when the agent's guidance matches what they know from experience.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How is this different from just asking ChatGPT about 8D?</summary>
+        <div class="faq-body">
+          <p>Asking ChatGPT "how do I do 8D?" gives you an explanation. QES gives an AI the methodology to <strong>run a real 8D with you</strong> — one discipline at a time, with gate validation.</p>
+          <p>The key differences:</p>
+          <ul>
+            <li>D3 containment is <strong>rejected if it's future-tense</strong> — "we will inspect" gets challenged immediately</li>
+            <li>D4 requires <strong>two root causes</strong> — occurrence AND escape — not just one</li>
+            <li>"Human error" as a root cause is <strong>always challenged</strong> — the agent asks why human error was possible</li>
+            <li>The agent knows the <strong>OEM-specific</strong> 8D formats (Ford, BMW, VW/Audi, Stellantis) and their SQE requirements</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is this based on real standards?</summary>
+        <div class="faq-body">
+          <p>Yes. Every skill is grounded in specific standard editions:</p>
+          <ul>
+            <li><strong>ISO 9001:2015</strong> — problem solving, NCR, CAR, audits</li>
+            <li><strong>IATF 16949:2016</strong> — supplemental audit requirements, customer-specific requirements</li>
+            <li><strong>AIAG-VDA FMEA Handbook 2019</strong> — Action Priority replaces RPN, 7-step method</li>
+          </ul>
+          <p>All methodology claims cite the specific standard clause or section. Generic content is rejected in pull requests.</p>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="faq-group reveal">
+      <div class="faq-group-label">Standards &amp; Industries</div>
+
+      <details class="faq-item">
+        <summary>Which OEM 8D formats are supported?</summary>
+        <div class="faq-body">
+          <p>The 8D Report Writing skill and the 8D Coach agent cover:</p>
+          <ul>
+            <li><strong>Ford</strong> — 8D form via Covisint / GSDB portal, D4 root cause requirements</li>
+            <li><strong>BMW</strong> — Global 8D (G8D) via SupplierPortal (SIM)</li>
+            <li><strong>VW / Audi</strong> — QMSS (Lieferantenselbstauskunft) via SupplyOn</li>
+            <li><strong>Stellantis</strong> — 8D via CQMS, SQE approval for H-AP acceptance</li>
+            <li><strong>Mercedes-Benz</strong> — 8D / ATC via SupplyOn</li>
+          </ul>
+          <p>Each OEM has different D4 root cause depth requirements and D7 documentation standards. The skill knows these differences.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What changed in the AIAG-VDA FMEA 2019 vs. old RPN method?</summary>
+        <div class="faq-body">
+          <p>The 2019 AIAG-VDA joint handbook replaced the old Risk Priority Number (RPN = S×O×D) with <strong>Action Priority (AP) — H/M/L</strong>. Key changes:</p>
+          <ul>
+            <li>Severity = 9 or 10 is <strong>always High Priority</strong>, regardless of occurrence or detection — this was not true with RPN</li>
+            <li>AP=H items require mandatory action or a <strong>formally documented engineering justification</strong> — "we accept this risk" is not sufficient without documented sign-off</li>
+            <li>The 7-step method (Structure → Function → Failure → Risk → Optimization → Results → Documentation) replaced the open-ended approach</li>
+          </ul>
+          <p>The pfmea-process and action-priority-ap skills implement the 2019 method, not the old handbook.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Does this work for industries other than automotive?</summary>
+        <div class="faq-body">
+          <p>Yes. The core methodologies — 8D, 5-Why, PFMEA, NCR writing, ISO 9001 audit — apply across automotive, electronics, aerospace, medical devices, and general manufacturing. The OEM-specific sections are clearly marked.</p>
+          <p>The metadata on each skill includes an <code>industries</code> field. All 13 base skills include <code>automotive, electronics, aerospace, medical, general</code>. Only the OEM-specific reference files are automotive-only.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What IATF 16949 supplemental requirements does the audit skill cover?</summary>
+        <div class="faq-body">
+          <p>The iatf-16949-audit skill covers all 16 supplemental requirements, including the three most commonly non-conforming:</p>
+          <ul>
+            <li><strong>§4.3.2 Customer-specific requirements (CSR)</strong> — register, review evidence, implementation traceability</li>
+            <li><strong>§6.1.2.3 Contingency plans</strong> — documented, reviewed, tested — not just written</li>
+            <li><strong>§8.3.3.3 Special characteristics</strong> — consistent SC symbols across all documents (drawing, DFMEA, PFMEA, CP, WI)</li>
+          </ul>
+          <p>The three mandatory IATF audit streams (QMS audit, manufacturing process audit, product audit) are also covered.</p>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="faq-group reveal">
+      <div class="faq-group-label">Contributing &amp; License</div>
+
+      <details class="faq-item">
+        <summary>Is this free to use in commercial work?</summary>
+        <div class="faq-body">
+          <p>Yes. Quality Engineering Skills is released under the <strong>MIT License</strong>. Use it, embed it, build SaaS products on top of it — the only requirement is keeping the copyright notice in any distribution.</p>
+          <p>The 8D Evaluator is <strong>permanently free</strong> — it will never move to a paid tier.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How can I contribute a new skill?</summary>
+        <div class="faq-body">
+          <p>All skills must be grounded in actual standard methodology — generic AI text is rejected. To contribute:</p>
+          <ol>
+            <li>Contact @RBraga01 for collaborator access</li>
+            <li>Create a branch: <code>feat/your-skill-name</code></li>
+            <li>Follow the SKILL.md format (frontmatter + required sections + Output Format + Changelog)</li>
+            <li>Include all document control fields: <code>status</code>, <code>created</code>, <code>reviewed_by</code>, <code>standard_edition</code></li>
+            <li>Open a PR with: skill name, standard it implements, your domain expertise</li>
+          </ol>
+          <p>Skills from practitioners are prioritised. The <strong>Skill Auditor agent</strong> scores every submission — minimum score 8.0 to merge.</p>
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════ AUTHORS ══════════ -->
+<section class="section reveal">
+  <div class="section-tag">Authors</div>
+  <h2>Built by practitioners</h2>
+  <p class="section-sub">Every skill is written and reviewed by working quality engineers with OEM customer-facing experience.</p>
+  <div class="authors-grid">
+    <div class="author-card reveal">
+      <div class="author-avatar">RB</div>
+      <div>
+        <div class="author-name">Ricardo Braga</div>
+        <div class="author-role">Lead — @RBraga01</div>
+        <div class="author-bio">15+ years in quality engineering — claim manager for ~30 electronic component suppliers, expert in 8D and problem solving. Founder of iPS, a SaaS quality management tool for automotive and electronics suppliers. Part of the iPS quality management ecosystem.</div>
+        <a class="author-link" href="https://github.com/RBraga01" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          @RBraga01
+        </a>
+      </div>
+    </div>
+    <div class="author-card reveal">
+      <div class="author-avatar" style="background:linear-gradient(135deg,#065f46,#10b981)">MS</div>
+      <div>
+        <div class="author-name">Miguel Santos</div>
+        <div class="author-role">Contributor — @migmcc</div>
+        <div class="author-bio">Global Quality Manager at Bosch Portugal with 25+ years of quality engineering experience. Expert in automotive supplier quality, ISO 9001, IATF 16949, and electromechanical and mechanical supplier management. Co-founder of iPS.</div>
+        <a class="author-link" href="https://github.com/migmcc" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          @migmcc
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════ STAR CTA ══════════ -->
+<div class="cta-section">
+  <h2>Start using quality engineering skills today</h2>
+  <p>The 8D Evaluator is free forever. No account, no setup — paste your 8D and get a structured gap report.</p>
+  <div class="cta-btns">
+    <a class="gpt-cta" href="https://chatgpt.com/g/g-6a22e9e03f8881918c35741d618bad54-quality-engineering-assistant" target="_blank" rel="noopener">
+      Try on ChatGPT — Free
+    </a>
+    <a class="star-cta" href="https://github.com/RBraga01/Quality-Engineering-Skills" target="_blank" rel="noopener">
+      ⭐ Star on GitHub
+    </a>
+  </div>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-logo">
+    <div class="licon">QE</div>
+    <span>Quality Engineering Skills v1.1</span>
+  </div>
+  <p>MIT License · 13 skills · 6 agents · ISO 9001 base · Ricardo Braga & Miguel Santos</p>
+  <div class="footer-links">
+    <a href="https://github.com/RBraga01/Quality-Engineering-Skills" target="_blank">GitHub</a>
+    <a href="https://chatgpt.com/g/g-6a22e9e03f8881918c35741d618bad54-quality-engineering-assistant" target="_blank">ChatGPT GPT</a>
+    <a href="https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/CONTRIBUTING.md" target="_blank">Contribute</a>
+    <a href="https://github.com/RBraga01/Quality-Engineering-Skills/tree/master/platforms/claude-ai" target="_blank">Claude.ai Setup</a>
+  </div>
+</footer>
+
+<script>
+// Scroll-triggered reveal animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+// Stagger cards within grids
+document.querySelectorAll('.domain-grid, .agent-grid, .gates-grid, .platforms-grid, .compare, .qs-grid, .authors-grid').forEach(grid => {
+  [...grid.children].forEach((child, i) => {
+    child.style.transitionDelay = `${i * 65}ms`;
+  });
+});
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Animate pipeline on scroll
+const pipelineObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      [...entry.target.querySelectorAll('.pipe')].forEach((p, i) => {
+        setTimeout(() => {
+          p.style.opacity = '1';
+          p.style.transform = 'translateY(0)';
+        }, i * 70);
+      });
+      pipelineObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.pipeline').forEach(p => {
+  [...p.querySelectorAll('.pipe')].forEach(step => {
+    step.style.opacity = '0';
+    step.style.transform = 'translateY(16px)';
+    step.style.transition = 'opacity .4s ease, transform .4s ease';
+  });
+  pipelineObserver.observe(p);
+});
+
+// Hero stats count-up animation
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('.hero-stat-n').forEach((el, i) => {
+        el.style.animation = `count-up .5s ease ${i * 100}ms both`;
+      });
+      statsObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.hero-stats').forEach(s => statsObserver.observe(s));
+
+// Copy button
+function copyCode(btn) {
+  const code = btn.nextElementSibling.querySelector('code');
+  navigator.clipboard.writeText(code.innerText).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
