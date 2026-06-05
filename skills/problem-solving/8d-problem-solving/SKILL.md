@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.0"
+  version: "1.1"
   iso-9001: "10.2"
   iatf-16949: "10.2.3"
   domain: quality-engineering
@@ -17,6 +17,29 @@ metadata:
 ---
 
 # 8D Problem Solving
+
+## Goal
+
+Produce a validated, audit-ready 8D report with proven root causes and effective corrective actions that prevent recurrence — accepted by the customer and filed in the quality system.
+
+## Required Execution Checklist
+
+Quick-reference for agents and practitioners. All items must be complete before D8 closure.
+
+- [ ] D0: Safety and regulatory risk assessed and documented
+- [ ] D0: Suspect material identified and physically segregated
+- [ ] D1: Cross-functional team assembled with champion identified
+- [ ] D2: Problem described with measured values, part number, quantity, and Is/Is-Not
+- [ ] D3: Containment implemented (past tense) with date and effectiveness evidence
+- [ ] D4: Root cause of **occurrence** identified and validated with data or experiment
+- [ ] D4: Root cause of **escape** identified and validated with data or experiment
+- [ ] D5: One PCA per root cause selected, with verification plan
+- [ ] D6: PCA implemented; verification data confirms zero recurrence; ICA formally removed
+- [ ] D7: PFMEA, Control Plan, and Work Instructions updated (revision numbers documented)
+- [ ] D7: Horizontal deployment assessed and actioned
+- [ ] D8: Champion sign-off obtained; customer notified of closure
+
+---
 
 ## When to use
 
@@ -34,10 +57,12 @@ Use 8D for customer-reported defects, internal escapes reaching downstream proce
 
 Ask these questions first:
 1. Is this a safety or regulatory issue? If yes → escalate immediately, notify customer
-2. Are suspect parts already at the customer or in the field? If yes → launch containment now (D3) before completing D1-D2
-3. Capture initial evidence: photos, batch numbers, lot traceability, measurement data
+2. **Is there any potential for a product recall or regulatory event (safety, emissions, homologation compliance)?**
+   - If yes → **STOP the standard 8D timeline. Escalate immediately to management and regulatory owner.** Do not proceed without documented management awareness. The 8D continues only with their authorisation.
+3. Are suspect parts already at the customer or in the field? If yes → launch containment now (D3) before completing D1-D2
+4. Capture initial evidence: photos, batch numbers, lot traceability, measurement data
 
-D0 is complete when: safety is assessed, suspect material is identified and flagged.
+D0 is complete when: safety is assessed, regulatory escalation decision documented, suspect material is identified and flagged.
 
 ---
 
@@ -124,7 +149,9 @@ Use these tools (see referenced skills):
 - "Operator didn't follow instructions" (ask WHY they didn't, or couldn't)
 - "Supplier delivered bad parts" (ask WHY your incoming inspection did not catch it)
 
-D4 is complete when: both root causes are validated with evidence.
+**Evidence rule:** A root cause must be proven by data or physical experiment — not by logical reasoning alone. If you can only argue it is plausible, it is a hypothesis. Reproduce the defect by triggering the root cause; eliminate the defect by removing it. Both tests required.
+
+D4 is complete when: both root causes are validated with objective evidence, not opinion.
 
 ---
 
@@ -152,7 +179,8 @@ D5 is complete when: one PCA per root cause is selected and documented with veri
 Implement the PCAs. After implementation:
 
 **Verification requirements:**
-- Run sufficient production volume (minimum per your statistical confidence need — typically 300 units or 30 shifts depending on defect rate)
+- Run sufficient production volume to achieve statistical confidence — **define sample size based on the observed defect rate and risk level** (higher defect rate or safety-related defect → larger sample required). Do not use fixed generic numbers; align the sample with the detection probability needed.
+  - Guidance: if pre-PCA defect rate was p, the verification sample should be large enough that the probability of observing zero defects if p is still present is below 5%. Formula: n ≥ log(0.05) / log(1 − p).
 - Measure the original defect metric before and after
 - Confirm zero recurrence of the exact defect mode
 
