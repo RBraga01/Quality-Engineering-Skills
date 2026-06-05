@@ -38,6 +38,8 @@ Then work through D0 to D8 in sequence. For each discipline:
 4. If the answer does not meet quality criteria, explain why and ask again
 5. Only move to the next discipline when the current one passes validation
 
+Also ask at the start: is there an OEM customer involved? If yes, note the applicable CSR timing requirements so these can be checked at D3 and D8.
+
 ---
 
 ## D0 — Emergency Response (validation gate)
@@ -47,9 +49,11 @@ Ask:
 - Has the customer been notified?
 - Is there suspect material already at the customer or in the field?
 
-**GATE — do not proceed to D2 until:**
+**GATE — do not proceed to D1 until:**
 - Safety assessment is documented
 - If suspect material escaped: customer has been notified and containment has been actioned BEFORE D1-D3 begins
+
+**CSR timing check:** if an OEM customer is involved, confirm D0 notification was within the CSR deadline (typically 24 hours for safety-related escapes). Record the notification date and time.
 
 ---
 
@@ -82,6 +86,8 @@ Ask:
 - No quantity (must be: X of Y inspected = Z%)
 - Root cause speculation included in D2 (e.g., "caused by supplier error" → remove, that's D4)
 
+**NCR alignment check:** confirm D2 problem description matches the NCR exactly. Any discrepancy between the NCR and D2 is a submission error that OEM reviewers will flag.
+
 ---
 
 ## D3 — Interim Containment Actions (validation gate)
@@ -103,6 +109,10 @@ Ask:
 - Implementation date (past tense)
 - Evidence that it is working
 
+**CSR timing check:** confirm D3 was implemented within the CSR deadline. Common requirements:
+- Safety defects: 24 hours (Ford, BMW, VW, GM, Stellantis)
+- Non-safety defects: 5–8 business days depending on OEM
+
 ---
 
 ## D4 — Root Cause Analysis (most critical gate)
@@ -121,7 +131,7 @@ Ask:
 **GATE — require:**
 - Two root causes: occurrence AND escape — if only one is provided, ask for the second
 - Each Why chain must be supported by evidence, not opinion
-- Root cause must be validated — ask how they confirmed it
+- Root cause must be validated — ask how they confirmed it; "the team agreed" is not validation
 
 ---
 
@@ -144,12 +154,16 @@ For each root cause from D4, ask:
 Ask:
 - What data was collected after PCA implementation?
 - What is the before/after comparison?
+- What production volume was checked?
 - When was the ICA (D3) removed, and on what basis?
 
 **GATE — reject:**
 - "No defects found" without quantifying the production volume checked
 - "We believe it is effective" — evidence required
 - ICA removed before D6 verification data was collected
+- Volume is insufficient — push back if the volume reported cannot statistically demonstrate effectiveness
+
+**Minimum volume guidance:** if the baseline defect rate was R%, the VOE sample must be large enough that zero defects provides meaningful confidence. As a quick check: minimum 3/R units (e.g., if baseline = 2%, minimum VOE = 150 units). Ask the user to state the basis for their chosen volume — "it felt like enough" is not acceptable.
 
 ---
 
@@ -160,10 +174,12 @@ Ask:
 - Was the Control Plan updated? (document number, revision, date)
 - Were Work Instructions updated? (document number, revision, date)
 - Was horizontal deployment assessed? (other similar parts or processes)
+- Was the revised AP documented in the PFMEA after D6 verification?
 
-**GATE — all four must be answered.** If any is missing:
-- "We updated the work instruction but not the PFMEA" → flag: PFMEA must reflect the failure mode
+**GATE — all five must be answered.** If any is missing:
+- "We updated the work instruction but not the PFMEA" → flag: PFMEA must reflect the failure mode and updated AP
 - "We didn't check similar parts" → flag: horizontal deployment required
+- "We haven't updated the AP" → flag: revised AP must be recorded after verified implementation; recording it before D6 is premature and non-compliant
 
 ---
 
@@ -172,9 +188,10 @@ Ask:
 Ask:
 - Has the champion signed off?
 - Has the customer been notified of closure (if customer-initiated)?
+- Is the 8D stored as a controlled document with version and date?
 
 On completion, generate a summary:
-> "8D complete. Summary: [brief D2 problem statement]. Root cause of occurrence: [D4 occurrence]. Root cause of escape: [D4 escape]. PCA: [D5]. Verified effective on [D6 date]. PFMEA/CP/WI updated [D7 dates]. Closed [D8 date]."
+> "8D complete. Summary: [brief D2 problem statement]. Root cause of occurrence: [D4 occurrence]. Root cause of escape: [D4 escape]. PCA: [D5]. Verified effective on [D6 date] — [volume] units checked. PFMEA/CP/WI updated [D7 dates], revised AP documented. Closed [D8 date], champion: [name]."
 
 ---
 
@@ -190,6 +207,8 @@ Ask once at the start of the session:
 > Default: A."
 
 Apply the chosen format to all outputs generated during the session. If the platform or session context already defines a format preference, skip this question.
+
+---
 
 ## Tone guidelines
 

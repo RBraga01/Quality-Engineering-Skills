@@ -29,11 +29,15 @@ Use PDCA for:
 
 **Key distinction from 8D:** PDCA is proactive or slow-burn improvement. 8D is reactive to a specific defect or failure. Both use root cause analysis, but PDCA has a broader scope and a pilot step before full deployment.
 
+**When PDCA is used for corrective action** (e.g., responding to an audit finding or recurring NC): a [Corrective Action Request (CAR)](../../documentation/car-corrective-action/) must also be opened to document root cause, actions, and VOE per ISO 9001 §10.2. PDCA is the improvement methodology; the CAR is the governance record.
+
 ## Prerequisites
 
 - Improvement goal defined (with target metric)
 - Baseline data available (current performance)
 - Owner and resources assigned
+
+---
 
 ## Workflow
 
@@ -53,14 +57,19 @@ Use PDCA for:
    - Who is responsible for each action?
    - What is the timeline?
    - What resources are needed?
-   - What risks does the change introduce? (FMEA check)
+   - What risks does the change introduce? Review the applicable PFMEA — does this change add or remove a failure mode? Does it affect any existing prevention or detection control?
 
 4. **Define the pilot scope**
    - Which process, line, or area will pilot the change?
-   - What volume / duration is needed to validate effectiveness?
+   - What volume or duration is needed to validate effectiveness? Define this before starting the pilot — do not decide after seeing results.
    - What will you measure, and how?
 
-**Plan gate:** Is the root cause understood? Is the pilot scope defined? Is success measurable?
+**Pilot volume guidance:** as a minimum, the pilot should produce enough output to statistically distinguish signal from noise. Typical references:
+- Process capability change: minimum 30 consecutive cycles or units under the new conditions
+- Defect rate reduction: minimum volume to yield at least 5 expected events at the old rate (e.g., if baseline defect rate = 2%, minimum pilot = 250 units)
+- Time-dependent improvement: minimum 4 weeks of sustained performance data
+
+**Plan gate:** Is the root cause understood? Is the pilot scope defined with explicit volume/duration minimum? Is success measurable against a specific target?
 
 ---
 
@@ -88,7 +97,7 @@ Ask:
 - Did the change produce the expected improvement?
 - Were there any unexpected negative effects?
 - Is the improvement sustainable (stable over time) or a one-time effect?
-- Was the pilot conducted under representative conditions?
+- Was the pilot conducted under representative conditions (same operators, same materials, same environment as production)?
 
 **Check gate:**
 - If target met → proceed to Act (standardise)
@@ -101,11 +110,12 @@ Ask:
 
 **If the pilot succeeded:**
 
-1. Update process documents: work instructions, control plan, PFMEA
-2. Deploy to all applicable areas (horizontal deployment)
-3. Train all affected personnel
-4. Set up ongoing monitoring to confirm the improvement holds
-5. Share lessons learned
+1. Update process documents: work instructions, control plan, PFMEA — each must be revised to reflect the new process
+2. If the PFMEA includes failure modes related to the improved process step, update affected S/O/D ratings and AP
+3. Deploy to all applicable areas (horizontal deployment) — list each area and confirm deployment is complete
+4. Train all affected personnel — training records required
+5. Set up ongoing monitoring to confirm the improvement holds
+6. Share lessons learned — enter in lessons learned register
 
 **If the pilot failed or was inconclusive:**
 
@@ -117,22 +127,44 @@ Ask:
 
 ---
 
+### Required PDCA documentation (ISO 9001 §10.3)
+
+For the cycle to be auditable, the following records must exist at closure:
+
+- [ ] Baseline measurement with data source and date
+- [ ] Root cause analysis (fishbone or 5-Why output)
+- [ ] Pilot plan with explicit volume/duration minimum and success criteria
+- [ ] Pilot execution data (before/after comparison)
+- [ ] Check gate decision (proceed / revise / restart) with supporting data
+- [ ] Updated PFMEA, Control Plan, and Work Instructions (if applicable) with new revision numbers and approval dates
+- [ ] Training records for all affected personnel
+- [ ] Horizontal deployment log (areas assessed, actions taken)
+- [ ] Lessons learned register entry
+
+---
+
 ## Gate summary
 
 | Gate | Key question | Pass criterion |
 |------|-------------|----------------|
-| Plan | Is root cause understood and pilot scoped? | Root cause confirmed, target measurable, pilot defined |
-| Do | Was the pilot conducted as planned? | Actions implemented, data collected |
-| Check | Did the change achieve the target? | Target metric met or exceeded in pilot |
-| Act | Are documents updated and deployment complete? | All affected documents revised, training done |
+| Plan | Is root cause understood and pilot scoped? | Root cause confirmed, target measurable, pilot volume/duration defined |
+| Do | Was the pilot conducted as planned? | Actions implemented, data collected per plan |
+| Check | Did the change achieve the target? | Target metric met or exceeded; minimum pilot volume reached |
+| Act | Are documents updated and deployment complete? | PFMEA/CP/WI revised, training done, horizontal deployment documented |
+
+---
 
 ## Common mistakes
 
 - **Skipping Plan** — jumping straight to Do without understanding root cause
+- **Undefined pilot volume** — deciding after the pilot how much data is "enough"; set the minimum before starting
 - **Skipping Check** — deploying broadly after pilot without verifying data
 - **Treating Act as permanent before Check** — standardising before the pilot result is confirmed
 - **One cycle only** — PDCA is a cycle; if the first cycle doesn't solve it, run another
 - **Using PDCA for urgent defects** — for customer complaints or safety issues, use 8D instead
+- **Not updating PFMEA** — a process change without PFMEA update leaves the risk register inaccurate
+
+---
 
 ## Output Format
 
