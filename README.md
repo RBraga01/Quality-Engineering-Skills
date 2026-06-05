@@ -184,6 +184,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the skill format and submission proce
 
 ## Authors
 
-**[@RBraga01](https://github.com/RBraga01)** — Automotive Supplier Quality Engineer with 15+ years of experience in electronic components and supplier claims management (~30 suppliers). Focused on scalable, system-driven quality engineering, combining 8D, 5-Why root cause analysis, and FMEA to build robust, audit-ready processes and reusable quality frameworks. Founder of the [iPS](https://github.com/RBraga01/iPS) quality management ecosystem.
+**[@RBraga01](https://github.com/RBraga01)** — 15+ years in quality engineering. Claim manager for ~30 electronic component suppliers — receives OEM customer complaints and manages the full escalation to the respective suppliers. Created Quality Engineering Skills to bring structured methodology to AI agents in the quality domain.
 
-**[@migmcc](https://github.com/migmcc)** — Global Quality Manager at Bosch with 34 years of experience in automotive electronics supplier quality. Manages a portfolio of 20–40 global suppliers of electromechanical and electronic displays, processing 100+ quality complaints annually. Expert in 8D, FMEA, and ISO 9001 across the full quality lifecycle — from new product development to critical production incidents. Co-founder [iPS](https://github.com/RBraga01/iPS).
+**[@migmcc](https://github.com/migmcc)** — 25+ years in quality engineering. Claim manager handling OEM customer complaints and escalations across electromechanical and mechanical suppliers. 8D and problem-solving expert. Responsible for the skill content that makes the methodology accurate and practitioner-grade.
