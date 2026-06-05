@@ -21,6 +21,7 @@ metadata:
 ## When to use
 
 Write an NCR whenever a product, material, or service does not conform to a specified requirement:
+
 - Incoming inspection failure
 - In-process defect found at any production step
 - Final inspection rejection
@@ -32,6 +33,25 @@ Write an NCR whenever a product, material, or service does not conform to a spec
 **An NCR describes WHAT is wrong, not WHY.**
 
 Root cause belongs in the CAPA / 8D. The NCR is the factual record of the non-conformance itself. Mixing root cause speculation into the NCR contaminates the record.
+
+An NCR is a controlled quality record and may be used in audits, customer reviews, and legal contexts. All content must be objective and defensible.
+
+## Required NCR Checklist
+
+☐ Requirement clearly referenced (drawing/specification number and revision)
+☐ Actual value or observed defect recorded with quantified measurement
+☐ Gap between required and actual explicitly defined
+☐ Evidence attached or referenced and traceable to this NCR
+☐ Severity correctly classified — grade higher when in doubt
+☐ Affected quantity and population at risk identified
+☐ Material physically segregated and identified before NCR is closed
+☐ Detection point reflects where the defect was found, not where it originated
+☐ Disposition defined and approved by authorised personnel
+☐ Containment actions documented with timestamps (if applicable)
+☐ Language is objective — no subjective terms, no root cause, no opinion
+☐ NCR traceable to production records, batch records, and inspection logs
+
+---
 
 ## NCR structure
 
@@ -54,9 +74,12 @@ Root cause belongs in the CAPA / 8D. The NCR is the factual record of the non-co
 **Write like a measurement report, not a complaint.**
 
 Required elements:
+
 - What is the specified requirement? (drawing dimension, specification, standard)
 - What was actually observed or measured? (actual value, description)
 - What is the gap? (difference between required and actual)
+
+Every NCR description must be independently understandable without additional explanation. Do not rely on attachments to complete the description.
 
 **Good NCR description:**
 > "Connector housing flange thickness measured at 1.8 mm ± 0.05 mm on 3 of 5 sampled units. Drawing specification: 2.2 mm ± 0.1 mm (ref. DWG-12345 rev B, detail B-3). Non-conformance: measured values 0.35–0.42 mm below lower specification limit."
@@ -65,15 +88,18 @@ Required elements:
 > "Parts are out of spec. The housing looks too thin and won't fit properly."
 
 **Rules for the description:**
+
 - Use numbers: actual value, specification value, tolerance, quantity
 - Reference the requirement: drawing number + revision, specification number, purchase order
 - Describe the physical observation: measured value, visual characteristic (location, extent, appearance)
-- Do NOT include hypotheses ("probably because..."), root cause, or blame
+- Avoid subjective language ("poor quality", "bad parts", "looks wrong") — use measurable and observable facts only
+- Do NOT include hypotheses ("probably because…"), root cause, or blame
 
 ### 3. Objective evidence
 
 List what evidence exists:
-- Measurement records (gauge reading, CMM report, test result)
+
+- Measurement records (gauge reading, CMM report, test result) — all evidence must be traceable to this NCR by ID or reference
 - Photos (reference photo numbers or attach)
 - Sample availability (samples retained: Yes/No, location)
 - Batch / lot traceability (delivery note, batch record)
@@ -82,7 +108,7 @@ List what evidence exists:
 
 | Grade | Definition | Examples |
 |-------|-----------|---------|
-| **Critical** | Affects safety, regulatory compliance, or product function that cannot be detected by the customer | Safety-related dimension OOS, regulatory label missing, electrical isolation failure |
+| **Critical** | Affects safety, regulatory compliance, or potential field failure that cannot be contained internally | Safety-related dimension OOS, regulatory label missing, electrical isolation failure, risk of harm to end user |
 | **Major** | Affects form, fit, or function — customer will likely detect | Dimension preventing assembly, performance parameter below specification, missing required feature |
 | **Minor** | Does not affect form, fit, or function — cosmetic or documentation | Surface scratch within defined limits, label position deviation, minor visual blemish |
 | **OFI** | Observation for improvement — technically conforming but below best practice | (Used in audit context only, not for product NCRs) |
@@ -95,6 +121,8 @@ List what evidence exists:
 - Where is the suspect material now? (on-hold location: shelf, bin, quarantine area)
 - Has it been segregated? (Yes / No / In progress)
 - Has it been identified? (red tag, quarantine label, system flag)
+
+**Segregation must occur immediately upon detection, before NCR documentation is completed.**
 
 **Any non-conforming material must be physically identified and segregated before the NCR is closed.**
 
@@ -110,10 +138,13 @@ List what evidence exists:
 
 UAI requires documented approval with technical justification. Never approve UAI verbally.
 
+Disposition must be approved by authorised personnel per the defined approval matrix.
+
 ### 7. Immediate containment (if applicable)
 
 If suspect material may have already passed to a downstream process or customer:
-- List containment actions taken (sort, inspection, ship-hold)
+
+- List containment actions taken (sort, inspection, ship-hold) — all actions must be time-stamped and traceable
 - Reference the 8D / CAPA initiated (if applicable)
 
 ---
@@ -153,6 +184,7 @@ Immediate containment: 100% incoming inspection of remaining 1,500 units.
 - **Incorrect severity grade** — failing to grade Critical when safety is at risk
 - **UAI without engineering approval** — verbal approval is not acceptable
 - **Not segregating before writing the NCR** — segregation must happen immediately, before the paperwork
+- **Subjective language** — "poor quality", "bad supplier", "looks wrong" — use objective, measurable facts
 
 ## Output Format
 

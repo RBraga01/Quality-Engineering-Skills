@@ -7,6 +7,8 @@ Use alongside the [action-priority-ap](../SKILL.md) skill.
 
 ## Why OEM Requirements Override General AIAG-VDA Guidance
 
+This document complements AIAG-VDA guidelines. In case of conflict, OEM-specific requirements always take precedence.
+
 The AIAG-VDA FMEA Handbook 2019 defines the AP framework as a minimum standard.
 Each OEM publishes Customer-Specific Requirements (CSR) that may:
 - Set stricter thresholds for mandatory action
@@ -14,7 +16,23 @@ Each OEM publishes Customer-Specific Requirements (CSR) that may:
 - Require specific documentation formats for H-AP closure
 - Add OEM-specific escalation paths when actions are not feasible
 
+**CSR requirements are binding contractual obligations, not guidelines.**
+
 Always check the current CSR. CSRs are updated annually or more frequently.
+
+---
+
+## Required OEM AP Compliance Checklist
+
+☐ All H-AP items have an assigned owner and target date
+☐ All H-AP items are either closed (action implemented + verified) or formally escalated with OEM approval
+☐ All no-action decisions have OEM-required approval (SQE or equivalent) — documented
+☐ All H-AP items are addressed (closed or formally approved) before PPAP submission
+☐ Revised AP reflects implemented and verified actions — not planned actions
+☐ Special Characteristics meet OEM-specific requirements (Cpk thresholds, inspection methods)
+☐ FMEA updated after latest quality escape or field failure
+☐ All actions, approvals, and escalations are documented and retained as audit evidence
+☐ H-AP status reviewed at every project milestone (design review, process review, PPAP)
 
 ---
 
@@ -26,6 +44,7 @@ Always check the current CSR. CSRs are updated annually or more frequently.
 - Every H-AP item must have a corrective action assigned, with a named responsible engineer and a target date
 - If no improvement is technically possible: document an **Engineering Justification (EJ)**
   - EJ must be signed by a qualified engineer
+  - EJ must include a risk assessment and monitoring plan (where applicable)
   - EJ must be reviewed and approved by the Ford SQE (Supplier Quality Engineer)
   - Without an approved EJ, the FMEA is considered non-compliant
 
@@ -52,6 +71,7 @@ Always check the current CSR. CSRs are updated annually or more frequently.
 - GM's Supplier Quality scoring system (BIQS) tracks open H-AP items as a supplier performance metric
 - Suppliers with unaddressed H-AP items at PPAP submission receive BIQS score deduction
 - H-AP items open >90 days without documented progress receive escalation flags
+- BIQS scoring impact must be monitored as part of supplier performance management
 
 ### PPAP requirements (BIQS context)
 - All H-AP items must be closed before Level 3 PPAP
@@ -82,6 +102,7 @@ VW requires that every H-AP item has a formal action statement:
   - Supplier's quality manager
   - VW SQE countersignature
 - Without VW SQE countersignature, the H-AP item is considered open
+- Time-bound commitments must include interim risk containment measures
 
 ### SOP freeze implication
 - Production launch (SOP — Start of Production) cannot proceed with open H-AP items
@@ -102,6 +123,7 @@ VW requires that every H-AP item has a formal action statement:
 - BMW requires all H-AP items to appear on a formal "Open Issues List" maintained by the supplier
 - The list must be shared with the BMW SQE at each project gate review
 - H-AP items on the open issues list are tracked until formally closed with evidence
+- Open Issues List must be version-controlled and traceable across project phases
 
 ### Gate review integration
 - BMW uses project gate reviews (Concept, Design, Pre-Series, Ramp-Up, SOP)
@@ -128,6 +150,7 @@ VW requires that every H-AP item has a formal action statement:
 - If no action is feasible: supplier quality manager escalates to Stellantis SQE
 - Stellantis SQE reviews and either approves residual risk acceptance or requires alternative action
 - No unilateral supplier decision on H-AP "no action" — SQE approval always required
+- SQE approval must be documented and retained as audit evidence
 
 ### PPAP timing
 - All H-AP items must be addressed before PPAP submission
@@ -145,6 +168,20 @@ VW requires that every H-AP item has a formal action statement:
 | No-action requires OEM countersignature | Yes (EJ + SQE) | Case by case | Yes | Yes | Yes |
 | H-AP items tracked on formal list | GQTS | BIQS | FORMEL Q | Open Issues List | SQS |
 | Annual FMEA review of open H-AP | Yes | Yes | Yes | Yes | Yes |
+| Residual risk acceptance allowed | Conditional (EJ) | Conditional | Conditional (SQE) | Rare (SQE) | Conditional (SQE) |
+
+---
+
+## Residual Risk Acceptance — Governance
+
+When no corrective action is achievable, residual risk acceptance must include:
+- Written justification explaining why no improvement is technically or economically feasible
+- Risk assessment of the residual risk (likelihood × severity estimate)
+- Mitigation or monitoring plan (detection controls, containment, periodic review)
+- OEM approval (SQE countersignature where required by CSR)
+- Document retention: this record must be available for audits and PPAP review
+
+H-AP status must be reviewed at every project milestone (design review, process review, PPAP) to confirm that open items are still tracked and approved.
 
 ---
 

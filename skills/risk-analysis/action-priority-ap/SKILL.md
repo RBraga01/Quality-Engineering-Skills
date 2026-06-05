@@ -18,6 +18,28 @@ metadata:
 
 # Action Priority (AP) — AIAG-VDA 2019
 
+## Goal
+
+Assign and audit Action Priority (AP) ratings correctly using the AIAG-VDA 2019 method, ensuring high-risk items receive justified action or formal risk acceptance. This skill is used when classifying risk levels in PFMEA or DFMEA, reviewing existing ratings, or auditing FMEA documents for AP compliance.
+
+---
+
+## Required AP Review Checklist
+
+☐ Confirm the linked Failure Effect, Failure Mode, and Failure Cause are correct before assigning AP
+☐ Confirm S is based on the Failure Effect (severity to the customer or end user)
+☐ Confirm O is based on the Failure Cause with current prevention controls in place
+☐ Confirm D is based on current detection controls for this Failure Mode
+☐ All S, O, and D ratings are supported by data, field history, capability data, or documented engineering judgement — not guesses
+☐ Assign AP using the full AIAG-VDA AP table (see assets/ap-table.md) — not only the summary patterns in this skill
+☐ For every H-AP item: define a corrective action with owner and target date, or document a formal escalation rationale
+☐ Reassess AP only after the corrective action is implemented and verified — not when only planned
+☐ Verify Special Characteristics are rated S = 9 or 10
+☐ Document the evaluation decision for every M-AP item (action taken or rationale for no action)
+☐ Document rationale for every L-AP item
+
+---
+
 ## Why AP replaces RPN
 
 The legacy **RPN = Severity × Occurrence × Detection** had critical flaws:
@@ -61,7 +83,7 @@ H-AP items must never be silently ignored.
 
 **Action recommended.** The team should evaluate whether risk reduction is beneficial.
 
-Document the evaluation decision:
+M-AP does not mean "no action needed." It means action is not mandatory, but the team must document its evaluation decision:
 - Action taken → describe the action
 - No action → document why (risk accepted, cost-prohibitive, technically infeasible)
 
@@ -73,6 +95,10 @@ Document the evaluation decision:
 
 ## AP Assessment Workflow
 
+> This skill explains AP logic and decision patterns. Use the full AP table (assets/ap-table.md) for final rating assignment. Do not rely solely on the summary patterns below for disputed cases or formal PPAP submissions.
+
+**Before assigning AP:** Do not assign AP unless S, O, and D are already justified based on the linked failure effect, failure cause, and current controls. AP is only as good as the ratings it is built on.
+
 For each FC (Failure Cause) row in the PFMEA/DFMEA:
 
 ```
@@ -83,12 +109,16 @@ For each FC (Failure Cause) row in the PFMEA/DFMEA:
 
 3. Assign O (for this Failure Cause with current prevention controls)
 4. Assign D (for this Failure Mode with current detection controls)
-5. Look up AP in the table (see assets/ap-table.md for full table)
+5. Look up AP in the full table (see assets/ap-table.md)
 ```
+
+**All S, O, and D ratings must be supported by test data, field history, capability data, or documented engineering judgement.**
 
 ---
 
 ## Action priority by S bracket
+
+> The patterns below are practical summaries for working use. Final AP assignment must always be confirmed against the full AIAG-VDA AP table. For disputed cases or audits, the full table takes precedence.
 
 ### S = 9–10 (Safety / Regulatory)
 
@@ -134,14 +164,21 @@ All combinations → **L**
 
 ---
 
+## Revised AP — Governance Rule
+
+Do not lower AP based on planned actions. Revised AP may only be assigned after the corrective action is implemented and the implementation is verified with objective evidence. A planned action is not a completed action.
+
+---
+
 ## Reviewing an existing FMEA for AP compliance
 
 Audit questions:
 1. Are all S=9/10 rows assigned AP=H?
 2. Do all H-AP rows have an assigned owner AND target date?
 3. Are there any H-AP rows with no action and no documented escalation rationale?
-4. For rows where AP was improved (revised AP column): is the action implemented and verified?
+4. For rows where AP was improved (revised AP column): is the action implemented and verified — not just planned?
 5. Are Special Characteristics all rated S=9 or S=10?
+6. Are S, O, and D justified with data or engineering rationale, or were they guessed?
 
 ---
 
@@ -155,7 +192,7 @@ Audit questions:
 | BMW | AP H items listed on open issues list until closed |
 | Stellantis | H-AP items require SQE approval for acceptance without action |
 
-Always check the customer's current CSR (Customer-Specific Requirements) — these override general guidance.
+Customer-Specific Requirements (CSR) are revision-controlled and may change. Always verify the latest customer requirement before release, PPAP, or customer submission. See [oem-requirements.md](references/oem-requirements.md) for OEM-specific detail.
 
 ## Output Format
 
