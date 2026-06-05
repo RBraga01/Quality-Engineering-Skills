@@ -18,16 +18,39 @@ metadata:
 
 # IATF 16949:2016 Internal Audit — Supplemental Requirements
 
+## Goal
+
+Audit the automotive-specific supplemental requirements of IATF 16949:2016, including CSR compliance and the three mandatory internal audit streams. Use in conjunction with [iso-9001-internal-audit](../iso-9001-internal-audit/) for a complete IATF audit.
+
+---
+
 ## When to use
 
-This skill covers the **IATF 16949 supplemental requirements** — the automotive additions to ISO 9001. Use in conjunction with [iso-9001-internal-audit](../iso-9001-internal-audit/) for a complete IATF audit.
+This skill covers the **IATF 16949 supplemental requirements** — the automotive additions to ISO 9001.
 
-IATF 16949 requires three types of internal audit (§9.2.2.1):
+IATF 16949 requires three types of internal audit (§9.2.2.1). All three must be planned, executed, and recorded within the audit programme cycle:
+
 1. **QMS audit** — covers the entire quality management system (ISO 9001 + IATF supplementals)
 2. **Manufacturing process audit** — process-based, covers all manufacturing processes at least annually
 3. **Product audit** — product-specific, verifies product conformance to specifications
 
-This skill focuses primarily on the QMS audit (IATF supplementals) and manufacturing process audit.
+All manufacturing processes must be audited at least annually, with increased frequency for high-risk or poor-performing areas.
+
+---
+
+## Required IATF Audit Checklist
+
+☐ Verify all three audit streams are planned and executed within the programme cycle
+☐ Confirm CSR register is current and that changes trigger QMS document updates
+☐ Check contingency plans are documented, reviewed, and tested (not just written)
+☐ Verify special characteristics are consistent across all documents (drawing, DFMEA, PFMEA, CP, WI)
+☐ Confirm supplier monitoring and escalation are active with defined thresholds
+☐ Check Control Plan ↔ PFMEA linkage is current
+☐ Verify traceability and suspect material isolation capability (24-hour test)
+☐ Review temporary deviations for approval, expiry, and active control
+☐ Verify problem-solving methodology is applied with objective evidence of effectiveness
+☐ Confirm management review includes all IATF supplemental inputs
+☐ Do not accept verbal confirmation — verify by observing the process, interviewing personnel, and reviewing records
 
 ---
 
@@ -38,10 +61,12 @@ This skill focuses primarily on the QMS audit (IATF supplementals) and manufactu
 This is the most commonly non-conforming IATF clause.
 
 Questions:
+
 - Is there a register of all applicable customer-specific requirements (CSRs)?
 - For each OEM customer: have the latest CSRs been downloaded and reviewed?
 - Are CSR requirements addressed in the QMS (procedures, control plans, work instructions)?
 - Are personnel who deal with each customer aware of their specific requirements?
+- CSR review must be revision-controlled and linked to implementation evidence in affected documents — is this traceable?
 - *Evidence:* CSR register, evidence that each CSR has been reviewed and implemented, CSR revision dates vs. QMS document dates
 
 **High-risk CSR areas:** PPAP requirements, problem-solving format requirements, special characteristics symbols, labelling specifications, sub-supplier approval requirements.
@@ -52,6 +77,7 @@ Questions:
 
 - Is there a documented corporate responsibility policy (ethics, anti-bribery)?
 - Is there an escalation process for reporting ethical concerns?
+- Are employees aware of how to report ethical concerns confidentially?
 - *Evidence:* code of conduct, ethics policy, reporting mechanism (hotline or similar)
 
 ---
@@ -76,6 +102,7 @@ Questions:
 ### §6.1.2.3 — Contingency plans
 
 IATF requires documented contingency plans for:
+
 - Key equipment failure
 - Key supplier failure or disruption
 - Labour shortages
@@ -83,10 +110,12 @@ IATF requires documented contingency plans for:
 - Natural disasters or site incidents affecting delivery
 
 Questions:
+
 - Are contingency plans documented for each of these scenarios?
 - Are plans reviewed periodically (at least annually)?
 - Are they tested or rehearsed?
 - Does top management know who activates contingency plans?
+- Do contingency plans include customer communication protocols and recovery priorities?
 - *Evidence:* contingency plan document, last review date, test/simulation records
 
 ---
@@ -97,6 +126,7 @@ Questions:
 - Do auditors have process knowledge for the areas they audit?
 - Is there evidence of auditor training (certification, OJT, qualification test)?
 - Are auditors independent of the area they audit?
+- Is auditor effectiveness periodically reviewed based on audit quality and finding accuracy?
 - *Evidence:* auditor qualification records, audit schedule showing independence
 
 ---
@@ -122,6 +152,7 @@ Questions:
 - Is there a process to identify, document, and control all special characteristics?
 - Do all documents (drawing, DFMEA, PFMEA, CP, WI) use consistent SC symbols?
 - Are operators aware of which characteristics are special?
+- Any inconsistency in SC identification across documents must be treated as a significant audit finding due to control failure — is SC consistency actively verified?
 - *Evidence:* SC registry or matrix cross-referencing all documents
 
 ---
@@ -139,8 +170,10 @@ Questions:
 IATF requires active supplier monitoring with specific actions for non-performing suppliers.
 
 Questions:
+
 - Is there a supplier performance monitoring system (PPM, on-time delivery, quality issues)?
 - Is supplier performance reviewed at a defined frequency (minimum quarterly)?
+- Are supplier development or escalation actions triggered based on defined performance thresholds?
 - For poor performers: is there a documented escalation and improvement process?
 - Are suppliers assessed for delivery of conforming product (not just quality level)?
 - *Evidence:* supplier scorecards, last 4 quarters of performance data, improvement plans for poor performers
@@ -150,10 +183,12 @@ Questions:
 ### §8.5.1.1 — Control plan
 
 Questions:
+
 - Is there a control plan for each production part?
 - Does it cover: pre-launch, production, and reaction plan?
 - Are all special characteristics in the control plan with specific control methods?
 - Is the control plan linked to the PFMEA (detection controls match)?
+- Are reaction plans in the Control Plan understood and applied at the point of use — not only documented?
 - Was it updated after the last process or product change?
 - *Evidence:* control plan, PFMEA (verify linkage), latest revision date vs. last process change date
 
@@ -174,10 +209,11 @@ Questions:
 IATF requires that temporary process changes (deviations) be strictly controlled.
 
 Questions:
+
 - Is there a process for managing temporary deviations (substituting a process step or material)?
 - Are deviations approved in writing with defined expiry dates?
 - Is there a register of all open temporary deviations?
-- Are expired deviations actively closed or extended?
+- Are expired deviations actively closed or extended — not left open silently?
 - Is the customer notified when required by their CSR?
 - *Evidence:* deviation register, sample open deviation with expiry date and approval
 
@@ -187,6 +223,7 @@ Questions:
 
 - Is there a procedure for notifying the customer when suspect material may have been shipped?
 - Does it define when notification is required (not just when the customer asks)?
+- Does the procedure specify notification timelines (e.g., 24 hours for safety-related escapes per CSR)?
 - Has the procedure been triggered recently? Were notifications timely?
 - *Evidence:* notification procedure, last notification records (if any)
 
@@ -197,14 +234,16 @@ Questions:
 IATF requires **three audit streams** — most organisations fail by only conducting clause-based audits:
 
 1. **QMS audit** — covers clauses; must cover entire QMS within the audit programme cycle
-2. **Manufacturing process audit** — process-based, all manufacturing processes annually minimum; uses VDA 6.3 or equivalent
+2. **Manufacturing process audit** — process-based, all manufacturing processes annually minimum; uses VDA 6.3 or equivalent scoring
 3. **Product audit** — product/shipment audits at defined frequency
 
 Questions:
+
 - Are all three audit types in the programme?
 - Is the manufacturing process audit process-based (turtle diagram approach)?
 - Are all processes and products covered within the audit cycle?
 - Is the audit programme risk-based (higher risk = higher audit frequency)?
+- Low process audit scores must trigger corrective action, management review, and re-audit planning — is this in place?
 - *Evidence:* annual audit programme, audit reports for all three types, process audit records (not just clause audits)
 
 ---
@@ -212,6 +251,7 @@ Questions:
 ### §9.3.2.1 — Management review — supplemental inputs
 
 IATF management review must include (in addition to ISO 9001 §9.3.2):
+
 - Cost of poor quality (COPQ)
 - Warranty performance (if applicable)
 - Customer satisfaction and field performance review
@@ -219,8 +259,10 @@ IATF management review must include (in addition to ISO 9001 §9.3.2):
 - Manufacturing feasibility assessments
 
 Questions:
+
 - Are these topics covered in the management review agenda?
 - Is there data for each topic?
+- Are decisions from these IATF-specific inputs translated into actions with owners and due dates?
 - *Evidence:* management review minutes with IATF-required topics explicitly addressed
 
 ---
@@ -240,6 +282,7 @@ Questions:
 - Is there a documented approach to applying error-proofing (poka-yoke)?
 - Are poka-yoke devices tested at defined intervals (IATF requires: minimum at every start of production)?
 - Are test records maintained?
+- Are failed or bypassed error-proofing checks treated as production stop / reaction plan triggers where applicable?
 - Are poka-yoke failures treated as non-conformances requiring CAPA?
 - *Evidence:* poka-yoke register, test frequency, test records, last test date vs. interval
 
@@ -251,6 +294,21 @@ Questions:
 - Does it include manufacturing process effectiveness (not just quality KPIs)?
 - Is it reviewed at management review?
 - *Evidence:* CI plan document, last review, evidence of CI activities
+
+---
+
+## Product audit — §9.2.2.3
+
+A product audit verifies that finished products meet all requirements before shipment. It is one of the three mandatory IATF audit streams.
+
+Focus areas for product audit:
+
+- Product conformity to drawing and specification (dimensional, functional, visual)
+- Packaging and labelling compliance (OEM label format, part number, revision, quantity)
+- Traceability and release status (is the product formally released and traceable to its records?)
+- Audit frequency based on risk, customer issues, and product criticality
+
+Evidence required: product audit reports, measurement records, packaging inspection records, release documentation.
 
 ---
 
@@ -269,9 +327,11 @@ A manufacturing process audit (required annually for each process) uses a turtle
 | **Process output** | First-pass yield, defect rate, scrap |
 | **Customer feedback** | PPM, complaints, warranty |
 
-For each element: is it adequate? Is it controlled? Is there evidence?
+For each element: is it adequate? Is it controlled? Is there objective evidence?
 
-A process audit should result in a process audit score (VDA 6.3 uses a percentage score by process element P1-P7).
+Each turtle element should be verified by direct observation, interview, and record review — not by document review alone.
+
+A process audit must result in a process audit score (VDA 6.3 uses a percentage score by process element P1-P7). Low scores must trigger corrective action, management review input, and re-audit planning.
 
 ---
 

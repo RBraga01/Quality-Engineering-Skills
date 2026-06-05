@@ -23,10 +23,11 @@ metadata:
 Use when an 8D investigation is complete and a formal report must be submitted to the customer. This skill covers the writing quality and format — the methodology is in [8d-problem-solving](../../problem-solving/8d-problem-solving/).
 
 The 8D report is a legal and commercial document. It is used by the customer to:
+
 - Verify their claim was addressed
 - Confirm containment protected their production
 - Audit your corrective action quality
-- Assess your supplier quality level
+- Assess your supplier quality level for BIQS scoring, PPAP status, and future business decisions
 
 A poorly written report — even with good corrective actions — signals low quality maturity.
 
@@ -41,13 +42,35 @@ A poorly written report — even with good corrective actions — signals low qu
 | Mercedes-Benz | 8D / ATC | SupplyOn |
 | Toyota (TMMNA) | 8D or A3 | SMART |
 
-Always download the **current customer template** from the portal before writing. Templates change.
+Always download the **current customer template** from the portal before writing. Templates change. Always align with the specific customer format and mandatory fields — do not modify OEM templates.
+
+---
+
+## Required 8D Report Checklist
+
+☐ Correct OEM template used (latest version — downloaded before writing)
+☐ D2 fully quantified and matches the customer claim and NCR exactly
+☐ D3 containment implemented with evidence — past tense only
+☐ D3 containment active until D6 verification is complete
+☐ D4 includes both occurrence and escape root causes, each validated with objective evidence
+☐ D5 actions directly address each root cause (RCO and RCE referenced)
+☐ D6 includes objective verification data with justified sample size
+☐ D7 includes PFMEA, CP, WI updates with revision numbers, plus horizontal deployment
+☐ D8 includes champion sign-off and customer notification of closure
+☐ All dates are chronological and consistent across D0–D8
+☐ All statements are supported by attached or referenced evidence
+☐ No speculative, apologetic, or subjective language used
+☐ Consistent tense: past for completed actions, present for current state
+
+---
 
 ## Writing rules — discipline by discipline
 
 ### D0 — Emergency Response
 
 Write a brief statement of whether a safety/regulatory issue was identified and what emergency action was taken.
+
+Always state explicitly whether safety/regulatory risk is present or not — "No safety risk identified" or "Safety risk identified — [action]."
 
 **Good:** "No safety risk identified. Customer notified by email (attached) on 2026-05-14. Ship-hold placed on supplier lot 2026-05-12-A, covering 1,700 units across 2 delivery notes."
 
@@ -61,7 +84,7 @@ Evidence required: customer notification email, ship-hold record.
 
 List names and functions. The customer wants to see cross-functional involvement.
 
-**Good:** Include at least quality engineer, production supervisor, and process/design engineer. Show team leader clearly.
+**Good:** Include at least quality engineer, production supervisor, and process/design engineer. Identify the team leader and customer contact point (if applicable) clearly.
 
 **Bad:** "The quality team investigated." (no names, no functions, no evidence of cross-functional approach)
 
@@ -71,7 +94,10 @@ List names and functions. The customer wants to see cross-functional involvement
 
 This is the most read section — if D2 is vague, the customer will reject the report.
 
+D2 must match exactly the NCR and the customer claim description. Any inconsistency between D2, the NCR, and customer claim data is treated as a credibility failure.
+
 **Required content:**
+
 - Exact non-conformance with measured values and specification
 - Part number + revision
 - Customer's claim reference number
@@ -87,7 +113,10 @@ This is the most read section — if D2 is vague, the customer will reject the r
 
 The customer needs to know their production is protected. This is the first thing many SQEs read.
 
+Containment must remain active until D6 verification is complete and effectiveness is confirmed.
+
 **Required content:**
+
 - What was done (sort, 100% inspection, ship-hold)
 - When it was implemented (date — must be before D4, D5, D6)
 - Who did it
@@ -102,14 +131,18 @@ The customer needs to know their production is protected. This is the first thin
 ### D4 — Root Cause Analysis
 
 The most technically evaluated section. Customer SQEs specifically look for:
+
 1. Is there a root cause of occurrence AND a root cause of escape?
 2. Is the root cause specific enough (not generic "human error" or "supplier issue")?
-3. Is it validated (not just a hypothesis)?
+3. Is it validated with objective evidence — not just logical reasoning?
+
+Root cause must be supported by evidence (test, data, or experiment), not logical reasoning alone.
 
 **Required content:**
+
 - Root cause of occurrence (why did the defect happen?) — with the 5-Why chain
 - Root cause of escape (why was it not detected?) — with the 5-Why chain
-- Validation method (how was the root cause confirmed?)
+- Validation method (how was the root cause confirmed — test, data, reproduction experiment?)
 
 **Good — root cause of occurrence:**
 > D4 Why chain (occurrence):
@@ -126,15 +159,16 @@ The most technically evaluated section. Customer SQEs specifically look for:
 
 ### D5 — Corrective Actions
 
-Each corrective action must directly address the root cause from D4.
+Each corrective action must directly address the root cause from D4 — reference whether it addresses the occurrence root cause (RCO) or escape root cause (RCE).
 
 **Required content:**
+
 - Description of the corrective action
-- Which root cause it addresses
+- Which root cause it addresses (RCO or RCE)
 - Implementation date
 - Responsible person
 
-**Good:** "Added mandatory CNC parameter verification step to WI-Milling-Station-2 (rev C, attached): operator must verify feed rate = 0.03 mm/rev by reading the CNC display before and after any tool changeover, and record in the batch log."
+**Good:** "Added mandatory CNC parameter verification step to WI-Milling-Station-2 (rev C, attached): operator must verify feed rate = 0.03 mm/rev by reading the CNC display before and after any tool changeover, and record in the batch log. [Addresses RCO]"
 
 **Bad:** "We will retrain operators and improve our process."
 
@@ -144,12 +178,16 @@ Each corrective action must directly address the root cause from D4.
 
 The customer needs objective proof that the actions worked, not just that they were implemented.
 
+Verification sample size must be justified based on defect rate and risk — not chosen arbitrarily.
+
 **Required content:**
+
 - Implementation date for each PCA
 - Verification data (production run results, before/after comparison)
+- Justified sample size
 - ICA removal date and confirmation
 
-**Good:** "PCA implemented 2026-06-04. Verification run: 500 units produced with revised WI, 100% measurement of flange thickness — all within specification (mean 2.19 mm, ±0.04 mm, within ±0.1 mm tolerance). Zero defects detected. ICA (100% inspection) removed 2026-06-10 based on verified zero-defect production run."
+**Good:** "PCA implemented 2026-06-04. Verification run: 500 units produced with revised WI (sample size justified by 0.235 defect rate, 95% confidence), 100% measurement of flange thickness — all within specification (mean 2.19 mm, ±0.04 mm, within ±0.1 mm tolerance). Zero defects detected. ICA (100% inspection) removed 2026-06-10 based on verified zero-defect production run."
 
 **Bad:** "The corrective action has been implemented. No defects were found."
 
@@ -159,7 +197,10 @@ The customer needs objective proof that the actions worked, not just that they w
 
 This shows the customer you manage your quality system properly, not just firefight.
 
+All document updates must be implemented and active in production — not only documented in the 8D.
+
 **Required content:**
+
 - PFMEA revision (document number, revision letter, date)
 - Control Plan revision (document number, revision letter, date)
 - Work Instruction revision (document number, revision letter, date)
@@ -174,7 +215,9 @@ This shows the customer you manage your quality system properly, not just firefi
 
 Brief close statement. Professional and factual.
 
-**Good:** "8D closed on 2026-06-15 with champion approval. Team formally recognised at department meeting 2026-06-15. 8D report filed in quality record system under QR-2026-0047."
+Customer must be formally notified of closure with the final 8D report.
+
+**Good:** "8D closed on 2026-06-15 with champion approval. Customer notified of closure with final 8D on 2026-06-15 (ref: email attached). Team formally recognised at department meeting 2026-06-15. 8D report filed in quality record system under QR-2026-0047."
 
 ---
 
@@ -188,7 +231,11 @@ Brief close statement. Professional and factual.
 | "The operator made a mistake" | "The work instruction did not specify the required parameter" |
 | "Going forward, we will..." | Specific action with date implemented |
 
-An 8D report is a technical document. Apologetic or vague language reduces credibility.
+Use consistent tense: past for completed actions, present for current state.
+
+An 8D report is a technical document. Apologetic or vague language reduces credibility with customer SQEs.
+
+All statements in the 8D must be supported by attached or referenced evidence. Attach all supporting evidence: photos, measurement data, WI revisions, PFMEA updates, and test results.
 
 ## Output Format
 
@@ -205,4 +252,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 ## Reference files
 
-- [OEM-specific requirements](references/oem-requirements.md)
+- [OEM-specific requirements](references/oem-formats.md)
