@@ -4,6 +4,87 @@ All notable changes to Quality-Engineering-Skills are documented here.
 
 ---
 
+## [v2.0.0] — 2026-06-06
+
+### Added
+
+**9 new skills** across 4 new domains (commits 312ab74, 70e57f6):
+
+| Skill | Domain | Standard |
+|-------|--------|---------|
+| [ppap](skills/planning/ppap/) | planning | AIAG PPAP 4th Edition (2006) |
+| [apqp](skills/planning/apqp/) | planning | AIAG APQP 2nd Edition (2008) |
+| [control-plan](skills/planning/control-plan/) | planning | AIAG Control Plan Reference Manual |
+| [dvp-test-plan](skills/planning/dvp-test-plan/) | planning | IATF 16949:2016 §8.3.4.3 |
+| [msa-gauge-rr](skills/measurement/msa-gauge-rr/) | measurement | AIAG MSA 4th Edition (2010) |
+| [spc-control-charts](skills/measurement/spc-control-charts/) | measurement | AIAG SPC 2nd Edition (2005) |
+| [vda-6-3-audit](skills/audit/vda-6-3-audit/) | audit | VDA 6.3 4th Edition (2023) |
+| [dmaic](skills/problem-solving/dmaic/) | problem-solving | Six Sigma / ISO 9001:2015 §10.3 |
+| [supplier-scar](skills/supplier-quality/supplier-scar/) | supplier-quality | ISO 9001:2015 §8.4 / IATF §8.4.1 |
+
+**2 new agents:**
+
+| Agent | Purpose |
+|-------|---------|
+| [ppap-checker](skills/agents/ppap-checker/) | Interactive 18-element PPAP completeness checker with OEM-specific gates |
+| [control-plan-builder](skills/agents/control-plan-builder/) | Row-by-row Control Plan builder from PFMEA data — includes D7 update mode |
+
+**13 new reference files** — all 22 skills now have supporting reference material (commit e3af81a):
+
+| File | Purpose |
+|------|---------|
+| `fishbone-analysis/references/6m-category-guide.md` | Per-M taxonomy, question prompts, fishbone-to-5why linkage |
+| `is-is-not-scoping/references/hypothesis-elimination.md` | Hypothesis tracking template, elimination logic, worked example |
+| `pdca-improvement/references/pdca-examples.md` | 3 worked PDCA examples, gate checklists, PDCA vs 8D vs DMAIC table |
+| `dmaic/references/statistical-tools.md` | 27-tool DMAIC phase reference, hypothesis test selection guide |
+| `ppap/references/18-elements-checklist.md` | AIAG Table 4.1 Level 1–5 matrix, acceptance criteria, OEM overrides |
+| `apqp/references/phase-deliverables.md` | Deliverables per phase, gate checklists, APQP-to-PPAP cross-reference |
+| `control-plan/references/control-plan-template.md` | 13-column template, sample plan guide, PFMEA-to-CP mapping |
+| `dvp-test-plan/references/dvp-template.md` | 13-column template, test category library, DFMEA linkage |
+| `msa-gauge-rr/references/gauge-rr-study-guide.md` | Study conductor guide, worked 10×3×2 numeric example |
+| `spc-control-charts/references/chart-selection-guide.md` | Decision tree, constants tables, Western Electric rules, OOC response |
+| `vda-6-3-audit/references/p1-p7-questions.md` | 75+ questions P1–P7 with weights, evidence types, common findings |
+| `supplier-scar/references/scar-template.md` | SCAR template, 8D evaluation scorecard, escalation matrix |
+| `car-corrective-action/references/car-template.md` | 11-section CAR template, RC vs CA checklist, CAR vs SCAR distinction |
+
+**Tier 2 platform connectors** (commit b1eefc2, e41f6d2):
+
+| Platform | Files |
+|----------|-------|
+| Microsoft Teams / Copilot Studio | `platforms/teams/` — system prompt, bot config, Teams manifest, AppSource listing |
+| Microsoft 365 AppSource | `platforms/m365/` — plugin manifest, OpenAPI spec, setup guide |
+| Google Gemini / Workspace | `platforms/gemini/` — system prompt, Apps Script add-on, Marketplace listing |
+| Slack | `platforms/slack/` — Cloudflare Worker (production, with signature verification), app manifest, App Directory listing |
+
+**Infrastructure:**
+- `docs/privacy.html` — Privacy policy page required for all store submissions
+- `docs/launch-plan.md` — Lead launch plan for Week 5 public release
+- `STATUS.md` — Updated to 22 skills / 8 agents / 23 reference files / all 🟢
+
+### Changed
+
+**v2 SKILL.md corrections by @migmcc** (PR #3, commit 70e57f6):
+
+11 files corrected across the new v2 batch. Key corrections:
+- PPAP: 300-part production trial run minimum added (AIAG §4.0) — was missing entirely
+- ppap-checker: Cpk threshold table corrected (1.33–1.67 = conditional, not acceptable; 1.00–1.33 = block + 100% inspection)
+- MSA: root cause investigation guide added for %GRR > 30% (high-EV vs high-AV tables with corrective actions)
+- VDA 6.3: weighted average calculation explained (equal-weight averaging is a calculation error); score-4 vs score-6 distinction clarified; auditor qualification requirement added
+- Control Plan: OEM-specific special characteristic symbol conventions added (Ford, GM, VW, BMW, Stellantis)
+- SCAR: warranty cost recovery / debit note risk added; CS1/CS2 controlled shipping reference added
+
+**v3 reference file corrections by @migmcc** (PR #4):
+
+6 of 13 new reference files corrected:
+- MSA gauge-rr: AV constant corrected — K₂=0.5231 (not d₂*=1.693, which is the EV value)
+- SPC chart-selection: DPPM for Cpk≥1.67 corrected from 57→233 ppm (consistent with 1.5σ shift model)
+- APQP phase-deliverables: PSW cross-reference corrected (Programme Charter → Quality Planning Sign-Off)
+- DVP template: reliability sample size guidance expanded with test duration multipliers
+- DMAIC statistical-tools: Excel STDEV() clarified as computing Ppk (overall σ), not Cpk
+- PDCA examples: internal numeric consistency fixed (18→20 parts, 4.5%→5.0%)
+
+---
+
 ## [v1.2.0] — 2026-06-05
 
 ### Added

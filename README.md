@@ -203,11 +203,11 @@ metadata:
 
 ## Roadmap
 
-**v1 (current):** Problem solving · Risk analysis · PPAP · APQP · Control Plan · MSA · SPC · Audit · Supplier SCAR
+**v2 (current):** Problem solving · Risk analysis · PPAP · APQP · Control Plan · DVP&R · MSA · SPC · VDA 6.3 · DMAIC · Supplier SCAR — 22 skills, 8 agents
 
-**v2:** AS9100 Rev D (aerospace) · ISO 13485 (medical devices) · HACCP / ISO 22000 (food safety)
+**v3:** AS9100 Rev D (aerospace) · ISO 13485 (medical devices) · HACCP / ISO 22000 (food safety)
 
-**v3:** Supplier qualification workflows · AQL sampling plans · VDA 6.5 product audit
+**v4:** Supplier qualification workflows · AQL sampling plans · VDA 6.5 product audit
 
 **Multilingual:** PT · DE · ES · ZH
 
