@@ -1,4 +1,4 @@
-﻿---
+---
 name: ppap
 description: >-
   Production Part Approval Process (PPAP) — verify PPAP submission level, audit all 18 elements,

@@ -1,0 +1,19 @@
+# Normalise line endings to LF on commit; convert to CRLF on Windows checkout
+* text=auto
+
+# Force LF for all markdown and text files — prevents UTF-8 BOM on Windows editors
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.py text eol=lf
+*.js text eol=lf
+*.html text eol=lf
+*.txt text eol=lf
+
+# Binary files — no line-ending conversion
+*.png binary
+*.jpg binary
+*.gif binary
+*.ico binary

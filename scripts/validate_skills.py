@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """Validate SKILL.md files and internal markdown links for Quality-Engineering-Skills."""
 
+import io
 import re
 import sys
 from pathlib import Path
+
+# Ensure UTF-8 output on Windows (avoids cp1252 UnicodeEncodeError on checkmark/emoji)
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 try:
     import yaml

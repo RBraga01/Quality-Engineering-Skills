@@ -1,4 +1,4 @@
-﻿---
+---
 name: control-plan-builder
 description: >-
   Interactive Control Plan builder — takes PFMEA failure modes and process flow steps as input and

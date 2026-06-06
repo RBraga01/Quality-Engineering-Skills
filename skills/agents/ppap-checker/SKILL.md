@@ -1,4 +1,4 @@
-﻿---
+---
 name: ppap-checker
 description: >-
   Interactive PPAP completeness checker — walks through all 18 PPAP elements for a given submission

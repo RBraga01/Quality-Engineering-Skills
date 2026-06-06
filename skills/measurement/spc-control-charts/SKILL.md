@@ -1,4 +1,4 @@
-﻿---
+---
 name: spc-control-charts
 description: >-
   Statistical Process Control (SPC) — select the correct control chart, interpret out-of-control

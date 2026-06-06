@@ -1,4 +1,4 @@
-﻿---
+---
 name: dmaic
 description: >-
   DMAIC (Define-Measure-Analyze-Improve-Control) — Six Sigma structured problem-solving for
