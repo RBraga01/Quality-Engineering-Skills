@@ -1,33 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark light">
 <title>Quality Engineering Skills — AI Methodologies for ISO 9001, IATF 16949 & AIAG-VDA</title>
-<meta name="description" content="The canonical quality engineering skill library for AI agents. 18 structured methodologies — 8D, PFMEA, DFMEA, NCR, audits — for automotive, electronics, aerospace and medical industries. Free and open source.">
+<meta name="description" content="22 structured quality engineering skills and 8 agents for AI — 8D, PFMEA, PPAP, APQP, SPC, MSA, VDA 6.3 for automotive, electronics, aerospace and medical industries. Free and open source.">
 <style>
 /* ── RESET & TOKENS ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
 :root {
-  --bg:        #060b0f;
-  --bg2:       #0a1018;
-  --surface:   #0f1820;
-  --border:    rgba(255,255,255,.07);
-  --border2:   rgba(255,255,255,.13);
-  --text:      #dde6ef;
-  --muted:     #5c7a93;
-  --teal:      #0ea5e9;
-  --teal-d:    #0369a1;
-  --emerald:   #10b981;
-  --amber:     #f59e0b;
-  --blue:      #3b82f6;
-  --purple:    #8b5cf6;
-  --red:       #ef4444;
-  --white:     #ffffff;
-  --r:         14px;
-  --r-sm:      8px;
-  --shadow:    0 4px 24px rgba(0,0,0,.45);
-  --shadow-lg: 0 12px 48px rgba(0,0,0,.65);
+  --bg:          #060b0f;
+  --bg2:         #0a1018;
+  --surface:     #0f1820;
+  --border:      rgba(255,255,255,.07);
+  --border2:     rgba(255,255,255,.13);
+  --text:        #dde6ef;
+  --text-strong: #ffffff;
+  --muted:       #5c7a93;
+  --teal:        #0ea5e9;
+  --teal-d:      #0369a1;
+  --emerald:     #10b981;
+  --amber:       #f59e0b;
+  --blue:        #3b82f6;
+  --purple:      #8b5cf6;
+  --red:         #ef4444;
+  --slate:       #64748b;
+  --white:       #ffffff;
+  --r:           14px;
+  --r-sm:        8px;
+  --shadow:      0 4px 24px rgba(0,0,0,.45);
+  --shadow-lg:   0 12px 48px rgba(0,0,0,.65);
+  --nav-bg:      rgba(6,11,15,.88);
+  --code-bg:     #060e16;
+  --cta-bg:      linear-gradient(135deg,#060f18,#091620);
+}
+
+[data-theme="light"] {
+  --bg:          #f8fafc;
+  --bg2:         #f1f5f9;
+  --surface:     #ffffff;
+  --border:      rgba(0,0,0,.08);
+  --border2:     rgba(0,0,0,.15);
+  --text:        #334155;
+  --text-strong: #0f172a;
+  --muted:       #64748b;
+  --shadow:      0 4px 24px rgba(0,0,0,.10);
+  --shadow-lg:   0 12px 48px rgba(0,0,0,.18);
+  --nav-bg:      rgba(248,250,252,.92);
+  --code-bg:     #1e293b;
+  --cta-bg:      linear-gradient(135deg,#e8eef5,#dde6f0);
 }
 
 html { scroll-behavior: smooth; }
@@ -37,6 +60,7 @@ body {
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background .25s ease, color .25s ease;
 }
 
 /* ── ANIMATIONS ── */
@@ -56,9 +80,10 @@ nav {
   position: fixed; top:0; left:0; right:0; z-index:100;
   display: flex; align-items:center; justify-content:space-between;
   padding: 0 40px; height: 64px;
-  background: rgba(6,11,15,.88);
+  background: var(--nav-bg);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
+  transition: background .25s ease, border-color .25s ease;
 }
 .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
 .nav-logo-icon {
@@ -67,13 +92,29 @@ nav {
   display:flex; align-items:center; justify-content:center;
   font-weight:900; color:white; font-size:.85rem; letter-spacing:-.02em;
 }
-.nav-logo-text { font-weight:700; font-size:1rem; color:var(--white); }
+.nav-logo-text { font-weight:700; font-size:1rem; color:var(--text-strong); transition:color .25s; }
 .nav-logo-badge {
   font-size:.65rem; padding:2px 7px; border-radius:999px;
   background:rgba(14,165,233,.12); color:var(--teal); border:1px solid rgba(14,165,233,.28);
   font-weight:600; letter-spacing:.04em;
 }
-.nav-right { display:flex; align-items:center; gap:10px; }
+.nav-right { display:flex; align-items:center; gap:8px; }
+
+/* Theme toggle */
+.theme-toggle {
+  width:34px; height:34px; border-radius:8px; border:1px solid var(--border2);
+  background:transparent; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--muted); transition:background .15s, color .15s, border-color .15s;
+}
+.theme-toggle:hover { background:rgba(255,255,255,.08); color:var(--text); }
+[data-theme="light"] .theme-toggle:hover { background:rgba(0,0,0,.06); }
+.icon-sun, .icon-moon { width:16px; height:16px; }
+[data-theme="dark"]  .icon-sun  { display:none; }
+[data-theme="dark"]  .icon-moon { display:block; }
+[data-theme="light"] .icon-sun  { display:block; }
+[data-theme="light"] .icon-moon { display:none; }
+
 .btn-gpt {
   display:flex; align-items:center; gap:7px;
   padding:7px 14px; border-radius:8px;
@@ -89,7 +130,9 @@ nav {
   font-weight:700; font-size:.82rem; text-decoration:none;
   transition: transform .15s, box-shadow .15s;
 }
-.btn-github:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(255,255,255,.2); }
+[data-theme="light"] .btn-github { background:#0f172a; color:#f8fafc; }
+.btn-github:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(255,255,255,.15); }
+[data-theme="light"] .btn-github:hover { box-shadow:0 4px 12px rgba(0,0,0,.2); }
 .btn-github svg, .btn-gpt svg { width:15px; height:15px; flex-shrink:0; }
 
 /* ── HERO ── */
@@ -102,8 +145,14 @@ nav {
 .hero-bg {
   position:absolute; inset:0; z-index:0;
   background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(14,165,233,.16) 0%, transparent 60%),
-              radial-gradient(ellipse 50% 40% at 85% 80%, rgba(16,185,129,.1) 0%, transparent 50%),
+              radial-gradient(ellipse 50% 40% at 85% 80%, rgba(16,185,129,.10) 0%, transparent 50%),
               radial-gradient(ellipse 40% 40% at 5% 55%, rgba(245,158,11,.06) 0%, transparent 50%);
+  transition: opacity .3s;
+}
+[data-theme="light"] .hero-bg {
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(14,165,233,.10) 0%, transparent 60%),
+              radial-gradient(ellipse 50% 40% at 85% 80%, rgba(16,185,129,.07) 0%, transparent 50%),
+              radial-gradient(ellipse 40% 40% at 5% 55%, rgba(245,158,11,.05) 0%, transparent 50%);
 }
 .hero-grid {
   position:absolute; inset:0; z-index:0;
@@ -112,11 +161,17 @@ nav {
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
 }
-/* Scan line on grid */
+[data-theme="light"] .hero-grid {
+  background-image: linear-gradient(rgba(0,0,0,.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,0,0,.04) 1px, transparent 1px);
+}
 .hero-grid::after {
   content:''; position:absolute; left:0; right:0; height:1px;
   background:linear-gradient(90deg, transparent, rgba(14,165,233,.5), transparent);
   animation: scan 6s linear infinite;
+}
+[data-theme="light"] .hero-grid::after {
+  background:linear-gradient(90deg, transparent, rgba(14,165,233,.35), transparent);
 }
 .hero-content { position:relative; z-index:1; max-width:820px; }
 .hero-eyebrow {
@@ -127,11 +182,13 @@ nav {
   margin-bottom:28px;
   animation: fadeIn 1s ease both;
 }
+[data-theme="light"] .hero-eyebrow { background:rgba(14,165,233,.10); }
 .hero-eyebrow-dot { width:6px;height:6px;border-radius:50%;background:var(--teal); animation:shimmer 2s ease infinite; }
 .hero h1 {
   font-size: clamp(2.6rem, 6.5vw, 5rem);
   font-weight:900; letter-spacing:-.04em; line-height:1.06;
   margin-bottom:20px;
+  color:var(--text-strong);
   animation: fadeUp .8s ease .1s both;
 }
 .hero h1 .grad {
@@ -163,17 +220,21 @@ nav {
   color:var(--text); font-weight:600; font-size:.95rem; text-decoration:none;
   transition: background .15s, transform .15s;
 }
+[data-theme="light"] .btn-secondary { background:rgba(0,0,0,.04); }
 .btn-secondary:hover { background:rgba(255,255,255,.09); transform:translateY(-2px); }
+[data-theme="light"] .btn-secondary:hover { background:rgba(0,0,0,.08); }
 
 /* Hero stats */
 .hero-stats {
   display:flex; gap:0; border:1px solid var(--border); border-radius:var(--r);
   overflow:hidden; animation: fadeUp .8s ease .4s both;
   background:var(--surface);
+  transition: background .25s, border-color .25s;
 }
 .hero-stat {
   flex:1; padding:18px 24px; text-align:center;
   border-right:1px solid var(--border);
+  transition: border-color .25s;
 }
 .hero-stat:last-child { border-right:none; }
 .hero-stat-n { font-size:1.9rem; font-weight:900; line-height:1; margin-bottom:4px; }
@@ -196,6 +257,10 @@ nav {
 .std-iatf  { background:rgba(16,185,129,.08); color:#6ee7b7; border-color:rgba(16,185,129,.22); }
 .std-aiag  { background:rgba(245,158,11,.08); color:#fcd34d; border-color:rgba(245,158,11,.22); }
 .std-vda   { background:rgba(139,92,246,.08); color:#c4b5fd; border-color:rgba(139,92,246,.22); }
+[data-theme="light"] .std-iso   { color:var(--teal-d); background:rgba(14,165,233,.10); }
+[data-theme="light"] .std-iatf  { color:#065f46; background:rgba(16,185,129,.10); }
+[data-theme="light"] .std-aiag  { color:#92400e; background:rgba(245,158,11,.10); }
+[data-theme="light"] .std-vda   { color:#5b21b6; background:rgba(139,92,246,.10); }
 
 /* ── SECTIONS ── */
 .section { padding:88px 40px; max-width:1160px; margin:0 auto; }
@@ -205,10 +270,10 @@ nav {
 }
 .section h2 {
   font-size:clamp(1.75rem, 3.2vw, 2.5rem); font-weight:800; letter-spacing:-.03em;
-  margin-bottom:8px; color:var(--white);
+  margin-bottom:8px; color:var(--text-strong); transition:color .25s;
 }
 .section-sub { color:var(--muted); font-size:.95rem; margin-bottom:48px; max-width:560px; line-height:1.7; }
-hr.sep { border:none; border-top:1px solid var(--border); }
+hr.sep { border:none; border-top:1px solid var(--border); transition:border-color .25s; }
 
 /* ── COMPARE ── */
 .compare { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
@@ -228,13 +293,11 @@ hr.sep { border:none; border-top:1px solid var(--border); }
 
 /* ── 8D PIPELINE ── */
 .pipeline-wrap { overflow-x:auto; padding-bottom:8px; }
-.pipeline {
-  display:flex; align-items:stretch; gap:0; min-width:960px;
-}
+.pipeline { display:flex; align-items:stretch; gap:0; min-width:960px; }
 .pipe {
   flex:1; background:var(--surface); border:1px solid var(--border);
   border-radius:var(--r); padding:18px 10px; text-align:center;
-  position:relative; transition:transform .2s, border-color .2s, box-shadow .2s;
+  position:relative; transition:transform .2s, border-color .2s, box-shadow .2s, background .25s;
   cursor:default;
 }
 .pipe:hover { transform:translateY(-4px); border-color:var(--border2); box-shadow:var(--shadow); }
@@ -250,24 +313,28 @@ hr.sep { border:none; border-top:1px solid var(--border); }
 .pipe.gate-d3:hover { border-color:var(--teal); box-shadow:0 8px 24px rgba(14,165,233,.15); }
 .pipe-d    { font-size:.6rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
 .pipe-icon { font-size:1.6rem; margin-bottom:8px; display:block; }
-.pipe-title { font-size:.75rem; font-weight:700; color:var(--white); margin-bottom:4px; }
+.pipe-title { font-size:.75rem; font-weight:700; color:var(--text-strong); margin-bottom:4px; transition:color .25s; }
 .pipe-sub   { font-size:.63rem; color:var(--muted); line-height:1.4; }
 .pipe.gate-d4 .pipe-title { color:var(--amber); }
 .pipe.gate-d3 .pipe-title { color:var(--teal); }
 
 /* ── DOMAIN CARDS ── */
 .domain-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+.span-2 { grid-column: span 2; }
 .domain-card {
   background:var(--surface); border:1px solid var(--border);
   border-radius:var(--r); padding:28px;
-  transition:transform .2s, border-color .2s, box-shadow .2s;
+  transition:transform .2s, border-color .2s, box-shadow .2s, background .25s;
   border-left-width:3px;
 }
 .domain-card:hover { transform:translateY(-4px); border-color:var(--border2); box-shadow:var(--shadow); }
-.dc-teal   { border-left-color:var(--teal); }
-.dc-amber  { border-left-color:var(--amber); }
-.dc-blue   { border-left-color:var(--blue); }
-.dc-emerald{ border-left-color:var(--emerald); }
+.dc-teal    { border-left-color:var(--teal); }
+.dc-amber   { border-left-color:var(--amber); }
+.dc-blue    { border-left-color:var(--blue); }
+.dc-emerald { border-left-color:var(--emerald); }
+.dc-purple  { border-left-color:var(--purple); }
+.dc-slate   { border-left-color:var(--slate); }
+.dc-red     { border-left-color:var(--red); }
 .domain-header { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
 .domain-icon {
   width:42px; height:42px; border-radius:10px;
@@ -277,9 +344,13 @@ hr.sep { border:none; border-top:1px solid var(--border); }
 .dc-amber   .domain-icon { background:rgba(245,158,11,.1); }
 .dc-blue    .domain-icon { background:rgba(59,130,246,.1); }
 .dc-emerald .domain-icon { background:rgba(16,185,129,.1); }
-.domain-card h3 { font-size:.95rem; font-weight:700; color:var(--white); }
+.dc-purple  .domain-icon { background:rgba(139,92,246,.1); }
+.dc-slate   .domain-icon { background:rgba(100,116,139,.1); }
+.dc-red     .domain-icon { background:rgba(239,68,68,.1); }
+.domain-card h3 { font-size:.95rem; font-weight:700; color:var(--text-strong); transition:color .25s; }
 .domain-card .std-ref { font-size:.7rem; color:var(--muted); margin-top:1px; }
 .skill-list { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.skill-list-2col { display:grid; grid-template-columns:1fr 1fr; gap:8px 20px; }
 .skill-list li {
   display:flex; align-items:center; gap:10px; font-size:.83rem; color:var(--text);
 }
@@ -290,6 +361,9 @@ hr.sep { border:none; border-top:1px solid var(--border); }
 .dc-amber   .skill-list li::before { background:var(--amber); }
 .dc-blue    .skill-list li::before { background:var(--blue); }
 .dc-emerald .skill-list li::before { background:var(--emerald); }
+.dc-purple  .skill-list li::before { background:var(--purple); }
+.dc-slate   .skill-list li::before { background:var(--slate); }
+.dc-red     .skill-list li::before { background:var(--red); }
 .skill-list .skill-std { font-size:.68rem; color:var(--muted); margin-left:auto; white-space:nowrap; }
 
 /* ── AGENT CARDS ── */
@@ -297,7 +371,7 @@ hr.sep { border:none; border-top:1px solid var(--border); }
 .agent-card {
   background:var(--surface); border:1px solid var(--border);
   border-radius:var(--r); padding:22px;
-  transition:transform .2s, border-color .2s, box-shadow .2s;
+  transition:transform .2s, border-color .2s, box-shadow .2s, background .25s;
   position:relative; overflow:hidden;
 }
 .agent-card::before {
@@ -308,7 +382,7 @@ hr.sep { border:none; border-top:1px solid var(--border); }
 .agent-card:hover { transform:translateY(-4px); border-color:var(--border2); box-shadow:var(--shadow); }
 .agent-card:hover::before { opacity:1; }
 .agent-icon { font-size:1.5rem; margin-bottom:12px; display:block; position:relative; z-index:1; }
-.agent-card h3 { font-size:.88rem; font-weight:700; color:var(--white); margin-bottom:6px; position:relative; z-index:1; }
+.agent-card h3 { font-size:.88rem; font-weight:700; color:var(--text-strong); margin-bottom:6px; position:relative; z-index:1; transition:color .25s; }
 .agent-card p  { font-size:.76rem; color:var(--muted); line-height:1.55; position:relative; z-index:1; }
 .agent-type {
   display:inline-block; margin-top:10px; font-size:.63rem; font-weight:700; padding:2px 8px;
@@ -325,10 +399,10 @@ hr.sep { border:none; border-top:1px solid var(--border); }
   background:var(--surface); border:1px solid var(--border);
   border-radius:var(--r); padding:20px; display:flex; gap:16px;
   align-items:flex-start; border-left-width:3px;
-  transition:transform .2s, box-shadow .2s;
+  transition:transform .2s, box-shadow .2s, background .25s;
 }
 .gate-card:hover { transform:translateX(3px); box-shadow:var(--shadow); }
-.gate-card h3   { font-size:.84rem; font-weight:700; color:var(--white); margin-bottom:4px; }
+.gate-card h3   { font-size:.84rem; font-weight:700; color:var(--text-strong); margin-bottom:4px; transition:color .25s; }
 .gate-card p    { font-size:.77rem; color:var(--muted); line-height:1.55; }
 .gate-card .gi  { font-size:1.3rem; flex-shrink:0; margin-top:2px; }
 .g-amber  { border-left-color:var(--amber); }
@@ -338,11 +412,11 @@ hr.sep { border:none; border-top:1px solid var(--border); }
 .g-blue   { border-left-color:var(--blue); }
 
 /* ── PLATFORMS ── */
-.platforms-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.platforms-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .platform-card {
   background:var(--surface); border:1px solid var(--border);
   border-radius:var(--r); padding:26px 18px; text-align:center;
-  transition:transform .2s, border-color .2s, box-shadow .2s;
+  transition:transform .2s, border-color .2s, box-shadow .2s, background .25s;
   position:relative; overflow:hidden;
 }
 .platform-card::before {
@@ -357,7 +431,7 @@ hr.sep { border:none; border-top:1px solid var(--border); }
   display:flex; align-items:center; justify-content:center;
   margin:0 auto 14px; position:relative; z-index:1;
 }
-.platform-card h3  { font-size:.9rem; font-weight:700; color:var(--white); margin-bottom:5px; position:relative; z-index:1; }
+.platform-card h3  { font-size:.9rem; font-weight:700; color:var(--text-strong); margin-bottom:5px; position:relative; z-index:1; transition:color .25s; }
 .platform-card p   { font-size:.73rem; color:var(--muted); line-height:1.5; position:relative; z-index:1; }
 .plat-badge {
   display:inline-block; margin-top:10px;
@@ -367,23 +441,27 @@ hr.sep { border:none; border-top:1px solid var(--border); }
 }
 .badge-live    { background:rgba(16,185,129,.12); color:var(--emerald); border:1px solid rgba(16,185,129,.3); }
 .badge-guide   { background:rgba(14,165,233,.12); color:var(--teal); border:1px solid rgba(14,165,233,.3); }
-.badge-coming  { background:rgba(92,92,92,.12); color:#94a3b8; border:1px solid rgba(92,92,92,.25); }
+.badge-native  { background:rgba(139,92,246,.12); color:var(--purple); border:1px solid rgba(139,92,246,.3); }
 
 .plat-chatgpt .plat-logo { background:rgba(16,163,127,.1); border:1px solid rgba(16,163,127,.2); }
 .plat-claude  .plat-logo { background:rgba(255,127,80,.1); border:1px solid rgba(255,127,80,.2); }
 .plat-teams   .plat-logo { background:rgba(70,113,195,.1); border:1px solid rgba(70,113,195,.2); }
 .plat-gemini  .plat-logo { background:rgba(66,133,244,.1); border:1px solid rgba(66,133,244,.2); }
+.plat-slack   .plat-logo { background:rgba(224,30,90,.1); border:1px solid rgba(224,30,90,.2); }
+.plat-cli     .plat-logo { background:rgba(139,92,246,.1); border:1px solid rgba(139,92,246,.2); }
 .plat-chatgpt { --glow-color:rgba(16,163,127,.08); }
 .plat-claude  { --glow-color:rgba(255,127,80,.08); }
 .plat-teams   { --glow-color:rgba(70,113,195,.08); }
 .plat-gemini  { --glow-color:rgba(66,133,244,.08); }
+.plat-slack   { --glow-color:rgba(224,30,90,.08); }
+.plat-cli     { --glow-color:rgba(139,92,246,.08); }
 
 /* ── QUICK START ── */
 .qs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
 .qs-card {
   background:var(--surface); border:1px solid var(--border);
   border-radius:var(--r); padding:28px 24px;
-  transition:transform .2s, box-shadow .2s, border-color .2s;
+  transition:transform .2s, box-shadow .2s, border-color .2s, background .25s;
 }
 .qs-card:hover { transform:translateY(-3px); border-color:var(--border2); box-shadow:var(--shadow); }
 .qs-num {
@@ -393,7 +471,7 @@ hr.sep { border:none; border-top:1px solid var(--border); }
   font-weight:900; font-size:.88rem; color:white; margin-bottom:16px;
   box-shadow:0 4px 12px rgba(14,165,233,.3);
 }
-.qs-card h3 { font-size:.95rem; font-weight:700; color:var(--white); margin-bottom:6px; }
+.qs-card h3 { font-size:.95rem; font-weight:700; color:var(--text-strong); margin-bottom:6px; transition:color .25s; }
 .qs-card p  { font-size:.82rem; color:var(--muted); margin-bottom:16px; line-height:1.6; }
 .qs-card a  {
   display:inline-flex; align-items:center; gap:6px;
@@ -403,15 +481,17 @@ hr.sep { border:none; border-top:1px solid var(--border); }
 .qs-card a:hover { opacity:.75; }
 .qs-card a::after { content:'→'; }
 
-/* Code inline */
+/* Code */
 code {
   background:rgba(255,255,255,.06); border:1px solid var(--border);
   padding:2px 7px; border-radius:5px; font-family:monospace; font-size:.84em; color:#7dd3fc;
 }
+[data-theme="light"] code { background:rgba(0,0,0,.05); color:var(--teal-d); border-color:rgba(0,0,0,.1); }
 .code-block {
-  position:relative; background:#060e16; border:1px solid rgba(255,255,255,.08);
+  position:relative; background:var(--code-bg); border:1px solid rgba(255,255,255,.08);
   border-radius:8px; overflow:hidden; margin-top:10px;
 }
+[data-theme="light"] .code-block { border-color:rgba(0,0,0,.1); }
 .code-block pre { margin:0; padding:14px 48px 14px 16px; overflow-x:auto; }
 .code-block code {
   font-family:'Fira Code','Cascadia Code','Consolas',monospace;
@@ -432,19 +512,19 @@ code {
 .faq-group-label {
   font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em;
   color:var(--teal); margin-bottom:16px; padding-bottom:10px;
-  border-bottom:1px solid var(--border);
+  border-bottom:1px solid var(--border); transition:border-color .25s;
 }
 .faq-item {
   border:1px solid var(--border); border-radius:var(--r-sm);
   background:var(--surface); margin-bottom:8px; overflow:hidden;
-  transition:border-color .2s;
+  transition:border-color .2s, background .25s;
 }
 .faq-item:hover { border-color:var(--border2); }
 .faq-item[open] { border-color:rgba(14,165,233,.3); }
 .faq-item summary {
-  padding:15px 20px; font-weight:600; font-size:.88rem; color:var(--white);
+  padding:15px 20px; font-weight:600; font-size:.88rem; color:var(--text-strong);
   cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center;
-  gap:12px; user-select:none;
+  gap:12px; user-select:none; transition:color .25s;
 }
 .faq-item summary::-webkit-details-marker { display:none; }
 .faq-item summary::after {
@@ -454,6 +534,7 @@ code {
   font-size:1rem; line-height:1; color:var(--muted);
   transition:transform .25s ease, background .2s;
 }
+[data-theme="light"] .faq-item summary::after { background:rgba(0,0,0,.05); }
 .faq-item[open] summary::after { content:'−'; transform:rotate(180deg); background:rgba(14,165,233,.14); color:var(--teal); }
 .faq-item[open] summary { color:var(--teal); }
 .faq-body {
@@ -469,11 +550,12 @@ code {
 
 /* ── CTA ── */
 .cta-section {
-  background:linear-gradient(135deg, #060f18, #091620);
+  background:var(--cta-bg);
   border-top:1px solid var(--border); border-bottom:1px solid var(--border);
   padding:80px 40px; text-align:center;
+  transition:border-color .25s;
 }
-.cta-section h2 { font-size:2rem; font-weight:800; color:var(--white); margin-bottom:8px; letter-spacing:-.02em; }
+.cta-section h2 { font-size:2rem; font-weight:800; color:var(--text-strong); margin-bottom:8px; letter-spacing:-.02em; transition:color .25s; }
 .cta-section p  { color:var(--muted); margin-bottom:32px; }
 .cta-btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
 .star-cta {
@@ -483,6 +565,7 @@ code {
   font-weight:800; font-size:1rem; text-decoration:none;
   transition:transform .2s, filter .2s;
 }
+[data-theme="light"] .star-cta { background:#0f172a; color:#f8fafc; }
 .star-cta:hover { transform:scale(1.03); filter:brightness(1.05); }
 .gpt-cta {
   display:inline-flex; align-items:center; gap:10px;
@@ -500,6 +583,7 @@ footer {
   border-top:1px solid var(--border);
   display:flex; align-items:center; justify-content:space-between;
   flex-wrap:wrap; gap:16px;
+  transition:background .25s, border-color .25s;
 }
 .footer-logo { display:flex; align-items:center; gap:10px; }
 .footer-logo .licon {
@@ -508,7 +592,7 @@ footer {
   display:flex; align-items:center; justify-content:center;
   font-weight:900; color:white; font-size:.78rem;
 }
-.footer-logo span { font-weight:700; font-size:.88rem; color:var(--white); }
+.footer-logo span { font-weight:700; font-size:.88rem; color:var(--text-strong); transition:color .25s; }
 footer p { font-size:.78rem; color:var(--muted); }
 .footer-links { display:flex; gap:20px; }
 .footer-links a { font-size:.78rem; color:var(--muted); text-decoration:none; transition:color .15s; }
@@ -519,7 +603,7 @@ footer p { font-size:.78rem; color:var(--muted); }
 .author-card {
   background:var(--surface); border:1px solid var(--border);
   border-radius:var(--r); padding:24px; display:flex; gap:16px;
-  transition:transform .2s, border-color .2s, box-shadow .2s;
+  transition:transform .2s, border-color .2s, box-shadow .2s, background .25s;
 }
 .author-card:hover { transform:translateY(-3px); border-color:var(--border2); box-shadow:var(--shadow); }
 .author-avatar {
@@ -528,7 +612,7 @@ footer p { font-size:.78rem; color:var(--muted); }
   display:flex; align-items:center; justify-content:center;
   font-weight:900; font-size:1rem; color:white;
 }
-.author-name  { font-size:.92rem; font-weight:700; color:var(--white); }
+.author-name  { font-size:.92rem; font-weight:700; color:var(--text-strong); transition:color .25s; }
 .author-role  { font-size:.73rem; color:var(--teal); margin:2px 0 6px; }
 .author-bio   { font-size:.76rem; color:var(--muted); line-height:1.5; }
 .author-link  {
@@ -546,6 +630,8 @@ footer p { font-size:.78rem; color:var(--muted); }
   .compare { grid-template-columns:1fr; }
   .platforms-grid { grid-template-columns:repeat(2,1fr); }
   .domain-grid  { grid-template-columns:1fr; }
+  .span-2 { grid-column: auto; }
+  .skill-list-2col { grid-template-columns:1fr; }
   .agent-grid   { grid-template-columns:repeat(2,1fr); }
   .qs-grid      { grid-template-columns:1fr; }
   .hero-stats { flex-direction:column; }
@@ -569,12 +655,22 @@ footer p { font-size:.78rem; color:var(--muted); }
   <a class="nav-logo" href="#">
     <div class="nav-logo-icon">QE</div>
     <span class="nav-logo-text">Quality Engineering Skills</span>
-    <span class="nav-logo-badge">v1.1</span>
+    <span class="nav-logo-badge">v2.0</span>
   </a>
   <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+      <!-- Sun (shown in light mode to switch to dark) -->
+      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M18.66 5.34l1.41-1.41"/>
+      </svg>
+      <!-- Moon (shown in dark mode to switch to light) -->
+      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
     <a class="btn-gpt" href="https://chatgpt.com/g/g-6a22e9e03f8881918c35741d618bad54-quality-engineering-assistant" target="_blank" rel="noopener">
       <svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-7.504-3.366 10.079 10.079 0 0 0-9.612 6.977 9.967 9.967 0 0 0-6.664 4.834 10.08 10.08 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 7.504 3.366 10.08 10.08 0 0 0 9.617-6.981 9.967 9.967 0 0 0 6.663-4.834 10.079 10.079 0 0 0-1.243-11.813zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496zM6.392 31.006a7.471 7.471 0 0 1-.894-5.023c.06.036.162.099.237.141l7.964 4.6a1.297 1.297 0 0 0 1.308 0l9.724-5.614v3.888a.12.12 0 0 1-.048.103l-8.051 4.649a7.504 7.504 0 0 1-10.24-2.744zM4.297 13.62A7.469 7.469 0 0 1 8.2 10.333c0 .068-.004.19-.004.274v9.201a1.294 1.294 0 0 0 .654 1.132l9.723 5.614-3.366 1.944a.12.12 0 0 1-.114.012L7.044 23.86a7.504 7.504 0 0 1-2.747-10.24zm27.658 6.437-9.724-5.615 3.367-1.943a.121.121 0 0 1 .114-.012l8.048 4.648a7.498 7.498 0 0 1-1.158 13.528v-9.476a1.293 1.293 0 0 0-.647-1.13zm3.35-5.043c-.059-.037-.162-.099-.236-.141l-7.965-4.6a1.298 1.298 0 0 0-1.308 0l-9.723 5.614v-3.888a.12.12 0 0 1 .048-.103l8.05-4.645a7.497 7.497 0 0 1 11.135 7.763zm-21.063 6.929-3.367-1.944a.12.12 0 0 1-.065-.092v-9.299a7.497 7.497 0 0 1 12.293-5.756 6.94 6.94 0 0 0-.236.134l-7.965 4.6a1.294 1.294 0 0 0-.654 1.132l-.006 11.225zm1.829-3.943 4.33-2.501 4.332 2.498v4.998l-4.331 2.5-4.331-2.5V18z" fill="currentColor"/>
+        <path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-7.504-3.366 10.079 10.079 0 0 0-9.612 6.977 9.967 9.967 0 0 0-6.664 4.834 10.08 10.08 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 7.504 3.366 10.08 10.08 0 0 0 9.617-6.981 9.967 9.967 0 0 0 6.663-4.834 10.079 10.079 0 0 0-1.243-11.813z" fill="currentColor"/>
       </svg>
       Try on ChatGPT
     </a>
@@ -594,10 +690,10 @@ footer p { font-size:.78rem; color:var(--muted); }
   <div class="hero-content">
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-dot"></span>
-      Free · Open Source · MIT License
+      Free · Open Source · MIT License · v2.0
     </div>
     <h1>Quality engineering skills<br>for <span class="grad">AI agents</span></h1>
-    <p class="hero-sub">The canonical reference that every AI agent in the quality domain pulls from. 18 structured methodologies — 8D, PFMEA, DFMEA, NCR, audits — that work across ChatGPT, Claude, Gemini, and more.</p>
+    <p class="hero-sub">22 structured methodologies across 7 domains — 8D, PFMEA, PPAP, APQP, SPC, MSA, VDA 6.3. Grounded in ISO 9001, IATF 16949, and AIAG-VDA 2019. Works with ChatGPT, Claude, Gemini, and 20+ AI platforms.</p>
     <div class="hero-ctas">
       <a class="btn-primary" href="https://chatgpt.com/g/g-6a22e9e03f8881918c35741d618bad54-quality-engineering-assistant" target="_blank" rel="noopener">
         Try the GPT — Free →
@@ -605,16 +701,16 @@ footer p { font-size:.78rem; color:var(--muted); }
       <a class="btn-secondary" href="#methodologies">Explore the skills</a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-n n-teal">13</div><div class="hero-stat-l">Skill Files</div></div>
-      <div class="hero-stat"><div class="hero-stat-n n-emerald">6</div><div class="hero-stat-l">AI Agents</div></div>
-      <div class="hero-stat"><div class="hero-stat-n n-amber">4+</div><div class="hero-stat-l">Platforms</div></div>
-      <div class="hero-stat"><div class="hero-stat-n n-blue">0</div><div class="hero-stat-l">Setup for GPT</div></div>
+      <div class="hero-stat"><div class="hero-stat-n n-teal">22</div><div class="hero-stat-l">Skill Files</div></div>
+      <div class="hero-stat"><div class="hero-stat-n n-emerald">8</div><div class="hero-stat-l">AI Agents</div></div>
+      <div class="hero-stat"><div class="hero-stat-n n-amber">7</div><div class="hero-stat-l">Domains</div></div>
+      <div class="hero-stat"><div class="hero-stat-n n-blue">MIT</div><div class="hero-stat-l">License</div></div>
     </div>
     <div class="standards-row">
       <span class="std-badge std-iso">ISO 9001:2015</span>
       <span class="std-badge std-iatf">IATF 16949:2016</span>
       <span class="std-badge std-aiag">AIAG-VDA FMEA 2019</span>
-      <span class="std-badge std-vda">VDA</span>
+      <span class="std-badge std-vda">VDA 6.3 · 2023</span>
     </div>
   </div>
 </div>
@@ -633,6 +729,7 @@ footer p { font-size:.78rem; color:var(--muted); }
       <div class="cmp-row"><span class="ic">😕</span><span>Doesn't know Ford 8D, BMW G8D, or VW QMSS format differences</span></div>
       <div class="cmp-row"><span class="ic">😕</span><span>Assigns RPN instead of AIAG-VDA 2019 Action Priority (AP)</span></div>
       <div class="cmp-row"><span class="ic">😕</span><span>Accepts verbal confirmation as audit evidence</span></div>
+      <div class="cmp-row"><span class="ic">😕</span><span>Can't validate a PPAP submission or identify missing elements</span></div>
     </div>
     <div class="cmp after">
       <h3>✅ AI with Quality Engineering Skills</h3>
@@ -642,6 +739,7 @@ footer p { font-size:.78rem; color:var(--muted); }
       <div class="cmp-row"><span class="ic">🎯</span><span>Generates OEM-specific 8D reports — Ford, BMW, VW, Stellantis</span></div>
       <div class="cmp-row"><span class="ic">🎯</span><span>Applies AIAG-VDA 2019 AP logic — S=9/10 is always High Priority</span></div>
       <div class="cmp-row"><span class="ic">🎯</span><span>Demands objective evidence — "Show me the record"</span></div>
+      <div class="cmp-row"><span class="ic">🎯</span><span>Walks all 18 PPAP elements, flags gaps before PSW signature</span></div>
     </div>
   </div>
 </section>
@@ -710,11 +808,12 @@ footer p { font-size:.78rem; color:var(--muted); }
 <!-- ══════════ SKILL DOMAINS ══════════ -->
 <section class="section reveal" id="methodologies">
   <div class="section-tag">The Skills</div>
-  <h2>18 methodologies across 4 domains</h2>
-  <p class="section-sub">Every skill is grounded in a specific standard edition. No generic advice — structured workflow with validation gates.</p>
+  <h2>22 skills across 7 domains</h2>
+  <p class="section-sub">Every skill is grounded in a specific standard edition. No generic advice — structured workflows with validation gates, templates, and worked examples.</p>
   <div class="domain-grid">
 
-    <div class="domain-card dc-teal reveal">
+    <!-- Problem Solving — FULL WIDTH (6 skills) -->
+    <div class="domain-card dc-teal reveal span-2">
       <div class="domain-header">
         <div class="domain-icon">🔧</div>
         <div>
@@ -722,21 +821,23 @@ footer p { font-size:.78rem; color:var(--muted); }
           <div class="std-ref">ISO 9001:2015 §10.2 · IATF 16949:2016 §10.2.3</div>
         </div>
       </div>
-      <ul class="skill-list">
-        <li>8D Problem Solving — D0 through D8, gate validation<span class="skill-std">8D · G8D · TOPS-8D</span></li>
+      <ul class="skill-list skill-list-2col">
+        <li>8D Problem Solving — D0 through D8, gate validation<span class="skill-std">8D · G8D · TOPS</span></li>
         <li>5-Why Root Cause Analysis — dual chain, evidence status<span class="skill-std">ISO 9001 §10.2</span></li>
         <li>Fishbone / Ishikawa — 6M framework, evaluation matrix<span class="skill-std">ISO 9001 §10.2</span></li>
         <li>Is / Is-Not Scoping — Ford D2 tool, hypothesis elimination<span class="skill-std">ISO 9001 §10.2</span></li>
-        <li>PDCA Improvement Cycle — Plan-Do-Check-Act with gate criteria<span class="skill-std">ISO 9001 §10.3</span></li>
+        <li>PDCA Improvement Cycle — Plan-Do-Check-Act, gate criteria<span class="skill-std">ISO 9001 §10.3</span></li>
+        <li>DMAIC — Six Sigma structured improvement, 5-phase method<span class="skill-std">ISO 9001 §10.3</span></li>
       </ul>
     </div>
 
+    <!-- Risk Analysis -->
     <div class="domain-card dc-amber reveal">
       <div class="domain-header">
         <div class="domain-icon">⚠️</div>
         <div>
           <h3>Risk Analysis</h3>
-          <div class="std-ref">AIAG-VDA FMEA Handbook 2019 · IATF 16949:2016 §8.3.3.3</div>
+          <div class="std-ref">AIAG-VDA FMEA 2019 · IATF 16949 §8.3.3.3</div>
         </div>
       </div>
       <ul class="skill-list">
@@ -746,12 +847,45 @@ footer p { font-size:.78rem; color:var(--muted); }
       </ul>
     </div>
 
+    <!-- Planning -->
     <div class="domain-card dc-blue reveal">
+      <div class="domain-header">
+        <div class="domain-icon">📅</div>
+        <div>
+          <h3>Planning</h3>
+          <div class="std-ref">AIAG PPAP 4th Ed · APQP 2nd Ed · IATF 16949 §8.3</div>
+        </div>
+      </div>
+      <ul class="skill-list">
+        <li>PPAP — 5 submission levels, 18 elements, OEM overrides<span class="skill-std">AIAG PPAP 4th Ed</span></li>
+        <li>APQP — 5 phases, gate criteria, PPAP cross-reference<span class="skill-std">AIAG APQP 2nd Ed</span></li>
+        <li>Control Plan — PFMEA linkage, reaction plans, D7 updates<span class="skill-std">AIAG CP Manual</span></li>
+        <li>DVP&R — DFMEA linkage, test categories, reliability criteria<span class="skill-std">IATF §8.3.4.3</span></li>
+      </ul>
+    </div>
+
+    <!-- Measurement -->
+    <div class="domain-card dc-purple reveal">
+      <div class="domain-header">
+        <div class="domain-icon">📏</div>
+        <div>
+          <h3>Measurement</h3>
+          <div class="std-ref">AIAG MSA 4th Ed · AIAG SPC 2nd Ed</div>
+        </div>
+      </div>
+      <ul class="skill-list">
+        <li>MSA / Gauge R&R — %GRR, ndc, attribute MSA, PPAP requirement<span class="skill-std">AIAG MSA 4th Ed</span></li>
+        <li>SPC / Control Charts — chart selection, Western Electric rules, Cp/Cpk/Pp/Ppk<span class="skill-std">AIAG SPC 2nd Ed</span></li>
+      </ul>
+    </div>
+
+    <!-- Documentation -->
+    <div class="domain-card dc-slate reveal">
       <div class="domain-header">
         <div class="domain-icon">📄</div>
         <div>
           <h3>Documentation</h3>
-          <div class="std-ref">ISO 9001:2015 §8.7 · §10.2</div>
+          <div class="std-ref">ISO 9001:2015 §7.5 · §8.7 · §10.2</div>
         </div>
       </div>
       <ul class="skill-list">
@@ -761,17 +895,33 @@ footer p { font-size:.78rem; color:var(--muted); }
       </ul>
     </div>
 
+    <!-- Audit -->
     <div class="domain-card dc-emerald reveal">
       <div class="domain-header">
         <div class="domain-icon">🔍</div>
         <div>
           <h3>Audit</h3>
-          <div class="std-ref">ISO 9001:2015 · IATF 16949:2016 §9.2.2</div>
+          <div class="std-ref">ISO 9001:2015 §9.2 · IATF 16949 §9.2.2 · VDA 6.3 2023</div>
         </div>
       </div>
       <ul class="skill-list">
-        <li>ISO 9001 Internal Audit — clause-by-clause, evidence-based<span class="skill-std">ISO 9001:2015</span></li>
+        <li>ISO 9001 Internal Audit — clause-by-clause, evidence-based findings<span class="skill-std">ISO 9001:2015</span></li>
         <li>IATF 16949 Supplemental Audit — CSR register, 3 audit streams<span class="skill-std">IATF 16949:2016</span></li>
+        <li>VDA 6.3 Process Audit — P1–P7, weighted scoring, 0–10 scale<span class="skill-std">VDA 6.3 4th Ed 2023</span></li>
+      </ul>
+    </div>
+
+    <!-- Supplier Quality -->
+    <div class="domain-card dc-red reveal">
+      <div class="domain-header">
+        <div class="domain-icon">🏭</div>
+        <div>
+          <h3>Supplier Quality</h3>
+          <div class="std-ref">ISO 9001:2015 §8.4 · IATF 16949 §8.4.1</div>
+        </div>
+      </div>
+      <ul class="skill-list">
+        <li>Supplier SCAR — escalation criteria, 8D response evaluation, effectiveness verification<span class="skill-std">ISO 9001 §8.4</span></li>
       </ul>
     </div>
 
@@ -783,14 +933,14 @@ footer p { font-size:.78rem; color:var(--muted); }
 <!-- ══════════ AGENTS ══════════ -->
 <section class="section reveal">
   <div class="section-tag">The Agents</div>
-  <h2>6 interactive AI agents</h2>
+  <h2>8 AI agents — guided by methodology</h2>
   <p class="section-sub">Agents are interactive, multi-step sessions. They guide you through complex quality workflows, validate at every step, and reject weak answers.</p>
   <div class="agent-grid">
 
     <div class="agent-card reveal" style="--agent-glow:rgba(14,165,233,.07)">
       <span class="agent-icon">🎓</span>
       <h3>8D Coach</h3>
-      <p>Step-by-step 8D facilitation D0→D8. Validates each discipline, blocks progress until gates pass. Rejects "will inspect going forward".</p>
+      <p>Step-by-step 8D facilitation D0→D8. Validates each discipline, blocks progress until gates pass. Rejects "we will inspect going forward".</p>
       <span class="agent-type type-interactive">Interactive</span>
     </div>
 
@@ -827,6 +977,20 @@ footer p { font-size:.78rem; color:var(--muted); }
       <h3>Skill Auditor</h3>
       <p>Scores SKILL.md files 0–10 across 5 dimensions. Generates copy-paste improvements. Blocks PRs when score &lt; 8.</p>
       <span class="agent-type type-framework">Framework</span>
+    </div>
+
+    <div class="agent-card reveal" style="--agent-glow:rgba(245,158,11,.07)">
+      <span class="agent-icon">📦</span>
+      <h3>PPAP Checker</h3>
+      <p>Interactive walk through all 18 PPAP elements for the requested submission level. Flags missing or incomplete items before PSW signature.</p>
+      <span class="agent-type type-interactive">Interactive</span>
+    </div>
+
+    <div class="agent-card reveal" style="--agent-glow:rgba(139,92,246,.07)">
+      <span class="agent-icon">📐</span>
+      <h3>Control Plan Builder</h3>
+      <p>Row-by-row Control Plan builder from PFMEA failure modes. Validates reaction plans, sample plans, and SC coverage. Supports D7 update mode.</p>
+      <span class="agent-type type-interactive">Interactive</span>
     </div>
 
   </div>
@@ -866,7 +1030,7 @@ footer p { font-size:.78rem; color:var(--muted); }
     </div>
     <div class="gate-card g-teal reveal">
       <div class="gi">📐</div>
-      <div><h3>D2 — Measured Values vs. Spec</h3><p>Problem description must include the measured value, the specification, and the part number + revision. No root cause speculation in D2. No vague descriptions.</p></div>
+      <div><h3>D2 — Measured Values vs. Spec</h3><p>Problem description must include the measured value, the specification, and the part number + revision. No root cause speculation in D2.</p></div>
     </div>
     <div class="gate-card g-blue reveal">
       <div class="gi">🏭</div>
@@ -884,11 +1048,10 @@ footer p { font-size:.78rem; color:var(--muted); }
   <p class="section-sub">Same methodology. Same validation rules. Whatever platform your team uses.</p>
   <div class="platforms-grid">
 
-    <!-- ChatGPT -->
     <div class="platform-card plat-chatgpt reveal">
       <div class="plat-logo">
         <svg width="34" height="34" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-7.504-3.366 10.079 10.079 0 0 0-9.612 6.977 9.967 9.967 0 0 0-6.664 4.834 10.08 10.08 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 7.504 3.366 10.08 10.08 0 0 0 9.617-6.981 9.967 9.967 0 0 0 6.663-4.834 10.079 10.079 0 0 0-1.243-11.813zM22.498 37.886a7.474 7.474 0 0 1-4.799-1.735c.061-.033.168-.091.237-.134l7.964-4.6a1.294 1.294 0 0 0 .655-1.134V19.054l3.366 1.944a.12.12 0 0 1 .066.092v9.299a7.505 7.505 0 0 1-7.49 7.496z" fill="#10a37f"/>
+          <path d="M37.532 16.87a9.963 9.963 0 0 0-.856-8.184 10.078 10.078 0 0 0-10.855-4.835 9.964 9.964 0 0 0-7.504-3.366 10.079 10.079 0 0 0-9.612 6.977 9.967 9.967 0 0 0-6.664 4.834 10.08 10.08 0 0 0 1.24 11.817 9.965 9.965 0 0 0 .856 8.185 10.079 10.079 0 0 0 10.855 4.835 9.965 9.965 0 0 0 7.504 3.366 10.08 10.08 0 0 0 9.617-6.981 9.967 9.967 0 0 0 6.663-4.834 10.079 10.079 0 0 0-1.243-11.813z" fill="#10a37f"/>
         </svg>
       </div>
       <h3>ChatGPT Custom GPT</h3>
@@ -896,7 +1059,6 @@ footer p { font-size:.78rem; color:var(--muted); }
       <span class="plat-badge badge-live">Live Now</span>
     </div>
 
-    <!-- Claude.ai -->
     <div class="platform-card plat-claude reveal">
       <div class="plat-logo">
         <svg width="34" height="34" viewBox="0 0 46 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -908,7 +1070,19 @@ footer p { font-size:.78rem; color:var(--muted); }
       <span class="plat-badge badge-guide">Setup Guide</span>
     </div>
 
-    <!-- Microsoft Teams -->
+    <div class="platform-card plat-cli reveal">
+      <div class="plat-logo">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="3" width="20" height="18" rx="3" fill="rgba(139,92,246,.15)" stroke="#8b5cf6" stroke-width="1.5"/>
+          <path d="M7 9l3 3-3 3" stroke="#8b5cf6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13 15h4" stroke="#8b5cf6" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Claude Code / CLI</h3>
+      <p>Native skill integration. One install command, skills available in your terminal immediately.</p>
+      <span class="plat-badge badge-native">Native</span>
+    </div>
+
     <div class="platform-card plat-teams reveal">
       <div class="plat-logo">
         <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -918,11 +1092,10 @@ footer p { font-size:.78rem; color:var(--muted); }
         </svg>
       </div>
       <h3>Microsoft Teams</h3>
-      <p>Copilot Studio connector and M365 AppSource listing planned for Week 4.</p>
-      <span class="plat-badge badge-coming">Week 4</span>
+      <p>Copilot Studio connector built. Deploy to your tenant in under 30 minutes.</p>
+      <span class="plat-badge badge-guide">Setup Guide</span>
     </div>
 
-    <!-- Gemini -->
     <div class="platform-card plat-gemini reveal">
       <div class="plat-logo">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -932,8 +1105,19 @@ footer p { font-size:.78rem; color:var(--muted); }
         </svg>
       </div>
       <h3>Gemini / Google</h3>
-      <p>Gemini for Workspace and Gemini CLI integration planned alongside Teams rollout.</p>
-      <span class="plat-badge badge-coming">Week 4</span>
+      <p>Google Apps Script add-on. Works with Gemini for Workspace and Gemini CLI.</p>
+      <span class="plat-badge badge-guide">Setup Guide</span>
+    </div>
+
+    <div class="platform-card plat-slack reveal">
+      <div class="plat-logo">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zm1.271 0a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zm0 1.271a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zm10.122 2.521a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zm-1.268 0a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zm-2.523 10.122a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zm0-1.268a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z" fill="#E01E5A"/>
+        </svg>
+      </div>
+      <h3>Slack</h3>
+      <p>Cloudflare Worker integration. Slash commands for /8d-coach, /ppap-checker, and more.</p>
+      <span class="plat-badge badge-guide">Setup Guide</span>
     </div>
 
   </div>
@@ -951,21 +1135,21 @@ footer p { font-size:.78rem; color:var(--muted); }
     <div class="qs-card reveal">
       <div class="qs-num">1</div>
       <h3>Try on ChatGPT — no setup</h3>
-      <p>The 8D Evaluator, NCR Writer, Root Cause Facilitator, and Audit Guide are live. Paste your 8D or NCR and get a structured gap report instantly.</p>
+      <p>The 8D Coach, NCR Writer, Root Cause Facilitator, PPAP Checker, and Audit Guide are live. Paste your 8D or PPAP and get a structured gap report instantly.</p>
       <a href="https://chatgpt.com/g/g-6a22e9e03f8881918c35741d618bad54-quality-engineering-assistant" target="_blank" rel="noopener">Open Quality Engineering GPT</a>
     </div>
 
     <div class="qs-card reveal">
       <div class="qs-num">2</div>
       <h3>Set up a Claude.ai Project</h3>
-      <p>10-minute setup: create a project, paste the instructions, upload 16 knowledge files. Full methodology available in your private Claude workspace.</p>
+      <p>10-minute setup: create a project, paste the instructions, upload knowledge files. Full 22-skill methodology available in your private Claude workspace.</p>
       <a href="https://github.com/RBraga01/Quality-Engineering-Skills/tree/master/platforms/claude-ai" target="_blank" rel="noopener">Read the setup guide</a>
     </div>
 
     <div class="qs-card reveal">
       <div class="qs-num">3</div>
-      <h3>Clone for Claude Code</h3>
-      <p>Integrate directly into your quality system or build on top of the skill library. MIT licensed, fork-ready.</p>
+      <h3>Install via Claude Code / CLI</h3>
+      <p>One command installs all 22 skills and 8 agents directly into any AI coding environment. MIT licensed, fork-ready.</p>
       <div class="code-block">
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
         <pre><code>npx skills add RBraga01/Quality-Engineering-Skills</code></pre>
@@ -1023,8 +1207,12 @@ footer p { font-size:.78rem; color:var(--muted); }
           <p>Yes. Every skill is grounded in specific standard editions:</p>
           <ul>
             <li><strong>ISO 9001:2015</strong> — problem solving, NCR, CAR, audits</li>
-            <li><strong>IATF 16949:2016</strong> — supplemental audit requirements, customer-specific requirements</li>
-            <li><strong>AIAG-VDA FMEA Handbook 2019</strong> — Action Priority replaces RPN, 7-step method</li>
+            <li><strong>IATF 16949:2016</strong> — supplemental audit, PPAP, special characteristics</li>
+            <li><strong>AIAG-VDA FMEA Handbook 2019</strong> — Action Priority, 7-step PFMEA/DFMEA method</li>
+            <li><strong>AIAG PPAP 4th Edition (2006)</strong> — 18 elements, 5 submission levels, OEM overrides</li>
+            <li><strong>AIAG MSA 4th Edition (2010)</strong> — Gauge R&R, %GRR, ndc, attribute MSA</li>
+            <li><strong>AIAG SPC 2nd Edition (2005)</strong> — chart selection, Western Electric rules, capability indices</li>
+            <li><strong>VDA 6.3 4th Edition (2023)</strong> — P1–P7 process audit, weighted scoring</li>
           </ul>
           <p>All methodology claims cite the specific standard clause or section. Generic content is rejected in pull requests.</p>
         </div>
@@ -1067,7 +1255,7 @@ footer p { font-size:.78rem; color:var(--muted); }
         <summary>Does this work for industries other than automotive?</summary>
         <div class="faq-body">
           <p>Yes. The core methodologies — 8D, 5-Why, PFMEA, NCR writing, ISO 9001 audit — apply across automotive, electronics, aerospace, medical devices, and general manufacturing. The OEM-specific sections are clearly marked.</p>
-          <p>The metadata on each skill includes an <code>industries</code> field. All 13 base skills include <code>automotive, electronics, aerospace, medical, general</code>. Only the OEM-specific reference files are automotive-only.</p>
+          <p>The metadata on each skill includes an <code>industries</code> field. All 22 base skills include <code>automotive, electronics, aerospace, medical, general</code>. Only the OEM-specific reference files are automotive-only.</p>
         </div>
       </details>
 
@@ -1104,11 +1292,11 @@ footer p { font-size:.78rem; color:var(--muted); }
           <ol>
             <li>Contact @RBraga01 for collaborator access</li>
             <li>Create a branch: <code>feat/your-skill-name</code></li>
-            <li>Follow the SKILL.md format (frontmatter + required sections + Output Format + Changelog)</li>
+            <li>Follow the SKILL.md format (frontmatter + required sections + Output Format + reference files)</li>
             <li>Include all document control fields: <code>status</code>, <code>created</code>, <code>reviewed_by</code>, <code>standard_edition</code></li>
             <li>Open a PR with: skill name, standard it implements, your domain expertise</li>
           </ol>
-          <p>Skills from practitioners are prioritised. The <strong>Skill Auditor agent</strong> scores every submission — minimum score 8.0 to merge.</p>
+          <p>Skills from practitioners are prioritised. The <strong>Skill Auditor agent</strong> scores every submission — minimum score 9/10 to merge.</p>
         </div>
       </details>
 
@@ -1172,43 +1360,58 @@ footer p { font-size:.78rem; color:var(--muted); }
 <footer>
   <div class="footer-logo">
     <div class="licon">QE</div>
-    <span>Quality Engineering Skills v1.1</span>
+    <span>Quality Engineering Skills v2.0</span>
   </div>
-  <p>MIT License · 13 skills · 6 agents · ISO 9001 base · Ricardo Braga & Miguel Santos</p>
+  <p>MIT License · 22 skills · 8 agents · Ricardo Braga &amp; Miguel Santos</p>
   <div class="footer-links">
     <a href="https://github.com/RBraga01/Quality-Engineering-Skills" target="_blank">GitHub</a>
     <a href="https://chatgpt.com/g/g-6a22e9e03f8881918c35741d618bad54-quality-engineering-assistant" target="_blank">ChatGPT GPT</a>
     <a href="https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/CONTRIBUTING.md" target="_blank">Contribute</a>
     <a href="https://github.com/RBraga01/Quality-Engineering-Skills/tree/master/platforms/claude-ai" target="_blank">Claude.ai Setup</a>
+    <a href="privacy.html">Privacy Policy</a>
   </div>
 </footer>
 
 <script>
+// Theme toggle
+(function() {
+  const root = document.documentElement;
+  const btn  = document.getElementById('themeToggle');
+  const stored = localStorage.getItem('qes-theme') || 'dark';
+  root.setAttribute('data-theme', stored);
+
+  btn.addEventListener('click', function() {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('qes-theme', next);
+  });
+})();
+
 // Scroll-triggered reveal animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
     if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), entry.target.dataset.delay || 0);
+      setTimeout(function() { entry.target.classList.add('visible'); }, entry.target.dataset.delay || 0);
       observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
 // Stagger cards within grids
-document.querySelectorAll('.domain-grid, .agent-grid, .gates-grid, .platforms-grid, .compare, .qs-grid, .authors-grid').forEach(grid => {
-  [...grid.children].forEach((child, i) => {
-    child.style.transitionDelay = `${i * 65}ms`;
+document.querySelectorAll('.domain-grid, .agent-grid, .gates-grid, .platforms-grid, .compare, .qs-grid, .authors-grid').forEach(function(grid) {
+  Array.from(grid.children).forEach(function(child, i) {
+    child.style.transitionDelay = (i * 65) + 'ms';
   });
 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
 
 // Animate pipeline on scroll
-const pipelineObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+const pipelineObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
     if (entry.isIntersecting) {
-      [...entry.target.querySelectorAll('.pipe')].forEach((p, i) => {
-        setTimeout(() => {
+      Array.from(entry.target.querySelectorAll('.pipe')).forEach(function(p, i) {
+        setTimeout(function() {
           p.style.opacity = '1';
           p.style.transform = 'translateY(0)';
         }, i * 70);
@@ -1218,8 +1421,8 @@ const pipelineObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.pipeline').forEach(p => {
-  [...p.querySelectorAll('.pipe')].forEach(step => {
+document.querySelectorAll('.pipeline').forEach(function(p) {
+  Array.from(p.querySelectorAll('.pipe')).forEach(function(step) {
     step.style.opacity = '0';
     step.style.transform = 'translateY(16px)';
     step.style.transition = 'opacity .4s ease, transform .4s ease';
@@ -1228,25 +1431,25 @@ document.querySelectorAll('.pipeline').forEach(p => {
 });
 
 // Hero stats count-up animation
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+const statsObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
     if (entry.isIntersecting) {
-      entry.target.querySelectorAll('.hero-stat-n').forEach((el, i) => {
-        el.style.animation = `count-up .5s ease ${i * 100}ms both`;
+      entry.target.querySelectorAll('.hero-stat-n').forEach(function(el, i) {
+        el.style.animation = 'count-up .5s ease ' + (i * 100) + 'ms both';
       });
       statsObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.5 });
-document.querySelectorAll('.hero-stats').forEach(s => statsObserver.observe(s));
+document.querySelectorAll('.hero-stats').forEach(function(s) { statsObserver.observe(s); });
 
 // Copy button
 function copyCode(btn) {
-  const code = btn.nextElementSibling.querySelector('code');
-  navigator.clipboard.writeText(code.innerText).then(() => {
+  var code = btn.nextElementSibling.querySelector('code');
+  navigator.clipboard.writeText(code.innerText).then(function() {
     btn.textContent = 'Copied!';
     btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+    setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
   });
 }
 </script>
