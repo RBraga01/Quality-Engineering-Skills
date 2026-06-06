@@ -152,7 +152,43 @@ git commit -m "review: v2 skill corrections by @migmcc
 
 ---
 
-## Step 6 — Open the Pull Request
+## Step 6 — Run the skill-auditor before opening the PR
+
+After all corrections are applied and committed, run the `/skill-auditor` agent on each of the 11 corrected files.
+
+**How to invoke:**
+
+In your Claude Code session, run the skill-auditor for each file:
+
+```
+/skill-auditor skills/planning/ppap/SKILL.md
+/skill-auditor skills/planning/apqp/SKILL.md
+/skill-auditor skills/planning/control-plan/SKILL.md
+/skill-auditor skills/planning/dvp-test-plan/SKILL.md
+/skill-auditor skills/measurement/msa-gauge-rr/SKILL.md
+/skill-auditor skills/measurement/spc-control-charts/SKILL.md
+/skill-auditor skills/audit/vda-6-3-audit/SKILL.md
+/skill-auditor skills/problem-solving/dmaic/SKILL.md
+/skill-auditor skills/supplier-quality/supplier-scar/SKILL.md
+/skill-auditor skills/agents/ppap-checker/SKILL.md
+/skill-auditor skills/agents/control-plan-builder/SKILL.md
+```
+
+**Acceptance threshold:** Every file must score **equal to or higher than the existing skills baseline** established in the v1 review (reference score: 9/10). Any file scoring below this threshold must be corrected before the PR is opened.
+
+**If a file fails the audit:**
+1. Note the specific findings from the skill-auditor output
+2. Apply the necessary corrections
+3. Re-run the skill-auditor on that file to confirm it passes
+4. Include the before/after scores in the PR description
+
+**Do not open the PR until all 11 files pass the skill-auditor.**
+
+Include the skill-auditor output summary in the PR body (scores per file).
+
+---
+
+## Step 7 — Open the Pull Request
 
 ```bash
 git push origin review/v2-new-skills
@@ -188,6 +224,24 @@ Reviewed by @migmcc — quality engineering practitioner, 25+ years, claims mana
 ## Items outside scope (not changed — for @RBraga01 to decide)
 
 [List anything migmcc flagged that requires a structural decision]
+
+## Skill-auditor results
+
+| File | Score before corrections | Score after corrections |
+|------|-------------------------|------------------------|
+| ppap | | |
+| apqp | | |
+| control-plan | | |
+| dvp-test-plan | | |
+| msa-gauge-rr | | |
+| spc-control-charts | | |
+| vda-6-3-audit | | |
+| dmaic | | |
+| supplier-scar | | |
+| ppap-checker | | |
+| control-plan-builder | | |
+
+All files scored ≥ 9/10 before this PR was opened: [Yes / No — if No, explain]
 
 ## Overall assessment
 
