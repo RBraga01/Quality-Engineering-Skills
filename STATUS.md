@@ -94,25 +94,27 @@ _Last updated: 2026-06-06. Auto-updated each release._
 
 ## Pending
 
-### Review gate (blocking Week 5 launch)
+### Review gate — COMPLETE ✅
 
 | Item | Owner | Status |
 |------|-------|--------|
-| migmcc v2 SKILL.md review (11 files) | @migmcc | ⏳ PR open, pending merge |
 | Review brief `docs/review-brief-migmcc-v2.md` sent | @RBraga01 | ✅ done |
-| PR `review/v2-new-skills` merged | @RBraga01 | ⏳ pending |
-| migmcc v3 reference file review (13 files) | @migmcc | ⏳ brief pending |
-| Review brief `docs/review-brief-migmcc-v3.md` | @RBraga01 | ⏳ in progress |
+| migmcc v2 SKILL.md review (11 files) | @migmcc | ✅ PR #3 merged |
+| PR `review/v2-new-skills` merged | @RBraga01 | ✅ done (commit ff64fb3) |
+| Review brief `docs/review-brief-migmcc-v3.md` sent | @RBraga01 | ✅ done |
+| migmcc v3 reference file review (13 files) | @migmcc | ✅ PR #4 merged |
+| PR `review/v3-reference-files` merged | @RBraga01 | ✅ done (commit bac3cbc) |
 
 ### Reference files — COMPLETE ✅
 
-All 22 skills now have at least one reference file (commit a72b309, 2026-06-06). No pending items.
+All 22 skills now have at least one reference file (commit e3af81a, 2026-06-06). No pending items.
 
-### Week 5 — blocked until migmcc review PRs merged
+### Week 5 — Phase 0 pre-launch in progress
 
-- [ ] Web app PWA
-- [ ] Public API endpoint
+- [ ] CHANGELOG v2.0.0 entry — ✅ done (commit e0878e5)
+- [ ] Landing page v2.0 dark/light mode — ✅ done (commit 8d631cb)
+- [ ] Maintenance checklist — ✅ done (commit 39458c8)
+- [ ] Platform activation (ChatGPT, Slack, Gemini, Teams, Claude.ai)
 - [ ] Demos / GIFs for README
 - [ ] agentskills.io registry submission
-- [ ] Repo goes PUBLIC
-- [ ] Store submission URLs live (privacy policy, AppSource, Marketplace, Slack App Directory)
+- [ ] Repo goes PUBLIC (Phase 3 gate — lead decision only)
