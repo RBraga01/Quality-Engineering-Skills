@@ -1,0 +1,42 @@
+name: Release Notes
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract CHANGELOG section for this tag
+        id: notes
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+
+          # Extract the block between ## [vVERSION] and the next ## [
+          NOTES=$(awk \
+            "/^## \[v?${VERSION}\]/{found=1; next} /^## \[/{if(found) exit} found{print}" \
+            CHANGELOG.md)
+
+          if [ -z "$NOTES" ]; then
+            NOTES="See [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/master/CHANGELOG.md) for details."
+          fi
+
+          # Write to file to preserve multiline content
+          echo "$NOTES" > /tmp/release-notes.md
+          echo "notes_file=/tmp/release-notes.md" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            --title "Quality-Engineering-Skills ${{ github.ref_name }}" \
+            --notes-file "${{ steps.notes.outputs.notes_file }}" \
+            --repo "${{ github.repository }}"

@@ -1,0 +1,75 @@
+name: Welcome
+
+on:
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const actor = context.payload.sender.login;
+            const isIssue = context.eventName === 'issues';
+            const isPR    = context.eventName === 'pull_request_target';
+
+            // Count previous issues + PRs by this actor (excluding bots)
+            if (actor.includes('[bot]')) return;
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo:  context.repo.repo,
+              creator: actor,
+              state: 'all',
+              per_page: 5,
+            });
+
+            // Only welcome on their first contribution (this one is #1)
+            const previousCount = issues.data.length - 1;
+            if (previousCount > 0) return;
+
+            if (isIssue) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo:  context.repo.repo,
+                issue_number: context.issue.number,
+                body: `Thanks for opening your first issue on **Quality-Engineering-Skills**, @${actor}! 👋
+
+A few things that help us respond faster:
+
+- **Methodology error** (wrong clause, wrong rating table, incorrect formula): include the standard edition you're referencing and what the file says vs. what it should say
+- **Skill submission**: check [CONTRIBUTING.md](../blob/master/CONTRIBUTING.md) — your skill must score ≥9/10 with \`/skill-auditor\` before opening a PR
+- **Question**: include your industry context (automotive, electronics, aerospace, medical) — it helps us give a more targeted answer
+
+We'll get back to you within 48 hours.`,
+              });
+            }
+
+            if (isPR) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo:  context.repo.repo,
+                issue_number: context.payload.pull_request.number,
+                body: `Thanks for your first contribution to **Quality-Engineering-Skills**, @${actor}! 🎉
+
+Before we review, please confirm:
+
+- [ ] \`name\` in frontmatter matches the directory name exactly
+- [ ] Description trigger phrases appear within the first 400 characters
+- [ ] \`## Output Format\` section is present with the standard A/B/C ask
+- [ ] All referenced files in \`## Reference files\` exist on disk
+- [ ] Tested with \`/skill-auditor\` — score ≥ 9/10 required
+
+See [CONTRIBUTING.md](../blob/master/CONTRIBUTING.md) for the full checklist.
+
+@RBraga01 will review within 48 hours.`,
+              });
+            }

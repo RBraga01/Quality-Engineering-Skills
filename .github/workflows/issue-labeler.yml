@@ -1,0 +1,62 @@
+name: Issue Labeler
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const title = context.payload.issue.title.toLowerCase();
+            const body  = (context.payload.issue.body || '').toLowerCase();
+            const text  = title + ' ' + body;
+
+            const labels = [];
+
+            // Bug / methodology error
+            if (/\b(bug|error|wrong|incorrect|broken|mistake|typo|inaccurate|missing)\b/.test(text)) {
+              labels.push('bug');
+            }
+
+            // Methodology-specific error (wrong clause, wrong table, etc.)
+            if (/\b(clause|standard|aiag|vda|iatf|iso|ap table|rpn|severity|occurrence|detection|fmea|8d|ppap|apqp)\b/.test(text) &&
+                /\b(wrong|incorrect|inaccurate|error|mistake)\b/.test(text)) {
+              labels.push('methodology-error');
+            }
+
+            // Skill submission / contribution
+            if (/\b(new skill|skill submission|add skill|contribute|contribution|pr|pull request|new agent)\b/.test(text)) {
+              labels.push('skill-submission');
+            }
+
+            // Question / help
+            if (/\b(question|how|help|support|clarif|explain|understand|\?)\b/.test(text) &&
+                !labels.includes('bug')) {
+              labels.push('question');
+            }
+
+            // Enhancement / feature request
+            if (/\b(feature|request|enhancement|improvement|suggest|proposal|roadmap|add support)\b/.test(text)) {
+              labels.push('enhancement');
+            }
+
+            // Documentation
+            if (/\b(doc|readme|contributing|changelog|typo|link|broken link)\b/.test(text)) {
+              labels.push('documentation');
+            }
+
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo:  context.repo.repo,
+                issue_number: context.issue.number,
+                labels,
+              });
+            }

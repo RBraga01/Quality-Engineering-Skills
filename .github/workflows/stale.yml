@@ -1,0 +1,37 @@
+name: Stale Issues
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 09:00 UTC
+  workflow_dispatch:       # Allow manual trigger
+
+permissions:
+  issues: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 30
+          days-before-close: 7
+
+          stale-issue-label: 'stale'
+          exempt-issue-labels: 'pinned,security,methodology-error'
+
+          stale-issue-message: |
+            This issue has had no activity for 30 days and has been marked **stale**.
+
+            It will be closed in 7 days unless there is new activity or a comment is added.
+
+            If this is still relevant, please leave a comment. If you have additional information (standard references, steps to reproduce, example data), add it now.
+
+          close-issue-message: |
+            This issue has been closed due to inactivity (30 days stale + 7 days grace).
+
+            If the issue is still valid, feel free to reopen it with updated information or open a new issue with additional context.
+
+          # Do not process PRs — PRs stay open until reviewed
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
