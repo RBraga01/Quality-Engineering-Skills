@@ -17,7 +17,7 @@ metadata:
   status: approved
   created: "2026-06-06"
   last_updated: "2026-06-06"
-  updated_by: RBraga01
+  updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "IATF 16949:2016 §8.3.4.3 / AIAG APQP 2nd Edition"
 ---
@@ -113,7 +113,9 @@ Update the DVP after each test:
 - For any Fail: log a DFMEA action (or open an 8D if failure escapes to customer)
 - Re-test after corrective action — reference the re-test as a new row with the original DVP number + suffix (e.g., DVP-012-R1)
 
-At PPAP submission: all DVP tests must show "Pass" or have a documented customer-approved deviation.
+At PPAP submission: all DVP tests must show "Pass" or have a documented customer-approved deviation. If a test is still in progress at PPAP submission (e.g., a long-duration life test), a formal customer deviation request must be submitted with: the test in progress, the expected completion date, the interim risk assessment, and the customer's written acceptance. The PPAP approval will be conditional until the test completes with a Pass result.
+
+**Engineering changes:** If the DFMEA is updated during the design phase and adds new H-AP failure modes, the DVP must be updated to cover them before the next gate review. A DVP revision that is behind the current DFMEA revision is a gap — the DVP&R revision must match or exceed the DFMEA revision at PPAP submission.
 
 ### Step 6 — Audit an existing DVP
 
@@ -165,3 +167,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-06 | @migmcc | Added guidance for tests in-progress at PPAP submission (customer deviation process); added DVP revision synchronisation with DFMEA requirement |

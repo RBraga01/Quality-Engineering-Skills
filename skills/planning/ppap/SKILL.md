@@ -18,7 +18,7 @@ metadata:
   status: approved
   created: "2026-06-06"
   last_updated: "2026-06-06"
-  updated_by: RBraga01
+  updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "AIAG PPAP 4th Edition (2006)"
 ---
@@ -67,6 +67,8 @@ PPAP re-submission is required for:
 - Production interruption >12 months
 
 ### Step 3 — Prepare all 18 PPAP elements
+
+**Production trial run minimum:** Unless otherwise specified in writing by the authorised customer representative, the production trial run must consist of a **minimum of 300 consecutive parts** produced at the production rate, using production tooling, production process, production operators, and production tooling (AIAG PPAP 4th ed §4.0). This run generates the PPAP samples (Element 14), dimensional results (Element 9), and capability data (Element 11). A run shorter than 300 consecutive parts requires explicit written customer authorisation before PSW can be signed.
 
 Verify each element against the level requirement. For Level 3 (default):
 
@@ -200,6 +202,7 @@ Before submitting PPAP:
 
 - Submitting with any out-of-specification dimensional result (automatic rejection)
 - Using prototype or pre-production samples for PPAP (must be from production tooling)
+- Production trial run shorter than 300 consecutive parts without written customer authorisation — automatic rejection at many OEMs
 - Cpk calculated on insufficient data (minimum 100 pieces for capability study)
 - MSA not performed for all gauges used on special characteristics
 - PFMEA not updated after process changes made during PPAP run
@@ -225,3 +228,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum (AIAG PPAP 4th ed §4.0); added to Common Mistakes |

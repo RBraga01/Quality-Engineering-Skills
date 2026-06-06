@@ -18,7 +18,7 @@ metadata:
   status: approved
   created: "2026-06-06"
   last_updated: "2026-06-06"
-  updated_by: RBraga01
+  updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "AIAG SPC 2nd Edition (2005)"
 ---
@@ -117,6 +117,8 @@ Most commonly applied in automotive: Rules 1, 2, 3 minimum. Rules 1–8 for safe
 ---
 
 ### Step 4 — Calculate and interpret process capability
+
+**Capability data requirements:** Process capability is only valid when calculated on a process that is in statistical control (no out-of-control signals) and with a minimum of **100 consecutive parts** from that stable process. Fewer parts produce unreliable Cpk estimates — a Cpk calculated on 30 parts can vary by ±0.3 from the true value. Do not report Cpk based on fewer than 100 parts as a production capability figure; label it "preliminary" and state the sample size.
 
 **Short-term capability (within-subgroup variation):**
 
@@ -219,3 +221,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-06 | @migmcc | Added 100-part minimum requirement for valid capability study in Step 4; clarified in-control prerequisite before capability calculation |

@@ -18,7 +18,7 @@ metadata:
   status: approved
   created: "2026-06-06"
   last_updated: "2026-06-06"
-  updated_by: RBraga01
+  updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "AIAG Control Plan Reference Manual (1995) / IATF 16949:2016 §8.5.1"
 ---
@@ -108,6 +108,15 @@ Every recommended action completed in the PFMEA must be reflected in the updated
 | Significant Characteristic | SC (Ford) / KPC | Process monitoring with defined sample plan and reaction |
 | Key Control Characteristic | KCC | Process parameter monitoring (not product) — SPC or other control |
 
+**OEM symbol conventions vary.** Always use the exact symbol specified in the customer's CSR:
+- Ford: CC (Critical Characteristic) and SC (Significant Characteristic) — do not use ★ or ◆
+- GM: ★ for safety-critical; Δ for significant
+- VW / Audi: D (design feature, = CC), E (significant characteristic), I (functional dimension) per FORMEL Q
+- BMW: G-SC (significant characteristic), G-CC (critical characteristic) per BMW standard
+- Stellantis: CC and SC per MAQMSR — requires AIAG-VDA FMEA format alignment
+
+Using the wrong symbol for the customer's OEM is an immediate finding at PPAP and IATF audit.
+
 For all special characteristics: the reaction plan must specify who is notified, containment action, and when the process can restart.
 
 ### Step 5 — Reaction plan requirements
@@ -190,3 +199,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-06 | @migmcc | Added OEM-specific special characteristic symbol conventions (Ford, GM, VW, BMW, Stellantis) in Step 4 |

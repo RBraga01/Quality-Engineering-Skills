@@ -18,7 +18,7 @@ metadata:
   status: approved
   created: "2026-06-06"
   last_updated: "2026-06-06"
-  updated_by: RBraga01
+  updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "AIAG MSA 4th Edition (2010)"
 ---
@@ -125,6 +125,25 @@ ndc ≥ 5 is required for measurement systems used on special characteristics.
 If EV > AV: investigate gauge (calibration, maintenance, resolution)
 If AV > EV: investigate training, measurement procedure, gauge fixture/setup
 
+#### When %GRR > 30% — improving the measurement system
+
+A result >30% means the gauge is not suitable for production use. Do not proceed to PPAP — investigate and retest. Common root causes and actions:
+
+| Root cause (high EV) | Action |
+|---------------------|--------|
+| Gauge resolution too coarse | Replace with a gauge of finer resolution (rule: resolution ≤ 10% of tolerance) |
+| Gauge worn or damaged | Inspect, recalibrate, or replace the gauge |
+| Environmental interference (vibration, temperature) | Move measurement to a stable environment; add fixture if needed |
+| Inconsistent part fixturing | Design a repeatable fixture or measurement aid |
+
+| Root cause (high AV) | Action |
+|---------------------|--------|
+| Measurement technique varies by appraiser | Develop a standardised measurement instruction (WI with photos/video) |
+| Gauge difficult to read or position | Redesign fixture; add a datum locator; use a self-positioning gauge |
+| Training gap | Retrain all appraisers using the standardised measurement WI; repeat the study |
+
+After implementing improvements: re-run the full study. Do not accept a %GRR > 30% result with a customer waiver unless the characteristic is non-critical and the customer explicitly agrees in writing.
+
 ---
 
 ### Step 4 — Attribute MSA (pass/fail gauges)
@@ -198,3 +217,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-06 | @migmcc | Added improvement guidance for %GRR > 30% — root cause table for high EV and high AV with corrective actions |

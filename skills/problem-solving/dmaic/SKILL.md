@@ -18,7 +18,7 @@ metadata:
   status: approved
   created: "2026-06-06"
   last_updated: "2026-06-06"
-  updated_by: RBraga01
+  updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "Six Sigma DMAIC / ISO 9001:2015 §10.3 / IATF 16949:2016 §10.1"
 ---
@@ -131,11 +131,17 @@ Use DMAIC when:
 - Identifies the dominant family of variation — directs the investigation
 
 **Hypothesis testing:**
-Confirm or reject hypotheses statistically:
-- t-test: compare means of two groups (e.g., Shift A vs. Shift B)
-- ANOVA: compare means of three or more groups
-- Chi-square: compare categorical data
-- Correlation / regression: quantify relationship between Xs and Y
+Confirm or reject hypotheses statistically. Selection guide:
+
+| Situation | Tool |
+|-----------|------|
+| Compare means of 2 groups (continuous Y, e.g., Shift A vs. B) | t-test (paired if same parts measured twice) |
+| Compare means of 3+ groups (e.g., 3 machines, 4 operators) | One-way ANOVA |
+| Categorical Y (pass/fail) vs. categorical X (supplier, shift) | Chi-square test |
+| Continuous Y vs. continuous X (does temperature predict dimension?) | Pearson correlation; then regression to quantify |
+| Multiple Xs affecting one Y | Multiple regression; confirm no multicollinearity |
+
+Use p < 0.05 as the significance threshold unless a different risk level is warranted. Always check the test's assumptions (normality for t-test/ANOVA; independence for chi-square).
 
 **Root cause confirmation:**
 - A root cause is NOT confirmed until data proves it
@@ -210,8 +216,8 @@ Confirm or reject hypotheses statistically:
 
 **Project handover:**
 - Transfer ownership from the project team to the process owner
-- Establish a 3–6 month monitoring period with defined Cpk targets
-- Close the project only when improved Cpk is sustained for the monitoring period
+- Establish a 3–6 month monitoring period with defined Cpk targets; specify the minimum Cpk that constitutes "sustained improvement" (e.g., Cpk ≥ 1.33 for a minimum of 3 consecutive months of production data — not 3 months of calendar time)
+- Close the project only when the monitoring criterion is met with actual production data — not lab data or pilot data
 
 **Final project report:**
 - Before and after: Cpk, PPM, financial savings
@@ -272,3 +278,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-06 | @migmcc | Added hypothesis test selection guide in Phase 3; added monitoring period closure criteria in Phase 5 (Cpk sustained on production data, not pilot) |

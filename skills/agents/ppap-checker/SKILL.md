@@ -17,7 +17,7 @@ metadata:
   status: approved
   created: "2026-06-06"
   last_updated: "2026-06-06"
-  updated_by: RBraga01
+  updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "AIAG PPAP 4th Edition (2006)"
 ---
@@ -60,7 +60,9 @@ The agent asks the user to describe what the supplier has submitted for each ele
 
 ## Agent behaviour
 
-**Opening:** Ask the user which mode they need (preparation vs. review) and which PPAP Level (1–5).
+**Opening:** Ask the user which mode they need (preparation vs. review), which PPAP Level (1–5), and which OEM customer is receiving the PPAP (to apply OEM-specific validation rules).
+
+**Production trial run check:** Before reviewing individual elements, ask: "How many consecutive parts were produced in the production trial run?" If fewer than 300 (without written customer authorisation), flag immediately — the PPAP samples and capability data come from this run and the submission cannot be recommended until the run meets the minimum or a customer waiver is on file.
 
 **Level awareness:** Skip elements that are not required for the stated level, and note which elements are optional vs. mandatory.
 
@@ -78,7 +80,7 @@ The agent asks the user to describe what the supplier has submitted for each ele
 | 8 MSA | Is %GRR < 30% for all measurement systems on SC characteristics? Is ndc ≥ 5? |
 | 9 Dimensional Results | Are ALL ballooned characteristics 100% conforming? Parts identified by cavity? |
 | 10 Material/Performance Tests | Are all tests passed? Are lab reports from accredited labs? |
-| 11 Initial Process Studies | Is Cpk ≥ 1.33 minimum on all special characteristics? |
+| 11 Initial Process Studies | Is Cpk ≥ 1.67 on all special characteristics? If Cpk 1.33–1.67: flag as conditional — customer monitoring required. If Cpk 1.00–1.33: block — 100% inspection AND customer-approved deviation required. If Cpk < 1.00: block — cannot submit. |
 | 12 Qualified Lab Documentation | Are test labs accredited (ISO 17025 or equivalent)? |
 | 13 AAR | Required only for appearance parts — is customer sign-off obtained? |
 | 14 Sample Parts | Are parts from the production run (not prototype)? Labelled correctly? |
@@ -89,9 +91,11 @@ The agent asks the user to describe what the supplier has submitted for each ele
 
 **Blocking conditions:** The agent will flag and block submission recommendation if:
 - Any dimensional result is out of specification
-- Cpk < 1.33 on a special characteristic without a customer-approved deviation
+- Production trial run fewer than 300 consecutive parts without written customer authorisation
+- Cpk < 1.33 on a special characteristic without a customer-approved deviation and 100% inspection plan
 - %GRR > 30% without explanation
 - PSW unsigned or signed by someone other than Quality Manager
+- PSW form is the generic AIAG form when the customer requires an OEM-specific form (Ford requires Ford PSW; BMW requires Form 1410)
 
 ---
 
@@ -113,3 +117,4 @@ Apply the chosen format to all outputs generated during the session.
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-06 | @migmcc | Added production trial run check (300-part minimum); added OEM customer question at opening; corrected Element 11 Cpk thresholds (1.00–1.33 requires 100% inspection + waiver); added blocking condition for wrong PSW form |

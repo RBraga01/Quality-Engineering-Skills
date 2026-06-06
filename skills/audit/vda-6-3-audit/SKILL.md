@@ -17,7 +17,7 @@ metadata:
   status: approved
   created: "2026-06-06"
   last_updated: "2026-06-06"
-  updated_by: RBraga01
+  updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "VDA 6.3 Process Audit 4th Edition (2023)"
 ---
@@ -83,7 +83,15 @@ For each process element:
 
 **Element score (%) = (Sum of all question scores) / (Maximum possible score) × 100**
 
-Maximum possible score per question = 10 × weighting factor (questions may have weight 1, 2, or 3 depending on importance).
+**Weighting system (critical):** Each question in the VDA 6.3 question catalogue has a pre-assigned weighting factor of 1, 2, or 3. These weights are fixed in the standard — the auditor cannot change them. Questions covering safety-critical topics (error-proofing, special characteristics control, non-conformance segregation) typically carry weight 2 or 3. The maximum possible score per question = 10 × weighting factor.
+
+To calculate the degree of fulfillment correctly:
+- Use the official VDA 6.3 question catalogue, which lists each question with its weight
+- Sum (score × weight) for all applicable questions in the element
+- Divide by the sum of (10 × weight) for all applicable questions
+- Do not average raw scores — applying equal weight to all questions is a calculation error that produces incorrect element ratings
+
+If a question is not applicable (N/A), it is excluded from both the numerator and denominator.
 
 #### VDA 6.3 rating thresholds
 
@@ -143,6 +151,8 @@ P6 is the most extensive element and covers the actual manufacturing process. Ke
 **Pre-audit:**
 - Request all relevant documentation: Process Flow, PFMEA, Control Plan, WIs, maintenance records, calibration records, training records
 - Review and identify gaps before the site visit
+- Confirm auditor qualification: VDA 6.3 audits require a trained, qualified auditor — internal auditors must hold a recognised VDA 6.3 auditor qualification (VDA QMC certification or OEM-equivalent). An unqualified person conducting the audit invalidates the result.
+- Confirm auditor independence: the auditor must not have direct responsibility for the process being audited. Self-assessment by the process owner is not a substitute for an independent audit.
 
 **Opening meeting:**
 - Confirm scope, timing, and audit plan
@@ -155,15 +165,17 @@ P6 is the most extensive element and covers the actual manufacturing process. Ke
 - Score each question in real time; document evidence (positive and negative)
 
 **Findings classification:**
-- **Score 4–6:** Minor deficiency — finding documented, corrective action required within 90 days
-- **Score 2:** Major deficiency — significant finding, corrective action with accelerated timeline
-- **Score 0:** Blocking — re-audit required before SOP release (if P1 applicable)
+- **Score 6:** Partial fulfilment — finding documented, corrective action required; deadline typically 90 days
+- **Score 4:** Insufficient fulfilment — significant gap, represents active risk to quality; escalate deadline; customer OEMs often treat score-4 findings on critical questions (P6.4, P6.5, P6.6) as major deficiencies requiring immediate corrective action
+- **Score 2:** Not fulfilled — systematic failure, high risk; corrective action with accelerated timeline required before next delivery
+- **Score 0:** No evidence / not implemented — blocking; re-audit required before SOP release (if P1 applicable)
 
 **Closing meeting:**
 - Present scores and degree of fulfillment per element
 - Confirm overall rating (A, B, or C)
-- Agree on corrective action deadlines
-- Confirm re-audit requirements if applicable
+- Agree on corrective action deadlines (typically 90 days for B-rating findings; accelerated for score-2 and score-4 findings)
+- For B rating: schedule a follow-up audit or evidence review within 3 months to verify corrective actions are implemented — do not close the audit without this commitment in writing
+- Confirm re-audit requirements if applicable (mandatory for C rating)
 
 ---
 
@@ -218,3 +230,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-06 | @migmcc | Expanded weighting system explanation in Step 3; added auditor qualification and independence requirements; improved findings classification (score 4 vs 6 distinction); added B-rating follow-up timeline |

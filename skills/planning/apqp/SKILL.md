@@ -18,7 +18,7 @@ metadata:
   status: approved
   created: "2026-06-06"
   last_updated: "2026-06-06"
-  updated_by: RBraga01
+  updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "AIAG APQP 2nd Edition (2008) / IATF 16949:2016 §8.3"
 ---
@@ -160,7 +160,7 @@ All phases run with concurrent engineering — phases overlap and teams work in 
 | Management Support Sign-Off | Internal management approval for SOP |
 
 **Gate 4 pass criteria (= PPAP approval):**
-- Significant production run completed (minimum as agreed with customer)
+- Significant production run completed (minimum 300 consecutive parts per AIAG PPAP 4th ed §4.0, unless the customer specifies otherwise in writing)
 - Dimensional results 100% conforming
 - Cpk ≥ 1.67 on all special characteristics (or customer-approved deviation)
 - %GRR < 30% for all MSA studies
@@ -217,6 +217,7 @@ Gate reviews are STOP gates — do not advance until all criteria are met.
 
 - Starting Phase 2 before customer requirements are fully understood and documented (Phase 1 incomplete)
 - PFMEA created after process is already running — it must drive process design, not document it
+- Production trial run shorter than 300 consecutive parts without written customer authorisation — the PPAP samples must come from this run; a shorter run requires an explicit customer waiver
 - Capability studies run on off-tool or pre-production parts — must be from production tooling
 - Prototype Control Plan used for PPAP submission — production control plan must be separate
 - MSA studies done after PPAP submission — must be complete before PSW is signed
@@ -241,3 +242,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum to Gate 4 criteria and Common Mistakes |

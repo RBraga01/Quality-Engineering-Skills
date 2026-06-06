@@ -18,7 +18,7 @@ metadata:
   status: approved
   created: "2026-06-06"
   last_updated: "2026-06-06"
-  updated_by: RBraga01
+  updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "AIAG Control Plan Reference Manual (1995) / IATF 16949:2016 §8.5.1"
 ---
@@ -64,6 +64,7 @@ For each process step, the agent asks:
 5. **Is this a special characteristic?** — if yes, which classification (SC, CC, ★, ◆, KPC, KCC)?
 6. **What is the specification / tolerance?** (nominal ± tolerance, or min/max)
 7. **What gauge or measurement method is used?**
+   - Follow-up: Has an MSA study (Gauge R&R) been performed for this measurement system? If yes, what was the %GRR result? Flag if %GRR > 30% or if no MSA has been performed for a variable SC/CC characteristic.
 8. **What is the sample size?** (number of parts per measurement)
 9. **What is the measurement frequency?** (every hour, every lot, 100%, first-off)
 10. **What control method is in place?** (SPC chart, go/no-go gauge, visual, 100% inspection, statistical sampling)
@@ -98,6 +99,7 @@ If the user is updating after an 8D corrective action:
 3. Asks what the new control is and validates it addresses the root cause
 4. Updates the control method, sample plan, or adds a new row as needed
 5. Confirms the updated CP revision date and reason for change
+6. Asks whether the PFMEA has been updated with the new control and a revised Action Priority (AP) — AP revision is required after D6 verification is complete; flag if the PFMEA AP has not been revised
 
 ---
 
@@ -113,6 +115,7 @@ If the user is updating after an 8D corrective action:
 - When a process characteristic is not being monitored but a product defect is linked to it
 - When a 100% inspection is in place but Cpk ≥ 1.67 could replace it with statistical sampling
 - When a go/no-go gauge is used for a tight tolerance — suggest MSA study
+- When a failure mode is H-AP and the only control method is inspection — suggest adding a poka-yoke (error-proofing) device; inspection-only control for H-AP is a finding at IATF and VDA 6.3 audits
 
 ---
 
@@ -134,3 +137,4 @@ Apply the chosen format to all outputs generated during the session.
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-06 | @migmcc | Added MSA qualification question per measurement method (Step 2 Q7); added AP revision check in D7 mode (Step 5); added poka-yoke suggestion for H-AP inspection-only controls |

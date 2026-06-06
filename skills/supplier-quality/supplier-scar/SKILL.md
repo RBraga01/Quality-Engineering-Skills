@@ -18,7 +18,7 @@ metadata:
   status: approved
   created: "2026-06-06"
   last_updated: "2026-06-06"
-  updated_by: RBraga01
+  updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "ISO 9001:2015 §8.4 / IATF 16949:2016 §8.4.1"
 ---
@@ -123,6 +123,7 @@ Use the 8D Evaluator methodology (skill: `8d-problem-solving`) to review the sup
 
 **D7 — Systemic prevention:**
 - Has the PFMEA been updated to reflect the failure mode and new controls?
+- Has the Action Priority (AP) been revised in the PFMEA after verified corrective action? The revised AP must be lower than the original or documented with justification — AP revision is only valid after D6 effectiveness is confirmed, not at planning stage.
 - Has the Control Plan been updated?
 - Have Work Instructions been updated?
 - Has horizontal deployment been considered (same process at other lines/plants)?
@@ -183,9 +184,11 @@ Link every SCAR to the supplier's quality performance record:
 - Recurrence rate (same defect within 12 months of a previous SCAR)
 
 Suppliers with repeated SCARs or recurrences should be placed on:
-- **Controlled shipping** — every delivery inspected before acceptance
+- **Controlled shipping** — every delivery inspected before acceptance (in automotive: CS1 = supplier-managed 100% sort; CS2 = customer-managed sort at supplier's cost)
 - **Supplier improvement plan** — formal APQP-style corrective programme
 - **Qualification review** — potential re-qualification or replacement
+
+**Warranty cost recovery / debit note risk:** In automotive OEM supply chains, SCARs that result in field failures or warranty claims can trigger financial recovery. The OEM issues a warranty debit note to the Tier 1, who cascades it to the responsible sub-supplier via SCAR. Each SCAR must therefore document whether the non-conformance caused any field or warranty cost — this determines whether cost recovery applies. A SCAR without this assessment is incomplete for OEM reporting purposes. If warranty cost recovery is raised, escalate immediately to commercial and legal before responding to the OEM.
 
 ---
 
@@ -225,3 +228,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-06 | @migmcc | Added AP revision check in D7 evaluation; added warranty cost recovery / debit note risk in Step 6; added CS1/CS2 controlled shipping reference |
