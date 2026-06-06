@@ -7,7 +7,7 @@ version: "1.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
-updated_by: RBraga01
+updated_by: migmcc
 reviewed_by: RBraga01
 license: MIT
 ---
@@ -252,8 +252,8 @@ These include all variation sources (between-subgroup drift, shifts, etc.).
 
 | Cpk / Ppk | Sigma level (approx.) | DPPM (approx.) | PPAP / IATF verdict |
 |-----------|----------------------|----------------|---------------------|
-| ≥ 1.67 | 5σ | < 57 ppm | Excellent — accepted without restriction |
-| 1.33 – 1.67 | 4σ | 57 – 6,210 ppm | Acceptable — accepted, increased monitoring recommended for new processes |
+| ≥ 1.67 | 5σ | < 233 ppm | Excellent — accepted without restriction |
+| 1.33 – 1.67 | 4σ | 233 – 6,210 ppm | Acceptable — accepted, increased monitoring recommended for new processes |
 | 1.00 – 1.33 | 3σ | 6,210 – 66,807 ppm | Marginal — 100% inspection, corrective action, customer approval required |
 | < 1.00 | < 3σ | > 66,807 ppm | Not capable — PPAP blocked, mandatory corrective action |
 

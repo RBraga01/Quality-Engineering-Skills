@@ -7,7 +7,7 @@ version: "1.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
-updated_by: RBraga01
+updated_by: migmcc
 reviewed_by: RBraga01
 license: MIT
 ---
@@ -179,7 +179,7 @@ Both methods calculate EV, AV, and GRR. Choose based on the following:
 | 2 | 1.128 | 0.8862 | 3.267 |
 | 3 | 1.693 | 0.5908 | 2.574 |
 
-For appraiser variation (number of appraisers = 3), d₂* = 1.693 (use r = 3, m = 10 from d₂* table in AIAG MSA 4th ed. Appendix C).
+For appraiser variation (number of appraisers = 3), use K₂ = 0.5231 directly from AIAG MSA 4th ed. Table IV. This corresponds to d₂* ≈ 1.912 (range of 3 values, 1 range calculated). Note: the value 1.693 in the EV table above is d₂* for 3 trials per appraiser — it is not the correct value for the AV calculation.
 
 ### Step-by-Step Formulas
 

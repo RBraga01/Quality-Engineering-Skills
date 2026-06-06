@@ -7,7 +7,7 @@ version: "1.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
-updated_by: RBraga01
+updated_by: migmcc
 reviewed_by: RBraga01
 license: MIT
 ---
@@ -180,7 +180,7 @@ Running a capability study on a poor measurement system produces false Cpk value
 | Analysis | Minitab path | Excel equivalent | Notes |
 |---|---|---|---|
 | Gauge R&R (crossed) | Stat > Quality Tools > Gauge Study > Gauge R&R Study (Crossed) | Not available natively — use ANOVA table manually | Excel cannot compute %GRR components reliably; use Minitab or R |
-| Process capability (normal) | Stat > Quality Tools > Capability Analysis > Normal | NORM.DIST function for PPM estimate; no built-in Cpk function | Excel: Cpk = MIN((USL-AVERAGE(data))/(3*STDEV(data)), (AVERAGE(data)-LSL)/(3*STDEV(data))) |
+| Process capability (normal) | Stat > Quality Tools > Capability Analysis > Normal | NORM.DIST function for PPM estimate; no built-in Cpk function | Excel: the formula MIN((USL-AVERAGE(data))/(3*STDEV(data)), (AVERAGE(data)-LSL)/(3*STDEV(data))) uses STDEV() — the overall standard deviation — and therefore computes **Ppk**, not Cpk. For true Cpk, σ̂ must be estimated from within-subgroup variation (R̄/d₂ or S̄/c₄); this requires manual calculation or Minitab. |
 | Control chart I-MR | Stat > Control Charts > Variables Charts for Individuals > I-MR | No built-in control chart; manual calculation of UCL/LCL possible | Excel: UCL = x̄ + 2.66 × MR̄; LCL = x̄ - 2.66 × MR̄ |
 | Control chart Xbar-R | Stat > Control Charts > Variables Charts for Subgroups > Xbar-R | Manual calculation; A2, D3, D4 constants from table | Minitab preferred for automatic rule detection |
 | Normal probability plot | Stat > Basic Statistics > Normality Test (Anderson-Darling) | Insert > Chart > Normal probability plot (limited) | Use Minitab; Excel normal plot requires manual quantile calculation |

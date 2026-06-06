@@ -7,7 +7,7 @@ version: "1.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
-updated_by: RBraga01
+updated_by: migmcc
 reviewed_by: RBraga01
 license: MIT
 ---
@@ -336,9 +336,10 @@ Establishes that the product meets its reliability target (e.g., B10 life, desig
 | C — Regulatory / Safety | EMC, crash, homologation | Per regulation; typically 3 | Cannot deviate without regulatory authority; some regulations specify exact quantities |
 
 **Statistical guidance for reliability claims:**
-- B10 life at 90% confidence with Weibull shape parameter β = 2: minimum n = 5 (zero failures expected)
-- B10 life at 90% confidence with β = 1 (exponential): minimum n = 12 (zero failures expected)
-- Use the AMSAA / Crow reliability growth tool or Weibull analysis software to confirm adequacy before test execution
+- B10 life at 90% confidence with Weibull shape parameter β = 2: minimum n = 5 — but only if the test duration is extended to ≈ 2.1× the B10 design life. Testing exactly to the B10 life with n = 5 does not achieve 90% confidence.
+- B10 life at 90% confidence with β = 1 (exponential): minimum n = 12 — requires test duration ≈ 1.8× the B10 design life.
+- For testing exactly to the B10 design life (no time extension): n ≥ 22 is required regardless of β, to achieve 90% confidence of ≥ 90% reliability. Use the formula n = ln(1−C) / ln(R) where C = 0.90 and R = 0.90.
+- Use the AMSAA / Crow reliability growth tool or Weibull analysis software to calculate the exact test duration multiplier for your β and n combination before committing to a test plan.
 
 ---
 

@@ -7,7 +7,7 @@ version: "1.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
-updated_by: RBraga01
+updated_by: migmcc
 reviewed_by: RBraga01
 license: MIT
 ---
@@ -140,7 +140,7 @@ Use alongside the [pdca-improvement](../SKILL.md) skill.
 - Run-in protocol implemented on machine 3 Week 3; first tool change conducted under new protocol observed by SQE
 - 100% inspection of first 25 parts after tool change started Week 3
 - SPC chart updated with tool change markers Week 4
-- Run-in parts from three tool changes: 20 parts + 20 parts + 18 parts scrapped (first 20 were Ra > 1.6 µm in all three cases — confirming the cause mechanism)
+- Run-in parts from three tool changes: 20 parts + 20 parts + 20 parts scrapped (first 20 were Ra > 1.6 µm in all three cases — confirming the cause mechanism)
 
 **Do gate — passed:** Protocol implemented; run-in confirmation data collected; scrap documented and accepted by SubCo as cost of validation.
 
@@ -152,9 +152,9 @@ Use alongside the [pdca-improvement](../SKILL.md) skill.
 |---|---|---|---|
 | Ra non-conformance rate — steady state | 3.2% | ≤ 0.3% | 0.0% (0/1,140 steady-state parts) |
 | Ra non-conformance — run-in parts (scrapped) | Part of 3.2% | Scrapped | 100% of run-in parts exceeded Ra limit — confirms mechanism |
-| Scrap increase | Not tracked separately | Quantified | +18 parts per tool change; tool life = ~400 parts → +4.5% scrap rate on machine 3 |
+| Scrap increase | Not tracked separately | Quantified | +20 parts per tool change (run-in protocol); tool life = ~400 parts → +5.0% scrap rate on machine 3 |
 
-**Check gate — passed with cost note:** PPM target met for steady-state production. Run-in scrap rate (+4.5%) is a trade-off and was accepted in the Plan — business case confirmed it is preferable to non-conformance at the customer. Financial impact to be reviewed quarterly.
+**Check gate — passed with cost note:** PPM target met for steady-state production. Run-in scrap rate (+5.0%) is a trade-off and was accepted in the Plan — business case confirmed it is preferable to non-conformance at the customer. Financial impact to be reviewed quarterly.
 
 ---
 

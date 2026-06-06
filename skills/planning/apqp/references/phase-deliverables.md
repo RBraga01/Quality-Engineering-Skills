@@ -7,7 +7,7 @@ version: "1.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
-updated_by: RBraga01
+updated_by: migmcc
 reviewed_by: RBraga01
 license: MIT
 ---
@@ -215,6 +215,6 @@ Use alongside the [apqp](../SKILL.md) skill.
 | Master Sample retention | 4 | Element 15 — Master Sample |
 | Gauge Plan → gauges procured and calibrated | 3–4 | Element 16 — Checking Aids |
 | CSR Compliance / OEM-specific requirements | 1–4 | Element 17 — Customer-Specific Requirements |
-| Programme Charter + Management Sign-Off | 4 | Element 18 — Part Submission Warrant (PSW) |
+| Quality Planning Sign-Off + Management Support Sign-Off | 4 | Element 18 — Part Submission Warrant (PSW) |
 
 **Note:** Element 18 (PSW) is the culmination of the entire APQP programme — it can only be signed when all prior deliverables are complete and accepted. The PSW signature is the quality manager's attestation that the APQP process was followed.
