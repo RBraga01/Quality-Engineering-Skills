@@ -1,0 +1,89 @@
+cff-version: 1.2.0
+
+message: >-
+  If you use Quality-Engineering-Skills in your research, teaching, or published work,
+  please cite it using the metadata below. When referencing specific methodology content,
+  also cite the underlying standard (ISO 9001:2015, IATF 16949:2016, AIAG-VDA FMEA 2019,
+  VDA 6.3 2023, etc.) — this project implements those standards, it does not replace them.
+
+title: "Quality-Engineering-Skills: Structured quality engineering skills and agents for AI"
+
+abstract: >-
+  Quality-Engineering-Skills is an open-source package of structured skill files and
+  interactive agents that enable AI systems to apply quality engineering methodology
+  accurately. The package covers 22 skills across 7 domains — problem solving (8D, 5-Why,
+  DMAIC, Fishbone, Is/Is-Not, PDCA), risk analysis (PFMEA, DFMEA, Action Priority),
+  planning (PPAP, APQP, Control Plan, DVP&R), measurement (MSA/Gauge R&R, SPC),
+  documentation (NCR, CAR, 8D Customer Report), audit (ISO 9001, IATF 16949, VDA 6.3),
+  and supplier quality (SCAR). Every skill maps to specific standard clauses and editions.
+  The package also includes 8 interactive agents that guide practitioners step-by-step
+  through structured quality processes with validation gates.
+  Compatible with Claude Code, OpenAI ChatGPT, Cursor, Gemini CLI, Copilot Studio,
+  and 20+ AI coding platforms.
+
+authors:
+  - family-names: Braga
+    given-names: Ricardo Romão Marques
+    alias: RBraga01
+    email: qessupport@gmail.com
+
+  - alias: migmcc
+    # Full name intentionally omitted — contributor prefers GitHub alias in citations.
+    # Affiliation: 25+ years quality engineering; claims management,
+    #               electromechanical and mechanical supplier quality.
+
+version: "2.0.0"
+
+date-released: "2026-06-06"
+
+license: MIT
+
+repository-code: "https://github.com/RBraga01/Quality-Engineering-Skills"
+
+url: "https://github.com/RBraga01/Quality-Engineering-Skills"
+
+keywords:
+  - quality-engineering
+  - iso-9001
+  - iatf-16949
+  - fmea
+  - aiag-vda-fmea
+  - 8d-problem-solving
+  - ppap
+  - apqp
+  - control-plan
+  - spc
+  - statistical-process-control
+  - msa
+  - gauge-r-r
+  - vda-6-3
+  - dmaic
+  - six-sigma
+  - ai-agents
+  - llm-agents
+  - claude-code
+  - structured-prompts
+  - automotive-quality
+  - manufacturing
+  - supplier-quality
+
+type: software
+
+identifiers:
+  - type: url
+    value: "https://github.com/RBraga01/Quality-Engineering-Skills"
+    description: "GitHub repository"
+
+preferred-citation:
+  type: software
+  title: "Quality-Engineering-Skills: Structured quality engineering skills and agents for AI"
+  authors:
+    - family-names: Braga
+      given-names: Ricardo Romão Marques
+      alias: RBraga01
+    - alias: migmcc
+  version: "2.0.0"
+  date-released: "2026-06-06"
+  license: MIT
+  repository-code: "https://github.com/RBraga01/Quality-Engineering-Skills"
+  url: "https://github.com/RBraga01/Quality-Engineering-Skills"
