@@ -6,4 +6,5 @@ node_modules/
 # Internal lead documents — not for public consumption
 docs/launch-plan.md
 docs/review-brief-*.md
+docs/HumanWork.md
 scripts/update_doc_control.py
