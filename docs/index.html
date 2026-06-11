@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1385,7 +1385,7 @@ footer p { font-size:.78rem; color:var(--muted); }
 (function() {
   const root = document.documentElement;
   const btn  = document.getElementById('themeToggle');
-  const stored = localStorage.getItem('qes-theme') || 'dark';
+  const stored = localStorage.getItem('qes-theme') || 'light';
   root.setAttribute('data-theme', stored);
 
   btn.addEventListener('click', function() {
