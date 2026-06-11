@@ -1,7 +1,7 @@
 # Quality-Engineering-Skills
 
 **22 structured quality engineering skills and 8 agents for AI — ISO 9001, IATF 16949, AIAG-VDA FMEA, VDA 6.3, PPAP, APQP, SPC, MSA.**
-Works with Claude Code, Codex CLI, Cursor, Gemini CLI, and 20+ AI coding platforms.
+Works with Claude Code, Codex CLI, Cursor, Gemini CLI, and any agentskills.io-compatible AI tool.
 
 **[→ rbraga01.github.io/Quality-Engineering-Skills](https://rbraga01.github.io/Quality-Engineering-Skills/)**
 

@@ -4,6 +4,33 @@ All notable changes to Quality-Engineering-Skills are documented here.
 
 ---
 
+## [v2.1.0] — 2026-06-11
+
+### Added
+
+- M365 Copilot Plugin: Cloudflare Worker API (`platforms/m365/worker.js` + `wrangler.toml`) — 6 endpoints, Claude Haiku backend, CORS-ready. Unblocks AppSource sideload path.
+- M365 Copilot Plugin card added to landing page (`docs/index.html`) with `Coming Soon` badge.
+- `badge-pending` style added to landing page for platforms with code ready but not yet deployed.
+- GitHub Pages enabled — landing page live at `https://rbraga01.github.io/Quality-Engineering-Skills/`.
+
+### Changed
+
+- **Governance:** migmcc elevated to co-creator — direct push to master, equal authority on all decisions. `CLAUDE.md`, `CODEOWNERS`, `CONTRIBUTING.md`, `STATUS.md`, `docs/index.html` updated to reflect co-creator status.
+- **Platform strategy:** Store submissions (GPT Store, Slack App Directory, M365 AppSource, Gemini Marketplace) removed from public setup guides — managed exclusively by @RBraga01 and @migmcc. Public guides now cover self-hosted / org-internal deployment only.
+- **Platform copy:** All system instruction files (`gpt-instructions.md`, `project-instructions.md`, `gemini-instructions.md`, `slack-instructions.md`, `copilot-instructions.md`, `worker.js`) and marketing copy updated from "15+ years" to "decades of" — collective statement, not per-person.
+- **agentskills.io badge:** Changed from `submission pending` → `format: agentskills.io` (open standard, self-declared format compatibility, no registry submission process exists).
+- **Platform claims:** Replaced "20+ AI coding platforms" with "any agentskills.io-compatible AI tool" in README and landing page hero — accurate, forward-looking, not a made-up count.
+- **Badge order in README:** Skills → Agents → agentskills.io format → MIT (last).
+- **Landing page link** added to README header.
+- **Platform status table** added to `STATUS.md` with per-platform state, blocker, and connector file reference.
+- **M365 `plugin-manifest.json`:** `privacy_policy_url` updated from LICENSE file to GitHub Pages privacy page.
+- **`Week 5` references** removed from `openapi.yaml` and `slack/setup-guide.md`.
+- **`docs/` internal files** removed pre-launch (`launch-plan.md`, `review-brief-migmcc-v2.md`, `review-brief-migmcc-v3.md`, `migmcc-launch-guide.md`, `HumanWork.md`) — were never committed, deleted locally.
+- **Local Windows paths** (`E:\quality-engineering-skills.md`) removed from `CLAUDE.md` and `docs/maintenance-checklist.md`.
+- **Slack platform card** badge changed to `Coming Soon` — worker code exists but no deployed instance.
+
+---
+
 ## [v2.0.0] — 2026-06-06
 
 ### Added

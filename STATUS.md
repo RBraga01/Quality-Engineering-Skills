@@ -117,7 +117,7 @@ All 22 skills now have at least one reference file (commit e3af81a, 2026-06-06).
 - [x] Repo PUBLIC (2026-06-11)
 - [x] migmcc elevated to co-creator — direct push to master, full authority
 - [ ] Demos / GIFs for README
-- [ ] agentskills.io registry submission
+- [x] agentskills.io — no registry exists; format-compatible badge added (`format: agentskills.io`). Optional: engage GitHub/Discord community at github.com/agentskills/agentskills.
 
 ### Platforms
 

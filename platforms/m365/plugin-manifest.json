@@ -7,7 +7,7 @@
   "description_for_model": "Quality engineering methodology assistant. Use this plugin when the user asks about: 8D problem solving (D0-D8), FMEA (PFMEA, DFMEA, Action Priority), NCR (non-conformance report) writing, root cause analysis (5-Why, fishbone, Is/Is-Not), corrective action (CAR, PDCA), ISO 9001 or IATF 16949 internal audit. Applies automotive supplier quality standards: ISO 9001:2015, IATF 16949:2016, AIAG-VDA FMEA 2019.",
   "contact_email": "qessupport@gmail.com",
   "legal_info_url": "https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/LICENSE",
-  "privacy_policy_url": "https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/LICENSE",
+  "privacy_policy_url": "https://rbraga01.github.io/Quality-Engineering-Skills/privacy.html",
   "logo_url": "https://raw.githubusercontent.com/RBraga01/Quality-Engineering-Skills/master/platforms/m365/logo.png",
   "functions": [
     {
