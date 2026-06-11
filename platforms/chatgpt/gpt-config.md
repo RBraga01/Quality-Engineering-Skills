@@ -1,4 +1,5 @@
 # ChatGPT Custom GPT — Configuration
+> **Internal QES team document.** The official GPT is published and maintained by @RBraga01 and @migmcc. This file is the configuration reference for that GPT — it is not a guide for creating competing instances.
 
 ## Step-by-step setup at platform.openai.com/gpts
 

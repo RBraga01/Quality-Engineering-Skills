@@ -192,14 +192,6 @@ function backButton() {
 3. Find your deployed add-on and install it.
 4. The sidebar will appear under **Extensions** → **Quality Engineering Assistant**.
 
-### Step 7 — (Optional) Submit to Google Workspace Marketplace
-
-For organisation-wide distribution without per-user installation:
-1. Go to [console.cloud.google.com](https://console.cloud.google.com) → Create or select a project.
-2. Enable the **Google Workspace Marketplace SDK**.
-3. Configure the **App Configuration** with the add-on details.
-4. Submit for Google review (5–7 business days for public listing).
-
 ---
 
 ## Updating the add-on

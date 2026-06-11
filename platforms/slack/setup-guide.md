@@ -1,10 +1,11 @@
 # Slack App Setup Guide
 
-Three deployment tracks, from quickest to most powerful:
+Two deployment tracks for private workspace use:
 
 - **Track A — n8n / Make.com webhook (available now, no coding):** Connect a Slack slash command to an AI provider via a no-code workflow. Works today in under 20 minutes.
 - **Track B — Custom Node.js bot (full control):** Build the bot with the Slack Bolt SDK and your LLM of choice.
-- **Track C — Slack App Directory submission (when public API ships in Week 5).**
+
+> **Slack App Directory listing** is managed by the QES team (@RBraga01 / @migmcc) and published from the official repository. If you want to use the bot in your workspace today, use Track A or B below.
 
 ---
 
@@ -199,38 +200,11 @@ node app.js
 
 ---
 
-## Track C — Slack App Directory Submission
-
-### Prerequisites
-
-- A running bot endpoint (Track B deployed to a server)
-- Slack app reviewed and approved for public distribution
-
-### Checklist before submitting
-
-- [ ] Bot tested with all six slash commands
-- [ ] OAuth flow implemented for multi-workspace support (not just single-workspace install)
-- [ ] Privacy policy URL live (not GitHub)
-- [ ] Support URL live
-- [ ] App icon 512×512 PNG prepared
-- [ ] App listing copy written (short + long description)
-- [ ] All slash commands have `should_escape: false` in manifest
-
-### Submission steps
-
-1. In your Slack app settings, go to **Manage Distribution**.
-2. Complete the **App Directory Submission** checklist.
-3. Under **Activate Public Distribution**, toggle on.
-4. Click **Submit for Review** (Slack reviews in 5–10 business days).
-
----
-
 ## Updating the bot
 
 When `slack-instructions.md` is updated:
 1. Track A (n8n/Make.com): update the system prompt field in the HTTP request node.
 2. Track B (Bolt SDK): the file is read at startup; restart the process to pick up changes.
-3. Track C: no action needed if the file is loaded at runtime; redeploy only if code changed.
 
 ---
 

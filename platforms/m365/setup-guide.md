@@ -118,47 +118,16 @@ Users trigger it by typing `@QE Assistant` or by selecting it from the plugin pi
 
 ---
 
-## Track B — AppSource submission
+## AppSource listing
 
-AppSource requires the public API to be live at `https://api.quality-engineering-skills.io/v1` (complete Track 0 first).
-
-### Prerequisites for AppSource
-
-- Microsoft Partner Center account: [partner.microsoft.com](https://partner.microsoft.com)
-- Microsoft 365 App Compliance Program (MCAS/SSPA) — required for marketplace listing
-- Public API endpoint responding to all operations in `openapi.yaml`
-
-### Submission checklist
-
-- [ ] Public API live and returning valid responses
-- [ ] `openapi.yaml` updated with live server URL
-- [ ] `plugin-manifest.json` logo_url pointing to a public PNG
-- [ ] App icons (192×192 color + 32×32 outline) prepared
-- [ ] Privacy policy page live (separate URL, not GitHub)
-- [ ] Terms of use page live
-- [ ] Publisher verification complete in Partner Center
-- [ ] App tested end-to-end against each function in `plugin-manifest.json`
-- [ ] Microsoft App Compliance attestation completed
-
-### Submission steps
-
-1. Log in to [partner.microsoft.com](https://partner.microsoft.com) → **Marketplace offers** → **New offer** → **Microsoft 365 and Teams app**.
-2. Complete product listing:
-   - Category: **Productivity** → **Project management**
-   - Secondary category: **Compliance & legal**
-3. Upload the app package (from Developer Portal).
-4. Complete the App Compliance section.
-5. Submit for Microsoft review (typically 5–7 business days).
-
----
+AppSource publication is managed exclusively by @RBraga01 and @migmcc from the official QES repository. Track A (sideload) is the correct path for org-internal deployment without AppSource.
 
 ## Updating the plugin
 
 When SKILL.md methodology is updated:
 1. Update `plugin-manifest.json` version field.
 2. If new functions added, update both `plugin-manifest.json` functions array and `openapi.yaml` paths.
-3. Re-sideload or resubmit to AppSource as applicable.
-4. For AppSource: incremental updates resubmit through Partner Center (same offer, new version).
+3. Re-sideload the updated package (Track A).
 
 ---
 

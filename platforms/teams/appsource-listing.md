@@ -57,7 +57,7 @@ This guide takes you from a working Copilot Studio agent to a public listing in 
 
 **Long description (up to 4000 chars):**
 ```
-Quality Engineering Assistant brings 15 years of hands-on quality engineering expertise directly into Microsoft Teams.
+Quality Engineering Assistant brings decades of hands-on quality engineering expertise directly into Microsoft Teams.
 
 WHAT IT DOES
 Whether you're managing a customer complaint, reviewing an FMEA, writing an NCR, or preparing for an internal audit — this assistant guides you through the methodology step by step.

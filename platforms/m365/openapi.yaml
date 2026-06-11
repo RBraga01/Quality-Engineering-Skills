@@ -14,11 +14,10 @@ info:
 
 servers:
   - url: https://api.quality-engineering-skills.io/v1
-    description: Production (Week 5 — not yet live)
+    description: Production — deploy the Cloudflare Worker in platforms/m365/ first, then update this URL
 
-# NOTE: This is a stub specification required by the M365 Copilot plugin manifest format.
-# The public API ships in Week 5. Until then, use the Copilot Studio bot (platforms/teams/)
-# or Claude.ai Project (platforms/claude-ai/) for immediate deployment.
+# NOTE: Update the server url above with your deployed Cloudflare Worker URL before sideloading.
+# See platforms/m365/setup-guide.md Track 0 for deployment steps.
 
 paths:
   /8d/coach:
