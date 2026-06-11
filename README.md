@@ -28,7 +28,7 @@ git clone https://github.com/RBraga01/Quality-Engineering-Skills.git
 
 AI agents are powerful — but they don't know 8D from PDCA, can't apply the AIAG-VDA Action Priority table, and generate generic NCR text that no auditor would accept.
 
-**Quality-Engineering-Skills packages 15 years of hands-on quality engineering expertise** — automotive supplier quality, claims management, 8D, FMEA, PPAP, and ISO 9001 auditing — into structured skills your AI agent can load and apply immediately.
+**Quality-Engineering-Skills packages decades of hands-on quality engineering expertise** — automotive supplier quality, claims management, 8D, FMEA, PPAP, and ISO 9001 auditing — into structured skills your AI agent can load and apply immediately.
 
 Every skill maps to specific standard clauses. Every agent validates methodology, not just format.
 

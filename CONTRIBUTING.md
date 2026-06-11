@@ -6,10 +6,10 @@ Thank you for contributing. Every submission adds real methodology knowledge tha
 
 | Role | Who | Can do independently |
 |------|-----|----------------------|
-| Lead manager | @RBraga01 | All structural decisions, platform connectors, releases |
-| Contributor | @migmcc and others | Skill content — new skills, corrections, improvements |
+| Co-creator | @RBraga01, @migmcc | All decisions — structure, platforms, agents, releases, direct push to master |
+| Contributor | community | Skill content — new skills, corrections, improvements (via PR) |
 
-**All contributions go through a PR.** No direct pushes to `master`.  
+**All community contributions go through a PR.**  
 Structural changes (platforms, agents, new domains, README) require a GitHub Issue with label `proposal` first.  
 See `CLAUDE.md` for the full rules.
 
@@ -208,11 +208,11 @@ license: MIT
 
 ## Pull request process
 
-1. Clone the repository (requires collaborator access — contact @RBraga01)
+1. Clone the repository (requires collaborator access — contact @RBraga01 or @migmcc)
 2. Create a branch from master: `feat/skill-name` or `fix/skill-name`
 3. Stage only your skill files — **never use `git add .` or `git add -A`**. Add files explicitly by path.
 4. Verify with `git status` before committing — the diff must contain only your intended files
 5. Open a PR with: skill name, standard it implements, your domain expertise (role/industry)
-6. All PRs are reviewed by @RBraga01 before merge
+6. All PRs are reviewed by @RBraga01 or @migmcc before merge
 
 Skills from practitioners are prioritised. Generic content will be rejected.
