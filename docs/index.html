@@ -88,10 +88,9 @@ nav {
 .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
 .nav-logo-icon {
   width:32px; height:32px; border-radius:8px;
-  background: linear-gradient(135deg, #0369a1, #0ea5e9);
-  display:flex; align-items:center; justify-content:center;
-  font-weight:900; color:white; font-size:.85rem; letter-spacing:-.02em;
+  overflow:hidden; flex-shrink:0;
 }
+.nav-logo-icon img { width:32px; height:32px; display:block; object-fit:cover; border-radius:8px; }
 .nav-logo-text { font-weight:700; font-size:1rem; color:var(--text-strong); transition:color .25s; }
 .nav-logo-badge {
   font-size:.65rem; padding:2px 7px; border-radius:999px;
@@ -174,6 +173,7 @@ nav {
   background:linear-gradient(90deg, transparent, rgba(14,165,233,.35), transparent);
 }
 .hero-content { position:relative; z-index:1; max-width:820px; }
+.hero-logo { width:120px; height:120px; border-radius:24px; margin-bottom:2rem; box-shadow:0 8px 40px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.08); display:block; }
 .hero-eyebrow {
   display:inline-flex; align-items:center; gap:8px;
   padding:6px 16px; border-radius:999px;
@@ -659,7 +659,7 @@ footer p { font-size:.78rem; color:var(--muted); }
 <!-- ══════════ NAV ══════════ -->
 <nav>
   <a class="nav-logo" href="#">
-    <div class="nav-logo-icon">QE</div>
+    <div class="nav-logo-icon"><img src="../assets/qes-logo.jpg" alt="QES"></div>
     <span class="nav-logo-text">Quality Engineering Skills</span>
     <span class="nav-logo-badge">v2.0</span>
   </a>
@@ -694,6 +694,7 @@ footer p { font-size:.78rem; color:var(--muted); }
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-content">
+    <img src="../assets/qes-logo.jpg" alt="Quality Engineering Skills" class="hero-logo">
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-dot"></span>
       Free · Open Source · MIT License · v2.0
@@ -1160,6 +1161,7 @@ footer p { font-size:.78rem; color:var(--muted); }
         <button class="copy-btn" onclick="copyCode(this)">Copy</button>
         <pre><code>npx skills add RBraga01/Quality-Engineering-Skills</code></pre>
       </div>
+      <a href="https://github.com/RBraga01/Quality-Engineering-Skills/archive/refs/heads/master.zip" style="margin-top:12px;">Download as ZIP</a>
     </div>
 
   </div>

@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/qes-logo.jpg" alt="Quality Engineering Skills" width="160">
+</p>
+
 # Quality-Engineering-Skills
 
 **22 structured quality engineering skills and 8 agents for AI — ISO 9001, IATF 16949, AIAG-VDA FMEA, VDA 6.3, PPAP, APQP, SPC, MSA.**
@@ -23,6 +27,8 @@ Or clone directly:
 ```bash
 git clone https://github.com/RBraga01/Quality-Engineering-Skills.git
 ```
+
+Or [download as ZIP](https://github.com/RBraga01/Quality-Engineering-Skills/archive/refs/heads/master.zip).
 
 ---
 
