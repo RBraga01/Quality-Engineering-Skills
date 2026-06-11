@@ -4,44 +4,28 @@
 
 | Role | GitHub | Scope |
 |------|--------|-------|
-| Lead manager | @RBraga01 (Ricardo Braga) | All decisions. Final authority on structure, platforms, releases |
-| Contributor | @migmcc | Skill content only — see allowed work below |
+| Creator | @RBraga01 (Ricardo Braga) | All decisions. Final authority on structure, platforms, releases |
+| Creator | @migmcc | All decisions. Equal authority on structure, platforms, releases, and content |
 
 ## Workflow
 
+Both creators push directly to `master`. No PR required.
+
 | Who | Workflow |
 |-----|----------|
-| @RBraga01 (lead) | Pushes directly to `master`. No PR required. |
-| @migmcc (contributor) | Always works on a feature branch. Opens PR. Waits for @RBraga01 approval before merging. Never pushes directly to `master`. |
+| @RBraga01 | Pushes directly to `master`. No PR required. |
+| @migmcc | Pushes directly to `master`. No PR required. |
 
-### Branch naming for contributors
+For significant structural changes (new domains, platform connector changes, releases), creators align before pushing — not as a gate, but as good practice between co-owners.
 
-| Prefix | Use for |
-|--------|---------|
-| `feat/skill-name` | New skill |
-| `fix/skill-name` | Correction to existing skill |
-| `docs/description` | Documentation only |
-| `chore/description` | Maintenance, formatting |
+## What both creators can do without prior authorisation
 
-## What @migmcc can do without prior authorisation
-
-- Edit content inside any existing `SKILL.md` (corrections, improvements, additions)
-- Create new `SKILL.md` files inside existing domain folders under `skills/`
-- Add or edit files inside `assets/` or `references/` within an existing skill folder
-- Fix typos, improve language, add examples, improve validation criteria
-
-Open a PR for any of the above — @RBraga01 reviews and merges.
-
-## What requires explicit authorisation before implementing
-
-Do NOT implement these. Open a GitHub Issue with label `proposal` and wait for approval.
-
-- Any change to `platforms/` (ChatGPT, Claude.ai, Teams, Gemini, Slack connectors)
+- Any change to `SKILL.md` files (corrections, new skills, new domains)
 - Any change to `skills/agents/` (agent definitions)
-- Creating a new domain folder (new top-level directory under `skills/`)
+- Any change to `platforms/` (ChatGPT, Claude.ai, Teams, Gemini, Slack connectors)
 - Any change to `README.md`, `CONTRIBUTING.md`, `CLAUDE.md`, `LICENSE`
+- Add or edit files inside `assets/` or `references/` within any skill folder
 - Repo settings, GitHub Actions, branch rules
-- Making the repository public (only at Week 5 launch — never before)
 
 ## Source of truth
 
