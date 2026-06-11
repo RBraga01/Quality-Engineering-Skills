@@ -1,9 +1,60 @@
 # Microsoft 365 AppSource / Copilot Plugin Setup Guide
 
-This guide covers two deployment tracks for the Quality Engineering Assistant as an M365 Copilot extension:
+This guide covers three deployment tracks for the Quality Engineering Assistant as an M365 Copilot extension:
 
-- **Track A — Sideload (internal testing, available now):** Deploy directly to your M365 tenant for testing without AppSource submission.
-- **Track B — AppSource publication (when public API ships in Week 5):** Publish to the Microsoft 365 AppSource marketplace.
+- **Track 0 — Deploy the API (required first):** Deploy the Cloudflare Worker that powers the plugin.
+- **Track A — Sideload (internal testing):** Deploy directly to your M365 tenant for testing without AppSource submission.
+- **Track B — AppSource publication:** Publish to the Microsoft 365 AppSource marketplace once the API is live.
+
+---
+
+---
+
+## Track 0 — Deploy the API (do this first)
+
+The plugin calls a REST API. Deploy it with Cloudflare Workers before configuring the M365 plugin.
+
+### Prerequisites
+
+- [Cloudflare account](https://dash.cloudflare.com) (free tier is sufficient)
+- [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/install-and-update/): `npm install -g wrangler`
+- Anthropic API key from [console.anthropic.com](https://console.anthropic.com)
+
+### Step 1 — Deploy the Worker
+
+```bash
+cd platforms/m365
+wrangler deploy
+```
+
+This deploys to `https://quality-engineering-assistant-api.<your-subdomain>.workers.dev`.
+
+### Step 2 — Set the API key secret
+
+```bash
+wrangler secret put ANTHROPIC_API_KEY
+# Paste your Anthropic API key when prompted
+```
+
+### Step 3 — (Optional) Add a custom domain
+
+For AppSource submission the API must be at `api.quality-engineering-skills.io`:
+
+1. In [Cloudflare dashboard](https://dash.cloudflare.com) → **Workers & Pages** → `quality-engineering-assistant-api` → **Settings** → **Triggers**
+2. Under **Custom Domains**, add `api.quality-engineering-skills.io`
+3. Update `platforms/m365/openapi.yaml` server URL to `https://api.quality-engineering-skills.io/v1`
+
+For sideload testing, the `*.workers.dev` URL is sufficient — update `openapi.yaml` with that URL instead.
+
+### Step 4 — Verify the API is live
+
+```bash
+curl -X POST https://<your-worker-url>/8d/coach \
+  -H "Content-Type: application/json" \
+  -d '{"complaint_description":"customer returned parts with incorrect dimensions"}'
+```
+
+Expected: a JSON response with `session_id`, `current_step`, and `message` fields.
 
 ---
 
@@ -47,7 +98,7 @@ Users trigger it by typing `@QE Assistant` or by selecting it from the plugin pi
 3. Under **Plugin manifest**, upload `platforms/m365/plugin-manifest.json`.
 4. Under **API spec**, upload `platforms/m365/openapi.yaml`.
 
-> **Note:** Until the public API is live (Week 5), the API calls will return 404. The plugin manifest and schema are complete and ready — only the backend endpoint is pending.
+> **Note:** Complete Track 0 (Cloudflare Worker deploy) before sideloading. Update `openapi.yaml` with your Worker URL before uploading the spec in Step 2.
 
 ### Step 3 — Sideload to your tenant
 
@@ -67,9 +118,9 @@ Users trigger it by typing `@QE Assistant` or by selecting it from the plugin pi
 
 ---
 
-## Track B — AppSource submission (Week 5)
+## Track B — AppSource submission
 
-AppSource requires the public API to be live at `https://api.quality-engineering-skills.io/v1`.
+AppSource requires the public API to be live at `https://api.quality-engineering-skills.io/v1` (complete Track 0 first).
 
 ### Prerequisites for AppSource
 

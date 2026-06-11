@@ -124,9 +124,9 @@ All 22 skills now have at least one reference file (commit e3af81a, 2026-06-06).
 | Platform | Connector files | Status | Blocker |
 |----------|----------------|--------|---------|
 | Claude Code / Codex CLI / Cursor / Gemini CLI / 20+ agentskills-compatible tools | `npx skills add` | ✅ Working | — |
-| ChatGPT Custom GPT | `platforms/chatgpt/` — 16 knowledge files + config | ⏳ Pending | GPT Store publish not done |
-| Claude.ai Project | `platforms/claude-ai/` — 22 knowledge files + instructions | ⏳ Pending | Project not created/published |
+| ChatGPT Custom GPT | `platforms/chatgpt/` — 16 knowledge files + config | ✅ Live (v1 skills) | — |
+| Claude.ai Project | `platforms/claude-ai/` — 22 knowledge files + instructions | ✅ Self-install — each user creates their own Project following the guide | — |
 | Gemini AI Studio | `platforms/gemini/gemini-instructions.md` | ⏳ Pending | No hosted instance; guide available for manual setup |
 | Slack | `platforms/slack/` — worker.js + Bolt SDK code | ⏳ Pending | Nothing deployed |
 | Teams (Copilot Studio) | `platforms/teams/copilot-instructions.md` | ⏳ Pending | Guide works for org-internal; not publicly deployed |
-| M365 Copilot Plugin | `platforms/m365/` — plugin-manifest.json + openapi.yaml | ❌ Blocked | Requires public API endpoint (`api.quality-engineering-skills.io`) — does not exist |
+| M365 Copilot Plugin | `platforms/m365/` — worker.js + wrangler.toml + plugin-manifest.json + openapi.yaml | ⏳ Pending — deploy the Worker | `wrangler deploy` from `platforms/m365/`, set `ANTHROPIC_API_KEY` secret, update `openapi.yaml` server URL |
