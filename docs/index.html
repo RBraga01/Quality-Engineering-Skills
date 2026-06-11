@@ -459,6 +459,8 @@ hr.sep { border:none; border-top:1px solid var(--border); transition:border-colo
 .plat-gemini  { --glow-color:rgba(66,133,244,.08); }
 .plat-slack   { --glow-color:rgba(224,30,90,.08); }
 .plat-cli     { --glow-color:rgba(139,92,246,.08); }
+.plat-m365    .plat-logo { background:rgba(0,120,212,.1); border:1px solid rgba(0,120,212,.2); }
+.plat-m365    { --glow-color:rgba(0,120,212,.08); }
 
 /* ── QUICK START ── */
 .qs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
@@ -1112,6 +1114,15 @@ footer p { font-size:.78rem; color:var(--muted); }
       </div>
       <h3>Slack</h3>
       <p>Cloudflare Worker code ready. Self-host with <code>wrangler deploy</code> — not yet live as a public app.</p>
+      <span class="plat-badge badge-pending">Coming Soon</span>
+    </div>
+
+    <div class="platform-card plat-m365 reveal">
+      <div class="plat-logo">
+        <img src="https://cdn.simpleicons.org/microsoftcopilot/0078D4" width="34" height="34" alt="Microsoft 365 Copilot" onerror="this.style.display='none';this.parentNode.innerHTML='<span style=\'font-size:.75rem;font-weight:800;color:#0078D4\'>M365</span>'">
+      </div>
+      <h3>M365 Copilot Plugin</h3>
+      <p>Cloudflare Worker API built. Sideload to your M365 tenant — not yet in AppSource.</p>
       <span class="plat-badge badge-pending">Coming Soon</span>
     </div>
 
