@@ -18,11 +18,11 @@ metadata:
   domain: quality-engineering
   subdomain: problem-solving
   industries: aerospace,defense,aviation,complex-equipment,manufacturing
-  status: draft
+  status: approved
   created: "2026-07-04"
   last_updated: "2026-07-04"
   updated_by: Crow12138
-  reviewed_by: pending
+  reviewed_by: RBraga01
   standard_edition: "GB/T 29076—2021"
 ---
 

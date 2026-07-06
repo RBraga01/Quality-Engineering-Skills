@@ -4,11 +4,11 @@ type: reference
 parent_skill: quality-problem-zeroing
 author: Crow12138
 version: "1.0"
-status: draft
+status: approved
 created: "2026-07-04"
 last_updated: "2026-07-04"
 updated_by: Crow12138
-reviewed_by: pending
+reviewed_by: RBraga01
 license: MIT
 ---
 
