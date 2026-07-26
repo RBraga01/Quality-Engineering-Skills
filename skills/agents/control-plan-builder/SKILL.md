@@ -11,7 +11,7 @@ metadata:
   author: RBraga01
   version: "1.1"
   iatf-16949: "8.5.1"
-  aiag-reference: "AIAG Control Plan Reference Manual"
+  aiag-reference: "AIAG Control Plan 1st Edition (2024)"
   domain: quality-engineering
   subdomain: planning
   industries: automotive,electronics,aerospace,medical,general
@@ -20,7 +20,7 @@ metadata:
   last_updated: "2026-06-06"
   updated_by: migmcc
   reviewed_by: RBraga01
-  standard_edition: "AIAG Control Plan Reference Manual (1995) / IATF 16949:2016 §8.5.1"
+  standard_edition: "AIAG Control Plan 1st Edition (2024) / IATF 16949:2016 §8.5.1"
 ---
 
 # Control Plan Builder Agent

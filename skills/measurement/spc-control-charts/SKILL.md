@@ -4,14 +4,15 @@ description: >-
   Statistical Process Control (SPC) — select the correct control chart, interpret out-of-control
   signals using Western Electric rules, calculate and interpret Cp, Cpk, Pp, Ppk. Use when setting
   up SPC for a new characteristic, interpreting control chart signals, responding to special cause
-  variation, or auditing SPC implementation. Covers AIAG SPC 2nd edition and IATF 16949 §8.3.3.
+  variation, or auditing SPC implementation. Covers the AIAG & VDA SPC 1st edition (2026)
+  harmonisation, the superseded AIAG SPC 2nd edition, and IATF 16949 §8.3.3.
 license: MIT
 metadata:
   author: RBraga01
   version: "1.1"
   iso-9001: "9.1"
   iatf-16949: "8.3.3, 9.1.1"
-  aiag-reference: "AIAG SPC 2nd Edition"
+  aiag-reference: "AIAG & VDA SPC 1st Edition (2026)"
   domain: quality-engineering
   subdomain: measurement
   industries: automotive,electronics,aerospace,medical,general
@@ -20,10 +21,45 @@ metadata:
   last_updated: "2026-06-06"
   updated_by: migmcc
   reviewed_by: RBraga01
-  standard_edition: "AIAG SPC 2nd Edition (2005)"
+  standard_edition: "AIAG & VDA SPC 1st Edition (2026) — transition; AIAG SPC 2nd Edition (2005) for legacy programmes"
+  supersedes_edition: "AIAG SPC 2nd Edition (2005)"
 ---
 
 # Statistical Process Control (SPC)
+
+## Standard edition and currency
+
+**SPC was harmonised in 2026.** AIAG and VDA jointly published the **AIAG & VDA SPC
+Manual, 1st Edition** (dated February 2026, available from the VDA QMC webshop from
+1 July 2026). It is the second Core Tool harmonised after FMEA, and it supersedes the
+AIAG SPC 2nd Edition — which had stood unrevised since **2005**.
+
+This is a live transition. Existing programmes will be running to the 2nd Edition for
+some time, and customer-specific requirements decide which applies to a given part.
+**Ask which manual the customer requires before reporting capability.**
+
+**What changed that affects the numbers you report:**
+
+| Area | AIAG SPC 2nd Ed (2005) | AIAG & VDA SPC 1st Ed (2026) |
+|---|---|---|
+| Machine indices | Cm, Cmk | **Pm, Pmk** — renamed to performance indices |
+| Study progression | Short-term Cp/Cpk vs long-term Pp/Ppk | **Maturity progression:** machine performance (Pm/Pmk) → process performance (Pp/Ppk) → process capability (Cp/Cpk) **only once stability is demonstrated** |
+| Distribution | Largely normal-distribution based | Index calculation preceded by determining the **distribution type**, aligned with ISO 22514 |
+| Thresholds | Guidance values | Explicitly tied to IATF 16949: **Cpk ≥ 1.67 new processes, ≥ 1.33 established** |
+| Framing | "Is the process stable and predictable?" | "Can we predict the probability of producing nonconforming parts?" |
+
+The practical consequence: **do not report Cp/Cpk on a process you have not shown to
+be stable.** Report Pp/Ppk instead. Under the harmonised manual, calling an unstable
+process "capable" is a category error, not a conservative estimate.
+
+> **Currency limitation.** The chart selection logic, Western Electric rules and the
+> capability formulas below are mathematics and long-standing published practice, not
+> manual text, and are unaffected by the harmonisation. What this skill does **not**
+> reproduce is the new manual's distribution-selection methodology (General Geometric
+> Method, Exceedance Proportion / z-Score / Bothe Method), its worked examples or its
+> tables. For those, use your licensed copy of the AIAG & VDA SPC manual.
+
+---
 
 ## When to use
 
@@ -132,12 +168,37 @@ Most commonly applied in automotive: Rules 1, 2, 3 minimum. Rules 1–8 for safe
 - **Pp = (USL − LSL) / (6s)**  — same formula but uses overall standard deviation s
 - **Ppk = min[(USL − X̄̄) / (3s), (X̄̄ − LSL) / (3s)]**
 
+**Machine performance (single machine, short run):**
+
+- **Pm, Pmk** — same forms applied to a machine study. The AIAG & VDA SPC 1st Edition
+  renamed these from **Cm, Cmk**. If a customer document or an internal template still
+  says Cm/Cmk, it is the same study under the previous name — do not report both as if
+  they were different results.
+
+**Which index to report** (AIAG & VDA SPC 1st Ed maturity progression):
+
+| Stage | Report | Precondition |
+|---|---|---|
+| Machine qualification | Pm, Pmk | Single machine, short run, isolated conditions |
+| Process not yet demonstrated stable | Pp, Ppk | Overall variation, no stability claim |
+| Process demonstrated stable | Cp, Cpk | In statistical control, no out-of-control signals |
+
+Determine the distribution type before calculating any index. A non-normal process
+evaluated with normal-distribution formulas produces an index that does not mean what
+it appears to mean.
+
 #### Acceptance criteria
 
 | Index | Minimum | Target |
 |-------|---------|--------|
-| Cpk | 1.33 | 1.67 |
+| Cpk | 1.33 (established process) | 1.67 (new process) |
 | Ppk | 1.33 | 1.67 |
+
+The 1.67 / 1.33 split is an IATF 16949 requirement: **≥ 1.67 for new processes,
+≥ 1.33 for established processes.** The harmonised SPC manual states this linkage
+explicitly, removing the ambiguity that existed when cross-referencing the 2005 AIAG
+manual against IATF. Always confirm against the customer-specific requirement, which
+can be stricter.
 
 | Cpk | Interpretation | PPAP action |
 |-----|---------------|-------------|

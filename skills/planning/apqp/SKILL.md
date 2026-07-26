@@ -4,14 +4,14 @@ description: >-
   Advanced Product Quality Planning (APQP) — plan and track a new product launch through all 5 phases,
   identify deliverables per phase, run gate reviews, and ensure quality outputs are complete before
   Start of Production (SOP). Use when launching a new part, managing an APQP project, or auditing
-  APQP completeness. Covers AIAG APQP 2nd edition and IATF 16949 §8.3.
+  APQP completeness. Covers AIAG APQP 3rd edition (2024) and IATF 16949 §8.3.
 license: MIT
 metadata:
   author: RBraga01
   version: "1.1"
   iso-9001: "8.3"
   iatf-16949: "8.3"
-  aiag-reference: "AIAG APQP 2nd Edition"
+  aiag-reference: "AIAG APQP 3rd Edition (2024)"
   domain: quality-engineering
   subdomain: planning
   industries: automotive,electronics,aerospace,medical,general
@@ -20,10 +20,46 @@ metadata:
   last_updated: "2026-06-06"
   updated_by: migmcc
   reviewed_by: RBraga01
-  standard_edition: "AIAG APQP 2nd Edition (2008) / IATF 16949:2016 §8.3"
+  standard_edition: "AIAG APQP 3rd Edition (2024) / IATF 16949:2016 §8.3"
+  supersedes_edition: "AIAG APQP 2nd Edition (2008)"
 ---
 
 # Advanced Product Quality Planning (APQP)
+
+## Standard edition and currency
+
+**The current manual is AIAG APQP 3rd Edition, published March 2024.** It replaces the
+2nd Edition (2008). Customer implementation was required by **GM and Stellantis from
+1 September 2024** and by **Ford from 31 December 2024** — if you are working to a
+2nd Edition plan for these OEMs, you are behind a customer requirement, not merely
+out of date.
+
+**The Control Plan is no longer part of this manual.** The 3rd Edition split it out
+into a standalone AIAG Control Plan 1st Edition (2024), so that each can be revised
+independently. See the [control-plan](../control-plan/) skill.
+
+**What the 3rd Edition added** (structural changes, for orientation):
+
+| Area | Change |
+|---|---|
+| Sourcing | New section covering supplier selection within the APQP process |
+| Change management | New section — managing change across the launch |
+| Program metrics | New section defining APQP indicators to monitor |
+| Risk | Risk Evaluation and Mitigation Strategy (REMS), evolving the earlier risk minimisation action plans |
+| Gated management | Formalised gate/phase governance |
+| Traceability | New content on part traceability |
+| Approach | Updated to reflect agile product management, higher automation, electrification and autonomous driving |
+| Support material | Revised checklists per phase, revised tables, forms and examples |
+
+> **Currency limitation — read this before relying on detail.** The phase and gate
+> guidance below reflects the APQP structure as practised, and the 5-phase model
+> carries over. But the 3rd Edition's specific checklists, forms, tables and its full
+> REMS methodology are manual content that this skill does not reproduce. For a real
+> launch, a customer submission, or an audit, work from your licensed copy of the 3rd
+> Edition. If the guidance here conflicts with the manual, **the manual wins** —
+> and please open an issue so the skill gets corrected.
+
+---
 
 ## When to use
 

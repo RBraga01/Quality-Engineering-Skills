@@ -19,7 +19,7 @@ metadata:
   last_updated: "2026-06-06"
   updated_by: migmcc
   reviewed_by: RBraga01
-  standard_edition: "IATF 16949:2016 §8.3.4.3 / AIAG APQP 2nd Edition"
+  standard_edition: "IATF 16949:2016 §8.3.4.3 / AIAG APQP 3rd Edition (2024)"
 ---
 
 # Design Verification Plan and Report (DVP&R)

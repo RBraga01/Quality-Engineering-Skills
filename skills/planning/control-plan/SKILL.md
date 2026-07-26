@@ -1,17 +1,17 @@
 ---
 name: control-plan
 description: >-
-  Control Plan — build, review, or audit a Prototype, Pre-launch, or Production Control Plan linked
-  to PFMEA failure modes and controls. Use when creating a new control plan, updating after a process
-  change or corrective action, or auditing an existing CP for completeness and PFMEA alignment.
-  Covers AIAG Control Plan reference manual and IATF 16949 §8.5.1.
+  Control Plan — build, review, or audit a Prototype, Pre-launch, Production, or Safe Launch Control
+  Plan linked to PFMEA failure modes and controls. Use when creating a new control plan, updating
+  after a process change or corrective action, or auditing an existing CP for completeness and PFMEA
+  alignment. Covers AIAG Control Plan 1st Edition (2024) and IATF 16949 §8.5.1.
 license: MIT
 metadata:
   author: RBraga01
   version: "1.1"
   iso-9001: "8.5.1"
   iatf-16949: "8.5.1"
-  aiag-reference: "AIAG Control Plan Reference Manual"
+  aiag-reference: "AIAG Control Plan 1st Edition (2024)"
   domain: quality-engineering
   subdomain: planning
   industries: automotive,electronics,aerospace,medical,general
@@ -20,10 +20,40 @@ metadata:
   last_updated: "2026-06-06"
   updated_by: migmcc
   reviewed_by: RBraga01
-  standard_edition: "AIAG Control Plan Reference Manual (1995) / IATF 16949:2016 §8.5.1"
+  standard_edition: "AIAG Control Plan 1st Edition (2024) / IATF 16949:2016 §8.5.1"
+  supersedes_edition: "Control Plan content within AIAG APQP 2nd Edition (1995/2008)"
 ---
 
 # Control Plan
+
+## Standard edition and currency
+
+**The Control Plan is now its own manual: AIAG Control Plan 1st Edition, published
+March 2024.** Until then it was a chapter inside the APQP manual, last substantially
+issued in 1995. It was split out so it can be revised independently of APQP.
+
+Customer implementation followed the APQP 3rd Edition dates — **GM and Stellantis from
+1 September 2024, Ford from 31 December 2024**.
+
+**What the 1st Edition added** (structural, for orientation):
+
+| Area | Change |
+|---|---|
+| Safe Launch | Added as a control plan phase alongside Prototype, Pre-launch and Production |
+| Characteristics | Expanded treatment of special and pass-through characteristics |
+| Automation | Examples for highly automated manufacturing |
+| Tooling | Guidance on using software to develop and manage control plans, including generating them from the FMEA |
+| Auditing | Layered process audits as a control plan verification mechanism |
+| Support material | Revised examples, tables, forms and checklists |
+
+> **Currency limitation.** The row structure, PFMEA linkage and reaction plan logic
+> below are stable across editions and are described here in our own words. The 1st
+> Edition's forms, checklists and worked examples are manual content and are **not**
+> reproduced. For a customer submission or an audit, work from your licensed copy —
+> and note that most OEMs mandate their own control plan form regardless of the
+> AIAG format.
+
+---
 
 ## When to use
 
@@ -51,8 +81,21 @@ Use this skill when:
 | **Prototype** | During prototype builds | Describes dimensional, material, and functional tests in prototype phase |
 | **Pre-launch** | After prototype, before PPAP | Describes controls in place during pilot/pre-production runs |
 | **Production** | After PPAP approval, at SOP | The living document — updated throughout product life |
+| **Safe Launch** | Early production, after SOP | Elevated controls held in place for a defined period or volume after launch, then formally exited back to the Production CP |
 
-All three types may coexist during APQP phases. The Production CP is the one submitted as PPAP Element 7.
+These types may coexist during APQP phases. The Production CP is the one submitted as PPAP Element 7.
+
+**Safe Launch is new in the Control Plan 1st Edition (2024)** — the earlier three-type
+model did not include it. It formalises what many OEMs already required by customer-
+specific requirement: additional containment, higher inspection frequency or 100%
+verification during the initial production period, with defined exit criteria.
+
+If you use a Safe Launch CP, define the exit explicitly — by volume, by time, or by
+demonstrated capability — and record who authorises the exit. A Safe Launch plan with
+no exit criterion is the common failure: it either runs forever as hidden cost, or it
+is dropped silently with no evidence the risk was retired. Consult your customer's CSR
+and your licensed copy of the manual for the required content, which this skill does
+not reproduce.
 
 ### Step 2 — Build the Control Plan structure
 

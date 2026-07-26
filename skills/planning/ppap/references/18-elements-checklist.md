@@ -180,7 +180,7 @@ AIAG PPAP 4th Edition Table 4.1 — `R` = Retain at supplier, `S` = Submit to cu
 
 **Expected evidence:**
 - Production Control Plan (the version for submission — not Prototype or Pre-launch CP)
-- All columns populated per AIAG Control Plan Reference Manual: operation, machine/device, characteristic, specification, measurement method, sample size, frequency, control method, reaction plan
+- All columns populated per AIAG Control Plan 1st Edition (2024): operation, machine/device, characteristic, specification, measurement method, sample size, frequency, control method, reaction plan
 - All special characteristics (SC, CC, KPC) present with correct customer symbol
 - Signed by the multifunctional team; customer approval signature if required by the customer
 

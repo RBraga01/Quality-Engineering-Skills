@@ -19,7 +19,8 @@ metadata:
   last_updated: "2026-06-03"
   updated_by: migmcc
   reviewed_by: RBraga01
-  standard_edition: "ISO 9001:2015"
+  standard_edition: "ISO 9001:2015 incl. Amd 1:2024 (climate action)"
+  edition_watch: "ISO 9001:2026 — FDIS approved 2026-07-15, publication expected 2026-09"
 ---
 
 # ISO 9001:2015 Internal Audit
@@ -27,6 +28,31 @@ metadata:
 ## Goal
 
 Plan, conduct, and document an ISO 9001:2015 internal audit using objective evidence, correct finding classification, and clear audit reporting. Use this skill for planning an audit programme, conducting process-based or clause-based audits, preparing for third-party certification, or training internal auditors.
+
+---
+
+## Standard edition and currency
+
+**Audit criteria in this skill: ISO 9001:2015, including Amendment 1:2024.**
+
+| Edition | Status | What it means for an audit today |
+|---|---|---|
+| ISO 9001:2015 | In force | The certifiable standard. Audit against this. |
+| ISO 9001:2015/Amd 1:2024 | In force | Adds the climate change determination to §4.1 and a note to §4.2. Already auditable — covered in the §4 questions below. |
+| ISO 9001:2026 | Not yet published | FDIS approved 15 July 2026; publication expected September 2026. **Do not audit against it yet.** |
+
+**Transition planning.** Once ISO 9001:2026 publishes, certified organisations are
+expected to have a three-year transition window (to approximately September 2029).
+If you are planning an audit programme that runs into 2027, raise transition
+readiness as a planning topic — not as a nonconformity, since an unpublished
+standard cannot be an audit criterion.
+
+The 2026 revision keeps the 2015 framework, the process approach and clauses 4–10
+substantially intact, so the transition burden for a compliant QMS is expected to be
+low. Reported additions include quality culture and ethical behaviour as leadership
+responsibilities, and climate change and sustainability made explicit in
+organisational context. **Treat that as orientation, not audit criteria** — confirm
+against the published standard when it is available, and update this skill then.
 
 ---
 
@@ -97,13 +123,30 @@ Avoid conclusions without linking evidence to the specific requirement.
 - Is the context of the organisation documented (internal and external issues affecting the QMS)?
 - Are strategic direction and relevant interested parties considered?
 - Is the analysis reviewed and updated? When was it last updated?
+- **Has the organisation determined whether climate change is a relevant issue?** (Amendment 1:2024 — see below)
 - *Evidence:* SWOT, PEST analysis, or equivalent strategic analysis document
+
+> **Climate change — ISO 9001:2015/Amd 1:2024.** The amendment added one sentence to
+> §4.1 and a note to §4.2. The organisation must **determine whether climate change is a
+> relevant issue** for its QMS. It is not required to conclude that it *is* relevant, and
+> it is not required to have a climate strategy — but the determination must have been
+> made and must be evidenced.
+>
+> Audit it as a completeness question, not an environmental one: is climate change
+> present in the context analysis as a considered external issue, with a documented
+> conclusion either way? A context analysis that has never considered it is a **Minor
+> NC**. Do not raise a finding because the organisation concluded it was not relevant,
+> provided that conclusion is recorded and reasoned.
+>
+> This is a common audit gap because it was added to an existing certified standard —
+> organisations certified before 2024 often never revisited §4.1.
 
 **§4.2 — Understanding needs and expectations of interested parties**
 
 - Is there a list of interested parties (customers, regulators, employees, suppliers)?
 - Are their relevant needs and expectations identified?
 - Which of these have become QMS requirements?
+- **Have interested parties' requirements related to climate change been considered?** (Amd 1:2024 note to §4.2)
 - *Evidence:* stakeholder register, customer requirements register
 
 **§4.3 — Scope of the QMS**
