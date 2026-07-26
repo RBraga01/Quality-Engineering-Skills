@@ -5,9 +5,19 @@
  * M365 Copilot calls these endpoints when the user triggers the plugin.
  *
  * Environment variables (set in Cloudflare dashboard → Worker → Settings → Variables):
- *   ANTHROPIC_API_KEY  — from console.anthropic.com
+ *   ANTHROPIC_API_KEY  — from console.anthropic.com (secret)
+ *   API_TOKEN          — bearer token every caller must present (secret)
+ *   ALLOWED_ORIGINS    — comma-separated origins allowed for CORS; no wildcard
+ *
+ * This Worker fails closed: without ANTHROPIC_API_KEY and API_TOKEN it answers
+ * 503 to everything and never calls the LLM API. It relays 8D, NCR and FMEA text
+ * that routinely contains confidential customer and product data, so add
+ * Cloudflare rate limiting before exposing it to real traffic — the bearer token
+ * controls who can call it, not how much they can spend.
  *
  * Deploy:
+ *   wrangler secret put ANTHROPIC_API_KEY
+ *   wrangler secret put API_TOKEN
  *   wrangler deploy
  *
  * After deploy, point api.quality-engineering-skills.io → this Worker
@@ -45,28 +55,94 @@ CRITICAL RULES:
 - NCR must NOT contain root cause, speculation, or blame
 - AP=H always requires owner + target date`;
 
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-};
+// 8D, NCR and FMEA text — generous for a long report, far below a file upload.
+const MAX_BODY_BYTES = 128 * 1024;
+
+const BEARER_PREFIX = 'Bearer ';
+
+function corsHeaders(request, env) {
+  const headers = {
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    Vary: 'Origin',
+  };
+
+  const origin = request.headers.get('Origin');
+  const allowed = (env.ALLOWED_ORIGINS || '')
+    .split(',')
+    .map((entry) => entry.trim())
+    .filter(Boolean);
+
+  // No wildcard: an origin is echoed back only if it was explicitly allowed.
+  if (origin && allowed.includes(origin)) {
+    return { ...headers, 'Access-Control-Allow-Origin': origin };
+  }
+
+  return headers;
+}
+
+function withCors(response, cors) {
+  const headers = new Headers(response.headers);
+  for (const [key, value] of Object.entries(cors)) {
+    headers.set(key, value);
+  }
+  return new Response(response.body, { status: response.status, headers });
+}
+
+function constantTimeEquals(a, b) {
+  if (typeof a !== 'string' || typeof b !== 'string' || a.length !== b.length) {
+    return false;
+  }
+  let diff = 0;
+  for (let i = 0; i < a.length; i += 1) {
+    diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  }
+  return diff === 0;
+}
+
+function isAuthorised(request, env) {
+  const header = request.headers.get('Authorization') || '';
+  if (!header.startsWith(BEARER_PREFIX)) return false;
+  return constantTimeEquals(header.slice(BEARER_PREFIX.length), env.API_TOKEN);
+}
 
 export default {
   async fetch(request, env) {
+    const cors = corsHeaders(request, env);
+
+    // Fail closed. An unconfigured deployment must serve nothing rather than
+    // relay confidential quality data to the LLM API for anonymous callers.
+    if (!env.API_TOKEN || !env.ANTHROPIC_API_KEY) {
+      return withCors(jsonResponse({ error: 'Service not configured' }, 503), cors);
+    }
+
     if (request.method === 'OPTIONS') {
-      return new Response(null, { status: 204, headers: CORS_HEADERS });
+      return new Response(null, { status: 204, headers: cors });
     }
 
     if (request.method !== 'POST') {
-      return jsonResponse({ error: 'Method not allowed' }, 405);
+      return withCors(jsonResponse({ error: 'Method not allowed' }, 405), cors);
+    }
+
+    if (!isAuthorised(request, env)) {
+      return withCors(jsonResponse({ error: 'Unauthorized' }, 401), cors);
+    }
+
+    if (Number(request.headers.get('Content-Length') || 0) > MAX_BODY_BYTES) {
+      return withCors(jsonResponse({ error: 'Payload too large' }, 413), cors);
     }
 
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/+$/, '');
 
+    const raw = await request.text();
+    if (new TextEncoder().encode(raw).length > MAX_BODY_BYTES) {
+      return withCors(jsonResponse({ error: 'Payload too large' }, 413), cors);
+    }
+
     let body = {};
     try {
-      body = await request.json();
+      body = raw ? JSON.parse(raw) : {};
     } catch {
       // empty body is fine for some endpoints
     }
@@ -74,22 +150,25 @@ export default {
     try {
       switch (path) {
         case '/8d/coach':
-          return jsonResponse(await coach8d(body, env));
+          return withCors(jsonResponse(await coach8d(body, env)), cors);
         case '/8d/evaluate':
-          return jsonResponse(await evaluate8d(body, env));
+          return withCors(jsonResponse(await evaluate8d(body, env)), cors);
         case '/rca/start':
-          return jsonResponse(await rcaStart(body, env));
+          return withCors(jsonResponse(await rcaStart(body, env)), cors);
         case '/ncr/write':
-          return jsonResponse(await ncrWrite(body, env));
+          return withCors(jsonResponse(await ncrWrite(body, env)), cors);
         case '/audit/start':
-          return jsonResponse(await auditStart(body, env));
+          return withCors(jsonResponse(await auditStart(body, env)), cors);
         case '/fmea/review':
-          return jsonResponse(await fmeaReview(body, env));
+          return withCors(jsonResponse(await fmeaReview(body, env)), cors);
         default:
-          return jsonResponse({ error: 'Not found' }, 404);
+          return withCors(jsonResponse({ error: 'Not found' }, 404), cors);
       }
     } catch (err) {
-      return jsonResponse({ error: err.message }, 500);
+      // Upstream errors can quote the submitted text or API detail — log them,
+      // do not return them.
+      console.error('Request failed:', err.message);
+      return withCors(jsonResponse({ error: 'Internal error' }, 500), cors);
     }
   },
 };
@@ -270,6 +349,6 @@ function extractFmeaFlags(text) {
 function jsonResponse(payload, status = 200) {
   return new Response(JSON.stringify(payload), {
     status,
-    headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json' },
   });
 }

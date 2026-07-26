@@ -19,6 +19,10 @@ servers:
 # NOTE: Update the server url above with your deployed Cloudflare Worker URL before sideloading.
 # See platforms/m365/setup-guide.md Track 0 for deployment steps.
 
+# Applies to every operation below.
+security:
+  - bearerAuth: []
+
 paths:
   /8d/coach:
     post:
@@ -199,6 +203,15 @@ paths:
                 $ref: "#/components/schemas/DocumentResponse"
 
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: >
+        Bearer token matching the API_TOKEN secret configured on the Worker.
+        The Worker rejects unauthenticated calls with 401, and answers 503 to
+        everything until API_TOKEN and ANTHROPIC_API_KEY are set.
+
   schemas:
     CoachingResponse:
       type: object

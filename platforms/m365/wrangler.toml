@@ -3,8 +3,16 @@ main = "worker.js"
 compatibility_date = "2024-01-01"
 
 [vars]
+# Comma-separated list of origins allowed to call this Worker from a browser.
+# There is no wildcard default — an origin not listed here gets no CORS grant.
+ALLOWED_ORIGINS = ""
+
 # Set secrets via:
 #   wrangler secret put ANTHROPIC_API_KEY
+#   wrangler secret put API_TOKEN
+#
+# Both are required. Until they are set the Worker answers 503 to every request
+# and never reaches the LLM API.
 
 # After first deploy, add a custom domain in the Cloudflare dashboard:
 #   Workers & Pages → quality-engineering-assistant-api → Settings → Triggers → Custom Domains

@@ -18,10 +18,18 @@ server-side control over the model and prompts. Most users should use the declar
 - **Track A — Sideload (internal testing):** Deploy directly to your M365 tenant for testing without AppSource submission.
 - **Track B — AppSource publication:** Publish to the Microsoft 365 AppSource marketplace once the API is live.
 
-> **⚠️ Security note:** the sample `worker.js` has no authentication — anyone who discovers
-> the URL can call it and consume your Anthropic API budget. Before any production use, add
-> a bearer-token check in the worker, declare `securitySchemes` in `openapi.yaml`, restrict
-> CORS, and configure Cloudflare rate limiting.
+> **⚠️ Security note:** the Worker **fails closed**. It requires `ANTHROPIC_API_KEY` and
+> `API_TOKEN`; until both secrets are set it answers `503` to every request and never calls
+> the Anthropic API. Every call must then present `Authorization: Bearer <API_TOKEN>`, and
+> browser access is limited to the origins in `ALLOWED_ORIGINS` (no wildcard).
+>
+> One thing is still on you: **rate limiting is not implemented in the Worker.** The bearer
+> token controls *who* can call the API, not *how much* they can spend against your Anthropic
+> budget. Configure Cloudflare rate limiting before exposing it to real traffic.
+>
+> The endpoints accept 8D, NCR and FMEA text, which routinely contains confidential customer,
+> product, supplier and IP data. Deploying this Worker sends that text to the Anthropic API —
+> do not deploy it for data you are not permitted to disclose to a third-party processor.
 
 ---
 
