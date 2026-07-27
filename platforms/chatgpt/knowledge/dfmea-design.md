@@ -1,4 +1,4 @@
-﻿---
+---
 name: dfmea-design
 description: >-
   Build a design risk analysis, DFMEA worksheet, or interface analysis using the AIAG-VDA

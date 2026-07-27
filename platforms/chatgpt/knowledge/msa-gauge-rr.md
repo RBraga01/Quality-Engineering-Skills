@@ -1,4 +1,4 @@
-﻿---
+---
 name: msa-gauge-rr
 description: >-
   Measurement System Analysis (MSA) and Gauge Repeatability & Reproducibility (Gauge R&R) — plan,

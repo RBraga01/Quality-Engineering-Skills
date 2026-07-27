@@ -1,4 +1,4 @@
-﻿---
+---
 name: supplier-scar
 description: >-
   Supplier Corrective Action Request (SCAR) — escalate a supplier non-conformance to a formal

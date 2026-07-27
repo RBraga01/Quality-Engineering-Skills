@@ -4,6 +4,55 @@ All notable changes to Quality-Engineering-Skills are documented here.
 
 ---
 
+## [Unreleased]
+
+### Added
+
+**1 new skill** (PR #6, commits 190b202 / cbb4ffd, merged 2026-07-07):
+
+| Skill | Domain | Standard |
+|-------|--------|----------|
+| [quality-problem-zeroing](skills/problem-solving/quality-problem-zeroing/) | problem-solving | GB/T 29076—2021 |
+
+Contributed by [@Crow12138](https://github.com/Crow12138) — 双归零 (double-five zeroing) for
+aerospace and complex equipment: technical zeroing (定位准确、机理清楚、问题复现、措施有效、举一反三),
+management zeroing (过程清楚、责任明确、措施落实、严肃处理、完善规章), evidence gates, review and
+formal closure. First skill in the repository covering a Chinese national standard.
+
+Reference files added:
+
+| File | Purpose |
+|------|---------|
+| `quality-problem-zeroing/references/gbt-29076-2021-method-guide.md` | Method guide with clause traceability |
+| `quality-problem-zeroing/references/engineering-methods.md` | Supporting engineering analysis methods |
+| `quality-problem-zeroing/assets/zeroing-report-template.md` | Technical and management zeroing report template |
+
+### Changed
+
+- **Skill and agent counts corrected across all index files.** The skill above merged on
+  2026-07-07 but was never registered, so `README.md` (badge, header, coverage table, skill
+  index, roadmap), `STATUS.md` and `docs/index.html` continued to advertise 22 skills against
+  23 on disk for three weeks. All now read 23.
+- **`STATUS.md` file-count metric split.** The single "Reference files created: 23" row matched
+  neither `references/*.md` (22 at the time) nor references plus assets (25). Replaced with two
+  reproducible rows counting `references/` and `assets/` separately.
+- **Platform knowledge bundles regenerated from `skills/`** — 60 files across
+  `platforms/chatgpt/knowledge/` and `platforms/claude-ai/knowledge/`. Both bundles were v1.0
+  snapshots predating the v1.1 review round, so the ChatGPT GPT and the Claude.ai Project had
+  been serving pre-review content, including errors the review had already corrected.
+- **`docs/maintenance-checklist.md` §5 rewritten** — the manual `Copy-Item` per file instruction
+  is replaced by the generator. A manual step repeated 30+ times per release is a step that
+  gets skipped, and it was.
+
+### Tooling
+
+| File | Purpose |
+|------|---------|
+| `scripts/sync_platform_knowledge.py` | Generates the platform bundles from `skills/`. `--check` reports drift and exits non-zero; `--write` regenerates. Reports orphans rather than deleting them. |
+| `.github/workflows/quality-check.yml` | New step runs `--check` on every push and PR, so a SKILL.md change that skips the bundles fails the build. |
+
+---
+
 ## [v2.1.0] — 2026-06-11
 
 ### Added

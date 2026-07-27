@@ -1,3 +1,17 @@
+---
+name: d0-d8-guide
+type: reference
+parent_skill: 8d-problem-solving
+author: RBraga01
+version: "1.0"
+status: approved
+created: "2026-06-01"
+last_updated: "2026-06-03"
+updated_by: RBraga01
+reviewed_by: RBraga01
+license: MIT
+---
+
 # D0–D8 Reference Guide
 
 Complete reference for the Eight Disciplines (8D) problem-solving methodology.
@@ -206,7 +220,7 @@ Stop the non-conforming product from reaching the customer while D4–D5 are in 
 | Stellantis | 8D (MAQMSR) | Recommended | SQS Portal |
 | GM | Global 8D | Recommended | Covisint |
 
-See [oem-formats](../../documentation/8d-report-writing/references/oem-formats.md) for full detail.
+See [oem-formats](../../../documentation/8d-report-writing/references/oem-formats.md) for full detail.
 
 ---
 
