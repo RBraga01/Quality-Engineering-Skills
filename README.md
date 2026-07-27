@@ -240,3 +240,26 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for the skill format and submission proce
 **[@RBraga01](https://github.com/RBraga01)** — 15+ years in quality engineering. Claim manager for ~30 electronic component suppliers — receives OEM customer complaints and manages the full escalation to the respective suppliers. Created Quality Engineering Skills to bring structured methodology to AI agents in the quality domain.
 
 **[@migmcc](https://github.com/migmcc)** — 25+ years in quality engineering. Claim manager handling OEM customer complaints and escalations across electromechanical and mechanical suppliers. 8D and problem-solving expert. Responsible for the skill content that makes the methodology accurate and practitioner-grade.
+
+---
+
+## Standards and trademarks
+
+These skills describe how quality methodologies work and cite the clause or step
+each one corresponds to. They **do not reproduce** the standards themselves —
+no rating criteria tables, question catalogues, forms or worksheets are copied
+from any manual. Where a value is defined only by the authoritative document, the
+skill tells the agent to consult your licensed copy rather than guess.
+
+The MIT licence covers this repository's original content only. It does not
+extend to any ISO, IATF, AIAG or VDA publication, and owning the rights to use a
+standard remains your responsibility.
+
+ISO, IATF, AIAG, VDA and the OEM names used here are trademarks of their
+respective owners. **This project is not affiliated with, endorsed by, or
+certified by any of them.** Using these skills does not make anything compliant
+with a standard and does not substitute for audit or certification by an
+accredited body.
+
+See [THIRD_PARTY_CONTENT.md](THIRD_PARTY_CONTENT.md) for the per-standard
+breakdown of what this project contains and on what basis.
