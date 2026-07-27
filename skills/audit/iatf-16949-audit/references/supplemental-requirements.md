@@ -259,7 +259,7 @@ The organisation must demonstrate process capability by monitoring and controlli
 **Audit questions:**
 
 - Are process capability studies performed for all SCs?
-- What is the minimum Cpk required? (IATF minimum: 1.33; many customers require 1.67 for SCs)
+- What is the minimum Cpk required, and **where is that number defined**? (IATF 16949 requires capability studies but states no numeric value — the threshold comes from the customer-specific requirement, or from AIAG PPAP 4th Ed for initial studies. Commonly 1.33 for established production and 1.67 for initial studies and special characteristics. Audit the organisation against *its customer's* number, not a remembered default.)
 - What happens when Cpk drops below the threshold?
 - Low capability must trigger a reaction plan and potential containment actions — is this documented and applied?
 - Are control charts updated in real time at the workstation?

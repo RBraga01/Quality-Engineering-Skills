@@ -21,7 +21,7 @@ metadata:
   updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "AIAG Control Plan 1st Edition (2024) / IATF 16949:2016 §8.5.1"
-  supersedes_edition: "Control Plan content within AIAG APQP 2nd Edition (1995/2008)"
+  supersedes_edition: "Control Plan chapter of AIAG APQP 2nd Edition (2008)"
 ---
 
 # Control Plan
@@ -29,8 +29,8 @@ metadata:
 ## Standard edition and currency
 
 **The Control Plan is now its own manual: AIAG Control Plan 1st Edition, published
-March 2024.** Until then it was a chapter inside the APQP manual, last substantially
-issued in 1995. It was split out so it can be revised independently of APQP.
+March 2024.** Until then it was a chapter inside the APQP manual, carried forward into
+APQP 2nd Edition (2008). It was split out so it can be revised independently of APQP.
 
 Customer implementation followed the APQP 3rd Edition dates — **GM and Stellantis from
 1 September 2024, Ford from 31 December 2024**.

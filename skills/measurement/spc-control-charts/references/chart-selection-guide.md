@@ -250,12 +250,21 @@ These include all variation sources (between-subgroup drift, shifts, etc.).
 
 ### Interpretation Table
 
-| Cpk / Ppk | Sigma level (approx.) | DPPM (approx.) | PPAP / IATF verdict |
-|-----------|----------------------|----------------|---------------------|
-| ≥ 1.67 | 5σ | < 233 ppm | Excellent — accepted without restriction |
-| 1.33 – 1.67 | 4σ | 233 – 6,210 ppm | Acceptable — accepted, increased monitoring recommended for new processes |
-| 1.00 – 1.33 | 3σ | 6,210 – 66,807 ppm | Marginal — 100% inspection, corrective action, customer approval required |
-| < 1.00 | < 3σ | > 66,807 ppm | Not capable — PPAP blocked, mandatory corrective action |
+| Cpk / Ppk | Sigma level (approx.) | DPPM (approx.) | Initial process study (PPAP) | Established series production |
+|-----------|----------------------|----------------|------------------------------|------------------------------|
+| ≥ 1.67 | 5σ | < 233 ppm | Meets requirement — submit | Comfortably capable |
+| 1.33 – 1.67 | 4σ | 233 – 6,210 ppm | **Below requirement** — contact customer before submission | Acceptable — monitor per control plan |
+| 1.00 – 1.33 | 3σ | 6,210 – 66,807 ppm | Does not meet — containment, corrective action, customer approval | Below acceptance — trigger the control plan reaction |
+| < 1.00 | < 3σ | > 66,807 ppm | Not capable — PPAP blocked, mandatory corrective action | Not capable — containment and corrective action |
+
+**Read the correct column.** The same index value means different things depending on
+whether you are submitting an initial process study or monitoring established
+production. 1.45 on a PPAP initial study is below requirement; 1.45 in stable series
+production is acceptable. Conflating the two is the common and expensive error.
+
+Acceptance values are **not** specified numerically by IATF 16949. The ≥ 1.67 initial
+study threshold comes from AIAG PPAP 4th Edition; everything else is customer-specific
+requirement, which overrides these defaults.
 
 ### Critical Rules for Capability Calculations
 

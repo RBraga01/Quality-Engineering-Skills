@@ -29,10 +29,10 @@ metadata:
 
 ## Standard edition and currency
 
-**SPC was harmonised in 2026.** AIAG and VDA jointly published the **AIAG & VDA SPC
-Manual, 1st Edition** (dated February 2026, available from the VDA QMC webshop from
-1 July 2026). It is the second Core Tool harmonised after FMEA, and it supersedes the
-AIAG SPC 2nd Edition — which had stood unrevised since **2005**.
+**SPC was harmonised in 2026.** AIAG and VDA jointly announced the **AIAG & VDA SPC
+Handbook** on 30 June 2026, available from the VDA QMC webshop from 1 July 2026. It is
+the second Core Tool harmonised after FMEA, and it supersedes the AIAG SPC 2nd
+Edition — which had stood unrevised since **2005**.
 
 This is a live transition. Existing programmes will be running to the 2nd Edition for
 some time, and customer-specific requirements decide which applies to a given part.
@@ -44,9 +44,16 @@ some time, and customer-specific requirements decide which applies to a given pa
 |---|---|---|
 | Machine indices | Cm, Cmk | **Pm, Pmk** — renamed to performance indices |
 | Study progression | Short-term Cp/Cpk vs long-term Pp/Ppk | **Maturity progression:** machine performance (Pm/Pmk) → process performance (Pp/Ppk) → process capability (Cp/Cpk) **only once stability is demonstrated** |
-| Distribution | Largely normal-distribution based | Index calculation preceded by determining the **distribution type**, aligned with ISO 22514 |
-| Thresholds | Guidance values | Explicitly tied to IATF 16949: **Cpk ≥ 1.67 new processes, ≥ 1.33 established** |
+| Distribution | Largely normal-distribution based | Index calculation preceded by determining the **distribution type** rather than assuming normality |
+| Thresholds | Left to PPAP and customer requirements | Reported to state the linkage to acceptance criteria explicitly — see [Acceptance criteria](#acceptance-criteria) for where the numbers actually come from |
 | Framing | "Is the process stable and predictable?" | "Can we predict the probability of producing nonconforming parts?" |
+
+> **Not yet verified against the manual.** The rows above are drawn from the joint
+> announcement and from published previews, not from the handbook itself. The
+> direction of travel is well corroborated, but treat the detail as orientation until
+> someone has checked it against a licensed copy. Reported alignment with **ISO 22514**
+> for distribution handling is plausible and consistent with VDA practice, but we could
+> not corroborate it in a primary source — it is deliberately not stated as fact here.
 
 The practical consequence: **do not report Cp/Cpk on a process you have not shown to
 be stable.** Report Pp/Ppk instead. Under the harmonised manual, calling an unstable
@@ -55,8 +62,9 @@ process "capable" is a category error, not a conservative estimate.
 > **Currency limitation.** The chart selection logic, Western Electric rules and the
 > capability formulas below are mathematics and long-standing published practice, not
 > manual text, and are unaffected by the harmonisation. What this skill does **not**
-> reproduce is the new manual's distribution-selection methodology (General Geometric
-> Method, Exceedance Proportion / z-Score / Bothe Method), its worked examples or its
+> reproduce is the new manual's distribution-selection methodology (reported to include
+> the General Geometric Method and Exceedance Proportion / z-Score / Bothe approaches),
+> its worked examples or its
 > tables. For those, use your licensed copy of the AIAG & VDA SPC manual.
 
 ---
@@ -189,23 +197,37 @@ it appears to mean.
 
 #### Acceptance criteria
 
-| Index | Minimum | Target |
-|-------|---------|--------|
-| Cpk | 1.33 (established process) | 1.67 (new process) |
-| Ppk | 1.33 | 1.67 |
+Minimum acceptable values. **There is no separate "target" — 1.67 is a minimum in its
+own context, not an aspiration above 1.33.**
 
-The 1.67 / 1.33 split is an IATF 16949 requirement: **≥ 1.67 for new processes,
-≥ 1.33 for established processes.** The harmonised SPC manual states this linkage
-explicitly, removing the ambiguity that existed when cross-referencing the 2005 AIAG
-manual against IATF. Always confirm against the customer-specific requirement, which
-can be stricter.
+| Index | New process / initial study | Established series production |
+|-------|-----------------------------|-------------------------------|
+| **Ppk** — initial process study, stability not yet demonstrated | **≥ 1.67** | — |
+| **Cpk** — ongoing, process demonstrated stable | ≥ 1.67 until series maturity | **≥ 1.33** |
 
-| Cpk | Interpretation | PPAP action |
-|-----|---------------|-------------|
-| ≥ 1.67 | Excellent | ✅ Accepted |
-| 1.33 – 1.67 | Acceptable | ✅ Accepted — monitor |
-| 1.00 – 1.33 | Marginal | ⚠️ Customer approval required; add control measures |
-| < 1.00 | Not capable | ❌ 100% inspection required; corrective action mandatory |
+**Where these numbers come from.** IATF 16949:2016 §9.1.1.1 requires manufacturing
+process studies and capability determination, but **does not state numeric acceptance
+values**. The ≥ 1.67 initial-study threshold comes from **AIAG PPAP 4th Edition**
+initial process study acceptance, and everything else is **customer-specific
+requirement**. Always work to the CSR, which can be stricter and which overrides these
+defaults. Do not cite a capability threshold as an IATF requirement in an audit or a
+customer submission — it is not one.
+
+**The index that matters for PPAP is Ppk, not Cpk.** Under the maturity progression
+above, an initial process study is by definition run before stability has been
+demonstrated over time, so the study you submit reports Pp/Ppk. Applying the 1.33
+established-production threshold to a PPAP initial study is the common and expensive
+error.
+
+| Initial study Ppk | Interpretation | PPAP action |
+|-------------------|----------------|-------------|
+| ≥ 1.67 | Meets the initial study requirement | ✅ Submit |
+| 1.33 – 1.67 | **Below requirement** — not acceptable by default | ⚠️ Contact the customer *before* submission; corrective action, and containment if the customer requires it |
+| < 1.33 | Does not meet requirement | ❌ Contact the customer; 100% inspection or containment; corrective action mandatory |
+
+For **established series production**, Cpk ≥ 1.33 is the usual ongoing acceptance
+level, with a reaction plan triggered below it. A characteristic that drifts under
+1.33 in series production is a control plan reaction, not a PPAP decision.
 
 #### Cp vs. Cpk relationship
 

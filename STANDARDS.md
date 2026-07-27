@@ -22,7 +22,7 @@ _Last reviewed: 2026-07-26._
 | AIAG-VDA FMEA | 2019 joint edition | Jun 2019 | `pfmea-process`, `dfmea-design`, `action-priority-ap`, `fmea-reviewer` |
 | AIAG APQP | **3rd Edition** | Mar 2024 | `apqp`, `dvp-test-plan` |
 | AIAG Control Plan | **1st Edition** (standalone) | Mar 2024 | `control-plan`, `control-plan-builder` |
-| AIAG & VDA SPC | **1st Edition** (harmonised) | Feb 2026, available Jul 2026 | `spc-control-charts` |
+| AIAG & VDA SPC | **Harmonised handbook** (1st) | Announced 30 Jun 2026, available 1 Jul 2026 | `spc-control-charts` |
 | AIAG PPAP | 4th Edition | 2006 | `ppap`, `ppap-checker` |
 | AIAG MSA | 4th Edition | 2010 | `msa-gauge-rr` |
 | VDA 6.3 | 4th Edition | 2023 | `vda-6-3-audit` |
