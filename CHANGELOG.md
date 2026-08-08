@@ -4,6 +4,14 @@ All notable changes to Quality-Engineering-Skills are documented here.
 
 ---
 
+## [v2.2.0] — 2026-08-08
+
+### Changed
+
+- **Standard editions:** Updated ISO 9001 audit, APQP, Control Plan, DVP&R, Control Plan Builder and SPC skills for current editions; corrected SPC initial-study capability interpretation and source attribution. See `STANDARDS.md`.
+
+---
+
 ## [v2.1.0] — 2026-06-11
 
 ### Added

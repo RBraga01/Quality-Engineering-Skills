@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.2"
   iso-9001: "8.3"
   iatf-16949: "8.3"
   aiag-reference: "AIAG APQP 3rd Edition (2024)"
@@ -17,9 +17,9 @@ metadata:
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-06-06"
-  updated_by: migmcc
-  reviewed_by: RBraga01
+  last_updated: "2026-08-08"
+  updated_by: RBraga01
+  reviewed_by: migmcc
   standard_edition: "AIAG APQP 3rd Edition (2024) / IATF 16949:2016 §8.3"
   supersedes_edition: "AIAG APQP 2nd Edition (2008)"
 ---
@@ -279,3 +279,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
 | 1.1 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum to Gate 4 criteria and Common Mistakes |
+| 1.2 | 2026-08-08 | @RBraga01 | Updated for AIAG APQP 3rd Edition (2024) and aligned linked Core Tool references. |

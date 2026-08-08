@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.2"
   iso-9001: "9.2"
   iatf-16949: "9.2.2"
   domain: quality-engineering
@@ -16,9 +16,9 @@ metadata:
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-01"
-  last_updated: "2026-06-03"
-  updated_by: migmcc
-  reviewed_by: RBraga01
+  last_updated: "2026-08-08"
+  updated_by: RBraga01
+  reviewed_by: migmcc
   standard_edition: "ISO 9001:2015 incl. Amd 1:2024 (climate action)"
   edition_watch: "ISO 9001:2026 — FDIS approved 2026-07-15, publication expected 2026-09"
 ---
@@ -470,3 +470,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 |---------|------|--------|--------|
 | 1.0 | 2026-06-01 | @RBraga01 | Initial release |
 | 1.1 | 2026-06-03 | @migmcc | Expanded clause-by-clause question bank and evidence anchors |
+| 1.2 | 2026-08-08 | @RBraga01 | Updated to ISO 9001:2015/Amd 1:2024 and added climate-change determination audit guidance. |

@@ -9,7 +9,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.2"
   iso-9001: "9.1"
   iatf-16949: "8.3.3, 9.1.1"
   aiag-reference: "AIAG & VDA SPC 1st Edition (2026)"
@@ -18,9 +18,9 @@ metadata:
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-06-06"
-  updated_by: migmcc
-  reviewed_by: RBraga01
+  last_updated: "2026-08-08"
+  updated_by: RBraga01
+  reviewed_by: migmcc
   standard_edition: "AIAG & VDA SPC 1st Edition (2026) — transition; AIAG SPC 2nd Edition (2005) for legacy programmes"
   supersedes_edition: "AIAG SPC 2nd Edition (2005)"
 ---
@@ -203,7 +203,7 @@ own context, not an aspiration above 1.33.**
 | Index | New process / initial study | Established series production |
 |-------|-----------------------------|-------------------------------|
 | **Ppk** — initial process study, stability not yet demonstrated | **≥ 1.67** | — |
-| **Cpk** — ongoing, process demonstrated stable | ≥ 1.67 until series maturity | **≥ 1.33** |
+| **Cpk** — ongoing, process demonstrated stable | — | **≥ 1.33** |
 
 **Where these numbers come from.** IATF 16949:2016 §9.1.1.1 requires manufacturing
 process studies and capability determination, but **does not state numeric acceptance
@@ -305,3 +305,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
 | 1.1 | 2026-06-06 | @migmcc | Added 100-part minimum requirement for valid capability study in Step 4; clarified in-control prerequisite before capability calculation |
+| 1.2 | 2026-08-08 | @RBraga01 | Updated acceptance criteria to distinguish initial-study Ppk from stable-production Cpk; corrected standards attribution and edition currency. |

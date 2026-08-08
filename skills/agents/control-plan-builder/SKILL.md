@@ -9,7 +9,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.2"
   iatf-16949: "8.5.1"
   aiag-reference: "AIAG Control Plan 1st Edition (2024)"
   domain: quality-engineering
@@ -17,9 +17,9 @@ metadata:
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-06-06"
-  updated_by: migmcc
-  reviewed_by: RBraga01
+  last_updated: "2026-08-08"
+  updated_by: RBraga01
+  reviewed_by: migmcc
   standard_edition: "AIAG Control Plan 1st Edition (2024) / IATF 16949:2016 §8.5.1"
 ---
 
@@ -138,3 +138,4 @@ Apply the chosen format to all outputs generated during the session.
 |---------|------|--------|--------|
 | 1.0 | 2026-06-06 | @RBraga01 | Initial release |
 | 1.1 | 2026-06-06 | @migmcc | Added MSA qualification question per measurement method (Step 2 Q7); added AP revision check in D7 mode (Step 5); added poka-yoke suggestion for H-AP inspection-only controls |
+| 1.2 | 2026-08-08 | @RBraga01 | Updated Control Plan references for AIAG Control Plan 1st Edition (2024). |

@@ -11,7 +11,7 @@ this project, not a compliance checkbox.
 **Review cadence:** check this register every quarter, and whenever a Core Tool or
 management system standard is reported revised.
 
-_Last reviewed: 2026-07-26._
+_Last reviewed: 2026-08-08._
 
 ## Current editions
 
