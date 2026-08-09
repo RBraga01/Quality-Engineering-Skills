@@ -3,6 +3,9 @@ Thumbs.db
 *.tmp
 node_modules/
 
+# Cloudflare Workers local dev secrets — must never be committed
+.dev.vars
+
 # Internal lead documents — not for public consumption
 docs/launch-plan.md
 docs/review-brief-*.md

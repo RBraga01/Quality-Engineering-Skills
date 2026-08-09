@@ -14,7 +14,7 @@ jobs:
   welcome:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const actor = context.payload.sender.login;
@@ -36,20 +36,43 @@ jobs:
             const previousCount = issues.length - 1;
             if (previousCount > 0) return;
 
+            // Built as an array and joined so every line stays indented inside the
+            // YAML block scalar. A bare multi-line template literal starting at
+            // column 0 terminates the scalar and makes this whole file invalid YAML.
+            const issueBody = [
+              `Thanks for opening your first issue on **Quality-Engineering-Skills**, @${actor}! 👋`,
+              ``,
+              `A few things that help us respond faster:`,
+              ``,
+              `- **Methodology error** (wrong clause, wrong rating table, incorrect formula): include the standard edition you're referencing and what the file says vs. what it should say`,
+              `- **Skill submission**: check [CONTRIBUTING.md](../blob/master/CONTRIBUTING.md) — your skill must score ≥9/10 with \`/skill-auditor\` before opening a PR`,
+              `- **Question**: include your industry context (automotive, electronics, aerospace, medical) — it helps us give a more targeted answer`,
+              ``,
+              `We'll get back to you within 48 hours.`,
+            ].join('\n');
+
+            const prBody = [
+              `Thanks for your first contribution to **Quality-Engineering-Skills**, @${actor}! 🎉`,
+              ``,
+              `Before we review, please confirm:`,
+              ``,
+              `- [ ] \`name\` in frontmatter matches the directory name exactly`,
+              `- [ ] Description trigger phrases appear within the first 400 characters`,
+              `- [ ] \`## Output Format\` section is present with the standard A/B/C ask`,
+              `- [ ] All referenced files in \`## Reference files\` exist on disk`,
+              `- [ ] Tested with \`/skill-auditor\` — score ≥ 9/10 required`,
+              ``,
+              `See [CONTRIBUTING.md](../blob/master/CONTRIBUTING.md) for the full checklist.`,
+              ``,
+              `@RBraga01 will review within 48 hours.`,
+            ].join('\n');
+
             if (isIssue) {
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo:  context.repo.repo,
                 issue_number: context.issue.number,
-                body: `Thanks for opening your first issue on **Quality-Engineering-Skills**, @${actor}! 👋
-
-A few things that help us respond faster:
-
-- **Methodology error** (wrong clause, wrong rating table, incorrect formula): include the standard edition you're referencing and what the file says vs. what it should say
-- **Skill submission**: check [CONTRIBUTING.md](../blob/master/CONTRIBUTING.md) — your skill must score ≥9/10 with \`/skill-auditor\` before opening a PR
-- **Question**: include your industry context (automotive, electronics, aerospace, medical) — it helps us give a more targeted answer
-
-We'll get back to you within 48 hours.`,
+                body: issueBody,
               });
             }
 
@@ -58,18 +81,6 @@ We'll get back to you within 48 hours.`,
                 owner: context.repo.owner,
                 repo:  context.repo.repo,
                 issue_number: context.payload.pull_request.number,
-                body: `Thanks for your first contribution to **Quality-Engineering-Skills**, @${actor}! 🎉
-
-Before we review, please confirm:
-
-- [ ] \`name\` in frontmatter matches the directory name exactly
-- [ ] Description trigger phrases appear within the first 400 characters
-- [ ] \`## Output Format\` section is present with the standard A/B/C ask
-- [ ] All referenced files in \`## Reference files\` exist on disk
-- [ ] Tested with \`/skill-auditor\` — score ≥ 9/10 required
-
-See [CONTRIBUTING.md](../blob/master/CONTRIBUTING.md) for the full checklist.
-
-@RBraga01 will review within 48 hours.`,
+                body: prBody,
               });
             }

@@ -7,7 +7,8 @@ compatibility_date = "2024-01-01"
 # There is no wildcard default — an origin not listed here gets no CORS grant.
 ALLOWED_ORIGINS = ""
 
-# Set secrets via:
+# WARNING: NEVER add ANTHROPIC_API_KEY or API_TOKEN to [vars] above.
+# [vars] is committed to git and is NOT encrypted. Use wrangler secrets:
 #   wrangler secret put ANTHROPIC_API_KEY
 #   wrangler secret put API_TOKEN
 #
