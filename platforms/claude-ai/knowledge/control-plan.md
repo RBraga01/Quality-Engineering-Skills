@@ -1,4 +1,4 @@
-﻿---
+---
 name: control-plan
 description: >-
   Control Plan — build, review, or audit a Prototype, Pre-launch, or Production Control Plan linked

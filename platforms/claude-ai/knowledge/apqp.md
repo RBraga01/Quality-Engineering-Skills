@@ -1,4 +1,4 @@
-﻿---
+---
 name: apqp
 description: >-
   Advanced Product Quality Planning (APQP) — plan and track a new product launch through all 5 phases,

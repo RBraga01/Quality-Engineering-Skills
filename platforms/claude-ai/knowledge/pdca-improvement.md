@@ -1,4 +1,4 @@
-﻿---
+---
 name: pdca-improvement
 description: >-
   Run a PDCA cycle, Plan Do Check Act improvement cycle, or structured improvement project.

@@ -14,6 +14,12 @@ metadata:
   domain: quality-engineering
   subdomain: problem-solving
   industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-01"
+  last_updated: "2026-06-03"
+  updated_by: RBraga01
+  reviewed_by: RBraga01
+  standard_edition: "ISO 9001:2015"
 ---
 
 # 5-Why Root Cause Analysis
@@ -175,3 +181,10 @@ Adapt all output sections to the chosen format. If the platform or session conte
 ## Reference files
 
 - [Chain validation guide](references/chain-validation.md)
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1 | 2026-06-03 | @RBraga01 | Added dual-chain requirement (occurrence + escape), evidence status tracking |

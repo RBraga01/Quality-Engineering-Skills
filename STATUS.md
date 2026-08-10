@@ -1,16 +1,22 @@
 # STATUS — Quality-Engineering-Skills
 
-_Last updated: 2026-06-06. Auto-updated each release._
+_Last updated: 2026-07-27. Auto-updated each release._
 
 ## Summary
 
 | Metric | Value |
 |--------|-------|
-| Total skills | 22 |
+| Total skills | 23 |
 | Total agents | 8 |
-| Reference files created | 23 |
-| Skills with reference files | 22 / 22 |
-| Output Format section | 30 / 30 |
+| Files under `references/` | 24 |
+| Files under `assets/` | 4 |
+| Skills with reference files | 23 / 23 |
+| Output Format section | 31 / 31 |
+
+> **Counting convention.** The two file rows count `references/*.md` and `assets/*.md`
+> across `skills/` including `skills/agents/`. The previous single "Reference files
+> created: 23" row did not match either count on its own and has been split so the
+> numbers are reproducible.
 
 **Flag legend:** 🟢 complete (output format + primary reference file present) | 🟡 partial (output format present, reference files pending) | 🔴 stub
 
@@ -28,6 +34,7 @@ _Last updated: 2026-06-06. Auto-updated each release._
 | [is-is-not-scoping](skills/problem-solving/is-is-not-scoping/SKILL.md) | problem-solving | — | [hypothesis-elimination.md](skills/problem-solving/is-is-not-scoping/references/hypothesis-elimination.md) | ✅ | 🟢 |
 | [pdca-improvement](skills/problem-solving/pdca-improvement/SKILL.md) | problem-solving | — | [pdca-examples.md](skills/problem-solving/pdca-improvement/references/pdca-examples.md) | ✅ | 🟢 |
 | [dmaic](skills/problem-solving/dmaic/SKILL.md) | problem-solving | — | [statistical-tools.md](skills/problem-solving/dmaic/references/statistical-tools.md) | ✅ | 🟢 |
+| [quality-problem-zeroing](skills/problem-solving/quality-problem-zeroing/SKILL.md) | problem-solving | — | [gbt-29076-2021-method-guide.md](skills/problem-solving/quality-problem-zeroing/references/gbt-29076-2021-method-guide.md) | ✅ | 🟢 |
 
 ### Risk Analysis
 
