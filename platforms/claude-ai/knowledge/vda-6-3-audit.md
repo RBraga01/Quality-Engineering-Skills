@@ -1,4 +1,4 @@
-﻿---
+---
 name: vda-6-3-audit
 description: >-
   VDA 6.3 Process Audit — conduct or prepare for a process audit using the VDA 6.3 methodology,

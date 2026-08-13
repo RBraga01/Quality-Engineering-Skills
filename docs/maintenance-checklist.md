@@ -116,14 +116,26 @@ Triggered when content is changed in an existing `SKILL.md` file (either directl
 
 Triggered when any SKILL.md content changes (correction, version bump, new section).
 
-| # | File | What to change | Example |
-|---|------|----------------|---------|
-| 1 | `platforms/chatgpt/knowledge/<skill-name>.md` | Copy the updated SKILL.md verbatim over the knowledge file | `Copy-Item skills/planning/ppap/SKILL.md platforms/chatgpt/knowledge/ppap.md` |
-| 2 | `platforms/claude-ai/knowledge/<skill-name>.md` | Same — copy to claude-ai knowledge directory | `Copy-Item skills/planning/ppap/SKILL.md platforms/claude-ai/knowledge/ppap.md` |
+**Do not copy these files by hand.** Run the generator:
+
+```
+python scripts/sync_platform_knowledge.py --write
+```
+
+It regenerates both bundles from `skills/`, and `--check` (run by the Quality Check
+workflow on every push and PR) fails the build if they diverge.
+
+| # | Action | Notes |
+|---|--------|-------|
+| 1 | Run `python scripts/sync_platform_knowledge.py --write` | Regenerates `platforms/chatgpt/knowledge/` and `platforms/claude-ai/knowledge/` |
+| 2 | Stage the regenerated files in the same commit as the SKILL.md change | CI fails otherwise |
+| 3 | Adding a reference or asset file to a bundle? Add it to `EXTRA_FILES` in the script | Every entry is extra context loaded on every platform request — add deliberately |
 
 **Why this matters:** The ChatGPT GPT and Claude.ai Project load skills from these knowledge bundles. If the canonical SKILL.md is updated but the knowledge files are not, the platforms silently serve stale content.
 
-**Rule:** Every SKILL.md change that goes into a commit **must** have a corresponding knowledge file update staged in the same commit.
+This is not hypothetical. The instruction that used to sit here told you to `Copy-Item` each file individually, and it was not followed: on 2026-07-27 all 22 skill bundles and both reference bundles were still v1.0 snapshots taken *before* the v1.1 review round, so both platforms had been serving pre-review content — including errors the review had already corrected — for roughly seven weeks. A manual step performed 30+ times per release is a step that gets skipped.
+
+**Rule:** Every SKILL.md change that goes into a commit **must** have the regenerated bundles staged in the same commit.
 
 ---
 

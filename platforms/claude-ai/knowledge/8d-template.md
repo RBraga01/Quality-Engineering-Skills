@@ -1,3 +1,17 @@
+---
+name: 8d-template
+type: asset
+parent_skill: 8d-problem-solving
+author: RBraga01
+version: "1.0"
+status: approved
+created: "2026-06-01"
+last_updated: "2026-06-03"
+updated_by: RBraga01
+reviewed_by: RBraga01
+license: MIT
+---
+
 # 8D Report Template
 
 **8D Number:** ___________

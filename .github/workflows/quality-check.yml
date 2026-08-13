@@ -26,3 +26,9 @@ jobs:
 
       - name: Run regression tests
         run: python -m unittest discover -s tests
+
+      # skills/ is the source of truth; platforms/*/knowledge/ are generated copies.
+      # This fails when a SKILL.md change lands without regenerating the bundles,
+      # which is how they drifted to a pre-review v1.0 snapshot.
+      - name: Check platform knowledge bundles are in sync
+        run: python scripts/sync_platform_knowledge.py --check
