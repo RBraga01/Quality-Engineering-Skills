@@ -3,7 +3,7 @@ name: gbt-29076-2021-method-guide
 type: reference
 parent_skill: quality-problem-zeroing
 author: Crow12138
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-07-04"
 last_updated: "2026-07-04"

@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "8.4"
   iatf-16949: "8.3.4, 8.4.1"
   aiag-reference: "AIAG PPAP 4th Edition"
@@ -227,5 +227,5 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum (AIAG PPAP 4th ed §4.0); added to Common Mistakes |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum (AIAG PPAP 4th ed §4.0); added to Common Mistakes |

@@ -4,26 +4,70 @@ description: >-
   Statistical Process Control (SPC) — select the correct control chart, interpret out-of-control
   signals using Western Electric rules, calculate and interpret Cp, Cpk, Pp, Ppk. Use when setting
   up SPC for a new characteristic, interpreting control chart signals, responding to special cause
-  variation, or auditing SPC implementation. Covers AIAG SPC 2nd edition and IATF 16949 §8.3.3.
+  variation, or auditing SPC implementation. Covers the AIAG & VDA SPC 1st edition (2026)
+  harmonisation, the superseded AIAG SPC 2nd edition, and IATF 16949 §8.3.3.
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "2.0.0"
   iso-9001: "9.1"
   iatf-16949: "8.3.3, 9.1.1"
-  aiag-reference: "AIAG SPC 2nd Edition"
+  aiag-reference: "AIAG & VDA SPC 1st Edition (2026)"
   domain: quality-engineering
   subdomain: measurement
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-06-06"
-  updated_by: migmcc
-  reviewed_by: RBraga01
-  standard_edition: "AIAG SPC 2nd Edition (2005)"
+  last_updated: "2026-08-08"
+  updated_by: RBraga01
+  reviewed_by: migmcc
+  standard_edition: "AIAG & VDA SPC 1st Edition (2026) — transition; AIAG SPC 2nd Edition (2005) for legacy programmes"
+  supersedes_edition: "AIAG SPC 2nd Edition (2005)"
 ---
 
 # Statistical Process Control (SPC)
+
+## Standard edition and currency
+
+**SPC was harmonised in 2026.** AIAG and VDA jointly announced the **AIAG & VDA SPC
+Handbook** on 30 June 2026, available from the VDA QMC webshop from 1 July 2026. It is
+the second Core Tool harmonised after FMEA, and it supersedes the AIAG SPC 2nd
+Edition — which had stood unrevised since **2005**.
+
+This is a live transition. Existing programmes will be running to the 2nd Edition for
+some time, and customer-specific requirements decide which applies to a given part.
+**Ask which manual the customer requires before reporting capability.**
+
+**What changed that affects the numbers you report:**
+
+| Area | AIAG SPC 2nd Ed (2005) | AIAG & VDA SPC 1st Ed (2026) |
+|---|---|---|
+| Machine indices | Cm, Cmk | **Pm, Pmk** — renamed to performance indices |
+| Study progression | Short-term Cp/Cpk vs long-term Pp/Ppk | **Maturity progression:** machine performance (Pm/Pmk) → process performance (Pp/Ppk) → process capability (Cp/Cpk) **only once stability is demonstrated** |
+| Distribution | Largely normal-distribution based | Index calculation preceded by determining the **distribution type** rather than assuming normality |
+| Thresholds | Left to PPAP and customer requirements | Reported to state the linkage to acceptance criteria explicitly — see [Acceptance criteria](#acceptance-criteria) for where the numbers actually come from |
+| Framing | "Is the process stable and predictable?" | "Can we predict the probability of producing nonconforming parts?" |
+
+> **Not yet verified against the manual.** The rows above are drawn from the joint
+> announcement and from published previews, not from the handbook itself. The
+> direction of travel is well corroborated, but treat the detail as orientation until
+> someone has checked it against a licensed copy. Reported alignment with **ISO 22514**
+> for distribution handling is plausible and consistent with VDA practice, but we could
+> not corroborate it in a primary source — it is deliberately not stated as fact here.
+
+The practical consequence: **do not report Cp/Cpk on a process you have not shown to
+be stable.** Report Pp/Ppk instead. Under the harmonised manual, calling an unstable
+process "capable" is a category error, not a conservative estimate.
+
+> **Currency limitation.** The chart selection logic, Western Electric rules and the
+> capability formulas below are mathematics and long-standing published practice, not
+> manual text, and are unaffected by the harmonisation. What this skill does **not**
+> reproduce is the new manual's distribution-selection methodology (reported to include
+> the General Geometric Method and Exceedance Proportion / z-Score / Bothe approaches),
+> its worked examples or its
+> tables. For those, use your licensed copy of the AIAG & VDA SPC manual.
+
+---
 
 ## When to use
 
@@ -132,19 +176,58 @@ Most commonly applied in automotive: Rules 1, 2, 3 minimum. Rules 1–8 for safe
 - **Pp = (USL − LSL) / (6s)**  — same formula but uses overall standard deviation s
 - **Ppk = min[(USL − X̄̄) / (3s), (X̄̄ − LSL) / (3s)]**
 
+**Machine performance (single machine, short run):**
+
+- **Pm, Pmk** — same forms applied to a machine study. The AIAG & VDA SPC 1st Edition
+  renamed these from **Cm, Cmk**. If a customer document or an internal template still
+  says Cm/Cmk, it is the same study under the previous name — do not report both as if
+  they were different results.
+
+**Which index to report** (AIAG & VDA SPC 1st Ed maturity progression):
+
+| Stage | Report | Precondition |
+|---|---|---|
+| Machine qualification | Pm, Pmk | Single machine, short run, isolated conditions |
+| Process not yet demonstrated stable | Pp, Ppk | Overall variation, no stability claim |
+| Process demonstrated stable | Cp, Cpk | In statistical control, no out-of-control signals |
+
+Determine the distribution type before calculating any index. A non-normal process
+evaluated with normal-distribution formulas produces an index that does not mean what
+it appears to mean.
+
 #### Acceptance criteria
 
-| Index | Minimum | Target |
-|-------|---------|--------|
-| Cpk | 1.33 | 1.67 |
-| Ppk | 1.33 | 1.67 |
+Minimum acceptable values. **There is no separate "target" — 1.67 is a minimum in its
+own context, not an aspiration above 1.33.**
 
-| Cpk | Interpretation | PPAP action |
-|-----|---------------|-------------|
-| ≥ 1.67 | Excellent | ✅ Accepted |
-| 1.33 – 1.67 | Acceptable | ✅ Accepted — monitor |
-| 1.00 – 1.33 | Marginal | ⚠️ Customer approval required; add control measures |
-| < 1.00 | Not capable | ❌ 100% inspection required; corrective action mandatory |
+| Index | New process / initial study | Established series production |
+|-------|-----------------------------|-------------------------------|
+| **Ppk** — initial process study, stability not yet demonstrated | **≥ 1.67** | — |
+| **Cpk** — ongoing, process demonstrated stable | — | **≥ 1.33** |
+
+**Where these numbers come from.** IATF 16949:2016 §9.1.1.1 requires manufacturing
+process studies and capability determination, but **does not state numeric acceptance
+values**. The ≥ 1.67 initial-study threshold comes from **AIAG PPAP 4th Edition**
+initial process study acceptance, and everything else is **customer-specific
+requirement**. Always work to the CSR, which can be stricter and which overrides these
+defaults. Do not cite a capability threshold as an IATF requirement in an audit or a
+customer submission — it is not one.
+
+**The index that matters for PPAP is Ppk, not Cpk.** Under the maturity progression
+above, an initial process study is by definition run before stability has been
+demonstrated over time, so the study you submit reports Pp/Ppk. Applying the 1.33
+established-production threshold to a PPAP initial study is the common and expensive
+error.
+
+| Initial study Ppk | Interpretation | PPAP action |
+|-------------------|----------------|-------------|
+| ≥ 1.67 | Meets the initial study requirement | ✅ Submit |
+| 1.33 – 1.67 | **Below requirement** — not acceptable by default | ⚠️ Contact the customer *before* submission; corrective action, and containment if the customer requires it |
+| < 1.33 | Does not meet requirement | ❌ Contact the customer; 100% inspection or containment; corrective action mandatory |
+
+For **established series production**, Cpk ≥ 1.33 is the usual ongoing acceptance
+level, with a reaction plan triggered below it. A characteristic that drifts under
+1.33 in series production is a control plan reaction, not a PPAP decision.
 
 #### Cp vs. Cpk relationship
 
@@ -220,5 +303,6 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added 100-part minimum requirement for valid capability study in Step 4; clarified in-control prerequisite before capability calculation |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added 100-part minimum requirement for valid capability study in Step 4; clarified in-control prerequisite before capability calculation |
+| 1.2.0 | 2026-08-08 | @RBraga01 | Updated acceptance criteria to distinguish initial-study Ppk from stable-production Cpk; corrected standards attribution and edition currency. |
