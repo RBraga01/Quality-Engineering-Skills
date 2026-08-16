@@ -3,7 +3,7 @@ name: supplemental-requirements
 type: reference
 parent_skill: iatf-16949-audit
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"

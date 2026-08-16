@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.2"
+  version: "2.0.0"
   iso-9001: "8.5.1"
   iatf-16949: "8.5.1"
   aiag-reference: "AIAG Control Plan 1st Edition (2024)"
@@ -241,6 +241,6 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added OEM-specific special characteristic symbol conventions (Ford, GM, VW, BMW, Stellantis) in Step 4 |
-| 1.2 | 2026-08-08 | @RBraga01 | Updated for AIAG Control Plan 1st Edition (2024), including Safe Launch guidance. |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added OEM-specific special characteristic symbol conventions (Ford, GM, VW, BMW, Stellantis) in Step 4 |
+| 1.2.0 | 2026-08-08 | @RBraga01 | Updated for AIAG Control Plan 1st Edition (2024), including Safe Launch guidance. |

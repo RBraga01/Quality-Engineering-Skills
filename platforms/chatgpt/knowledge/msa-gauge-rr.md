@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "7.1.5"
   iatf-16949: "7.1.5.1, 7.1.5.2"
   aiag-reference: "AIAG MSA 4th Edition"
@@ -216,5 +216,5 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added improvement guidance for %GRR > 30% — root cause table for high EV and high AV with corrective actions |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added improvement guidance for %GRR > 30% — root cause table for high EV and high AV with corrective actions |

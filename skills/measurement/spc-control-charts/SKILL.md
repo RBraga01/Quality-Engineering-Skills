@@ -9,7 +9,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.2"
+  version: "2.0.0"
   iso-9001: "9.1"
   iatf-16949: "8.3.3, 9.1.1"
   aiag-reference: "AIAG & VDA SPC 1st Edition (2026)"
@@ -303,6 +303,6 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added 100-part minimum requirement for valid capability study in Step 4; clarified in-control prerequisite before capability calculation |
-| 1.2 | 2026-08-08 | @RBraga01 | Updated acceptance criteria to distinguish initial-study Ppk from stable-production Cpk; corrected standards attribution and edition currency. |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added 100-part minimum requirement for valid capability study in Step 4; clarified in-control prerequisite before capability calculation |
+| 1.2.0 | 2026-08-08 | @RBraga01 | Updated acceptance criteria to distinguish initial-study Ppk from stable-production Cpk; corrected standards attribution and edition currency. |

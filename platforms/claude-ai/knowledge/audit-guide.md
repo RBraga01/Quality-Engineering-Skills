@@ -9,7 +9,7 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "9.2"
   iatf-16949: "9.2.2"
   domain: quality-engineering
@@ -231,5 +231,5 @@ Apply the chosen format to all outputs generated during the session. If the plat
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-04 | @migmcc | Polished clause-by-clause audit workflow, finding classification and report generation |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Polished clause-by-clause audit workflow, finding classification and report generation |

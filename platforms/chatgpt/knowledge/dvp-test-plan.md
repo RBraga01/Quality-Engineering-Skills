@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.2"
+  version: "1.2.0"
   iso-9001: "8.3.4"
   iatf-16949: "8.3.4.3"
   domain: quality-engineering
@@ -166,6 +166,6 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added guidance for tests in-progress at PPAP submission (customer deviation process); added DVP revision synchronisation with DFMEA requirement |
-| 1.2 | 2026-08-08 | @RBraga01 | Updated APQP reference to the 3rd Edition (2024). |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added guidance for tests in-progress at PPAP submission (customer deviation process); added DVP revision synchronisation with DFMEA requirement |
+| 1.2.0 | 2026-08-08 | @RBraga01 | Updated APQP reference to the 3rd Edition (2024). |

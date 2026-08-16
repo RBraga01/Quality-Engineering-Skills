@@ -9,7 +9,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "8.4, 10.2"
   iatf-16949: "8.4.1, 10.2.3"
   domain: quality-engineering
@@ -227,5 +227,5 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added AP revision check in D7 evaluation; added warranty cost recovery / debit note risk in Step 6; added CS1/CS2 controlled shipping reference |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added AP revision check in D7 evaluation; added warranty cost recovery / debit note risk in Step 6; added CS1/CS2 controlled shipping reference |

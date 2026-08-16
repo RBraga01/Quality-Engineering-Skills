@@ -9,7 +9,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.2"
+  version: "1.2.0"
   iatf-16949: "8.5.1"
   aiag-reference: "AIAG Control Plan 1st Edition (2024)"
   domain: quality-engineering
@@ -136,6 +136,6 @@ Apply the chosen format to all outputs generated during the session.
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added MSA qualification question per measurement method (Step 2 Q7); added AP revision check in D7 mode (Step 5); added poka-yoke suggestion for H-AP inspection-only controls |
-| 1.2 | 2026-08-08 | @RBraga01 | Updated Control Plan references for AIAG Control Plan 1st Edition (2024). |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added MSA qualification question per measurement method (Step 2 Q7); added AP revision check in D7 mode (Step 5); added poka-yoke suggestion for H-AP inspection-only controls |
+| 1.2.0 | 2026-08-08 | @RBraga01 | Updated Control Plan references for AIAG Control Plan 1st Edition (2024). |

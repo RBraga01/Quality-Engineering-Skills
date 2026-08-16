@@ -103,10 +103,27 @@ Triggered when content is changed in an existing `SKILL.md` file (either directl
 | 1 | The `SKILL.md` itself | `last_updated` frontmatter | `"2026-06-04"` → `"2026-06-06"` |
 | 2 | The `SKILL.md` itself | `updated_by` frontmatter | `"@RBraga01"` |
 | 3 | The `SKILL.md` itself | `reviewed_by` frontmatter (if correction came from a reviewer) | `"@migmcc"` |
-| 4 | The `SKILL.md` itself | `version` frontmatter — increment patch version | `"1.0"` → `"1.1"` |
+| 4 | The `SKILL.md` itself | `version` frontmatter — see **Versioning** below; the step depends on what the change does to a reader | `"1.1.0"` → `"2.0.0"` |
 | 5 | The `SKILL.md` itself | Internal changelog section: add an entry with date, author, and summary of change | `- 2026-06-06 (@migmcc): Corrected Cpk threshold table` |
 | 6 | `CHANGELOG.md` | Add entry under `### Changed` in the current version block, or open a new version block if needed | Describe what was corrected and why |
 | 7 | `STATUS.md` | Pending section: if this change closes an open item, mark it done or remove the row | `⏳ pending` → `✅ done` |
+
+### Versioning
+
+`version` is three-part semantic versioning, `MAJOR.MINOR.PATCH`. Choose the step
+from what the change does to someone who already read the skill and acted on it.
+
+| Step | When | Example |
+|---|---|---|
+| **MAJOR** | Someone who followed the previous version was wrong. A superseded standard edition replaced by the current one, or an acceptance criterion whose verdict flips. | SPC acceptance criteria `1.1.0` → `2.0.0`: a PPAP submission at 1.45 previously read "Accepted — monitor" and now reads "below requirement, contact the customer". |
+| **MINOR** | Additive. The previous guidance still holds; something was added or a declared edition was corrected. | ISO 9001 audit `1.1.0` → `1.2.0`: the Amd 1:2024 climate questions were added; every existing question still applies. |
+| **PATCH** | Editorial. Typos, formatting, link fixes — nothing that changes what the reader does. | `1.1.0` → `1.1.1` |
+
+The scheme used to be two digits, and this row called the second one the "patch"
+version. That left no way to express a major change: replacing a superseded
+standard edition and fixing a typo both looked like `1.0` → `1.1`. If the step is
+not obvious, ask whether a reader acting on the old version would have been
+wrong — if yes, it is MAJOR.
 
 **Note:** Badge counts in `README.md` and `docs/index.html` do NOT need updating for content corrections to existing skills.
 

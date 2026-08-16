@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.2"
+  version: "1.2.0"
   iso-9001: "9.2"
   iatf-16949: "9.2.2"
   domain: quality-engineering
@@ -468,6 +468,6 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @migmcc | Expanded clause-by-clause question bank and evidence anchors |
-| 1.2 | 2026-08-08 | @RBraga01 | Updated to ISO 9001:2015/Amd 1:2024 and added climate-change determination audit guidance. |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-03 | @migmcc | Expanded clause-by-clause question bank and evidence anchors |
+| 1.2.0 | 2026-08-08 | @RBraga01 | Updated to ISO 9001:2015/Amd 1:2024 and added climate-change determination audit guidance. |
