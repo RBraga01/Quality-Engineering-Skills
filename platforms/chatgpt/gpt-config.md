@@ -37,31 +37,22 @@ I have a customer complaint — where do I start?
 
 ### 5. Knowledge (files to upload)
 
-All 16 files are pre-renamed and ready to upload from:
-**`platforms/chatgpt/knowledge/`**
+The canonical source contains **23 skills + 8 agents** and their Markdown
+references/templates. The 36-file `platforms/chatgpt/knowledge/` directory
+is a generated mirror used to check synchronization, not the set to upload.
 
-Download that folder and upload all 16 files directly — no renaming needed.
+Upload **all 10 consolidated Markdown files** in
+[`platforms/chatgpt/export/`](export/), including `00-INDEX.md`.
+They cover every canonical Markdown document and are organized by domain.
 
-| File | Source |
-|------|--------|
-| `8d-problem-solving.md` | Core skill |
-| `8d-template.md` | 8D fillable template |
-| `5why-root-cause.md` | Core skill |
-| `fishbone-analysis.md` | Core skill |
-| `is-is-not-scoping.md` | Core skill |
-| `pfmea-process.md` | Core skill |
-| `ap-table.md` | AP table reference |
-| `action-priority-ap.md` | Core skill |
-| `ncr-writing.md` | Core skill |
-| `car-corrective-action.md` | Core skill |
-| `8d-report-writing.md` | Core skill |
-| `iso-9001-internal-audit.md` | Core skill |
-| `iatf-16949-audit.md` | Core skill |
-| `d0-d8-guide.md` | D0–D8 gate criteria reference |
-| `oem-requirements.md` | OEM-specific AP requirements |
-| `oem-formats.md` | OEM 8D submission formats |
-
-> When skills are updated in `skills/`, re-copy the updated files into `platforms/chatgpt/knowledge/` before re-uploading to the GPT.
+Update/review the export with:
+```bash
+python scripts/build_chatgpt_export.py --write
+python scripts/build_chatgpt_export.py --check
+```
+The existing `scripts/sync_platform_knowledge.py --check` remains mandatory.
+Changes in the repository do **not** update the GPT automatically; the
+owner must review and manually replace all 10 knowledge files.
 
 ### 6. Capabilities
 - [x] Web Search — OFF (not needed, knowledge is self-contained)
@@ -99,7 +90,7 @@ Suggested: blue background, white gear icon with "QE" text — professional, rec
 ## Verification checklist before publishing
 
 - [ ] Instructions pasted from `gpt-instructions.md`
-- [ ] All 16 knowledge files uploaded (13 skills + 3 reference files)
+- [ ] All 10 consolidated files uploaded (23 skills, 8 agents and all Markdown references)
 - [ ] 5 conversation starters set
 - [ ] Description under 300 characters
 - [ ] Test each conversation starter — confirm the GPT responds correctly
