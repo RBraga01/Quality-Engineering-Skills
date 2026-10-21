@@ -94,12 +94,19 @@ For sideload testing, the `*.workers.dev` URL is sufficient — update `openapi.
 ```bash
 curl -X POST https://<your-worker-url>/8d/coach \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <STAGING_TOKEN>" \
   -d '{"complaint_description":"customer returned parts with incorrect dimensions"}'
 ```
 
-Expected: after authentication, JSON with `session_id`, `current_step`, and `message` fields (temporary pre-stateless contract); update this description when the follow-up state contract PR is merged.
+Expected: JSON with `mode: "single_turn"` and `message`. There is no server-side `session_id`, approval gate or stored history; each request starts a new question. Use a deliberately synthetic complaint for staging.
 
 ---
+
+## API capability boundary
+
+The advanced API currently supports **single-turn generation** for 8D coaching, RCA and audit questions, plus schema-validated independent evaluations for 8D, NCR and FMEA. It does **not** persist cases, user histories, D0–D8 transition state or human approvals. A new request cannot resume an earlier investigation; the schema intentionally has no `session_id` or `start_discipline`. A malformed or unparseable model verdict returns HTTP 502, not an invented Pass/Fail.
+
+This self-hosted API remains experimental and must be tested privately with synthetic data before use; the **declarative agent** is the separate, recommended M365 path.
 
 ## What this enables
 
