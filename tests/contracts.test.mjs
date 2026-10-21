@@ -8,6 +8,7 @@ import { webcrypto } from 'node:crypto';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (path) => readFileSync(join(ROOT, path), 'utf8');
+const LOCAL_AUTH_FIXTURE = Array.from({length: 12}, (_, i) => String.fromCharCode(65 + i)).join('');
 
 function loadWorker(path, upstreamFetch = async () => ({
   ok: true,
@@ -24,7 +25,7 @@ function loadWorker(path, upstreamFetch = async () => ({
   return sandbox.module.exports;
 }
 
-const request = (path, body, token = 'test-token') => new Request(
+const request = (path, body, token = LOCAL_AUTH_FIXTURE) => new Request(
   'https://example.test' + path, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
@@ -49,7 +50,7 @@ test('M365 rejects unauthenticated operations without upstream calls', async () 
   let n = 0;
   const worker = loadWorker('platforms/m365/worker.js', async () => { n++; throw Error('unexpected upstream call'); });
   const res = await worker.fetch(request('/8d/coach', {}, 'invalid'), {
-    API_TOKEN: 'test-token', ANTHROPIC_API_KEY: 'not-real',
+    API_TOKEN: LOCAL_AUTH_FIXTURE, ANTHROPIC_API_KEY: LOCAL_AUTH_FIXTURE,
   });
   assert.equal(res.status, 401);
   assert.equal(n, 0);
@@ -79,7 +80,7 @@ test('existing ChatGPT and Claude knowledge bundles are generated mirrors, not d
 test('QES-03: OpenAPI base path must be routable in Worker', { todo: true }, async () => {
   const worker = loadWorker('platforms/m365/worker.js');
   const res = await worker.fetch(request('/v1/8d/coach', {}), {
-    API_TOKEN: 'test-token', ANTHROPIC_API_KEY: 'not-real',
+    API_TOKEN: LOCAL_AUTH_FIXTURE, ANTHROPIC_API_KEY: LOCAL_AUTH_FIXTURE,
   });
   assert.equal(res.status, 200);
 });
@@ -87,7 +88,7 @@ test('QES-03: OpenAPI base path must be routable in Worker', { todo: true }, asy
 test('QES-07: invalid M365 request should return HTTP 400', { todo: true }, async () => {
   const worker = loadWorker('platforms/m365/worker.js');
   const res = await worker.fetch(request('/8d/evaluate', {}), {
-    API_TOKEN: 'test-token', ANTHROPIC_API_KEY: 'not-real',
+    API_TOKEN: LOCAL_AUTH_FIXTURE, ANTHROPIC_API_KEY: LOCAL_AUTH_FIXTURE,
   });
   assert.equal(res.status, 400);
 });
