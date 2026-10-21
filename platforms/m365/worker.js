@@ -60,6 +60,35 @@ const MAX_BODY_BYTES = 128 * 1024;
 
 const BEARER_PREFIX = 'Bearer ';
 
+const CONTRACT = Object.freeze({
+  '/8d/coach': { complaint_description: 'string', start_discipline: 'D0-D8', session_id: 'string' },
+  '/8d/evaluate': { report_text: 'required-string' },
+  '/rca/start': { problem_statement: 'string', session_id: 'string' },
+  '/ncr/write': { observations: 'string', part_number: 'string', quantity: 'string' },
+  '/audit/start': { standard: 'standard', scope: 'string', session_id: 'string' },
+  '/fmea/review': { fmea_text: 'string', fmea_type: 'fmea-type' },
+});
+
+function validateContract(path, body) {
+  if (!Object.hasOwn(CONTRACT, path)) return 'Unknown path';
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return 'Expected a JSON object';
+  for (const [key, type] of Object.entries(CONTRACT[path])) {
+    const value = body[key];
+    if (value === undefined) {
+      if (type === 'required-string') return 'Missing required field: ' + key;
+      continue;
+    }
+    if (typeof value !== 'string' || (type === 'required-string' && !value.trim())) {
+      return 'Invalid string field: ' + key;
+    }
+    if (type === 'D0-D8' && !/^D[0-8]$/.test(value)) return 'Invalid start_discipline';
+    if (type === 'standard' && !['ISO 9001', 'IATF 16949', 'both'].includes(value)) return 'Invalid standard';
+    if (type === 'fmea-type' && !['PFMEA', 'DFMEA'].includes(value)) return 'Invalid fmea_type';
+  }
+  return null;
+}
+
+
 function corsHeaders(request, env) {
   const headers = {
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -140,11 +169,15 @@ export default {
       return withCors(jsonResponse({ error: 'Payload too large' }, 413), cors);
     }
 
-    let body = {};
+    let body;
     try {
       body = raw ? JSON.parse(raw) : {};
     } catch {
-      // empty body is fine for some endpoints
+      return withCors(jsonResponse({ error: 'Malformed JSON' }, 400), cors);
+    }
+    if (Object.hasOwn(CONTRACT, path)) {
+      const invalid = validateContract(path, body);
+      if (invalid) return withCors(jsonResponse({ error: invalid }, 400), cors);
     }
 
     try {
