@@ -61,17 +61,20 @@ const MAX_BODY_BYTES = 128 * 1024;
 const BEARER_PREFIX = 'Bearer ';
 
 const CONTRACT = Object.freeze({
-  '/8d/coach': { complaint_description: 'string', start_discipline: 'D0-D8', session_id: 'string' },
+  '/8d/coach': { complaint_description: 'string' },
   '/8d/evaluate': { report_text: 'required-string' },
-  '/rca/start': { problem_statement: 'string', session_id: 'string' },
+  '/rca/start': { problem_statement: 'string' },
   '/ncr/write': { observations: 'string', part_number: 'string', quantity: 'string' },
-  '/audit/start': { standard: 'standard', scope: 'string', session_id: 'string' },
+  '/audit/start': { standard: 'standard', scope: 'string' },
   '/fmea/review': { fmea_text: 'string', fmea_type: 'fmea-type' },
 });
 
 function validateContract(path, body) {
   if (!Object.hasOwn(CONTRACT, path)) return 'Unknown path';
   if (!body || typeof body !== 'object' || Array.isArray(body)) return 'Expected a JSON object';
+  for (const key of Object.keys(body)) {
+    if (!Object.hasOwn(CONTRACT[path], key)) return 'Unexpected field: ' + key;
+  }
   for (const [key, type] of Object.entries(CONTRACT[path])) {
     const value = body[key];
     if (value === undefined) {
@@ -200,103 +203,64 @@ export default {
     } catch (err) {
       // Upstream errors can quote the submitted text or API detail — log them,
       // do not return them.
-      console.error('Request failed:', err.message);
-      return withCors(jsonResponse({ error: 'Internal error' }, 500), cors);
+      console.error('Request failed:', err instanceof UpstreamContractError ? 'upstream schema failure' : 'internal error');
+      return withCors(jsonResponse({ error: err instanceof UpstreamContractError ? 'AI output could not be validated' : 'Internal error' }, err instanceof UpstreamContractError ? 502 : 500), cors);
     }
   },
 };
 
 async function coach8d(body, env) {
-  const { complaint_description, start_discipline = 'D0' } = body;
-  const prompt = complaint_description
-    ? `Start 8D Coach from ${start_discipline}. The complaint is: ${complaint_description}`
-    : `Start 8D Coach from ${start_discipline}. Ask me the first required question.`;
-  const message = await callClaude(prompt, env.ANTHROPIC_API_KEY);
-  return {
-    session_id: crypto.randomUUID(),
-    current_step: start_discipline,
-    message,
-    validation_status: 'pending',
-    next_question: '',
-  };
+  const prompt = body.complaint_description
+    ? 'Start a new one-turn 8D question at D0. No session is saved. Complaint: ' + body.complaint_description
+    : 'Start a new one-turn 8D question at D0. Ask about safety and suspect material.';
+  return { mode: 'single_turn', message: await callClaude(prompt, env.ANTHROPIC_API_KEY) };
 }
 
 async function evaluate8d(body, env) {
-  const { report_text } = body;
-  if (!report_text) return { error: 'report_text is required' };
-
-  const prompt = `Evaluate this 8D report against ISO 9001 §10.2 / IATF 16949 §10.2.3. For each discipline D0–D8, state Pass or Fail with a one-sentence finding. End with the overall quality rating (Strong / Acceptable / Needs revision / Inadequate) and the top 3 issues.\n\nReport:\n${report_text}`;
-  const rawText = await callClaude(prompt, env.ANTHROPIC_API_KEY);
-
-  return {
-    overall_quality: extractOverallQuality(rawText),
-    disciplines: extractDisciplines(rawText),
-    top_issues: extractTopIssues(rawText),
-    full_evaluation: rawText,
-  };
+  const prompt = 'Evaluate the 8D against applicable criteria. Never invent evidence. Return ONLY strict JSON '
+    + 'with keys overall_quality (Strong, Acceptable, Needs revision, Inadequate), '
+    + 'disciplines (array of exactly nine entries D0 through D8, each with discipline, status Pass/Fail, and nonempty finding), '
+    + 'top_issues (array of at most 3 nonempty strings). No Markdown. Report: \n'
+    + body.report_text;
+  const raw = await callClaude(prompt, env.ANTHROPIC_API_KEY);
+  return validateEvaluation(parseModelJson(raw));
 }
 
 async function rcaStart(body, env) {
-  const { problem_statement } = body;
-  const prompt = problem_statement
-    ? `Start a structured 5-Why root cause analysis. Problem statement: ${problem_statement}. Ask me for the first Why.`
-    : 'Start a structured 5-Why root cause analysis. Ask me for the problem statement.';
-  const message = await callClaude(prompt, env.ANTHROPIC_API_KEY);
-  return {
-    session_id: crypto.randomUUID(),
-    current_step: 'Why 1',
-    message,
-    validation_status: 'pending',
-    next_question: '',
-  };
+  const prompt = body.problem_statement
+    ? 'Start a NEW one-turn 5-Why. No prior state is saved. Problem: ' + body.problem_statement + '. Ask the first Why.'
+    : 'Start a new root cause analysis. Ask for the problem statement.';
+  return { mode: 'single_turn', message: await callClaude(prompt, env.ANTHROPIC_API_KEY) };
 }
 
 async function ncrWrite(body, env) {
-  const { observations, part_number, quantity } = body;
-  const context = [
-    observations && `Observations:\n${observations}`,
-    part_number && `Part number: ${part_number}`,
-    quantity && `Quantity affected: ${quantity}`,
+  const notes = [
+    body.observations && 'Observations: ' + body.observations,
+    body.part_number && 'Part: ' + body.part_number,
+    body.quantity && 'Quantity: ' + body.quantity,
   ].filter(Boolean).join('\n');
-
-  const prompt = context
-    ? `Write a professional NCR using objective-evidence language. No root cause, no blame, no speculation. Classify severity (Critical/Major/Minor). Recommend disposition.\n\n${context}`
-    : 'Start NCR Writer. Ask me for the defect observations.';
-
-  const generated_text = await callClaude(prompt, env.ANTHROPIC_API_KEY);
-  return {
-    generated_text,
-    severity: extractSeverity(generated_text),
-    flags: [],
-  };
+  const prompt = 'Write an objective-evidence NCR without blame or invented causes. '
+    + 'Return ONLY JSON with keys generated_text (nonempty string), severity (Critical/Major/Minor) '
+    + 'and flags (array of missing information strings). No other text. Input: \n'
+    + (notes || 'Ask for defect observations.');
+  return validateDocument(parseModelJson(await callClaude(prompt, env.ANTHROPIC_API_KEY)), true);
 }
 
 async function auditStart(body, env) {
-  const { standard = 'ISO 9001', scope } = body;
-  const prompt = scope
-    ? `Start an internal audit for ${standard}. Scope: ${scope}. Ask the first open question for the first relevant clause.`
-    : `Start an internal audit for ${standard}. Ask me for the scope first.`;
-  const message = await callClaude(prompt, env.ANTHROPIC_API_KEY);
-  return {
-    session_id: crypto.randomUUID(),
-    current_step: 'Scope definition',
-    message,
-    validation_status: 'pending',
-    next_question: '',
-  };
+  const standard = body.standard || 'ISO 9001';
+  const prompt = body.scope
+    ? 'Start a NEW one-turn audit for ' + standard + '. Scope: ' + body.scope + '. Ask the first open question.'
+    : 'Start a NEW audit for ' + standard + '. Ask for the scope.';
+  return { mode: 'single_turn', message: await callClaude(prompt, env.ANTHROPIC_API_KEY) };
 }
 
 async function fmeaReview(body, env) {
-  const { fmea_text, fmea_type = 'PFMEA' } = body;
-  const prompt = fmea_text
-    ? `Review this ${fmea_type} against AIAG-VDA 2019. Identify: missing failure modes, incorrect AP ratings, unaddressed H-AP items, missing special characteristics.\n\nFMEA:\n${fmea_text}`
-    : `Start FMEA Reviewer for ${fmea_type}. Ask me to provide the FMEA to review.`;
-  const generated_text = await callClaude(prompt, env.ANTHROPIC_API_KEY);
-  return {
-    generated_text,
-    severity: null,
-    flags: extractFmeaFlags(generated_text),
-  };
+  const type = body.fmea_type || 'PFMEA';
+  const prompt = 'Review the following ' + type + ' against AIAG-VDA 2019. '
+    + 'Return ONLY JSON with keys generated_text (full report) and flags '
+    + '(array of specific missing evidence). Do not invent findings. No Markdown. Input: \n'
+    + (body.fmea_text || 'Ask for the FMEA content.');
+  return validateDocument(parseModelJson(await callClaude(prompt, env.ANTHROPIC_API_KEY)), false);
 }
 
 async function callClaude(userMessage, apiKey) {
@@ -324,59 +288,47 @@ async function callClaude(userMessage, apiKey) {
   return data.content[0].text;
 }
 
-function extractOverallQuality(text) {
-  const match = text.match(/\b(Strong|Acceptable|Needs revision|Inadequate)\b/i);
-  return match ? match[1] : 'Needs revision';
+class UpstreamContractError extends Error {}
+
+function parseModelJson(text) {
+  try {
+    const value = JSON.parse(text.trim());
+    if (!value || typeof value !== 'object' || Array.isArray(value)) throw new Error('Invalid JSON object');
+    return value;
+  } catch (_) {
+    throw new UpstreamContractError('Unstructured model output');
+  }
 }
 
-function extractDisciplines(text) {
-  const disciplines = [];
-  for (let i = 0; i <= 8; i++) {
-    const pattern = new RegExp(`D${i}[:\\s]+.*(Pass|Fail)[:\\s–-]*([^\n]+)`, 'i');
-    const match = text.match(pattern);
-    if (match) {
-      disciplines.push({
-        discipline: `D${i}`,
-        status: match[1].charAt(0).toUpperCase() + match[1].slice(1).toLowerCase(),
-        finding: match[2].trim(),
-      });
+function validateEvaluation(value) {
+  const allowed = ['Strong', 'Acceptable', 'Needs revision', 'Inadequate'];
+  if (!allowed.includes(value.overall_quality) || !Array.isArray(value.disciplines)
+      || value.disciplines.length !== 9 || !Array.isArray(value.top_issues)
+      || value.top_issues.length > 3) throw new UpstreamContractError('Invalid evaluation structure');
+  const seen = new Set();
+  for (const d of value.disciplines) {
+    if (!d || typeof d.discipline !== 'string' || !/^D[0-8]$/.test(d.discipline)
+      || seen.has(d.discipline) || !['Pass', 'Fail'].includes(d.status)
+      || typeof d.finding !== 'string' || !d.finding.trim()) {
+      throw new UpstreamContractError('Invalid discipline');
     }
+    seen.add(d.discipline);
   }
-  return disciplines;
+  if (value.top_issues.some(x => typeof x !== 'string' || !x.trim())) {
+    throw new UpstreamContractError('Invalid issue');
+  }
+  return { overall_quality: value.overall_quality, disciplines: value.disciplines, top_issues: value.top_issues };
 }
 
-function extractTopIssues(text) {
-  const lines = text.split('\n');
-  const issues = [];
-  let inTopIssues = false;
-  for (const line of lines) {
-    if (/top\s+[23]\s+issues/i.test(line)) { inTopIssues = true; continue; }
-    if (inTopIssues && /^\d+\./.test(line.trim())) {
-      issues.push(line.replace(/^\d+\.\s*/, '').trim());
-      if (issues.length === 3) break;
-    }
+function validateDocument(value, requiredSeverity) {
+  if (typeof value.generated_text !== 'string' || !value.generated_text.trim()
+      || !Array.isArray(value.flags)
+      || value.flags.some(x => typeof x !== 'string')) throw new UpstreamContractError('Invalid document');
+  if (requiredSeverity && !['Critical', 'Major', 'Minor'].includes(value.severity)) {
+    throw new UpstreamContractError('Invalid severity');
   }
-  return issues;
-}
-
-function extractSeverity(text) {
-  const match = text.match(/\b(Critical|Major|Minor)\b/i);
-  return match ? match[1].charAt(0).toUpperCase() + match[1].slice(1).toLowerCase() : 'Major';
-}
-
-function extractFmeaFlags(text) {
-  const flags = [];
-  const patterns = [
-    /missing failure mode/gi,
-    /incorrect AP/gi,
-    /unaddressed H-AP/gi,
-    /missing special characteristic/gi,
-  ];
-  for (const p of patterns) {
-    const matches = text.match(p);
-    if (matches) flags.push(...matches.map(m => m.trim()));
-  }
-  return [...new Set(flags)];
+  return { generated_text: value.generated_text,
+    severity: requiredSeverity ? value.severity : null, flags: value.flags };
 }
 
 function jsonResponse(payload, status = 200) {

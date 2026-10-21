@@ -240,3 +240,89 @@ test('M365 input validation rejects bad JSON, enums and missing required input w
   assert.equal((await worker.fetch(request('/8d/coach', { start_discipline: 'D9' }), env)).status, 400);
   assert.equal(calls, 0);
 });
+
+test('QES-08: coaching and audit are explicitly stateless, and reject fake session progress', async () => {
+  const env = { API_TOKEN: LOCAL_AUTH_FIXTURE, ANTHROPIC_API_KEY: LOCAL_AUTH_FIXTURE };
+  const worker = loadWorker('platforms/m365/worker.js');
+  for (const endpoint of ['/8d/coach', '/rca/start', '/audit/start']) {
+    const res = await worker.fetch(request(endpoint, {}), env);
+    assert.equal(res.status, 200);
+    const output = await res.json();
+    assert.equal(output.mode, 'single_turn');
+    assert.equal(typeof output.message, 'string');
+    assert.equal(output.session_id, undefined);
+    assert.equal(output.current_step, undefined);
+  }
+  assert.equal((await worker.fetch(request('/8d/coach', { start_discipline: 'D8' }), env)).status, 400);
+  assert.equal((await worker.fetch(request('/rca/start', { session_id: 'invented' }), env)).status, 400);
+});
+
+test('QES-07: valid complete structured 8D verdict is returned without regex guessing', async () => {
+  const env = { API_TOKEN: LOCAL_AUTH_FIXTURE, ANTHROPIC_API_KEY: LOCAL_AUTH_FIXTURE };
+  const evaluation = {
+    overall_quality: 'Needs revision',
+    disciplines: Array.from({ length: 9 }, (_, i) =>
+      ({ discipline: 'D' + i, status: i === 0 ? 'Pass' : 'Fail', finding: 'Missing evidence in discipline ' + i })),
+    top_issues: ['No verified occurrence root cause'],
+  };
+  const worker = loadWorker('platforms/m365/worker.js', async () =>
+    ({ ok: true, status: 200, json: async () => ({ content: [{ text: JSON.stringify(evaluation) }] }) }));
+  const res = await worker.fetch(request('/8d/evaluate', { report_text: 'Synthetic incomplete report' }), env);
+  assert.equal(res.status, 200);
+  const output = await res.json();
+  assert.equal(output.overall_quality, 'Needs revision');
+  assert.equal(output.disciplines.length, 9);
+  assert.equal(output.disciplines[0].status, 'Pass');
+  assert.equal(output.disciplines[8].status, 'Fail');
+  assert.deepEqual(output.top_issues, ['No verified occurrence root cause']);
+});
+
+test('QES-07: ambiguous or unstructured model output returns 502, never false Pass/Fail', async () => {
+  const env = { API_TOKEN: LOCAL_AUTH_FIXTURE, ANTHROPIC_API_KEY: LOCAL_AUTH_FIXTURE };
+  const invalidResponses = [
+    'Strong / Needs revision; D0: Pass, D1: Fail',
+    JSON.stringify({ overall_quality: 'Strong', disciplines: [], top_issues: [] }),
+    JSON.stringify({ overall_quality: 'Acceptable', disciplines: Array.from({ length: 9 }, () =>
+      ({ discipline: 'D0', status: 'Pass', finding: 'Duplicate' })), top_issues: [] }),
+  ];
+  for (const output of invalidResponses) {
+    const worker = loadWorker('platforms/m365/worker.js', async () =>
+      ({ ok: true, status: 200, json: async () => ({ content: [{ text: output }] }) }));
+    const res = await worker.fetch(request('/8d/evaluate', { report_text: 'Synthetic case' }), env);
+    assert.equal(res.status, 502);
+    assert.deepEqual(await res.json(), { error: 'AI output could not be validated' });
+  }
+});
+
+test('QES-07: NCR/FMEA enforce structured text/flags and nullable FMEA severity', async () => {
+  const env = { API_TOKEN: LOCAL_AUTH_FIXTURE, ANTHROPIC_API_KEY: LOCAL_AUTH_FIXTURE };
+  const okNcr = loadWorker('platforms/m365/worker.js', async () =>
+    ({ ok: true, json: async () => ({ content: [{ text: JSON.stringify({
+      generated_text: 'Synthetic NCR', severity: 'Minor', flags: ['Sample size missing'],
+    }) }] }) }));
+  const ncr = await okNcr.fetch(request('/ncr/write', { observations: 'Synthetic defect' }), env);
+  assert.equal(ncr.status, 200);
+  assert.equal((await ncr.json()).severity, 'Minor');
+  const okFmea = loadWorker('platforms/m365/worker.js', async () =>
+    ({ ok: true, json: async () => ({ content: [{ text: JSON.stringify({
+      generated_text: 'Synthetic gap analysis', flags: [],
+    }) }] }) }));
+  const fmea = await okFmea.fetch(request('/fmea/review', { fmea_text: 'Synthetic step' }), env);
+  assert.equal(fmea.status, 200);
+  assert.equal((await fmea.json()).severity, null);
+  const badNcr = loadWorker('platforms/m365/worker.js', async () =>
+    ({ ok: true, json: async () => ({ content: [{ text: JSON.stringify({
+      generated_text: 'Unproven NCR', severity: 'Critical/Major', flags: [],
+    }) }] }) }));
+  const rejected = await badNcr.fetch(request('/ncr/write', { observations: 'Synthetic' }), env);
+  assert.equal(rejected.status, 502);
+});
+
+test('QES-08: manifest/openapi no longer advertise resumable sessions', () => {
+  const yaml = read('platforms/m365/openapi.yaml');
+  const manifest = JSON.parse(read('platforms/m365/plugin-manifest.json'));
+  assert.doesNotMatch(yaml, /\bsession_id\b|\bstart_discipline\b/);
+  assert.match(yaml, /mode:\s*\n\s*type: string/);
+  assert.match(manifest.functions[0].description, /single-turn/);
+  assert.equal(manifest.functions[0].parameters.properties.start_discipline, undefined);
+});
