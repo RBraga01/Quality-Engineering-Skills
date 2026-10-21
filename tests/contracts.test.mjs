@@ -161,3 +161,48 @@ test('QES-01: Gemini API errors never return transport exception contents', () =
   assert.match(code, /status === 429/);
   assert.match(code, /status === 404/);
 });
+
+function runGeminiWithFakeTransport({ status = 200, response = { candidates: [{ content: { parts: [{ text: 'TEST RESULT' }] } }] }, throwError = false, model = undefined } = {}) {
+  const fixture = Array.from({ length: 11 }, (_, i) => String.fromCharCode(65 + i)).join('');
+  const requests = [];
+  const env = {
+    PropertiesService: {
+      getScriptProperties: () => ({ getProperty: (name) => name === 'GEMINI_API_KEY' ? fixture : name === 'GEMINI_MODEL' ? model : null }),
+    },
+    UrlFetchApp: {
+      fetch: (url, options) => {
+        requests.push({ url, options });
+        if (throwError) throw new Error('TRANSPORT_' + fixture);
+        return { getResponseCode: () => status, getContentText: () => JSON.stringify(response) };
+      },
+    },
+    encodeURIComponent,
+  };
+  const actions = vm.runInNewContext(read('platforms/gemini/Code.gs') + '\n;({callGemini})', env, { timeout: 3000 });
+  return { value: actions.callGemini('Synthetic quality question'), requests, fixture };
+}
+
+test('QES-01: Gemini default model is current and request receives expected payload', () => {
+  const output = runGeminiWithFakeTransport();
+  assert.equal(output.value, 'TEST RESULT');
+  assert.equal(output.requests.length, 1);
+  assert.match(output.requests[0].url, /models\/gemini-3\.1-flash-lite:generateContent/);
+  assert.match(output.requests[0].options.payload, /Synthetic quality question/);
+});
+
+test('QES-01: Gemini rejects invalid model and sanitizes failed transport', () => {
+  const invalid = runGeminiWithFakeTransport({ model: '../credentials' });
+  assert.match(invalid.value, /Invalid Gemini model/);
+  assert.equal(invalid.requests.length, 0);
+  const transport = runGeminiWithFakeTransport({ throwError: true });
+  assert.equal(transport.value, 'Gemini request failed. Check your configuration and connection.');
+  assert.doesNotMatch(transport.value, /TRANSPORT_/);
+  assert.doesNotMatch(transport.value, new RegExp(transport.fixture));
+  const throttled = runGeminiWithFakeTransport({ status: 429 });
+  assert.match(throttled.value, /quota or rate limit/);
+});
+
+test('QES-01: Gemini missing text is handled without exception', () => {
+  const missing = runGeminiWithFakeTransport({ response: { candidates: [{ content: { parts: [] } }] } });
+  assert.match(missing.value, /returned no text/);
+});
