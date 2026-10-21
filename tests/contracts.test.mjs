@@ -110,7 +110,7 @@ test('QES-11: website does not claim ChatGPT requires no account', () => {
   assert.doesNotMatch(read('docs/index.html'), /No account required for the ChatGPT GPT/i);
 });
 
-test('QES-09: ChatGPT export has at most 20 files', { todo: true }, () => {
+test('QES-09: ChatGPT export has at most 20 files', () => {
   assert.ok(readdirSync(join(ROOT, 'platforms/chatgpt/export')).length <= 20);
 });
 
@@ -205,4 +205,10 @@ test('QES-01: Gemini rejects invalid model and sanitizes failed transport', () =
 test('QES-01: Gemini missing text is handled without exception', () => {
   const missing = runGeminiWithFakeTransport({ response: { candidates: [{ content: { parts: [] } }] } });
   assert.match(missing.value, /returned no text/);
+});
+
+test('QES-09: consolidated export index includes all canonical Markdown', () => {
+  const index = read('platforms/chatgpt/export/00-INDEX.md');
+  assert.match(index, /Source files: 59; skills: 23; agents: 8/);
+  assert.match(index, /Upload all 10 Markdown files/);
 });
