@@ -122,7 +122,8 @@
     {
       "type": "OpenApi",
       "auth": {
-        "type": "None"
+        "type": "ApiKeyPluginVault",
+        "reference_id": "REPLACE_WITH_MICROSOFT_AUTH_CONFIG_ID"
       },
       "spec": {
         "url": "https://api.quality-engineering-skills.io/openapi.yaml"
