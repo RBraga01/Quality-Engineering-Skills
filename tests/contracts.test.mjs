@@ -77,15 +77,15 @@ test('existing ChatGPT and Claude knowledge bundles are generated mirrors, not d
 
 // TODO cases capture the original audit's reproduction gates. They deliberately
 // stay red-with-TODO until the owning remediation PR fixes each behaviour.
-test('QES-03: OpenAPI base path must be routable in Worker', { todo: true }, async () => {
+test('QES-03: M365 worker accepts the OpenAPI root path', async () => {
   const worker = loadWorker('platforms/m365/worker.js');
-  const res = await worker.fetch(request('/v1/8d/coach', {}), {
+  const res = await worker.fetch(request('/8d/coach', {}), {
     API_TOKEN: LOCAL_AUTH_FIXTURE, ANTHROPIC_API_KEY: LOCAL_AUTH_FIXTURE,
   });
   assert.equal(res.status, 200);
 });
 
-test('QES-07: invalid M365 request should return HTTP 400', { todo: true }, async () => {
+test('M365 required inputs return HTTP 400 instead of error-shaped 200', async () => {
   const worker = loadWorker('platforms/m365/worker.js');
   const res = await worker.fetch(request('/8d/evaluate', {}), {
     API_TOKEN: LOCAL_AUTH_FIXTURE, ANTHROPIC_API_KEY: LOCAL_AUTH_FIXTURE,
@@ -211,4 +211,32 @@ test('QES-09: consolidated export index includes all canonical Markdown', () => 
   const index = read('platforms/chatgpt/export/00-INDEX.md');
   assert.match(index, /Source files: 59; skills: 23; agents: 8/);
   assert.match(index, /Upload all 10 Markdown files/);
+});
+
+test('QES-03: OpenAPI server is aligned with worker root routing', () => {
+  const spec = read('platforms/m365/openapi.yaml');
+  assert.match(spec, /url: https:\/\/api\.quality-engineering-skills\.io\n/);
+  assert.doesNotMatch(spec, /quality-engineering-skills\.io\/v1/);
+});
+
+test('QES-04: Copilot API plugin uses Microsoft vault auth with bearer contract', () => {
+  const manifest = JSON.parse(read('platforms/m365/plugin-manifest.json'));
+  assert.equal(manifest.runtimes[0].auth.type, 'ApiKeyPluginVault');
+  assert.equal(manifest.runtimes[0].auth.reference_id, 'REPLACE_WITH_MICROSOFT_AUTH_CONFIG_ID');
+  assert.match(read('platforms/m365/openapi.yaml'), /type: http\s*\n\s*scheme: bearer/);
+});
+
+test('M365 input validation rejects bad JSON, enums and missing required input without model calls', async () => {
+  let calls = 0;
+  const worker = loadWorker('platforms/m365/worker.js', async () => { calls++; throw Error('unwanted network'); });
+  const env = { API_TOKEN: LOCAL_AUTH_FIXTURE, ANTHROPIC_API_KEY: LOCAL_AUTH_FIXTURE };
+  const badJson = new Request('https://example.test/8d/evaluate', {
+    method: 'POST',
+    headers: { 'Authorization': 'Bearer ' + LOCAL_AUTH_FIXTURE },
+    body: '{syntax',
+  });
+  assert.equal((await worker.fetch(badJson, env)).status, 400);
+  assert.equal((await worker.fetch(request('/fmea/review', { fmea_type: 'UNKNOWN' }), env)).status, 400);
+  assert.equal((await worker.fetch(request('/8d/coach', { start_discipline: 'D9' }), env)).status, 400);
+  assert.equal(calls, 0);
 });
