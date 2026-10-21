@@ -61,17 +61,20 @@ const MAX_BODY_BYTES = 128 * 1024;
 const BEARER_PREFIX = 'Bearer ';
 
 const CONTRACT = Object.freeze({
-  '/8d/coach': { complaint_description: 'string', start_discipline: 'D0-D8', session_id: 'string' },
+  '/8d/coach': { complaint_description: 'string' },
   '/8d/evaluate': { report_text: 'required-string' },
-  '/rca/start': { problem_statement: 'string', session_id: 'string' },
+  '/rca/start': { problem_statement: 'string' },
   '/ncr/write': { observations: 'string', part_number: 'string', quantity: 'string' },
-  '/audit/start': { standard: 'standard', scope: 'string', session_id: 'string' },
+  '/audit/start': { standard: 'standard', scope: 'string' },
   '/fmea/review': { fmea_text: 'string', fmea_type: 'fmea-type' },
 });
 
 function validateContract(path, body) {
   if (!Object.hasOwn(CONTRACT, path)) return 'Unknown path';
   if (!body || typeof body !== 'object' || Array.isArray(body)) return 'Expected a JSON object';
+  for (const key of Object.keys(body)) {
+    if (!Object.hasOwn(CONTRACT[path], key)) return 'Unexpected field: ' + key;
+  }
   for (const [key, type] of Object.entries(CONTRACT[path])) {
     const value = body[key];
     if (value === undefined) {
@@ -200,25 +203,17 @@ export default {
     } catch (err) {
       // Upstream errors can quote the submitted text or API detail — log them,
       // do not return them.
-      console.error('Request failed:', err.message);
-      return withCors(jsonResponse({ error: 'Internal error' }, 500), cors);
+      console.error('Request failed:', err instanceof UpstreamContractError ? 'upstream schema failure' : 'internal error');
+      return withCors(jsonResponse({ error: err instanceof UpstreamContractError ? 'AI output could not be validated' : 'Internal error' }, err instanceof UpstreamContractError ? 502 : 500), cors);
     }
   },
 };
 
 async function coach8d(body, env) {
-  const { complaint_description, start_discipline = 'D0' } = body;
-  const prompt = complaint_description
-    ? `Start 8D Coach from ${start_discipline}. The complaint is: ${complaint_description}`
-    : `Start 8D Coach from ${start_discipline}. Ask me the first required question.`;
-  const message = await callClaude(prompt, env.ANTHROPIC_API_KEY);
-  return {
-    session_id: crypto.randomUUID(),
-    current_step: start_discipline,
-    message,
-    validation_status: 'pending',
-    next_question: '',
-  };
+  const prompt = body.complaint_description
+    ? 'Start a new one-turn 8D question at D0. No session is saved. Complaint: ' + body.complaint_description
+    : 'Start a new one-turn 8D question at D0. Ask about safety and suspect material.';
+  return { mode: 'single_turn', message: await callClaude(prompt, env.ANTHROPIC_API_KEY) };
 }
 
 async function evaluate8d(body, env) {
@@ -237,18 +232,10 @@ async function evaluate8d(body, env) {
 }
 
 async function rcaStart(body, env) {
-  const { problem_statement } = body;
-  const prompt = problem_statement
-    ? `Start a structured 5-Why root cause analysis. Problem statement: ${problem_statement}. Ask me for the first Why.`
-    : 'Start a structured 5-Why root cause analysis. Ask me for the problem statement.';
-  const message = await callClaude(prompt, env.ANTHROPIC_API_KEY);
-  return {
-    session_id: crypto.randomUUID(),
-    current_step: 'Why 1',
-    message,
-    validation_status: 'pending',
-    next_question: '',
-  };
+  const prompt = body.problem_statement
+    ? 'Start a NEW one-turn 5-Why. No prior state is saved. Problem: ' + body.problem_statement + '. Ask the first Why.'
+    : 'Start a new root cause analysis. Ask for the problem statement.';
+  return { mode: 'single_turn', message: await callClaude(prompt, env.ANTHROPIC_API_KEY) };
 }
 
 async function ncrWrite(body, env) {
@@ -272,18 +259,11 @@ async function ncrWrite(body, env) {
 }
 
 async function auditStart(body, env) {
-  const { standard = 'ISO 9001', scope } = body;
-  const prompt = scope
-    ? `Start an internal audit for ${standard}. Scope: ${scope}. Ask the first open question for the first relevant clause.`
-    : `Start an internal audit for ${standard}. Ask me for the scope first.`;
-  const message = await callClaude(prompt, env.ANTHROPIC_API_KEY);
-  return {
-    session_id: crypto.randomUUID(),
-    current_step: 'Scope definition',
-    message,
-    validation_status: 'pending',
-    next_question: '',
-  };
+  const standard = body.standard || 'ISO 9001';
+  const prompt = body.scope
+    ? 'Start a NEW one-turn audit for ' + standard + '. Scope: ' + body.scope + '. Ask the first open question.'
+    : 'Start a NEW audit for ' + standard + '. Ask for the scope.';
+  return { mode: 'single_turn', message: await callClaude(prompt, env.ANTHROPIC_API_KEY) };
 }
 
 async function fmeaReview(body, env) {
