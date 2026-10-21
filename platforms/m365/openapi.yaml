@@ -13,7 +13,7 @@ info:
     url: https://github.com/RBraga01/Quality-Engineering-Skills/blob/master/LICENSE
 
 servers:
-  - url: https://api.quality-engineering-skills.io/v1
+  - url: https://api.quality-engineering-skills.io
     description: Production — deploy the Cloudflare Worker in platforms/m365/ first, then update this URL
 
 # NOTE: Update the server url above with your deployed Cloudflare Worker URL before sideloading.
