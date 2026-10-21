@@ -93,7 +93,7 @@ test('QES-07: invalid M365 request should return HTTP 400', { todo: true }, asyn
   assert.equal(res.status, 400);
 });
 
-test('QES-02: Gemini guide-selected manifest functions must all exist', { todo: true }, () => {
+test('QES-02: Gemini guide-selected manifest functions must all exist', () => {
   const data = JSON.parse(read('platforms/gemini/workspace-addon-manifest.json'));
   const functions = new Set([...read('platforms/gemini/Code.gs').matchAll(/^function (\w+)\s*\(/gm)]
     .map(x => x[1]));
@@ -139,4 +139,70 @@ test('QES-11: website does not promise permanently free unrestricted custom GPT 
   const site = read('docs/index.html');
   assert.doesNotMatch(site, /No account, no setup|free forever/i);
   assert.match(site, /Sign-in is required/);
+});
+
+test('Gemini manifest compatibility copy exactly matches the canonical manifest', () => {
+  assert.deepEqual(JSON.parse(read('platforms/gemini/workspace-addon-manifest.json')),
+                   JSON.parse(read('platforms/gemini/appsscript.json')));
+});
+
+test('QES-01/13: Gemini uses supported configurable model and honest stateless controls', () => {
+  const code = read('platforms/gemini/Code.gs');
+  assert.match(code, /gemini-3\.1-flash-lite/);
+  assert.doesNotMatch(code, /gemini-2\.0-flash/);
+  assert.match(code, /getProperty\('GEMINI_MODEL'\)/);
+  assert.match(code, /\.setText\('New request'\)/);
+  assert.doesNotMatch(code, /\.setText\('Continue'\)/);
+});
+
+test('QES-01: Gemini API errors never return transport exception contents', () => {
+  const code = read('platforms/gemini/Code.gs');
+  assert.doesNotMatch(code, /err\.message|json\.error\.message/);
+  assert.match(code, /status === 429/);
+  assert.match(code, /status === 404/);
+});
+
+function runGeminiWithFakeTransport({ status = 200, response = { candidates: [{ content: { parts: [{ text: 'TEST RESULT' }] } }] }, throwError = false, model = undefined } = {}) {
+  const fixture = Array.from({ length: 11 }, (_, i) => String.fromCharCode(65 + i)).join('');
+  const requests = [];
+  const env = {
+    PropertiesService: {
+      getScriptProperties: () => ({ getProperty: (name) => name === 'GEMINI_API_KEY' ? fixture : name === 'GEMINI_MODEL' ? model : null }),
+    },
+    UrlFetchApp: {
+      fetch: (url, options) => {
+        requests.push({ url, options });
+        if (throwError) throw new Error('TRANSPORT_' + fixture);
+        return { getResponseCode: () => status, getContentText: () => JSON.stringify(response) };
+      },
+    },
+    encodeURIComponent,
+  };
+  const actions = vm.runInNewContext(read('platforms/gemini/Code.gs') + '\n;({callGemini})', env, { timeout: 3000 });
+  return { value: actions.callGemini('Synthetic quality question'), requests, fixture };
+}
+
+test('QES-01: Gemini default model is current and request receives expected payload', () => {
+  const output = runGeminiWithFakeTransport();
+  assert.equal(output.value, 'TEST RESULT');
+  assert.equal(output.requests.length, 1);
+  assert.match(output.requests[0].url, /models\/gemini-3\.1-flash-lite:generateContent/);
+  assert.match(output.requests[0].options.payload, /Synthetic quality question/);
+});
+
+test('QES-01: Gemini rejects invalid model and sanitizes failed transport', () => {
+  const invalid = runGeminiWithFakeTransport({ model: '../credentials' });
+  assert.match(invalid.value, /Invalid Gemini model/);
+  assert.equal(invalid.requests.length, 0);
+  const transport = runGeminiWithFakeTransport({ throwError: true });
+  assert.equal(transport.value, 'Gemini request failed. Check your configuration and connection.');
+  assert.doesNotMatch(transport.value, /TRANSPORT_/);
+  assert.doesNotMatch(transport.value, new RegExp(transport.fixture));
+  const throttled = runGeminiWithFakeTransport({ status: 429 });
+  assert.match(throttled.value, /quota or rate limit/);
+});
+
+test('QES-01: Gemini missing text is handled without exception', () => {
+  const missing = runGeminiWithFakeTransport({ response: { candidates: [{ content: { parts: [] } }] } });
+  assert.match(missing.value, /returned no text/);
 });

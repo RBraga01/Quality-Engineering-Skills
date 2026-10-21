@@ -7,7 +7,7 @@
  * 3. Deploy as Google Workspace Add-on (see marketplace-listing.md)
  */
 
-const GEMINI_MODEL = 'gemini-2.0-flash';
+const DEFAULT_GEMINI_MODEL = 'gemini-3.1-flash-lite'; // Supported 2026 replacement; override through Script Properties.
 
 const SYSTEM_INSTRUCTIONS = `You are an expert Quality Engineering Assistant with 15+ years of hands-on experience in automotive supplier quality, ISO 9001, IATF 16949, AIAG-VDA FMEA, and quality management systems. You work like a senior quality engineer sitting next to the user — direct, practical, evidence-based.
 
@@ -156,7 +156,7 @@ function buildResultCard(title, result, nextFunction) {
   const buttonSet = CardService.newButtonSet()
     .addButton(
       CardService.newTextButton()
-        .setText('Continue')
+        .setText('New request')
         .setOnClickAction(CardService.newAction().setFunctionName(nextFunction || 'onHomepage'))
     )
     .addButton(
@@ -288,42 +288,43 @@ function submitFMEA(e) {
 // ── Gemini API call ───────────────────────────────────────────────────────────
 
 function callGemini(userMessage) {
-  const apiKey = PropertiesService.getScriptProperties().getProperty('GEMINI_API_KEY');
+  const settings = PropertiesService.getScriptProperties();
+  const apiKey = settings.getProperty('GEMINI_API_KEY');
   if (!apiKey) {
-    return 'Error: GEMINI_API_KEY not set. Go to Project Settings → Script Properties and add your key from aistudio.google.com/apikey';
+    return 'Gemini is not configured. Add GEMINI_API_KEY in Apps Script → Project Settings → Script Properties.';
   }
-
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
-
+  const model = settings.getProperty('GEMINI_MODEL') || DEFAULT_GEMINI_MODEL;
+  if (!/^[a-zA-Z0-9._-]+$/.test(model)) {
+    return 'Invalid Gemini model setting. Check GEMINI_MODEL in Script Properties.';
+  }
+  const url = 'https://generativelanguage.googleapis.com/v1beta/models/'
+    + encodeURIComponent(model) + ':generateContent?key=' + encodeURIComponent(apiKey);
   const payload = {
     system_instruction: { parts: [{ text: SYSTEM_INSTRUCTIONS }] },
     contents: [{ role: 'user', parts: [{ text: userMessage }] }],
-    generationConfig: {
-      temperature: 0.3,
-      maxOutputTokens: 2048,
-    },
+    generationConfig: { temperature: 0.3, maxOutputTokens: 2048 },
   };
-
-  const options = {
-    method: 'post',
-    contentType: 'application/json',
-    payload: JSON.stringify(payload),
-    muteHttpExceptions: true,
-  };
-
   try {
-    const response = UrlFetchApp.fetch(url, options);
-    const json = JSON.parse(response.getContentText());
-
-    if (json.candidates && json.candidates[0] && json.candidates[0].content) {
-      return json.candidates[0].content.parts[0].text;
-    }
-    if (json.error) {
-      return `API error: ${json.error.message}`;
-    }
-    return 'No response from Gemini. Check your API key and try again.';
-  } catch (err) {
-    return `Error calling Gemini API: ${err.message}`;
+    const response = UrlFetchApp.fetch(url, {
+      method: 'post',
+      contentType: 'application/json',
+      payload: JSON.stringify(payload),
+      muteHttpExceptions: true,
+    });
+    const status = response.getResponseCode();
+    if (status === 401 || status === 403) return 'Gemini authentication failed. Check GEMINI_API_KEY and permissions.';
+    if (status === 404) return 'Gemini model not available. Check the GEMINI_MODEL setting.';
+    if (status === 429) return 'Gemini quota or rate limit reached. Try again later.';
+    if (status >= 500) return 'Gemini is temporarily unavailable. Try again later.';
+    if (status < 200 || status >= 300) return 'Gemini request failed (HTTP ' + status + ').';
+    const data = JSON.parse(response.getContentText());
+    const candidate = data.candidates && data.candidates[0];
+    const parts = candidate && candidate.content && candidate.content.parts;
+    const text = parts && parts.filter(p => typeof p.text === 'string').map(p => p.text).join('\n');
+    return text || 'Gemini returned no text. Retry or choose another supported model.';
+  } catch (_) {
+    // Never expose exception messages: some transport failures include the URL/API key.
+    return 'Gemini request failed. Check your configuration and connection.';
   }
 }
 

@@ -1,10 +1,14 @@
 {
   "timeZone": "UTC",
+  "dependencies": {},
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
   "oauthScopes": [
+    "https://www.googleapis.com/auth/script.external_request",
     "https://www.googleapis.com/auth/gmail.addons.execute",
     "https://www.googleapis.com/auth/calendar.addons.execute",
     "https://www.googleapis.com/auth/docs.addons.execute",
-    "https://www.googleapis.com/auth/sheets.addons.execute",
+    "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.addons.execute"
   ],
   "addOns": {
@@ -20,44 +24,26 @@
       },
       "universalActions": [
         {
-          "label": "8D Coach",
-          "runFunction": "start8DCoach"
-        },
-        {
-          "label": "NCR Writer",
-          "runFunction": "startNCRWriter"
-        },
-        {
-          "label": "Root Cause Analysis",
-          "runFunction": "startRCA"
-        },
-        {
-          "label": "Audit Guide",
-          "runFunction": "startAuditGuide"
-        },
-        {
-          "label": "About QE Skills",
-          "openLink": {
-            "url": "https://github.com/RBraga01/Quality-Engineering-Skills"
-          }
+          "label": "Home",
+          "runFunction": "onHomepage"
         }
       ]
     },
     "docs": {
-      "onFileScopeGrantedTrigger": {
-        "runFunction": "onDocOpen"
+      "homepageTrigger": {
+        "runFunction": "onDocsHomepage"
       }
     },
     "sheets": {
-      "onFileScopeGrantedTrigger": {
-        "runFunction": "onSheetOpen"
+      "homepageTrigger": {
+        "runFunction": "onSheetsHomepage"
       }
     },
     "gmail": {
       "contextualTriggers": [
         {
           "unconditional": {},
-          "onTriggerFunction": "onGmailMessage"
+          "onTriggerFunction": "onGmailOpen"
         }
       ]
     }
