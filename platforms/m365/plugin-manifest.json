@@ -12,18 +12,13 @@
   "functions": [
     {
       "name": "coach_8d",
-      "description": "Guide the user through an 8D investigation step by step (D0 to D8) with validation gates at each discipline. Use when user says: open 8D, start 8D, 8D coach, help with 8D, problem solving.",
+      "description": "Generate a new single-turn D0 8D coaching question. This experimental API stores no session, enforces no step-transition state and does not advance D1–D8. Use for an initial 8D prompt; use the declarative agent for guided conversation.",
       "parameters": {
         "type": "object",
         "properties": {
           "complaint_description": {
             "type": "string",
             "description": "Brief description of the defect or customer complaint to investigate"
-          },
-          "start_discipline": {
-            "type": "string",
-            "enum": ["D0", "D1", "D2", "D3", "D4", "D5", "D6", "D7", "D8"],
-            "description": "Which discipline to start from. Default D0."
           }
         },
         "required": []
@@ -31,7 +26,7 @@
     },
     {
       "name": "evaluate_8d",
-      "description": "Review and score an existing 8D report against ISO 9001 §10.2 / IATF 16949 §10.2.3 criteria. Returns Pass/Fail per discipline plus top issues. Use when user says: review my 8D, evaluate 8D, score 8D, check 8D report.",
+      "description": "Evaluate a provided 8D report. Returns a structured schema-validated Pass/Fail for D0–D8, overall quality and up to three issues. Malformed model output fails closed; do not treat it as validated evidence.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -40,12 +35,14 @@
             "description": "The 8D report text to evaluate"
           }
         },
-        "required": ["report_text"]
+        "required": [
+          "report_text"
+        ]
       }
     },
     {
       "name": "root_cause_analysis",
-      "description": "Run a structured 5-Why session with evidence validation. Detects circular reasoning, tests reversibility, produces documented Why chain. Use when user says: root cause, 5 why, drill down, why did this happen.",
+      "description": "Generate one new 5-Why question from the problem statement. This optional API is stateless, not a persistent RCA session.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -59,7 +56,7 @@
     },
     {
       "name": "write_ncr",
-      "description": "Generate professional NCR (Non-Conformance Report) text from bullet-point inputs. Applies objective-evidence language, severity grading (Critical/Major/Minor), and disposition. Use when user says: write NCR, create NCR, document defect, reject supplier.",
+      "description": "Draft an objective-evidence NCR. Model result must conform to structured generated_text/severity/flags schema.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -81,13 +78,17 @@
     },
     {
       "name": "audit_guide",
-      "description": "Run an interactive internal audit clause-by-clause for ISO 9001 or IATF 16949. Classifies findings as Major NC / Minor NC / OFI. Generates audit report. Use when user says: start audit, internal audit, ISO 9001 audit, IATF audit, clause review.",
+      "description": "Generate one open audit question for an ISO 9001 or IATF 16949 scope. This experimental API stores no audit session or evidence-gate state.",
       "parameters": {
         "type": "object",
         "properties": {
           "standard": {
             "type": "string",
-            "enum": ["ISO 9001", "IATF 16949", "both"],
+            "enum": [
+              "ISO 9001",
+              "IATF 16949",
+              "both"
+            ],
             "description": "Standard to audit against"
           },
           "scope": {
@@ -100,7 +101,7 @@
     },
     {
       "name": "fmea_review",
-      "description": "Review an existing PFMEA or DFMEA against AIAG-VDA 2019. Returns structured gap report: missing failure modes, incorrect AP ratings, unaddressed H-AP items. Use when user says: review FMEA, audit FMEA, check PFMEA, FMEA gaps.",
+      "description": "Review PFMEA/DFMEA content. Model result must conform to structured generated_text/flags schema.",
       "parameters": {
         "type": "object",
         "properties": {
@@ -110,7 +111,10 @@
           },
           "fmea_type": {
             "type": "string",
-            "enum": ["PFMEA", "DFMEA"],
+            "enum": [
+              "PFMEA",
+              "DFMEA"
+            ],
             "description": "Type of FMEA"
           }
         },
@@ -128,7 +132,14 @@
       "spec": {
         "url": "https://api.quality-engineering-skills.io/openapi.yaml"
       },
-      "run_for_functions": ["coach_8d", "evaluate_8d", "root_cause_analysis", "write_ncr", "audit_guide", "fmea_review"]
+      "run_for_functions": [
+        "coach_8d",
+        "evaluate_8d",
+        "root_cause_analysis",
+        "write_ncr",
+        "audit_guide",
+        "fmea_review"
+      ]
     }
   ],
   "capabilities": {
