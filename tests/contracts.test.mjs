@@ -93,7 +93,7 @@ test('QES-07: invalid M365 request should return HTTP 400', { todo: true }, asyn
   assert.equal(res.status, 400);
 });
 
-test('QES-02: Gemini guide-selected manifest functions must all exist', { todo: true }, () => {
+test('QES-02: Gemini guide-selected manifest functions must all exist', () => {
   const data = JSON.parse(read('platforms/gemini/workspace-addon-manifest.json'));
   const functions = new Set([...read('platforms/gemini/Code.gs').matchAll(/^function (\w+)\s*\(/gm)]
     .map(x => x[1]));
@@ -139,4 +139,25 @@ test('QES-11: website does not promise permanently free unrestricted custom GPT 
   const site = read('docs/index.html');
   assert.doesNotMatch(site, /No account, no setup|free forever/i);
   assert.match(site, /Sign-in is required/);
+});
+
+test('Gemini manifest compatibility copy exactly matches the canonical manifest', () => {
+  assert.deepEqual(JSON.parse(read('platforms/gemini/workspace-addon-manifest.json')),
+                   JSON.parse(read('platforms/gemini/appsscript.json')));
+});
+
+test('QES-01/13: Gemini uses supported configurable model and honest stateless controls', () => {
+  const code = read('platforms/gemini/Code.gs');
+  assert.match(code, /gemini-3\.1-flash-lite/);
+  assert.doesNotMatch(code, /gemini-2\.0-flash/);
+  assert.match(code, /getProperty\('GEMINI_MODEL'\)/);
+  assert.match(code, /\.setText\('New request'\)/);
+  assert.doesNotMatch(code, /\.setText\('Continue'\)/);
+});
+
+test('QES-01: Gemini API errors never return transport exception contents', () => {
+  const code = read('platforms/gemini/Code.gs');
+  assert.doesNotMatch(code, /err\.message|json\.error\.message/);
+  assert.match(code, /status === 429/);
+  assert.match(code, /status === 404/);
 });
