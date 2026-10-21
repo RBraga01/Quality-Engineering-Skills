@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministic complete nine-file QES knowledge export (no API calls)."""
+"""Deterministic complete ten-file QES knowledge export (no API calls)."""
 from __future__ import annotations
 import argparse
 from pathlib import Path
@@ -16,13 +16,17 @@ def contents() -> dict[str, str]:
     result: dict[str, str] = {}
     index = "# QES Knowledge Export — complete source index\n\n"
     index += "This is a deterministic export of the canonical Markdown skills, agents, references and templates. The 36-file platform mirrors stay unchanged.\n\n"
-    index += f"Source files: {len(sources)}; skills: 23; agents: 8. Upload all {len(groups)+1} Markdown files in this folder (including this index).\n\n"
-    for n, (domain, files) in enumerate(sorted(groups.items()), 1):
-        name = f"{n:02d}-{domain}.md"
+    sections = [(group, paths[i:i + 10], k) for group, files in sorted(groups.items())
+                for k, i in enumerate(range(0, len(files), 10), 1)
+                for paths in [sorted(files)]]
+    index += f"Source files: {len(sources)}; skills: 23; agents: 8. Upload all {len(sections) + 1} Markdown files in this folder (including this index).\n\n"
+    for n, (domain, paths, part) in enumerate(sections, 1):
+        suffix = f"-part-{part}" if len(groups[domain]) > 10 else ""
+        name = f"{n:02d}-{domain}{suffix}.md"
         content = f"# Quality Engineering Skills — {domain.replace('-', ' ')}\n\n"
         content += "Generated from the canonical skills tree; each document follows in full.\n\n"
         index += f"## {domain}: {name}\n\n"
-        for path in sorted(files):
+        for path in paths:
             source = path.relative_to(ROOT).as_posix()
             index += f"- {source}\n"
             content += f"---\n\n## Source: {source}\n\n{path.read_text(encoding='utf-8').strip()}\n\n"
