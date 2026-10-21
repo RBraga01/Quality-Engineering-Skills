@@ -102,11 +102,11 @@ test('QES-02: Gemini guide-selected manifest functions must all exist', { todo: 
   assert.deepEqual(targets.filter(x => !functions.has(x)), []);
 });
 
-test('QES-10: site hero skill counter reflects canonical inventory', { todo: true }, () => {
+test('QES-10: site hero skill counter reflects canonical inventory', () => {
   assert.match(read('docs/index.html'), /hero-stat-n n-teal">23</);
 });
 
-test('QES-11: website does not claim ChatGPT requires no account', { todo: true }, () => {
+test('QES-11: website does not claim ChatGPT requires no account', () => {
   assert.doesNotMatch(read('docs/index.html'), /No account required for the ChatGPT GPT/i);
 });
 
@@ -118,4 +118,25 @@ test('QES-12: Slack manifest transport matches HTTP Worker', { todo: true }, () 
   const raw = read('platforms/slack/app-manifest.yaml');
   assert.match(raw, /socket_mode_enabled:\s*false/);
   assert.doesNotMatch(raw, /^\s+- message\.channels\s*$/m);
+});
+
+test('QES-10: Codex marketing claims and public site use the same 23-skill truth', () => {
+  const manifest = JSON.parse(read('.codex-plugin/plugin.json'));
+  assert.match(manifest.description, /23 structured quality engineering skills/);
+  assert.match(manifest.interface.shortDescription, /23 quality engineering skills/);
+  const site = read('docs/index.html');
+  assert.match(site, /23 skills across 7 domains/);
+  assert.doesNotMatch(site, /full 22-skill|all 22 base skills/i);
+});
+
+test('QES-15: marketing does not claim automated qualitative CI scoring', () => {
+  const site = read('docs/index.html');
+  assert.doesNotMatch(site, /Blocks PRs when score/i);
+  assert.match(site, /qualitative score requires review/);
+});
+
+test('QES-11: website does not promise permanently free unrestricted custom GPT access', () => {
+  const site = read('docs/index.html');
+  assert.doesNotMatch(site, /No account, no setup|free forever/i);
+  assert.match(site, /Sign-in is required/);
 });

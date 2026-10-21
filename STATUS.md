@@ -132,7 +132,7 @@ All 22 skills now have at least one reference file (commit e3af81a, 2026-06-06).
 |----------|----------------|--------|---------|
 | Claude Code / Codex CLI / Cursor / Gemini CLI / 20+ agentskills-compatible tools | `npx skills add` | ✅ Working | — |
 | ChatGPT Custom GPT | `platforms/chatgpt/` — 16 knowledge files + config | ✅ Live (v1 skills) | — |
-| Claude.ai Project | `platforms/claude-ai/` — 22 knowledge files + instructions | ✅ Self-install — each user creates their own Project following the guide | — |
+| Claude.ai Project | `platforms/claude-ai/` — 36 generated knowledge files + instructions | ✅ Self-install — each user creates their own Project following the guide | — |
 | Gemini AI Studio | `platforms/gemini/gemini-instructions.md` | ⏳ Pending | No hosted instance; guide available for manual setup |
 | Slack | `platforms/slack/` — worker.js + Bolt SDK code | ⏳ Pending | Nothing deployed |
 | Teams (Copilot Studio) | `platforms/teams/copilot-instructions.md` | ⏳ Pending | Guide works for org-internal; not publicly deployed |
