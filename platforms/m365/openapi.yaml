@@ -29,8 +29,8 @@ paths:
       operationId: coach_8d
       summary: Start or continue an 8D investigation
       description: >
-        Guides the user through a complete 8D problem-solving investigation
-        with validation gates at each discipline (D0–D8).
+        Generates a new D0 coaching question. This optional API is stateless and does not
+        persist 8D answers or enforce transitions between disciplines.
       requestBody:
         required: false
         content:
@@ -41,14 +41,6 @@ paths:
                 complaint_description:
                   type: string
                   description: Brief description of the defect or customer complaint
-                start_discipline:
-                  type: string
-                  enum: [D0, D1, D2, D3, D4, D5, D6, D7, D8]
-                  default: D0
-                  description: Discipline to start from
-                session_id:
-                  type: string
-                  description: Session ID to continue an existing 8D investigation
       responses:
         "200":
           description: 8D coaching response
@@ -88,8 +80,8 @@ paths:
       operationId: root_cause_analysis
       summary: Start a structured 5-Why root cause analysis
       description: >
-        Runs an interactive 5-Why session with evidence validation,
-        circular reasoning detection, and reversibility testing.
+        Generates a single-turn 5-Why question. No session persistence or automatic
+        evidence-gate enforcement is provided.
       requestBody:
         required: false
         content:
@@ -100,9 +92,6 @@ paths:
                 problem_statement:
                   type: string
                   description: The problem to analyse
-                session_id:
-                  type: string
-                  description: Session ID to continue an existing session
       responses:
         "200":
           description: RCA session response
@@ -147,8 +136,8 @@ paths:
       operationId: audit_guide
       summary: Start an interactive internal audit
       description: >
-        Runs clause-by-clause internal audit for ISO 9001 or IATF 16949.
-        Classifies findings as Major NC / Minor NC / OFI.
+        Generates a single-turn audit question for ISO 9001 or IATF 16949.
+        No session history, audit-state persistence or evidence gate is stored.
       requestBody:
         required: false
         content:
@@ -163,8 +152,6 @@ paths:
                 scope:
                   type: string
                   description: Full QMS, specific clauses, or specific process
-                session_id:
-                  type: string
       responses:
         "200":
           description: Audit session response
@@ -215,19 +202,15 @@ components:
   schemas:
     CoachingResponse:
       type: object
+      required: [mode, message]
+      description: Single-turn response; no session is stored and no D0-D8 transition is approved by this API.
       properties:
-        session_id:
+        mode:
           type: string
-        current_step:
-          type: string
+          enum: [single_turn]
         message:
           type: string
-          description: Agent response to display to the user
-        validation_status:
-          type: string
-          enum: [pass, fail, pending]
-        next_question:
-          type: string
+          description: The model's single-turn question or guidance.
 
     EvaluationReport:
       type: object
@@ -260,6 +243,7 @@ components:
           type: string
         severity:
           type: string
+          nullable: true
           enum: [Critical, Major, Minor]
         flags:
           type: array
