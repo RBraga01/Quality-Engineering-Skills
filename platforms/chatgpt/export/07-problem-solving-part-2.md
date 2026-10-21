@@ -1,4 +1,4 @@
-# Quality Engineering Skills — problem-solving
+# Quality Engineering Skills — problem solving
 
 Generated from the canonical skills tree; each document follows in full.
 
