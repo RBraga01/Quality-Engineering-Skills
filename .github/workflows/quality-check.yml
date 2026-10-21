@@ -34,3 +34,6 @@ jobs:
       # summary and become blocking assertions in the owning remediation PR.
       - name: Run offline platform and website contract tests
         run: node --test tests/contracts.test.mjs
+
+      - name: Verify complete consolidated GPT/Claude knowledge export
+        run: python scripts/build_chatgpt_export.py --check
