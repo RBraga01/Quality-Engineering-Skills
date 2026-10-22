@@ -3,7 +3,7 @@ name: zeroing-report-template
 type: asset
 parent_skill: quality-problem-zeroing
 author: Crow12138
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-07-04"
 last_updated: "2026-07-04"

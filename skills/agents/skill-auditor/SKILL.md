@@ -11,7 +11,7 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   domain: quality-engineering
   subdomain: agents
   industries: automotive,electronics,aerospace,medical,general
@@ -254,5 +254,5 @@ Target for all skills in this repo: **Level 4 minimum, Level 5 at launch.**
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-05 | @RBraga01 | Initial release - scoring model, quality gates, maturity model |
-| 1.1 | 2026-06-05 | @RBraga01 | Added document control field checks to Structure scoring, block conditions, and Level 2 reference audit |
+| 1.0.0 | 2026-06-05 | @RBraga01 | Initial release - scoring model, quality gates, maturity model |
+| 1.1.0 | 2026-06-05 | @RBraga01 | Added document control field checks to Structure scoring, block conditions, and Level 2 reference audit |

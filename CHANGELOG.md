@@ -53,6 +53,35 @@ Reference files added:
 
 ---
 
+## [v2.2.0] — 2026-08-08
+
+### Changed
+
+- **Standard editions:** Updated ISO 9001 audit, APQP, Control Plan, DVP&R, Control Plan Builder and SPC skills for current editions; corrected SPC initial-study capability interpretation and source attribution. See `STANDARDS.md`.
+
+- **Skill versions moved to three-part semantic versioning.** The scheme was two
+  digits and the maintenance checklist called the second one the "patch" version,
+  so replacing a superseded standard edition and fixing a typo both looked like
+  `1.0` → `1.1`. There was no way to say "someone who acted on the previous
+  version was wrong", which is exactly what these changes do.
+
+  Existing versions were normalised `X.Y` → `X.Y.0`, which is semantically
+  identical. The six skills changed in this release took a deliberate step:
+
+  | Skill | Version | Why |
+  |---|---|---|
+  | [spc-control-charts](skills/measurement/spc-control-charts/) | 1.1.0 → **2.0.0** | Acceptance criteria reverse a verdict: a submission at 1.45 read "Accepted — monitor" and now reads "below requirement, contact the customer" |
+  | [apqp](skills/planning/apqp/) | 1.1.0 → **2.0.0** | AIAG APQP 2nd Ed (2008) replaced by 3rd Ed (2024) |
+  | [control-plan](skills/planning/control-plan/) | 1.1.0 → **2.0.0** | CP Reference Manual (1995) replaced by the standalone 1st Ed (2024); adds Safe Launch |
+  | [iso-9001-internal-audit](skills/audit/iso-9001-internal-audit/) | 1.1.0 → **1.2.0** | Additive: Amd 1:2024 climate questions; every existing question still applies |
+  | [control-plan-builder](skills/agents/control-plan-builder/) | 1.1.0 → **1.2.0** | Declared standard edition corrected |
+  | [dvp-test-plan](skills/planning/dvp-test-plan/) | 1.1.0 → **1.2.0** | Declared standard edition corrected |
+
+  `docs/maintenance-checklist.md` now documents how to choose the step, with the
+  test: would a reader acting on the old version have been wrong? If yes, MAJOR.
+
+---
+
 ## [v2.1.0] — 2026-06-11
 
 ### Added

@@ -9,7 +9,7 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iatf-16949: "8.3.3.3"
   aiag-reference: "AIAG-VDA FMEA Handbook 2019"
   domain: quality-engineering
@@ -225,5 +225,5 @@ Apply the chosen format to all outputs generated during the session. If the plat
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-04 | @migmcc | Polished AP compliance review workflow and OEM CSR binding requirements |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Polished AP compliance review workflow and OEM CSR binding requirements |

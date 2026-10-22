@@ -3,7 +3,7 @@ name: oem-formats
 type: reference
 parent_skill: 8d-report-writing
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"

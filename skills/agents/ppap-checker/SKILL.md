@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iatf-16949: "8.3.4, 8.4.1"
   aiag-reference: "AIAG PPAP 4th Edition"
   domain: quality-engineering
@@ -116,5 +116,5 @@ Apply the chosen format to all outputs generated during the session.
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added production trial run check (300-part minimum); added OEM customer question at opening; corrected Element 11 Cpk thresholds (1.00–1.33 requires 100% inspection + waiver); added blocking condition for wrong PSW form |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added production trial run check (300-part minimum); added OEM customer question at opening; corrected Element 11 Cpk thresholds (1.00–1.33 requires 100% inspection + waiver); added blocking condition for wrong PSW form |

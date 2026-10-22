@@ -12,7 +12,7 @@ description: >-
 license: MIT
 metadata:
   author: Crow12138
-  version: "1.0"
+  version: "1.0.0"
   iso-9001: "10.2 (supporting)"
   gbt-29076: "2021"
   domain: quality-engineering
@@ -373,4 +373,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-07-04 | @Crow12138 | Initial draft based on GB/T 29076—2021 |
+| 1.0.0 | 2026-07-04 | @Crow12138 | Initial draft based on GB/T 29076—2021 |
