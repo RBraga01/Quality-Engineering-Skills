@@ -4,231 +4,6 @@ Generated from the canonical skills tree; each document follows in full.
 
 ---
 
-## Source: skills/planning/apqp/references/phase-deliverables.md
-
----
-name: phase-deliverables
-type: reference
-parent_skill: apqp
-author: RBraga01
-version: "1.0.0"
-status: approved
-created: "2026-06-06"
-last_updated: "2026-06-06"
-updated_by: migmcc
-reviewed_by: RBraga01
-license: MIT
----
-
-# APQP Phase Deliverables — Complete Reference
-
-Complete deliverables per phase with roles, timing, gate criteria, common gaps, and APQP-to-PPAP cross-reference.
-Use alongside the [apqp](../SKILL.md) skill.
-
-> **Scope:** This document covers the exhaustive deliverable list per APQP phase, responsible party, timing relative to SOP, gate review checklists, common deliverable gaps that cause PPAP failure, and the cross-reference mapping each APQP output to its corresponding PPAP element. For the phase-by-phase workflow and gate criteria, see [apqp SKILL.md](../SKILL.md).
-
----
-
-## 1. Phase 1 — Plan and Define Program
-
-**Timing:** Complete 18–24 months before SOP (programme kickoff to design release kickoff)
-
-| Deliverable | Responsible | Customer / Supplier / Joint | Notes |
-|-------------|-------------|----------------------------|-------|
-| Voice of the Customer (VOC) | Customer + Supplier | Joint | Translated to measurable technical requirements; must cover QFD inputs if applicable |
-| Design Goals | Supplier (design-responsible) / Customer | Joint | Performance targets, tolerance targets, Cpk goals — must be quantified |
-| Reliability and Quality Goals | Supplier | Supplier | Warranty targets (e.g., B10 life), PPM goals, field failure rate target |
-| Preliminary Bill of Materials (BOM) | Supplier | Supplier | Draft BOM from design intent; identifies sub-suppliers and commodity risks |
-| Preliminary Process Flow | Supplier | Supplier | High-level sequence — not a detailed operation-by-operation flow |
-| Preliminary Special Characteristics | Joint | Joint | Initial list of SC/CC/KPC — will be refined through Phases 2 and 3 |
-| Product Assurance Plan | Supplier | Supplier | Programme quality plan: milestones, resources, risk register, test strategy |
-| Programme Timing Plan | Joint | Joint | APQP milestone timeline tied to SOP; must include all PPAP milestones |
-| Feasibility Commitment | Supplier | Supplier | Formal sign-off that the design is technically and commercially feasible |
-| Management Support / Programme Charter | Joint | Joint | Executive sign-off on resources, budget, and programme scope |
-
-**Gate 1 checklist:** See Section 3.
-
----
-
-## 2. Phase 2 — Product Design and Development
-
-**Timing:** 12–15 months before SOP (design release to process design kickoff)
-
-| Deliverable | Responsible | Customer / Supplier / Joint | Notes |
-|-------------|-------------|----------------------------|-------|
-| Design FMEA (DFMEA) | Supplier (design-resp.) / Customer | Supplier or Joint | AIAG-VDA format preferred; all H-AP items addressed before gate |
-| Design Verification Plan (DVP&R) | Supplier | Supplier | Linked to DFMEA failure modes; every H-AP must have a test |
-| Engineering Drawings — Released | Customer / Supplier | Joint | Formally released drawings with tolerances; 3D model issued |
-| Material Specifications | Supplier | Supplier | Raw material specs confirmed; sub-supplier list initiated |
-| Prototype Control Plan | Supplier | Supplier | Describes controls for prototype builds — not reused for production |
-| New Equipment and Tooling — Identified | Supplier | Supplier | Capital expenditure plan; long-lead items ordered |
-| Updated Special Characteristics List | Joint | Joint | SC/CC/KPC confirmed from design detail; drawing symbols applied |
-| Gauge Plan (MSA Requirement List) | Supplier | Supplier | Lists every characteristic requiring an MSA study and the gauge type |
-| Prototype Build Completion | Supplier | Joint | Prototypes built, tested, results reviewed — DVP tests on prototypes executed |
-| Prototype Test Results | Supplier | Joint | Pass/Fail results from prototype-phase DVP tests; failures trigger DFMEA updates |
-| Engineering Drawing and Spec Changes | Joint | Joint | Change management process active; ECN/SREA log maintained |
-
-**Gate 2 checklist:** See Section 3.
-
----
-
-## 3. Phase 3 — Process Design and Development
-
-**Timing:** 8–10 months before SOP (process design through tooling qualification)
-
-| Deliverable | Responsible | Customer / Supplier / Joint | Notes |
-|-------------|-------------|----------------------------|-------|
-| Detailed Process Flow Chart | Supplier | Supplier | Operation-by-operation; includes inspection steps, rework paths; feeds PFMEA |
-| Manufacturing Floor Plan Layout | Supplier | Supplier | Material flow, ergonomics, access confirmed; approved by plant management |
-| Characteristics Matrix | Supplier | Supplier | Links each process step to the product characteristics it affects |
-| Process FMEA (PFMEA) | Supplier | Supplier | AIAG-VDA format; all H-AP items closed before pre-launch; feeds Control Plan |
-| Pre-Launch Control Plan | Supplier | Supplier | Stricter sample sizes than production CP; 100% inspection common at this stage |
-| Process Instructions / Work Instructions | Supplier | Supplier | Step-by-step operator instructions for all operations; tied to Control Plan |
-| MSA Plan | Supplier | Supplier | Identifies which gauges require GR&R; assigns responsibility and schedule |
-| Preliminary Process Capability Study Plan | Supplier | Supplier | Documents sample size, characteristics, method and customer-approved index |
-| Packaging Standards — Design | Supplier | Joint | Packaging design approved; MMOG/LE materials flow if required |
-| Packaging Specifications | Joint | Joint | Final packaging specs including OEM-specific label requirements |
-| Product / Process Quality System Review | Customer | Joint | Internal quality system audit against customer IATF/VDA requirements |
-| Tooling and Equipment — Qualified | Supplier | Supplier | All production tooling installed and run-off at supplier; acceptance criteria met |
-
-**Gate 3 checklist:** See Section 3.
-
----
-
-## 4. Phase 4 — Product and Process Validation
-
-**Timing:** 3–6 months before SOP (significant production run through PPAP approval)
-
-| Deliverable | Responsible | Customer / Supplier / Joint | Notes |
-|-------------|-------------|----------------------------|-------|
-| Significant Production Run (Trial Run) | Supplier | Supplier | Minimum run size as agreed with customer; typically ≥ 300 pieces or customer-defined |
-| MSA Studies (Gauge R&R) | Supplier | Supplier | GR&R completed for all SC/CC/KPC gauges; must meet %GRR < 30% |
-| Initial Process Studies | Supplier | Supplier | From significant production run; use the agreed index and limits for SC/CC |
-| Production Control Plan | Supplier | Joint | Final production CP; supersedes Pre-Launch CP; submitted as PPAP Element 7 |
-| PPAP Package (all 18 elements) | Supplier | Supplier | Complete submission; see ppap SKILL.md for element details |
-| Production Validation Testing (PVT) | Supplier / Customer | Joint | Final DVP tests on production parts; all tests must show Pass |
-| Packaging Evaluation | Supplier | Supplier | Production packaging validated (drop test, transit test, OEM label verification) |
-| Quality Planning Sign-Off | Joint | Joint | Customer PPAP approval; APQP completion confirmed |
-| Management Support Sign-Off | Supplier | Supplier | Internal executive approval to begin SOP shipments |
-
-**Gate 4 checklist (= PPAP approval criteria):** See Section 3.
-
----
-
-## 5. Phase 5 — Feedback, Assessment and Corrective Action
-
-**Timing:** SOP onward — no end gate; runs for the life of the programme
-
-| Activity | Responsible | Frequency |
-|----------|-------------|-----------|
-| Process capability monitoring (SPC) | Supplier quality | Ongoing — per Control Plan frequency |
-| Control Plan updates (post-SOP issues) | Supplier quality | After any quality escape, corrective action, or PFMEA update |
-| PFMEA updates (warranty / field data) | Supplier engineering + quality | Quarterly review minimum; after any warranty claim |
-| Customer scorecard review | Supplier quality | Monthly or per customer rhythm |
-| Lessons learned capture | APQP team | At SOP and at programme end |
-| Warranty and field return analysis | Supplier engineering | Per warranty cycle (monthly / quarterly) |
-| OTD and logistics performance review | Supplier logistics | Monthly |
-
----
-
-## 6. Gate Review Checklists
-
-### Gate 1 — End of Phase 1
-
-| Check | Pass Condition |
-|-------|---------------|
-| Customer requirements documented | VOC captured in measurable technical targets; signed off by both parties |
-| Feasibility confirmed | Formal feasibility commitment signed by supplier; no open technical blockers |
-| Preliminary BOM issued | All major components identified; sub-supplier strategy confirmed |
-| Special characteristics — preliminary list | At least a draft list exists; all high-risk characteristics flagged |
-| Programme timing plan | APQP milestone plan issued; PPAP submission date confirmed with customer |
-| Management resources committed | People, equipment budget, and capital approved |
-| No open feasibility blockers | No unresolved "cannot meet" items — all risks have mitigation plans |
-
-### Gate 2 — End of Phase 2
-
-| Check | Pass Condition |
-|-------|---------------|
-| DFMEA complete | All failure modes analysed; H-AP items have completed actions with evidence |
-| DVP issued and execution started | All H-AP failure modes have at least one test; prototype-phase tests underway |
-| Drawings released | Formal release; all referenced specs issued; revision-controlled |
-| Special characteristics finalised | SC/CC/KPC confirmed and applied to drawing with correct symbols |
-| Prototype build results acceptable | No unresolved failures from prototype DVP tests |
-| Gauge plan complete | All characteristics requiring MSA identified; gauge procurement started |
-| No blocking design concerns | No open DRB (Design Review Board) action items without an owner and due date |
-
-### Gate 3 — End of Phase 3
-
-| Check | Pass Condition |
-|-------|---------------|
-| Process Flow Chart complete | All operations documented; numbering matches PFMEA and CP |
-| PFMEA complete | All operations covered; H-AP actions closed; reviewed and signed off |
-| Pre-launch Control Plan approved | All SC/CC present; sample plan defined; reaction plans complete |
-| Process instructions complete | Work instructions for every operation; linked to CP rows |
-| MSA plan confirmed | Gauge R&R schedule locked; gauges procured or on order |
-| Tooling and equipment qualified | All production tooling installed; first-off-tool parts approved |
-| Packaging approved | Packaging design signed off; OEM label format confirmed |
-| No open blocking issues | All action items from process FMEA review closed or formally accepted |
-
-### Gate 4 — PPAP Approval (End of Phase 4)
-
-| Check | Pass Condition |
-|-------|---------------|
-| Significant production run complete | Minimum agreed quantity produced from production tooling at production conditions |
-| Dimensional results 100% conforming | Zero out-of-tolerance results across all ballooned dimensions, all sampled parts |
-| Initial process studies meet the applicable criteria for all SC/CC | Or customer-approved formal deviation with agreed containment |
-| MSA %GRR < 30% for all SC/CC gauges | Preferably < 10%; 10–30% requires customer concurrence |
-| All DVP tests passed | Zero open failures; any failures resolved with DFMEA update and re-test |
-| PPAP package complete | All 18 elements present, accepted, and documented |
-| Customer PPAP approval received | Written approval (email, portal status, PSW stamp) — not verbal confirmation |
-| No open customer concerns | No outstanding 8D, deviation, or corrective action from Phase 4 |
-
----
-
-## 7. Common Deliverable Gaps That Cause PPAP Failure
-
-| Gap | Phase where it originates | Effect at PPAP |
-|-----|--------------------------|----------------|
-| Special characteristics not identified in Phase 1/2 | Phase 1–2 | SC/CC missing from Control Plan and PFMEA — PPAP Elements 6 and 7 incomplete |
-| DVP not aligned to DFMEA | Phase 2 | H-AP failure modes have no test coverage — PPAP Element 10 fails audit |
-| PFMEA created after process is running | Phase 3 | PFMEA is documenting the process, not driving controls — detection controls in PFMEA do not match actual Control Plan |
-| Pre-launch CP used as Production CP | Phase 4 | Control Plan submitted to PPAP is not the production-level document — rejected |
-| MSA studies not completed before PPAP run | Phase 4 | Capability data is from an unvalidated measurement system — invalid |
-| Capability study run on pre-production parts | Phase 3–4 | Data from parts not produced at production tooling conditions — not valid for PPAP Element 11 |
-| Lessons learned not captured (Phase 5 skipped) | Phase 5 | Same PPAP gaps repeat on subsequent programmes; no institutional memory |
-| Prototype CP not replaced by Production CP | Phase 3–4 | PPAP Element 7 shows prototype-level controls only — missing production-specific controls and frequencies |
-| Gauge plan not executed — MSA missing for some characteristics | Phase 2–3 | Some SC/CC have no MSA — PPAP Element 8 incomplete |
-| Packaging specs not finalised before PPAP run | Phase 3–4 | Production parts shipped in uncertified packaging — PPAP package incomplete |
-
----
-
-## 8. APQP Deliverable to PPAP Element Cross-Reference
-
-| APQP Deliverable | APQP Phase | PPAP Element |
-|------------------|-----------|-------------|
-| Engineering Drawings — Released | 2 | Element 1 — Design Records |
-| Engineering Change Documents | 2–3 | Element 2 — Engineering Change Documents |
-| Customer Engineering Approval (design sign-off) | 2 | Element 3 — Customer Engineering Approval |
-| DFMEA | 2 | Element 4 — DFMEA |
-| Detailed Process Flow Chart | 3 | Element 5 — Process Flow Diagram |
-| PFMEA | 3 | Element 6 — PFMEA |
-| Production Control Plan | 4 | Element 7 — Control Plan |
-| MSA Studies (Gauge R&R) | 4 | Element 8 — Measurement System Analysis |
-| Dimensional Results (from PPAP run) | 4 | Element 9 — Dimensional Results |
-| Production Validation Testing (DVP&R results) | 4 | Element 10 — Material / Performance Test Results |
-| Process Capability Studies (from PPAP run) | 4 | Element 11 — Initial Process Studies |
-| Lab Documentation (ISO/IEC 17025 certs) | 4 | Element 12 — Qualified Laboratory Documentation |
-| Appearance Approval (customer AAR sign-off) | 2–4 | Element 13 — Appearance Approval Report |
-| Significant Production Run — sample parts | 4 | Element 14 — Sample Production Parts |
-| Master Sample retention | 4 | Element 15 — Master Sample |
-| Gauge Plan → gauges procured and calibrated | 3–4 | Element 16 — Checking Aids |
-| CSR Compliance / OEM-specific requirements | 1–4 | Element 17 — Customer-Specific Requirements |
-| Quality Planning Sign-Off + Management Support Sign-Off | 4 | Element 18 — Part Submission Warrant (PSW) |
-
-**Note:** Element 18 (PSW) is the culmination of the entire APQP programme — it can only be signed when all prior deliverables are complete and accepted. The PSW signature is the quality manager's attestation that the APQP process was followed.
-
----
-
 ## Source: skills/planning/apqp/SKILL.md
 
 ---
@@ -513,6 +288,482 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
 | 1.1.0 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum to Gate 4 criteria and Common Mistakes |
 | 2.0.0 | 2026-11-06 | @RBraga01 | Updated for AIAG APQP 3rd Edition (2024), aligned linked Core Tools and applied customer-approved initial study criteria at Gate 4. |
+
+---
+
+## Source: skills/planning/apqp/references/phase-deliverables.md
+
+---
+name: phase-deliverables
+type: reference
+parent_skill: apqp
+author: RBraga01
+version: "1.0.0"
+status: approved
+created: "2026-06-06"
+last_updated: "2026-06-06"
+updated_by: migmcc
+reviewed_by: RBraga01
+license: MIT
+---
+
+# APQP Phase Deliverables — Complete Reference
+
+Complete deliverables per phase with roles, timing, gate criteria, common gaps, and APQP-to-PPAP cross-reference.
+Use alongside the [apqp](../SKILL.md) skill.
+
+> **Scope:** This document covers the exhaustive deliverable list per APQP phase, responsible party, timing relative to SOP, gate review checklists, common deliverable gaps that cause PPAP failure, and the cross-reference mapping each APQP output to its corresponding PPAP element. For the phase-by-phase workflow and gate criteria, see [apqp SKILL.md](../SKILL.md).
+
+---
+
+## 1. Phase 1 — Plan and Define Program
+
+**Timing:** Complete 18–24 months before SOP (programme kickoff to design release kickoff)
+
+| Deliverable | Responsible | Customer / Supplier / Joint | Notes |
+|-------------|-------------|----------------------------|-------|
+| Voice of the Customer (VOC) | Customer + Supplier | Joint | Translated to measurable technical requirements; must cover QFD inputs if applicable |
+| Design Goals | Supplier (design-responsible) / Customer | Joint | Performance targets, tolerance targets, Cpk goals — must be quantified |
+| Reliability and Quality Goals | Supplier | Supplier | Warranty targets (e.g., B10 life), PPM goals, field failure rate target |
+| Preliminary Bill of Materials (BOM) | Supplier | Supplier | Draft BOM from design intent; identifies sub-suppliers and commodity risks |
+| Preliminary Process Flow | Supplier | Supplier | High-level sequence — not a detailed operation-by-operation flow |
+| Preliminary Special Characteristics | Joint | Joint | Initial list of SC/CC/KPC — will be refined through Phases 2 and 3 |
+| Product Assurance Plan | Supplier | Supplier | Programme quality plan: milestones, resources, risk register, test strategy |
+| Programme Timing Plan | Joint | Joint | APQP milestone timeline tied to SOP; must include all PPAP milestones |
+| Feasibility Commitment | Supplier | Supplier | Formal sign-off that the design is technically and commercially feasible |
+| Management Support / Programme Charter | Joint | Joint | Executive sign-off on resources, budget, and programme scope |
+
+**Gate 1 checklist:** See Section 3.
+
+---
+
+## 2. Phase 2 — Product Design and Development
+
+**Timing:** 12–15 months before SOP (design release to process design kickoff)
+
+| Deliverable | Responsible | Customer / Supplier / Joint | Notes |
+|-------------|-------------|----------------------------|-------|
+| Design FMEA (DFMEA) | Supplier (design-resp.) / Customer | Supplier or Joint | AIAG-VDA format preferred; all H-AP items addressed before gate |
+| Design Verification Plan (DVP&R) | Supplier | Supplier | Linked to DFMEA failure modes; every H-AP must have a test |
+| Engineering Drawings — Released | Customer / Supplier | Joint | Formally released drawings with tolerances; 3D model issued |
+| Material Specifications | Supplier | Supplier | Raw material specs confirmed; sub-supplier list initiated |
+| Prototype Control Plan | Supplier | Supplier | Describes controls for prototype builds — not reused for production |
+| New Equipment and Tooling — Identified | Supplier | Supplier | Capital expenditure plan; long-lead items ordered |
+| Updated Special Characteristics List | Joint | Joint | SC/CC/KPC confirmed from design detail; drawing symbols applied |
+| Gauge Plan (MSA Requirement List) | Supplier | Supplier | Lists every characteristic requiring an MSA study and the gauge type |
+| Prototype Build Completion | Supplier | Joint | Prototypes built, tested, results reviewed — DVP tests on prototypes executed |
+| Prototype Test Results | Supplier | Joint | Pass/Fail results from prototype-phase DVP tests; failures trigger DFMEA updates |
+| Engineering Drawing and Spec Changes | Joint | Joint | Change management process active; ECN/SREA log maintained |
+
+**Gate 2 checklist:** See Section 3.
+
+---
+
+## 3. Phase 3 — Process Design and Development
+
+**Timing:** 8–10 months before SOP (process design through tooling qualification)
+
+| Deliverable | Responsible | Customer / Supplier / Joint | Notes |
+|-------------|-------------|----------------------------|-------|
+| Detailed Process Flow Chart | Supplier | Supplier | Operation-by-operation; includes inspection steps, rework paths; feeds PFMEA |
+| Manufacturing Floor Plan Layout | Supplier | Supplier | Material flow, ergonomics, access confirmed; approved by plant management |
+| Characteristics Matrix | Supplier | Supplier | Links each process step to the product characteristics it affects |
+| Process FMEA (PFMEA) | Supplier | Supplier | AIAG-VDA format; all H-AP items closed before pre-launch; feeds Control Plan |
+| Pre-Launch Control Plan | Supplier | Supplier | Stricter sample sizes than production CP; 100% inspection common at this stage |
+| Process Instructions / Work Instructions | Supplier | Supplier | Step-by-step operator instructions for all operations; tied to Control Plan |
+| MSA Plan | Supplier | Supplier | Identifies which gauges require GR&R; assigns responsibility and schedule |
+| Preliminary Process Capability Study Plan | Supplier | Supplier | Documents sample size, characteristics, method and customer-approved index |
+| Packaging Standards — Design | Supplier | Joint | Packaging design approved; MMOG/LE materials flow if required |
+| Packaging Specifications | Joint | Joint | Final packaging specs including OEM-specific label requirements |
+| Product / Process Quality System Review | Customer | Joint | Internal quality system audit against customer IATF/VDA requirements |
+| Tooling and Equipment — Qualified | Supplier | Supplier | All production tooling installed and run-off at supplier; acceptance criteria met |
+
+**Gate 3 checklist:** See Section 3.
+
+---
+
+## 4. Phase 4 — Product and Process Validation
+
+**Timing:** 3–6 months before SOP (significant production run through PPAP approval)
+
+| Deliverable | Responsible | Customer / Supplier / Joint | Notes |
+|-------------|-------------|----------------------------|-------|
+| Significant Production Run (Trial Run) | Supplier | Supplier | Minimum run size as agreed with customer; typically ≥ 300 pieces or customer-defined |
+| MSA Studies (Gauge R&R) | Supplier | Supplier | GR&R completed for all SC/CC/KPC gauges; must meet %GRR < 30% |
+| Initial Process Studies | Supplier | Supplier | From significant production run; use the agreed index and limits for SC/CC |
+| Production Control Plan | Supplier | Joint | Final production CP; supersedes Pre-Launch CP; submitted as PPAP Element 7 |
+| PPAP Package (all 18 elements) | Supplier | Supplier | Complete submission; see ppap SKILL.md for element details |
+| Production Validation Testing (PVT) | Supplier / Customer | Joint | Final DVP tests on production parts; all tests must show Pass |
+| Packaging Evaluation | Supplier | Supplier | Production packaging validated (drop test, transit test, OEM label verification) |
+| Quality Planning Sign-Off | Joint | Joint | Customer PPAP approval; APQP completion confirmed |
+| Management Support Sign-Off | Supplier | Supplier | Internal executive approval to begin SOP shipments |
+
+**Gate 4 checklist (= PPAP approval criteria):** See Section 3.
+
+---
+
+## 5. Phase 5 — Feedback, Assessment and Corrective Action
+
+**Timing:** SOP onward — no end gate; runs for the life of the programme
+
+| Activity | Responsible | Frequency |
+|----------|-------------|-----------|
+| Process capability monitoring (SPC) | Supplier quality | Ongoing — per Control Plan frequency |
+| Control Plan updates (post-SOP issues) | Supplier quality | After any quality escape, corrective action, or PFMEA update |
+| PFMEA updates (warranty / field data) | Supplier engineering + quality | Quarterly review minimum; after any warranty claim |
+| Customer scorecard review | Supplier quality | Monthly or per customer rhythm |
+| Lessons learned capture | APQP team | At SOP and at programme end |
+| Warranty and field return analysis | Supplier engineering | Per warranty cycle (monthly / quarterly) |
+| OTD and logistics performance review | Supplier logistics | Monthly |
+
+---
+
+## 6. Gate Review Checklists
+
+### Gate 1 — End of Phase 1
+
+| Check | Pass Condition |
+|-------|---------------|
+| Customer requirements documented | VOC captured in measurable technical targets; signed off by both parties |
+| Feasibility confirmed | Formal feasibility commitment signed by supplier; no open technical blockers |
+| Preliminary BOM issued | All major components identified; sub-supplier strategy confirmed |
+| Special characteristics — preliminary list | At least a draft list exists; all high-risk characteristics flagged |
+| Programme timing plan | APQP milestone plan issued; PPAP submission date confirmed with customer |
+| Management resources committed | People, equipment budget, and capital approved |
+| No open feasibility blockers | No unresolved "cannot meet" items — all risks have mitigation plans |
+
+### Gate 2 — End of Phase 2
+
+| Check | Pass Condition |
+|-------|---------------|
+| DFMEA complete | All failure modes analysed; H-AP items have completed actions with evidence |
+| DVP issued and execution started | All H-AP failure modes have at least one test; prototype-phase tests underway |
+| Drawings released | Formal release; all referenced specs issued; revision-controlled |
+| Special characteristics finalised | SC/CC/KPC confirmed and applied to drawing with correct symbols |
+| Prototype build results acceptable | No unresolved failures from prototype DVP tests |
+| Gauge plan complete | All characteristics requiring MSA identified; gauge procurement started |
+| No blocking design concerns | No open DRB (Design Review Board) action items without an owner and due date |
+
+### Gate 3 — End of Phase 3
+
+| Check | Pass Condition |
+|-------|---------------|
+| Process Flow Chart complete | All operations documented; numbering matches PFMEA and CP |
+| PFMEA complete | All operations covered; H-AP actions closed; reviewed and signed off |
+| Pre-launch Control Plan approved | All SC/CC present; sample plan defined; reaction plans complete |
+| Process instructions complete | Work instructions for every operation; linked to CP rows |
+| MSA plan confirmed | Gauge R&R schedule locked; gauges procured or on order |
+| Tooling and equipment qualified | All production tooling installed; first-off-tool parts approved |
+| Packaging approved | Packaging design signed off; OEM label format confirmed |
+| No open blocking issues | All action items from process FMEA review closed or formally accepted |
+
+### Gate 4 — PPAP Approval (End of Phase 4)
+
+| Check | Pass Condition |
+|-------|---------------|
+| Significant production run complete | Minimum agreed quantity produced from production tooling at production conditions |
+| Dimensional results 100% conforming | Zero out-of-tolerance results across all ballooned dimensions, all sampled parts |
+| Initial process studies meet the applicable criteria for all SC/CC | Or customer-approved formal deviation with agreed containment |
+| MSA %GRR < 30% for all SC/CC gauges | Preferably < 10%; 10–30% requires customer concurrence |
+| All DVP tests passed | Zero open failures; any failures resolved with DFMEA update and re-test |
+| PPAP package complete | All 18 elements present, accepted, and documented |
+| Customer PPAP approval received | Written approval (email, portal status, PSW stamp) — not verbal confirmation |
+| No open customer concerns | No outstanding 8D, deviation, or corrective action from Phase 4 |
+
+---
+
+## 7. Common Deliverable Gaps That Cause PPAP Failure
+
+| Gap | Phase where it originates | Effect at PPAP |
+|-----|--------------------------|----------------|
+| Special characteristics not identified in Phase 1/2 | Phase 1–2 | SC/CC missing from Control Plan and PFMEA — PPAP Elements 6 and 7 incomplete |
+| DVP not aligned to DFMEA | Phase 2 | H-AP failure modes have no test coverage — PPAP Element 10 fails audit |
+| PFMEA created after process is running | Phase 3 | PFMEA is documenting the process, not driving controls — detection controls in PFMEA do not match actual Control Plan |
+| Pre-launch CP used as Production CP | Phase 4 | Control Plan submitted to PPAP is not the production-level document — rejected |
+| MSA studies not completed before PPAP run | Phase 4 | Capability data is from an unvalidated measurement system — invalid |
+| Capability study run on pre-production parts | Phase 3–4 | Data from parts not produced at production tooling conditions — not valid for PPAP Element 11 |
+| Lessons learned not captured (Phase 5 skipped) | Phase 5 | Same PPAP gaps repeat on subsequent programmes; no institutional memory |
+| Prototype CP not replaced by Production CP | Phase 3–4 | PPAP Element 7 shows prototype-level controls only — missing production-specific controls and frequencies |
+| Gauge plan not executed — MSA missing for some characteristics | Phase 2–3 | Some SC/CC have no MSA — PPAP Element 8 incomplete |
+| Packaging specs not finalised before PPAP run | Phase 3–4 | Production parts shipped in uncertified packaging — PPAP package incomplete |
+
+---
+
+## 8. APQP Deliverable to PPAP Element Cross-Reference
+
+| APQP Deliverable | APQP Phase | PPAP Element |
+|------------------|-----------|-------------|
+| Engineering Drawings — Released | 2 | Element 1 — Design Records |
+| Engineering Change Documents | 2–3 | Element 2 — Engineering Change Documents |
+| Customer Engineering Approval (design sign-off) | 2 | Element 3 — Customer Engineering Approval |
+| DFMEA | 2 | Element 4 — DFMEA |
+| Detailed Process Flow Chart | 3 | Element 5 — Process Flow Diagram |
+| PFMEA | 3 | Element 6 — PFMEA |
+| Production Control Plan | 4 | Element 7 — Control Plan |
+| MSA Studies (Gauge R&R) | 4 | Element 8 — Measurement System Analysis |
+| Dimensional Results (from PPAP run) | 4 | Element 9 — Dimensional Results |
+| Production Validation Testing (DVP&R results) | 4 | Element 10 — Material / Performance Test Results |
+| Process Capability Studies (from PPAP run) | 4 | Element 11 — Initial Process Studies |
+| Lab Documentation (ISO/IEC 17025 certs) | 4 | Element 12 — Qualified Laboratory Documentation |
+| Appearance Approval (customer AAR sign-off) | 2–4 | Element 13 — Appearance Approval Report |
+| Significant Production Run — sample parts | 4 | Element 14 — Sample Production Parts |
+| Master Sample retention | 4 | Element 15 — Master Sample |
+| Gauge Plan → gauges procured and calibrated | 3–4 | Element 16 — Checking Aids |
+| CSR Compliance / OEM-specific requirements | 1–4 | Element 17 — Customer-Specific Requirements |
+| Quality Planning Sign-Off + Management Support Sign-Off | 4 | Element 18 — Part Submission Warrant (PSW) |
+
+**Note:** Element 18 (PSW) is the culmination of the entire APQP programme — it can only be signed when all prior deliverables are complete and accepted. The PSW signature is the quality manager's attestation that the APQP process was followed.
+
+---
+
+## Source: skills/planning/control-plan/SKILL.md
+
+---
+name: control-plan
+description: >-
+  Control Plan — build, review, or audit a Prototype, Pre-launch, Production, or Safe Launch Control
+  Plan linked to PFMEA failure modes and controls. Use when creating a new control plan, updating
+  after a process change or corrective action, or auditing an existing CP for completeness and PFMEA
+  alignment. Covers AIAG Control Plan 1st Edition (2024) and IATF 16949 §8.5.1.
+license: MIT
+metadata:
+  author: RBraga01
+  version: "2.0.0"
+  iso-9001: "8.5.1"
+  iatf-16949: "8.5.1"
+  aiag-reference: "AIAG Control Plan 1st Edition (2024)"
+  domain: quality-engineering
+  subdomain: planning
+  industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-06"
+  last_updated: "2026-08-08"
+  updated_by: RBraga01
+  reviewed_by: migmcc
+  standard_edition: "AIAG Control Plan 1st Edition (2024) / IATF 16949:2016 §8.5.1"
+  supersedes_edition: "Control Plan chapter of AIAG APQP 2nd Edition (2008)"
+---
+
+# Control Plan
+
+## Standard edition and currency
+
+**The Control Plan is now its own manual: AIAG Control Plan 1st Edition, published
+March 2024.** Until then it was a chapter inside the APQP manual, carried forward into
+APQP 2nd Edition (2008). It was split out so it can be revised independently of APQP.
+
+Customer implementation followed the APQP 3rd Edition dates — **GM and Stellantis from
+1 September 2024, Ford from 31 December 2024**.
+
+**What the 1st Edition added** (structural, for orientation):
+
+| Area | Change |
+|---|---|
+| Safe Launch | Added as a control plan phase alongside Prototype, Pre-launch and Production |
+| Characteristics | Expanded treatment of special and pass-through characteristics |
+| Automation | Examples for highly automated manufacturing |
+| Tooling | Guidance on using software to develop and manage control plans, including generating them from the FMEA |
+| Auditing | Layered process audits as a control plan verification mechanism |
+| Support material | Revised examples, tables, forms and checklists |
+
+> **Currency limitation.** The row structure, PFMEA linkage and reaction plan logic
+> below are stable across editions and are described here in our own words. The 1st
+> Edition's forms, checklists and worked examples are manual content and are **not**
+> reproduced. For a customer submission or an audit, work from your licensed copy —
+> and note that most OEMs mandate their own control plan form regardless of the
+> AIAG format.
+
+---
+
+## When to use
+
+Use this skill when:
+- Creating a new Control Plan for prototype, pre-launch, or production
+- Reviewing an existing Control Plan for completeness and accuracy
+- Updating the CP after a process change, corrective action (D7), or PFMEA update
+- Auditing a supplier's Control Plan during qualification or an IATF audit
+- Linking PFMEA controls to the Control Plan after FMEA review
+
+## Prerequisites
+
+- Process Flow Diagram (required — CP must mirror the process flow sequence)
+- PFMEA (required — CP controls derive from PFMEA recommended actions)
+- Drawing with ballooned characteristics and tolerance data
+- List of special and significant characteristics (SC, CC, KPC, KCC)
+- MSA results for measurement systems referenced in the CP (for production CP)
+
+## Workflow
+
+### Step 1 — Determine the CP type
+
+| Type | When | Purpose |
+|------|------|---------|
+| **Prototype** | During prototype builds | Describes dimensional, material, and functional tests in prototype phase |
+| **Pre-launch** | After prototype, before PPAP | Describes controls in place during pilot/pre-production runs |
+| **Production** | After PPAP approval, at SOP | The living document — updated throughout product life |
+| **Safe Launch** | Early production, after SOP | Elevated controls held in place for a defined period or volume after launch, then formally exited back to the Production CP |
+
+These types may coexist during APQP phases. The Production CP is the one submitted as PPAP Element 7.
+
+**Safe Launch is new in the Control Plan 1st Edition (2024)** — the earlier three-type
+model did not include it. It formalises what many OEMs already required by customer-
+specific requirement: additional containment, higher inspection frequency or 100%
+verification during the initial production period, with defined exit criteria.
+
+If you use a Safe Launch CP, define the exit explicitly — by volume, by time, or by
+demonstrated capability — and record who authorises the exit. A Safe Launch plan with
+no exit criterion is the common failure: it either runs forever as hidden cost, or it
+is dropped silently with no evidence the risk was retired. Consult your customer's CSR
+and your licensed copy of the manual for the required content, which this skill does
+not reproduce.
+
+### Step 2 — Build the Control Plan structure
+
+The CP is a table with one row per characteristic per process step. Each row contains:
+
+**Header section (document-level):**
+- Control Plan number and revision
+- Part number and revision
+- Part name / description
+- Supplier / plant
+- Supplier code (OEM code)
+- Key contact / phone
+- Core team (multi-functional)
+- Date (original) and date (revised)
+- Customer engineering approval (name/date) — if required
+- Customer quality approval (name/date) — if required
+- Supplier approval (name/date)
+
+**Detail columns (one row per characteristic):**
+
+| Column | What to enter |
+|--------|--------------|
+| Part/process number | Reference number from Process Flow |
+| Process name / operation description | Name of the process step |
+| Machine, device, jig, or tool | Equipment used at this step |
+| Number | Characteristic number (links to balloon drawing) |
+| Product characteristic | Product feature being controlled (dimension, material property, appearance) |
+| Process characteristic | Process parameter being controlled (temperature, pressure, speed, torque) |
+| Special characteristic classification | SC, CC, KPC, KCC, *, ▲ per customer symbology |
+| Product/process specification / tolerance | Nominal value and tolerance band |
+| Evaluation / measurement technique | Gauge type, method, or test used |
+| Sample size | Number of parts per sample |
+| Frequency | How often samples are taken (every hour, every lot, 100%) |
+| Control method | How the process is controlled (SPC chart, go/no-go gauge, visual, 100% inspection) |
+| Reaction plan | What to do if out-of-control or out-of-specification (who, what action, containment) |
+
+### Step 3 — Populate from PFMEA
+
+For each high-severity failure mode in the PFMEA:
+1. Identify the current prevention and detection controls from the PFMEA
+2. Transfer these controls into the corresponding CP row
+3. The reaction plan must address what happens if the control detects a non-conformance
+
+Every special characteristic (SC, CC, ★, ◆) in the PFMEA must appear in the CP.
+Every recommended action completed in the PFMEA must be reflected in the updated CP controls.
+
+### Step 4 — Special characteristics — mandatory coverage
+
+| Classification | OEM symbol | CP requirement |
+|----------------|-----------|----------------|
+| Safety / Regulatory | ★ SC / ⬟ | 100% inspection OR demonstrated Cpk ≥ 1.67 + statistical monitoring |
+| Critical Characteristic | CC / ◆ | Same as above — automatic stop if out of spec |
+| Significant Characteristic | SC (Ford) / KPC | Process monitoring with defined sample plan and reaction |
+| Key Control Characteristic | KCC | Process parameter monitoring (not product) — SPC or other control |
+
+**OEM symbol conventions vary.** Always use the exact symbol specified in the customer's CSR:
+- Ford: CC (Critical Characteristic) and SC (Significant Characteristic) — do not use ★ or ◆
+- GM: ★ for safety-critical; Δ for significant
+- VW / Audi: D (design feature, = CC), E (significant characteristic), I (functional dimension) per FORMEL Q
+- BMW: G-SC (significant characteristic), G-CC (critical characteristic) per BMW standard
+- Stellantis: CC and SC per MAQMSR — requires AIAG-VDA FMEA format alignment
+
+Using the wrong symbol for the customer's OEM is an immediate finding at PPAP and IATF audit.
+
+For all special characteristics: the reaction plan must specify who is notified, containment action, and when the process can restart.
+
+### Step 5 — Reaction plan requirements
+
+Every row in the CP must have a reaction plan. Minimum requirements:
+
+- **Who** is responsible for taking action
+- **What** immediate containment is applied (tag, sort, hold, stop production)
+- **Who** is notified (supervisor, quality, engineering)
+- **When** production may restart (after what verification)
+- Reference to relevant Work Instruction or SOP for the reaction
+
+A reaction plan that says only "notify supervisor" or "quarantine parts" is insufficient — it must specify the next step after notification.
+
+### Step 6 — Audit an existing Control Plan
+
+When reviewing a supplier's or internal CP, check:
+
+**Structure:**
+- [ ] All process steps from the Process Flow are represented
+- [ ] Each special characteristic has its own dedicated row
+- [ ] Revision level matches the current PFMEA and drawing revision
+
+**Characteristics:**
+- [ ] All SC/CC/KPC/KCC are listed with correct classification symbols
+- [ ] Product AND process characteristics are both covered (not just product)
+- [ ] Tolerances match the current released drawing
+
+**Controls:**
+- [ ] Measurement technique is specific (gauge type, not just "measure")
+- [ ] Sample size and frequency are defined (not "as required" or "as needed")
+- [ ] 100% inspection is specified where Cpk < 1.33
+- [ ] SPC control charts are specified for characteristics where they are required
+
+**Reaction plan:**
+- [ ] Every row has a reaction plan
+- [ ] Reaction plans specify concrete actions (not just "notify supervisor")
+- [ ] Reaction plans are consistent with PFMEA failure mode severity
+
+**Alignment:**
+- [ ] CP controls match PFMEA current controls column for each failure mode
+- [ ] Completed PFMEA recommended actions are reflected in updated controls
+- [ ] CP revision date is more recent than most recent PFMEA update date
+
+## Validation criteria
+
+A complete Production Control Plan for PPAP submission must:
+- Cover every operation in the Process Flow
+- Include every special and significant characteristic with correct classification
+- Have a MSA-validated measurement system for every variable characteristic on SC/CC
+- Have a reaction plan for every row
+- Be signed by the APQP team (multi-functional) and have customer approval if required
+- Match the PFMEA revision level
+
+## Common mistakes
+
+- Control Plan created without reference to PFMEA — controls are generic, not linked to actual failure modes
+- Reaction plan says "notify supervisor" only — not a reaction plan, just escalation
+- Missing process characteristics — CP only controls product dimensions, not process parameters like temperature or torque
+- Sample plan says "as required" — must specify a number and frequency
+- SC/CC characteristics not identified with correct customer symbol — auditor will flag this immediately
+- CP not updated after D7 of an 8D — the most common disconnect in corrective action systems
+- Gauge type not specified — "visual inspection" or "measure" is not sufficient; must name the tool
+
+## Output Format
+
+At the start of each use, ask the user:
+
+> "How would you like to receive the output?
+> **A** — Structured Markdown (formatted tables and sections, ready to copy)
+> **B** — Plain tables (simplified structure for Excel or Word)
+> **C** — Narrative report (flowing text for a formal document or email)
+>
+> Default: A."
+
+Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added OEM-specific special characteristic symbol conventions (Ford, GM, VW, BMW, Stellantis) in Step 4 |
+| 1.2.0 | 2026-08-08 | @RBraga01 | Updated for AIAG Control Plan 1st Edition (2024), including Safe Launch guidance. |
 
 ---
 
@@ -821,22 +1072,21 @@ How each PFMEA column informs the corresponding Control Plan column.
 
 ---
 
-## Source: skills/planning/control-plan/SKILL.md
+## Source: skills/planning/dvp-test-plan/SKILL.md
 
 ---
-name: control-plan
+name: dvp-test-plan
 description: >-
-  Control Plan — build, review, or audit a Prototype, Pre-launch, Production, or Safe Launch Control
-  Plan linked to PFMEA failure modes and controls. Use when creating a new control plan, updating
-  after a process change or corrective action, or auditing an existing CP for completeness and PFMEA
-  alignment. Covers AIAG Control Plan 1st Edition (2024) and IATF 16949 §8.5.1.
+  Design Verification Plan and Report (DVP&R) — build or review a test plan that links each DFMEA
+  failure mode to a specific test, pass/fail criterion, sample size, and timing. Use when creating
+  a DVP for a new design, reviewing a supplier's DVP for completeness, or auditing whether all
+  design risks are covered by validation testing. Covers IATF 16949 §8.3.4.3 and AIAG APQP Phase 2.
 license: MIT
 metadata:
   author: RBraga01
-  version: "2.0.0"
-  iso-9001: "8.5.1"
-  iatf-16949: "8.5.1"
-  aiag-reference: "AIAG Control Plan 1st Edition (2024)"
+  version: "1.2.0"
+  iso-9001: "8.3.4"
+  iatf-16949: "8.3.4.3"
   domain: quality-engineering
   subdomain: planning
   industries: automotive,electronics,aerospace,medical,general
@@ -845,209 +1095,135 @@ metadata:
   last_updated: "2026-08-08"
   updated_by: RBraga01
   reviewed_by: migmcc
-  standard_edition: "AIAG Control Plan 1st Edition (2024) / IATF 16949:2016 §8.5.1"
-  supersedes_edition: "Control Plan chapter of AIAG APQP 2nd Edition (2008)"
+  standard_edition: "IATF 16949:2016 §8.3.4.3 / AIAG APQP 3rd Edition (2024)"
 ---
 
-# Control Plan
-
-## Standard edition and currency
-
-**The Control Plan is now its own manual: AIAG Control Plan 1st Edition, published
-March 2024.** Until then it was a chapter inside the APQP manual, carried forward into
-APQP 2nd Edition (2008). It was split out so it can be revised independently of APQP.
-
-Customer implementation followed the APQP 3rd Edition dates — **GM and Stellantis from
-1 September 2024, Ford from 31 December 2024**.
-
-**What the 1st Edition added** (structural, for orientation):
-
-| Area | Change |
-|---|---|
-| Safe Launch | Added as a control plan phase alongside Prototype, Pre-launch and Production |
-| Characteristics | Expanded treatment of special and pass-through characteristics |
-| Automation | Examples for highly automated manufacturing |
-| Tooling | Guidance on using software to develop and manage control plans, including generating them from the FMEA |
-| Auditing | Layered process audits as a control plan verification mechanism |
-| Support material | Revised examples, tables, forms and checklists |
-
-> **Currency limitation.** The row structure, PFMEA linkage and reaction plan logic
-> below are stable across editions and are described here in our own words. The 1st
-> Edition's forms, checklists and worked examples are manual content and are **not**
-> reproduced. For a customer submission or an audit, work from your licensed copy —
-> and note that most OEMs mandate their own control plan form regardless of the
-> AIAG format.
-
----
+# Design Verification Plan and Report (DVP&R)
 
 ## When to use
 
 Use this skill when:
-- Creating a new Control Plan for prototype, pre-launch, or production
-- Reviewing an existing Control Plan for completeness and accuracy
-- Updating the CP after a process change, corrective action (D7), or PFMEA update
-- Auditing a supplier's Control Plan during qualification or an IATF audit
-- Linking PFMEA controls to the Control Plan after FMEA review
+- Creating a DVP for a new part design during APQP Phase 2
+- Reviewing a supplier's DVP for completeness and DFMEA alignment
+- Determining which tests are required for a specific failure mode or design characteristic
+- Tracking test completion and recording results (the "R" in DVP&R)
+- Assessing whether a design change requires additional validation testing
 
 ## Prerequisites
 
-- Process Flow Diagram (required — CP must mirror the process flow sequence)
-- PFMEA (required — CP controls derive from PFMEA recommended actions)
-- Drawing with ballooned characteristics and tolerance data
-- List of special and significant characteristics (SC, CC, KPC, KCC)
-- MSA results for measurement systems referenced in the CP (for production CP)
+- DFMEA with all failure modes identified and AP ratings assigned
+- Engineering drawing with all characteristics defined
+- Customer design specifications and performance requirements
+- List of applicable standards and test methods (customer spec, ISO, SAE, etc.)
 
 ## Workflow
 
-### Step 1 — Determine the CP type
+### Step 1 — Understand the DVP structure
 
-| Type | When | Purpose |
-|------|------|---------|
-| **Prototype** | During prototype builds | Describes dimensional, material, and functional tests in prototype phase |
-| **Pre-launch** | After prototype, before PPAP | Describes controls in place during pilot/pre-production runs |
-| **Production** | After PPAP approval, at SOP | The living document — updated throughout product life |
-| **Safe Launch** | Early production, after SOP | Elevated controls held in place for a defined period or volume after launch, then formally exited back to the Production CP |
+The DVP&R is a table with one row per test. Each test must address at least one failure mode or design characteristic from the DFMEA.
 
-These types may coexist during APQP phases. The Production CP is the one submitted as PPAP Element 7.
+**The linkage rule:** Every H-AP (High Action Priority) failure mode in the DFMEA must have at least one corresponding test in the DVP. If a failure mode has no test, document why (e.g., analysis-only justification with sign-off).
 
-**Safe Launch is new in the Control Plan 1st Edition (2024)** — the earlier three-type
-model did not include it. It formalises what many OEMs already required by customer-
-specific requirement: additional containment, higher inspection frequency or 100%
-verification during the initial production period, with defined exit criteria.
-
-If you use a Safe Launch CP, define the exit explicitly — by volume, by time, or by
-demonstrated capability — and record who authorises the exit. A Safe Launch plan with
-no exit criterion is the common failure: it either runs forever as hidden cost, or it
-is dropped silently with no evidence the risk was retired. Consult your customer's CSR
-and your licensed copy of the manual for the required content, which this skill does
-not reproduce.
-
-### Step 2 — Build the Control Plan structure
-
-The CP is a table with one row per characteristic per process step. Each row contains:
-
-**Header section (document-level):**
-- Control Plan number and revision
-- Part number and revision
-- Part name / description
-- Supplier / plant
-- Supplier code (OEM code)
-- Key contact / phone
-- Core team (multi-functional)
-- Date (original) and date (revised)
-- Customer engineering approval (name/date) — if required
-- Customer quality approval (name/date) — if required
-- Supplier approval (name/date)
-
-**Detail columns (one row per characteristic):**
+### Step 2 — Build each DVP row
 
 | Column | What to enter |
 |--------|--------------|
-| Part/process number | Reference number from Process Flow |
-| Process name / operation description | Name of the process step |
-| Machine, device, jig, or tool | Equipment used at this step |
-| Number | Characteristic number (links to balloon drawing) |
-| Product characteristic | Product feature being controlled (dimension, material property, appearance) |
-| Process characteristic | Process parameter being controlled (temperature, pressure, speed, torque) |
-| Special characteristic classification | SC, CC, KPC, KCC, *, ▲ per customer symbology |
-| Product/process specification / tolerance | Nominal value and tolerance band |
-| Evaluation / measurement technique | Gauge type, method, or test used |
-| Sample size | Number of parts per sample |
-| Frequency | How often samples are taken (every hour, every lot, 100%) |
-| Control method | How the process is controlled (SPC chart, go/no-go gauge, visual, 100% inspection) |
-| Reaction plan | What to do if out-of-control or out-of-specification (who, what action, containment) |
+| Test number | Sequential reference (e.g., DVP-001) |
+| DFMEA reference | Failure mode number(s) this test addresses |
+| Test name / description | Specific name of the test (not "durability test" — use "salt spray 240h per ASTM B117") |
+| Test specification | Standard or specification number with version (e.g., ASTM B117-19, SAE J2530, customer spec DS-XYZ) |
+| Pass/fail criteria | Exact acceptance criteria (e.g., "no rust after 240h", "burst pressure > 150 bar", "dimension within ±0.05 mm") |
+| Sample size | Number of parts to test |
+| Who performs | Internal lab, external accredited lab, customer lab |
+| Phase | P = Prototype, PL = Pre-launch, PR = Production |
+| Planned date | Date test is scheduled to complete |
+| Actual date | Date test was completed |
+| Result | Pass / Fail / In progress |
+| Report reference | Lab report number or document reference |
+| Comments | Failures, deviations, re-test requirements |
 
-### Step 3 — Populate from PFMEA
+### Step 3 — Determine required tests
 
-For each high-severity failure mode in the PFMEA:
-1. Identify the current prevention and detection controls from the PFMEA
-2. Transfer these controls into the corresponding CP row
-3. The reaction plan must address what happens if the control detects a non-conformance
+For each DFMEA failure mode, identify the test category:
 
-Every special characteristic (SC, CC, ★, ◆) in the PFMEA must appear in the CP.
-Every recommended action completed in the PFMEA must be reflected in the updated CP controls.
+**Functional / performance tests:**
+- Tests that verify the product performs its intended function
+- Examples: burst pressure, tensile strength, electrical resistance, flow rate
+- Must demonstrate the product meets its design intent specifications
 
-### Step 4 — Special characteristics — mandatory coverage
+**Environmental / durability tests:**
+- Tests that simulate the product's operating environment over its design life
+- Examples: thermal cycling, salt spray, vibration, UV exposure, humidity
+- Duration and cycles must represent the design life or accelerated equivalent
 
-| Classification | OEM symbol | CP requirement |
-|----------------|-----------|----------------|
-| Safety / Regulatory | ★ SC / ⬟ | 100% inspection OR demonstrated Cpk ≥ 1.67 + statistical monitoring |
-| Critical Characteristic | CC / ◆ | Same as above — automatic stop if out of spec |
-| Significant Characteristic | SC (Ford) / KPC | Process monitoring with defined sample plan and reaction |
-| Key Control Characteristic | KCC | Process parameter monitoring (not product) — SPC or other control |
+**Safety / regulatory tests:**
+- Tests required by law, regulation, or homologation
+- Examples: ECE R10 (EMC), FMVSS standards, ECE R94/R95 (crash), REACH, RoHS
+- Must be performed by accredited lab; results must accompany PPAP
 
-**OEM symbol conventions vary.** Always use the exact symbol specified in the customer's CSR:
-- Ford: CC (Critical Characteristic) and SC (Significant Characteristic) — do not use ★ or ◆
-- GM: ★ for safety-critical; Δ for significant
-- VW / Audi: D (design feature, = CC), E (significant characteristic), I (functional dimension) per FORMEL Q
-- BMW: G-SC (significant characteristic), G-CC (critical characteristic) per BMW standard
-- Stellantis: CC and SC per MAQMSR — requires AIAG-VDA FMEA format alignment
+**Dimensional / material tests:**
+- Verification that design dimensions and material properties are achieved
+- Examples: 3D scan, CMM, tensile test, hardness test, chemical composition
+- Must reference the specific drawing characteristic or material specification
 
-Using the wrong symbol for the customer's OEM is an immediate finding at PPAP and IATF audit.
+**Reliability / life tests:**
+- Tests that verify the product meets its reliability target (e.g., B10 life)
+- Examples: fatigue testing, accelerated aging, wear testing
+- Test plan must include correlation between accelerated test and field life
 
-For all special characteristics: the reaction plan must specify who is notified, containment action, and when the process can restart.
+### Step 4 — Populate timing per APQP phase
 
-### Step 5 — Reaction plan requirements
+| Phase | Tests due |
+|-------|-----------|
+| Prototype (P) | Tests on design concept — functional, dimensional, preliminary environmental |
+| Pre-launch (PL) | Tests on tooled parts — full environmental, durability, all safety/regulatory |
+| Production (PR) | Confirmation tests on production parts — dimensional, safety, any tests with production-specific requirements |
 
-Every row in the CP must have a reaction plan. Minimum requirements:
+Not all tests need to run in all phases. Focus safety and regulatory tests on Pre-launch or Production parts.
 
-- **Who** is responsible for taking action
-- **What** immediate containment is applied (tag, sort, hold, stop production)
-- **Who** is notified (supervisor, quality, engineering)
-- **When** production may restart (after what verification)
-- Reference to relevant Work Instruction or SOP for the reaction
+### Step 5 — Track completion (the "R" in DVP&R)
 
-A reaction plan that says only "notify supervisor" or "quarantine parts" is insufficient — it must specify the next step after notification.
+Update the DVP after each test:
+- Record actual completion date
+- Record Pass/Fail result
+- For any Fail: log a DFMEA action (or open an 8D if failure escapes to customer)
+- Re-test after corrective action — reference the re-test as a new row with the original DVP number + suffix (e.g., DVP-012-R1)
 
-### Step 6 — Audit an existing Control Plan
+At PPAP submission: all DVP tests must show "Pass" or have a documented customer-approved deviation. If a test is still in progress at PPAP submission (e.g., a long-duration life test), a formal customer deviation request must be submitted with: the test in progress, the expected completion date, the interim risk assessment, and the customer's written acceptance. The PPAP approval will be conditional until the test completes with a Pass result.
 
-When reviewing a supplier's or internal CP, check:
+**Engineering changes:** If the DFMEA is updated during the design phase and adds new H-AP failure modes, the DVP must be updated to cover them before the next gate review. A DVP revision that is behind the current DFMEA revision is a gap — the DVP&R revision must match or exceed the DFMEA revision at PPAP submission.
 
-**Structure:**
-- [ ] All process steps from the Process Flow are represented
-- [ ] Each special characteristic has its own dedicated row
-- [ ] Revision level matches the current PFMEA and drawing revision
+### Step 6 — Audit an existing DVP
 
-**Characteristics:**
-- [ ] All SC/CC/KPC/KCC are listed with correct classification symbols
-- [ ] Product AND process characteristics are both covered (not just product)
-- [ ] Tolerances match the current released drawing
+When reviewing a supplier's or internal DVP, check:
 
-**Controls:**
-- [ ] Measurement technique is specific (gauge type, not just "measure")
-- [ ] Sample size and frequency are defined (not "as required" or "as needed")
-- [ ] 100% inspection is specified where Cpk < 1.33
-- [ ] SPC control charts are specified for characteristics where they are required
-
-**Reaction plan:**
-- [ ] Every row has a reaction plan
-- [ ] Reaction plans specify concrete actions (not just "notify supervisor")
-- [ ] Reaction plans are consistent with PFMEA failure mode severity
-
-**Alignment:**
-- [ ] CP controls match PFMEA current controls column for each failure mode
-- [ ] Completed PFMEA recommended actions are reflected in updated controls
-- [ ] CP revision date is more recent than most recent PFMEA update date
+- [ ] Every H-AP DFMEA failure mode has at least one corresponding test
+- [ ] Test specifications reference a specific standard or document (not "internal test")
+- [ ] Pass/fail criteria are objective and measurable (not "acceptable appearance")
+- [ ] Sample sizes are adequate (not "1 sample" for durability/life tests)
+- [ ] Safety and regulatory tests are assigned to an accredited external lab
+- [ ] All results show "Pass" (or documented deviations with customer approval)
+- [ ] Failed tests have a corresponding DFMEA update or corrective action reference
+- [ ] DVP revision is aligned with the current DFMEA revision
 
 ## Validation criteria
 
-A complete Production Control Plan for PPAP submission must:
-- Cover every operation in the Process Flow
-- Include every special and significant characteristic with correct classification
-- Have a MSA-validated measurement system for every variable characteristic on SC/CC
-- Have a reaction plan for every row
-- Be signed by the APQP team (multi-functional) and have customer approval if required
-- Match the PFMEA revision level
+A complete DVP&R for PPAP submission must:
+- Reference every H-AP failure mode from the DFMEA
+- Have specific, standard-referenced test methods (not "per engineering judgement")
+- Show Pass results for all tests (or customer-approved deviations)
+- Have accredited lab reports for all safety/regulatory tests
+- Be signed off by design engineering and quality
 
 ## Common mistakes
 
-- Control Plan created without reference to PFMEA — controls are generic, not linked to actual failure modes
-- Reaction plan says "notify supervisor" only — not a reaction plan, just escalation
-- Missing process characteristics — CP only controls product dimensions, not process parameters like temperature or torque
-- Sample plan says "as required" — must specify a number and frequency
-- SC/CC characteristics not identified with correct customer symbol — auditor will flag this immediately
-- CP not updated after D7 of an 8D — the most common disconnect in corrective action systems
-- Gauge type not specified — "visual inspection" or "measure" is not sufficient; must name the tool
+- DVP created with generic tests not linked to specific DFMEA failure modes
+- Pass/fail criteria defined as "meets spec" without stating what the spec is
+- All tests assigned to internal lab when regulatory tests require external accreditation
+- DVP not updated when DFMEA adds new H-AP failure modes during design reviews
+- Re-tests after failures not documented — original Fail result erased
+- Sample size of 1 for durability or life tests (statistically meaningless)
+- DVP not updated to "Report" status at PPAP — submitted as plan, not results
 
 ## Output Format
 
@@ -1067,8 +1243,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1.0 | 2026-06-06 | @migmcc | Added OEM-specific special characteristic symbol conventions (Ford, GM, VW, BMW, Stellantis) in Step 4 |
-| 1.2.0 | 2026-08-08 | @RBraga01 | Updated for AIAG Control Plan 1st Edition (2024), including Safe Launch guidance. |
+| 1.1.0 | 2026-06-06 | @migmcc | Added guidance for tests in-progress at PPAP submission (customer deviation process); added DVP revision synchronisation with DFMEA requirement |
+| 1.2.0 | 2026-08-08 | @RBraga01 | Updated APQP reference to the 3rd Edition (2024). |
 
 ---
 
@@ -1481,158 +1657,219 @@ How to establish and verify the bi-directional link between each DVP test row an
 
 ---
 
-## Source: skills/planning/dvp-test-plan/SKILL.md
+## Source: skills/planning/ppap/SKILL.md
 
 ---
-name: dvp-test-plan
+name: ppap
 description: >-
-  Design Verification Plan and Report (DVP&R) — build or review a test plan that links each DFMEA
-  failure mode to a specific test, pass/fail criterion, sample size, and timing. Use when creating
-  a DVP for a new design, reviewing a supplier's DVP for completeness, or auditing whether all
-  design risks are covered by validation testing. Covers IATF 16949 §8.3.4.3 and AIAG APQP Phase 2.
+  Production Part Approval Process (PPAP) — verify PPAP submission level, audit all 18 elements,
+  check completeness for customer approval, prepare PSW. Use when a supplier needs to submit parts
+  for approval, when reviewing a PPAP package, or when determining which PPAP level is required.
+  Covers AIAG PPAP 4th edition with Ford, BMW, VW, and Stellantis OEM-specific requirements.
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.2.0"
-  iso-9001: "8.3.4"
-  iatf-16949: "8.3.4.3"
+  version: "2.0.0"
+  iso-9001: "8.4"
+  iatf-16949: "8.3.4, 8.4.1"
+  aiag-reference: "AIAG PPAP 4th Edition"
   domain: quality-engineering
   subdomain: planning
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-08-08"
-  updated_by: RBraga01
-  reviewed_by: migmcc
-  standard_edition: "IATF 16949:2016 §8.3.4.3 / AIAG APQP 3rd Edition (2024)"
+  last_updated: "2026-11-06"
+  updated_by: migmcc
+  reviewed_by: RBraga01
+  standard_edition: "AIAG PPAP 4th Edition (2006)"
 ---
 
-# Design Verification Plan and Report (DVP&R)
+# Production Part Approval Process (PPAP)
 
 ## When to use
 
 Use this skill when:
-- Creating a DVP for a new part design during APQP Phase 2
-- Reviewing a supplier's DVP for completeness and DFMEA alignment
-- Determining which tests are required for a specific failure mode or design characteristic
-- Tracking test completion and recording results (the "R" in DVP&R)
-- Assessing whether a design change requires additional validation testing
+- A supplier must submit parts for customer approval before Start of Production (SOP)
+- A design change, process change, or engineering change requires re-submission
+- An OEM or Tier 1 customer requests a PPAP at a specific level
+- Reviewing or auditing an incoming PPAP package from a supplier
+- Determining what PPAP level is required for a given change
 
 ## Prerequisites
 
-- DFMEA with all failure modes identified and AP ratings assigned
-- Engineering drawing with all characteristics defined
-- Customer design specifications and performance requirements
-- List of applicable standards and test methods (customer spec, ISO, SAE, etc.)
+- Part number, revision level, and customer drawing
+- Bill of Materials (BOM) if applicable
+- Production process flow and manufacturing location confirmed
+- Customer's PPAP level requirement (Level 1–5) or change category known
 
 ## Workflow
 
-### Step 1 — Understand the DVP structure
+### Step 1 — Determine the PPAP Level
 
-The DVP&R is a table with one row per test. Each test must address at least one failure mode or design characteristic from the DFMEA.
+| Level | What must be submitted |
+|-------|----------------------|
+| 1 | Part Submission Warrant (PSW) only — no supporting documents unless requested |
+| 2 | PSW + designated samples + limited supporting data |
+| 3 | PSW + product samples + complete supporting data (default for new parts) |
+| 4 | PSW + other requirements as defined by the customer |
+| 5 | PSW + parts and complete supporting data — reviewed at the supplier's manufacturing location |
 
-**The linkage rule:** Every H-AP (High Action Priority) failure mode in the DFMEA must have at least one corresponding test in the DVP. If a failure mode has no test, document why (e.g., analysis-only justification with sign-off).
+**Default:** Level 3 for new parts or significant changes. Always confirm with the customer before submitting.
 
-### Step 2 — Build each DVP row
+### Step 2 — Identify the change category
 
-| Column | What to enter |
-|--------|--------------|
-| Test number | Sequential reference (e.g., DVP-001) |
-| DFMEA reference | Failure mode number(s) this test addresses |
-| Test name / description | Specific name of the test (not "durability test" — use "salt spray 240h per ASTM B117") |
-| Test specification | Standard or specification number with version (e.g., ASTM B117-19, SAE J2530, customer spec DS-XYZ) |
-| Pass/fail criteria | Exact acceptance criteria (e.g., "no rust after 240h", "burst pressure > 150 bar", "dimension within ±0.05 mm") |
-| Sample size | Number of parts to test |
-| Who performs | Internal lab, external accredited lab, customer lab |
-| Phase | P = Prototype, PL = Pre-launch, PR = Production |
-| Planned date | Date test is scheduled to complete |
-| Actual date | Date test was completed |
-| Result | Pass / Fail / In progress |
-| Report reference | Lab report number or document reference |
-| Comments | Failures, deviations, re-test requirements |
+PPAP re-submission is required for:
+- New part or product
+- Engineering change (design revision)
+- Change of supplier (sub-supplier, raw material)
+- Change of manufacturing location, process, or tooling
+- Change that affects fit, form, or function
+- Corrective action following a field failure or customer complaint
+- Production interruption >12 months
 
-### Step 3 — Determine required tests
+### Step 3 — Prepare all 18 PPAP elements
 
-For each DFMEA failure mode, identify the test category:
+**Production trial run minimum:** Unless otherwise specified in writing by the authorised customer representative, the production trial run must consist of a **minimum of 300 consecutive parts** produced at the production rate, using production tooling, production process, production operators, and production tooling (AIAG PPAP 4th ed §4.0). This run generates the PPAP samples (Element 14), dimensional results (Element 9), and capability data (Element 11). A run shorter than 300 consecutive parts requires explicit written customer authorisation before PSW can be signed.
 
-**Functional / performance tests:**
-- Tests that verify the product performs its intended function
-- Examples: burst pressure, tensile strength, electrical resistance, flow rate
-- Must demonstrate the product meets its design intent specifications
+Verify each element against the level requirement. For Level 3 (default):
 
-**Environmental / durability tests:**
-- Tests that simulate the product's operating environment over its design life
-- Examples: thermal cycling, salt spray, vibration, UV exposure, humidity
-- Duration and cycles must represent the design life or accelerated equivalent
+**Element 1 — Design Records**
+- Customer drawing (latest revision, stamped/approved)
+- Math data if applicable (3D model)
+- All referenced specifications
 
-**Safety / regulatory tests:**
-- Tests required by law, regulation, or homologation
-- Examples: ECE R10 (EMC), FMVSS standards, ECE R94/R95 (crash), REACH, RoHS
-- Must be performed by accredited lab; results must accompany PPAP
+**Element 2 — Engineering Change Documents**
+- Approved change documentation (ECN, SREA, or equivalent)
+- Required only if an authorized engineering change is in process
 
-**Dimensional / material tests:**
-- Verification that design dimensions and material properties are achieved
-- Examples: 3D scan, CMM, tensile test, hardness test, chemical composition
-- Must reference the specific drawing characteristic or material specification
+**Element 3 — Customer Engineering Approval**
+- Written approval from customer engineering (if design is customer-owned)
+- Engineering sign-off or deviation/waiver reference number
 
-**Reliability / life tests:**
-- Tests that verify the product meets its reliability target (e.g., B10 life)
-- Examples: fatigue testing, accelerated aging, wear testing
-- Test plan must include correlation between accelerated test and field life
+**Element 4 — DFMEA**
+- Customer-approved Design FMEA (if design is supplier-responsible)
+- Review all H-AP items for completion before submission
 
-### Step 4 — Populate timing per APQP phase
+**Element 5 — Process Flow Diagram**
+- Sequence of all operations from incoming material to shipment
+- Includes: incoming inspection, all process steps, sub-supplier operations, final inspection, packaging
 
-| Phase | Tests due |
-|-------|-----------|
-| Prototype (P) | Tests on design concept — functional, dimensional, preliminary environmental |
-| Pre-launch (PL) | Tests on tooled parts — full environmental, durability, all safety/regulatory |
-| Production (PR) | Confirmation tests on production parts — dimensional, safety, any tests with production-specific requirements |
+**Element 6 — PFMEA**
+- Process FMEA aligned to the Process Flow
+- All H-AP items must have completed actions before PPAP
+- Reviewed and signed off by responsible engineer
 
-Not all tests need to run in all phases. Focus safety and regulatory tests on Pre-launch or Production parts.
+**Element 7 — Control Plan**
+- Covers all phases: Prototype, Pre-launch, and Production
+- Linked to PFMEA failure modes and controls
+- Includes: characteristics, measurement method, sample size/frequency, reaction plan
 
-### Step 5 — Track completion (the "R" in DVP&R)
+**Element 8 — Measurement System Analysis (MSA)**
+- Gauge R&R study for each measurement system used on special and significant characteristics
+- Acceptance criteria: %GRR < 10% preferred, <30% conditional
+- Number of distinct categories (ndc) ≥ 5
 
-Update the DVP after each test:
-- Record actual completion date
-- Record Pass/Fail result
-- For any Fail: log a DFMEA action (or open an 8D if failure escapes to customer)
-- Re-test after corrective action — reference the re-test as a new row with the original DVP number + suffix (e.g., DVP-012-R1)
+**Element 9 — Dimensional Results**
+- Balloon drawing with all dimensions/tolerances numbered
+- Measurement results for each ballooned characteristic
+- Minimum 5 parts per cavity/spindle; identify each part
+- All results must be within specification (100% conforming for PPAP)
 
-At PPAP submission: all DVP tests must show "Pass" or have a documented customer-approved deviation. If a test is still in progress at PPAP submission (e.g., a long-duration life test), a formal customer deviation request must be submitted with: the test in progress, the expected completion date, the interim risk assessment, and the customer's written acceptance. The PPAP approval will be conditional until the test completes with a Pass result.
+**Element 10 — Material Performance Test Results**
+- Functional and durability test results per customer/engineering specification
+- Test reports from customer-approved laboratories
+- All tests passed with certificate of conformance
 
-**Engineering changes:** If the DFMEA is updated during the design phase and adds new H-AP failure modes, the DVP must be updated to cover them before the next gate review. A DVP revision that is behind the current DFMEA revision is a gap — the DVP&R revision must match or exceed the DFMEA revision at PPAP submission.
+**Element 11 — Initial Process Studies (Statistical)**
+- Capability studies for all special characteristics (Sc, CC, SC)
+- Apply the customer-approved initial-study index and acceptance criteria. Use Ppk when long-term stability has not been demonstrated.
+- Follow the [SPC initial study decision table](../../measurement/spc-control-charts/SKILL.md#acceptance-criteria) when no customer-specific criteria supersede it. Escalate a below-criteria result before submission.
 
-### Step 6 — Audit an existing DVP
+**Element 12 — Qualified Laboratory Documentation**
+- Test reports must be from accredited laboratories (ISO/IEC 17025 preferred)
+- In-house labs: scope of accreditation must cover the tests performed
 
-When reviewing a supplier's or internal DVP, check:
+**Element 13 — Appearance Approval Report (AAR)**
+- Required only for appearance-critical parts
+- Customer sign-off on colour, grain, gloss, and appearance attributes
 
-- [ ] Every H-AP DFMEA failure mode has at least one corresponding test
-- [ ] Test specifications reference a specific standard or document (not "internal test")
-- [ ] Pass/fail criteria are objective and measurable (not "acceptable appearance")
-- [ ] Sample sizes are adequate (not "1 sample" for durability/life tests)
-- [ ] Safety and regulatory tests are assigned to an accredited external lab
-- [ ] All results show "Pass" (or documented deviations with customer approval)
-- [ ] Failed tests have a corresponding DFMEA update or corrective action reference
-- [ ] DVP revision is aligned with the current DFMEA revision
+**Element 14 — Sample Production Parts**
+- Minimum 1 sample part per cavity/spindle/die
+- From the submission run (not prototype or off-tool samples unless Level 1 or 2)
+- Labelled with part number, revision, and date
+
+**Element 15 — Master Sample**
+- One signed-off sample retained at the supplier as a reference standard
+- Signed by supplier and customer (if required)
+
+**Element 16 — Checking Aids**
+- Gauges, fixtures, and check tools used for dimensional verification
+- Calibration records for all checking aids
+- MSA results for all variable gauges on special characteristics
+
+**Element 17 — Customer-Specific Requirements**
+- OEM-specific PPAP requirements (see OEM section below)
+- CSR compliance checklist if required
+
+**Element 18 — Part Submission Warrant (PSW)**
+- One PSW per part number per submission
+- Must be signed by the authorised quality manager
+- Submission reason, specification level, and change description completed
+
+### Step 4 — OEM-specific requirements
+
+**Ford:**
+- Ford-specific PSW form (not generic AIAG form)
+- SREA (Supplier Request for Engineering Approval) for design changes
+- ISIR (Initial Sample Inspection Report) may be required
+- Ford CSR compliance statement on PSW
+
+**BMW:**
+- Form 1410 (Erstmusterprüfbericht / Initial Sample Inspection Report)
+- VDA 6.3 process audit may be required before PPAP
+- G8D report if PPAP follows a concern
+
+**Volkswagen / Audi:**
+- PPF (Produktionsprozess und Produktfreigabe) — VW's PPAP equivalent
+- QMSS portal submission required
+- Audit of production process mandatory for new parts
+
+**Stellantis:**
+- STELLANTIS PPAP requirements per CSR (Customer Specific Requirements)
+- Supplier Quality Assurance (SQA) portal submission
+- PFMEA must follow AIAG-VDA 2019 format
+
+### Step 5 — PSW Completion and Submission
+
+Complete the PSW accurately:
+- Submission reason must match the change category
+- Specification level (Level 1–5) confirmed with customer
+- All 18 elements checked as complete (or N/A with justification)
+- Signed by Quality Manager (not just coordinator)
+- Submit through the customer's designated portal or APQP contact
 
 ## Validation criteria
 
-A complete DVP&R for PPAP submission must:
-- Reference every H-AP failure mode from the DFMEA
-- Have specific, standard-referenced test methods (not "per engineering judgement")
-- Show Pass results for all tests (or customer-approved deviations)
-- Have accredited lab reports for all safety/regulatory tests
-- Be signed off by design engineering and quality
+Before submitting PPAP:
+- All dimensional results 100% within specification
+- Initial study meets customer-approved criteria for all special characteristics (or documented deviation with customer approval)
+- %GRR < 30% for all measurement systems on special characteristics
+- All H-AP items in PFMEA have completed actions
+- Control Plan covers all special and significant characteristics
+- Test reports from accredited labs with pass status
+- PSW signed by Quality Manager
 
 ## Common mistakes
 
-- DVP created with generic tests not linked to specific DFMEA failure modes
-- Pass/fail criteria defined as "meets spec" without stating what the spec is
-- All tests assigned to internal lab when regulatory tests require external accreditation
-- DVP not updated when DFMEA adds new H-AP failure modes during design reviews
-- Re-tests after failures not documented — original Fail result erased
-- Sample size of 1 for durability or life tests (statistically meaningless)
-- DVP not updated to "Report" status at PPAP — submitted as plan, not results
+- Submitting with any out-of-specification dimensional result (automatic rejection)
+- Using prototype or pre-production samples for PPAP (must be from production tooling)
+- Production trial run shorter than 300 consecutive parts without written customer authorisation — automatic rejection at many OEMs
+- Capability index calculated on insufficient data (confirm the applicable sampling requirements)
+- MSA not performed for all gauges used on special characteristics
+- PFMEA not updated after process changes made during PPAP run
+- PSW signed by someone without authority (Quality Manager signature required)
+- Submitting Level 3 without retaining a master sample
+- Generic AIAG PSW form submitted to Ford (requires Ford-specific form)
 
 ## Output Format
 
@@ -1652,8 +1889,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1.0 | 2026-06-06 | @migmcc | Added guidance for tests in-progress at PPAP submission (customer deviation process); added DVP revision synchronisation with DFMEA requirement |
-| 1.2.0 | 2026-08-08 | @RBraga01 | Updated APQP reference to the 3rd Edition (2024). |
+| 1.1.0 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum (AIAG PPAP 4th ed §4.0); added to Common Mistakes |
+| 2.0.0 | 2026-11-06 | @RBraga01 | Apply customer-approved initial study criteria and escalate below-criteria results before submission. |
 
 ---
 
@@ -2136,241 +2373,4 @@ Use this as the physical package checklist before sealing the PPAP submission.
 | 16 | Checking Aids | List of all gauges/fixtures; calibration certs; MSA cross-reference | Excel or PDF |
 | 17 | CSR Requirements | CSR compliance checklist; OEM-specific supplemental forms; portal submission record | PDF + portal acknowledgement |
 | 18 | PSW | Completed and signed PSW (OEM-specific form if required) | PDF (wet or electronic signature) |
-
----
-
-## Source: skills/planning/ppap/SKILL.md
-
----
-name: ppap
-description: >-
-  Production Part Approval Process (PPAP) — verify PPAP submission level, audit all 18 elements,
-  check completeness for customer approval, prepare PSW. Use when a supplier needs to submit parts
-  for approval, when reviewing a PPAP package, or when determining which PPAP level is required.
-  Covers AIAG PPAP 4th edition with Ford, BMW, VW, and Stellantis OEM-specific requirements.
-license: MIT
-metadata:
-  author: RBraga01
-  version: "2.0.0"
-  iso-9001: "8.4"
-  iatf-16949: "8.3.4, 8.4.1"
-  aiag-reference: "AIAG PPAP 4th Edition"
-  domain: quality-engineering
-  subdomain: planning
-  industries: automotive,electronics,aerospace,medical,general
-  status: approved
-  created: "2026-06-06"
-  last_updated: "2026-11-06"
-  updated_by: migmcc
-  reviewed_by: RBraga01
-  standard_edition: "AIAG PPAP 4th Edition (2006)"
----
-
-# Production Part Approval Process (PPAP)
-
-## When to use
-
-Use this skill when:
-- A supplier must submit parts for customer approval before Start of Production (SOP)
-- A design change, process change, or engineering change requires re-submission
-- An OEM or Tier 1 customer requests a PPAP at a specific level
-- Reviewing or auditing an incoming PPAP package from a supplier
-- Determining what PPAP level is required for a given change
-
-## Prerequisites
-
-- Part number, revision level, and customer drawing
-- Bill of Materials (BOM) if applicable
-- Production process flow and manufacturing location confirmed
-- Customer's PPAP level requirement (Level 1–5) or change category known
-
-## Workflow
-
-### Step 1 — Determine the PPAP Level
-
-| Level | What must be submitted |
-|-------|----------------------|
-| 1 | Part Submission Warrant (PSW) only — no supporting documents unless requested |
-| 2 | PSW + designated samples + limited supporting data |
-| 3 | PSW + product samples + complete supporting data (default for new parts) |
-| 4 | PSW + other requirements as defined by the customer |
-| 5 | PSW + parts and complete supporting data — reviewed at the supplier's manufacturing location |
-
-**Default:** Level 3 for new parts or significant changes. Always confirm with the customer before submitting.
-
-### Step 2 — Identify the change category
-
-PPAP re-submission is required for:
-- New part or product
-- Engineering change (design revision)
-- Change of supplier (sub-supplier, raw material)
-- Change of manufacturing location, process, or tooling
-- Change that affects fit, form, or function
-- Corrective action following a field failure or customer complaint
-- Production interruption >12 months
-
-### Step 3 — Prepare all 18 PPAP elements
-
-**Production trial run minimum:** Unless otherwise specified in writing by the authorised customer representative, the production trial run must consist of a **minimum of 300 consecutive parts** produced at the production rate, using production tooling, production process, production operators, and production tooling (AIAG PPAP 4th ed §4.0). This run generates the PPAP samples (Element 14), dimensional results (Element 9), and capability data (Element 11). A run shorter than 300 consecutive parts requires explicit written customer authorisation before PSW can be signed.
-
-Verify each element against the level requirement. For Level 3 (default):
-
-**Element 1 — Design Records**
-- Customer drawing (latest revision, stamped/approved)
-- Math data if applicable (3D model)
-- All referenced specifications
-
-**Element 2 — Engineering Change Documents**
-- Approved change documentation (ECN, SREA, or equivalent)
-- Required only if an authorized engineering change is in process
-
-**Element 3 — Customer Engineering Approval**
-- Written approval from customer engineering (if design is customer-owned)
-- Engineering sign-off or deviation/waiver reference number
-
-**Element 4 — DFMEA**
-- Customer-approved Design FMEA (if design is supplier-responsible)
-- Review all H-AP items for completion before submission
-
-**Element 5 — Process Flow Diagram**
-- Sequence of all operations from incoming material to shipment
-- Includes: incoming inspection, all process steps, sub-supplier operations, final inspection, packaging
-
-**Element 6 — PFMEA**
-- Process FMEA aligned to the Process Flow
-- All H-AP items must have completed actions before PPAP
-- Reviewed and signed off by responsible engineer
-
-**Element 7 — Control Plan**
-- Covers all phases: Prototype, Pre-launch, and Production
-- Linked to PFMEA failure modes and controls
-- Includes: characteristics, measurement method, sample size/frequency, reaction plan
-
-**Element 8 — Measurement System Analysis (MSA)**
-- Gauge R&R study for each measurement system used on special and significant characteristics
-- Acceptance criteria: %GRR < 10% preferred, <30% conditional
-- Number of distinct categories (ndc) ≥ 5
-
-**Element 9 — Dimensional Results**
-- Balloon drawing with all dimensions/tolerances numbered
-- Measurement results for each ballooned characteristic
-- Minimum 5 parts per cavity/spindle; identify each part
-- All results must be within specification (100% conforming for PPAP)
-
-**Element 10 — Material Performance Test Results**
-- Functional and durability test results per customer/engineering specification
-- Test reports from customer-approved laboratories
-- All tests passed with certificate of conformance
-
-**Element 11 — Initial Process Studies (Statistical)**
-- Capability studies for all special characteristics (Sc, CC, SC)
-- Apply the customer-approved initial-study index and acceptance criteria. Use Ppk when long-term stability has not been demonstrated.
-- Follow the [SPC initial study decision table](../../measurement/spc-control-charts/SKILL.md#acceptance-criteria) when no customer-specific criteria supersede it. Escalate a below-criteria result before submission.
-
-**Element 12 — Qualified Laboratory Documentation**
-- Test reports must be from accredited laboratories (ISO/IEC 17025 preferred)
-- In-house labs: scope of accreditation must cover the tests performed
-
-**Element 13 — Appearance Approval Report (AAR)**
-- Required only for appearance-critical parts
-- Customer sign-off on colour, grain, gloss, and appearance attributes
-
-**Element 14 — Sample Production Parts**
-- Minimum 1 sample part per cavity/spindle/die
-- From the submission run (not prototype or off-tool samples unless Level 1 or 2)
-- Labelled with part number, revision, and date
-
-**Element 15 — Master Sample**
-- One signed-off sample retained at the supplier as a reference standard
-- Signed by supplier and customer (if required)
-
-**Element 16 — Checking Aids**
-- Gauges, fixtures, and check tools used for dimensional verification
-- Calibration records for all checking aids
-- MSA results for all variable gauges on special characteristics
-
-**Element 17 — Customer-Specific Requirements**
-- OEM-specific PPAP requirements (see OEM section below)
-- CSR compliance checklist if required
-
-**Element 18 — Part Submission Warrant (PSW)**
-- One PSW per part number per submission
-- Must be signed by the authorised quality manager
-- Submission reason, specification level, and change description completed
-
-### Step 4 — OEM-specific requirements
-
-**Ford:**
-- Ford-specific PSW form (not generic AIAG form)
-- SREA (Supplier Request for Engineering Approval) for design changes
-- ISIR (Initial Sample Inspection Report) may be required
-- Ford CSR compliance statement on PSW
-
-**BMW:**
-- Form 1410 (Erstmusterprüfbericht / Initial Sample Inspection Report)
-- VDA 6.3 process audit may be required before PPAP
-- G8D report if PPAP follows a concern
-
-**Volkswagen / Audi:**
-- PPF (Produktionsprozess und Produktfreigabe) — VW's PPAP equivalent
-- QMSS portal submission required
-- Audit of production process mandatory for new parts
-
-**Stellantis:**
-- STELLANTIS PPAP requirements per CSR (Customer Specific Requirements)
-- Supplier Quality Assurance (SQA) portal submission
-- PFMEA must follow AIAG-VDA 2019 format
-
-### Step 5 — PSW Completion and Submission
-
-Complete the PSW accurately:
-- Submission reason must match the change category
-- Specification level (Level 1–5) confirmed with customer
-- All 18 elements checked as complete (or N/A with justification)
-- Signed by Quality Manager (not just coordinator)
-- Submit through the customer's designated portal or APQP contact
-
-## Validation criteria
-
-Before submitting PPAP:
-- All dimensional results 100% within specification
-- Initial study meets customer-approved criteria for all special characteristics (or documented deviation with customer approval)
-- %GRR < 30% for all measurement systems on special characteristics
-- All H-AP items in PFMEA have completed actions
-- Control Plan covers all special and significant characteristics
-- Test reports from accredited labs with pass status
-- PSW signed by Quality Manager
-
-## Common mistakes
-
-- Submitting with any out-of-specification dimensional result (automatic rejection)
-- Using prototype or pre-production samples for PPAP (must be from production tooling)
-- Production trial run shorter than 300 consecutive parts without written customer authorisation — automatic rejection at many OEMs
-- Capability index calculated on insufficient data (confirm the applicable sampling requirements)
-- MSA not performed for all gauges used on special characteristics
-- PFMEA not updated after process changes made during PPAP run
-- PSW signed by someone without authority (Quality Manager signature required)
-- Submitting Level 3 without retaining a master sample
-- Generic AIAG PSW form submitted to Ford (requires Ford-specific form)
-
-## Output Format
-
-At the start of each use, ask the user:
-
-> "How would you like to receive the output?
-> **A** — Structured Markdown (formatted tables and sections, ready to copy)
-> **B** — Plain tables (simplified structure for Excel or Word)
-> **C** — Narrative report (flowing text for a formal document or email)
->
-> Default: A."
-
-Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
-
-## Changelog
-
-| Version | Date | Author | Change |
-|---------|------|--------|--------|
-| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1.0 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum (AIAG PPAP 4th ed §4.0); added to Common Mistakes |
-| 2.0.0 | 2026-11-06 | @RBraga01 | Apply customer-approved initial study criteria and escalate below-criteria results before submission. |
 

@@ -4,275 +4,6 @@ Generated from the canonical skills tree; each document follows in full.
 
 ---
 
-## Source: skills/documentation/8d-report-writing/references/oem-formats.md
-
----
-name: oem-formats
-type: reference
-parent_skill: 8d-report-writing
-author: RBraga01
-version: "1.0.0"
-status: approved
-created: "2026-06-01"
-last_updated: "2026-06-03"
-updated_by: migmcc
-reviewed_by: RBraga01
-license: MIT
----
-
-# OEM 8D Report Formats — Reference
-
-Differences between OEM-specific 8D submission formats.
-Use alongside the [8d-report-writing](../SKILL.md) skill.
-
----
-
-## Format Comparison Overview
-
-> This table is a summary. Always confirm requirements in the latest OEM template and CSR before submission.
-
-| Element | Ford TOPS-8D | BMW G8D | VW QMSS | GM Global 8D | Stellantis |
-|---------|-------------|---------|---------|-------------|-----------|
-| D0 field | Yes — ERA | Yes | Yes | Optional | Recommended |
-| Is/Is-Not | Mandatory | Optional | Mandatory | Recommended | Recommended |
-| Two root causes (occ + escape) | Mandatory | Mandatory | Mandatory | Mandatory | Mandatory |
-| D7 horizontal deployment | Mandatory | Mandatory | Mandatory | Recommended | Recommended |
-| Champion sign-off (D8) | Mandatory | Mandatory | Mandatory | Mandatory | Mandatory |
-| Submission system | GQTS / SupplierPortal | SRM / BQMS | FORMEL Q / SQMS | Covisint / Supplier Portal | SQS Portal |
-| Typical response time (D3 ICA) | 24 h (critical) / 5 days | 24 h (critical) / 8 days | 24 h (safety) / 5 days | 24 h / 5 days | 24 h / 5 days |
-| PPM tracking integration | Yes | Yes | Yes | Yes | Yes |
-
----
-
-## Ford — TOPS-8D
-
-**Full name:** Team Oriented Problem Solving — 8 Disciplines
-
-### Key requirements
-
-**D0 — Emergency Response Actions (ERA)**
-
-- Mandatory field in TOPS-8D form
-- ERA must include: immediate action taken, date, responsible person, confirmation that suspect stock is identified
-- ERA is evaluated before the 8D response timer starts for D3
-- Missing or weak ERA may result in immediate rejection before technical review
-
-**D2 — Problem Description**
-
-- Is/Is-Not is a mandatory structured field in the Ford form (not free text)
-- Problem description must reference the customer symptom as reported (verbatim from the concern)
-- Ford Concern ID must be referenced
-
-**D4 — Root Cause**
-
-- Must explicitly separate root cause of occurrence and root cause of non-detection
-- "Verification method" is a mandatory sub-field — what test confirmed this is the root cause
-
-**D6 — Verification**
-
-- Ford specifies minimum run quantity for different product types
-- Include SPC data or inspection records showing before/after comparison
-
-**D7 — Systemisation**
-
-- Must reference specific PFMEA revision number after update
-- Must reference specific Control Plan revision number after update
-- "Lessons learned shared with" is a mandatory field — names or product families listed
-
-**Submission timing**
-
-- Safety defects: D3 within 24 hours of acknowledgement
-- Non-safety defects: Initial response within 5 business days, full 8D within 30 days
-- Delays must be proactively communicated to the Ford SQE with justification
-- Always check the current Ford CSR (Customer-Specific Requirements) for updates
-
----
-
-## BMW — G8D
-
-**Full name:** Global 8D (BMW Group)
-
-### Key differences from standard 8D
-
-**Structured problem statement in D2**
-
-BMW's G8D form has structured fields for:
-
-- "Problem as described by customer" (verbatim)
-- "Problem as found at supplier" (your own investigation)
-- "Defect rate at customer" (PPM or %)
-- "Defect rate in your process" (internal data)
-
-**D4 — Separate cause fields**
-
-BMW explicitly separates:
-
-- "Why did the defect occur?" (occurrence root cause)
-- "Why was the defect not detected?" (escape root cause)
-- Each has its own 5-Why section in the form
-
-**D5 / D6 — Action effectiveness**
-
-- BMW requires a "lessons learned" connection in D5: which existing failure mode / FMEA entry was this related to?
-- D6 requires evidence that the FMEA and Control Plan were actually updated (revision numbers)
-
-**D7 — Similar products**
-
-BMW requires explicit documentation of:
-
-- Which similar BMW part numbers were assessed for the same root cause
-- What was found / what actions were taken for each
-
-**8D presentation**
-
-For premium defects (safety, significant warranty cost), BMW may require a live 8D presentation at the supplier quality engineer's request. The written 8D is the basis — prepare for verbal Q&A. Reports must be consistent with any presented data — discrepancies between written and verbal responses are treated as non-compliance.
-
-**Submission system:** SRM (Supplier Relationship Management) or BQMS depending on BMW division
-
----
-
-## VW / Audi — QMSS / FORMEL Q
-
-**Full name:** Quality Management Supplier System (VW Group)
-
-### Key requirements
-
-**Immediate notification (D0)**
-
-VW requires notification within 24 hours for safety-related defects, and within 5 days for non-safety defects. Notification must include: part number, quantity affected, initial containment status.
-
-**D2 — Is/Is-Not**
-
-FORMEL Q form has a mandatory Is/Is-Not structured section. Each dimension (what, where, when, how many) must be completed. Leaving fields empty is not accepted.
-
-**D4 — Causal chain**
-
-VW uses a "causal chain" format:
-
-- Level 1: Direct cause (the immediate failure mechanism)
-- Level 2: Systemic cause (why the direct cause was possible)
-- Level 3: Escape cause (why the detection system failed)
-
-All three must be answered.
-
-**D7 — Process / product audit**
-
-After a major defect, VW may require a formal process audit of the affected production line. The audit result and the resulting actions are referenced in D7.
-
-**Secured quantity (FORMEL Q field)**
-
-A unique VW requirement: in D3, document the "secured quantity" — the number of confirmed-good parts available to ship while the non-conforming stock is being managed. Missing secured quantity may result in rejection of D3 containment.
-
-**Submission timing:** initial response 24 hours; full 8D within 25 working days (check current CSR)
-
----
-
-## GM — Global 8D
-
-### Key requirements
-
-**BIQS integration**
-
-GM's Supplier Quality system (BIQS — Become Involved in Quality Systems) links 8D status to the supplier's BIQS score. Open 8Ds and late 8Ds directly reduce the supplier score. Late 8D submissions impact supplier performance score and escalation status.
-
-**D7 — Lessons learned register**
-
-GM requires lessons learned to be entered into the supplier's own lessons learned register, and a reference to that register entry in D7.
-
-**Verification requirements (D6)**
-
-GM specifies minimum quantities for different defect types. Always check the current GM Supplier Quality Reference Manual (SQRM) for the applicable threshold.
-
-**Submission timing:** D3 acknowledgement within 24 hours; full 8D within 30 days
-
----
-
-## Stellantis — MAQMSR 8D
-
-### Key requirements
-
-**MAQMSR framework**
-
-Stellantis follows the MAQMSR (Manufacturing Assurance Quality Management System Requirements). 8D is the mandatory problem-solving format for customer-reported concerns.
-
-**SQE approval for H-AP with no action**
-
-If a PFMEA H-AP item has no corrective action (documented management acceptance of residual risk), Stellantis SQE must approve the acceptance document before D8 can close. Closure without SQE approval for H-AP acceptance is not valid.
-
-**Submission timing:** 24 hours for D0/D3 notification; 30 days for full 8D; extensions require SQE approval
-
----
-
-## Timing Requirements — Cross-OEM
-
-| Event | Ford | BMW | VW | GM | Stellantis |
-|-------|------|-----|----|----|-----------|
-| D3 ICA (safety) | 24 h | 24 h | 24 h | 24 h | 24 h |
-| D3 ICA (non-safety) | 5 days | 8 days | 5 days | 5 days | 5 days |
-| Full 8D | 30 days | Check CSR | 25 WD | 30 days | 30 days |
-
-Delays in D3 or final 8D submission must be proactively communicated to the OEM SQE with justification before the deadline passes — do not wait to be chased.
-
----
-
-## Common OEM Submission Mistakes
-
-| Mistake | Impact | Fix |
-|---------|--------|-----|
-| Submitting in future tense ("will be implemented") | 8D rejected — D3 and D6 must be past tense with evidence | Verify implementation before submission |
-| Missing D0 / ERA field | 8D returned for revision | Always complete D0 even if brief |
-| "Human error" as root cause | D4 rejected by SQE | Always go systemic — what in the system allowed the error |
-| D7 without PFMEA/CP revision numbers | Audit finding | Include revision numbers and dates in D7 |
-| Sending own template instead of OEM form | Submission rejected | Always use the current OEM form — download before each submission |
-| Missing champion signature (D8) | 8D not formally closed | Obtain sign-off before submitting closure |
-| Mismatch between NCR, 8D, and customer claim data | Credibility failure / rejection risk | Verify D2 matches NCR and claim exactly |
-
-Incomplete or non-compliant 8Ds are typically returned by OEMs and may negatively affect supplier performance ratings.
-
----
-
-## Version and Submission Governance
-
-- Maintain a controlled copy of each submitted 8D with version number and submission date
-- Ensure consistency between NCR, customer complaint, and 8D report data before submission
-- Always confirm template version before submission — check the template revision/date field
-
----
-
-## Requesting Current OEM Templates
-
-OEM forms update regularly. Always download the current version from:
-
-- **Ford**: Ford Supplier Portal → Quality → TOPS-8D template
-- **BMW**: SRM → Supplier Quality → G8D template
-- **VW**: FORMEL Q portal → QMSS → Document download
-- **GM**: GM Supplier Portal → Supplier Quality → Global 8D
-- **Stellantis**: SQS Portal → Quality Documents → 8D template
-
-Do not use a template downloaded more than 12 months ago without checking for updates. Always confirm the template revision/date before submission.
-
----
-
-## 8D Submission Checklist (OEM)
-
-☐ Correct OEM template used (latest version confirmed)
-☐ D0 / ERA completed (if required by OEM)
-☐ D2 matches customer claim exactly (verbatim where required)
-☐ D3 containment implemented with evidence (past tense)
-☐ Secured quantity documented (VW/Audi requirement)
-☐ D4 includes both occurrence and escape root causes — each validated with objective evidence
-☐ D5 actions directly linked to root causes (RCO and RCE)
-☐ D6 includes objective verification data with justified sample size
-☐ D7 includes PFMEA, CP, WI updates with revision numbers — all active in production
-☐ D7 includes lessons learned register entry and horizontal deployment to similar products
-☐ D8 includes champion sign-off
-☐ All OEM-specific mandatory fields completed (Is/Is-Not, secured quantity, lessons learned, etc.)
-☐ All supporting evidence attached (photos, data, revised documents)
-☐ Dates are chronological and consistent across all disciplines
-☐ Controlled copy retained with version and submission date
-
----
-
 ## Source: skills/documentation/8d-report-writing/SKILL.md
 
 ---
@@ -543,6 +274,509 @@ Adapt all output sections to the chosen format. If the platform or session conte
 |---------|------|--------|--------|
 | 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
 | 1.1.0 | 2026-06-03 | @migmcc | Added OEM format requirements and customer submission checklists |
+
+---
+
+## Source: skills/documentation/8d-report-writing/references/oem-formats.md
+
+---
+name: oem-formats
+type: reference
+parent_skill: 8d-report-writing
+author: RBraga01
+version: "1.0.0"
+status: approved
+created: "2026-06-01"
+last_updated: "2026-06-03"
+updated_by: migmcc
+reviewed_by: RBraga01
+license: MIT
+---
+
+# OEM 8D Report Formats — Reference
+
+Differences between OEM-specific 8D submission formats.
+Use alongside the [8d-report-writing](../SKILL.md) skill.
+
+---
+
+## Format Comparison Overview
+
+> This table is a summary. Always confirm requirements in the latest OEM template and CSR before submission.
+
+| Element | Ford TOPS-8D | BMW G8D | VW QMSS | GM Global 8D | Stellantis |
+|---------|-------------|---------|---------|-------------|-----------|
+| D0 field | Yes — ERA | Yes | Yes | Optional | Recommended |
+| Is/Is-Not | Mandatory | Optional | Mandatory | Recommended | Recommended |
+| Two root causes (occ + escape) | Mandatory | Mandatory | Mandatory | Mandatory | Mandatory |
+| D7 horizontal deployment | Mandatory | Mandatory | Mandatory | Recommended | Recommended |
+| Champion sign-off (D8) | Mandatory | Mandatory | Mandatory | Mandatory | Mandatory |
+| Submission system | GQTS / SupplierPortal | SRM / BQMS | FORMEL Q / SQMS | Covisint / Supplier Portal | SQS Portal |
+| Typical response time (D3 ICA) | 24 h (critical) / 5 days | 24 h (critical) / 8 days | 24 h (safety) / 5 days | 24 h / 5 days | 24 h / 5 days |
+| PPM tracking integration | Yes | Yes | Yes | Yes | Yes |
+
+---
+
+## Ford — TOPS-8D
+
+**Full name:** Team Oriented Problem Solving — 8 Disciplines
+
+### Key requirements
+
+**D0 — Emergency Response Actions (ERA)**
+
+- Mandatory field in TOPS-8D form
+- ERA must include: immediate action taken, date, responsible person, confirmation that suspect stock is identified
+- ERA is evaluated before the 8D response timer starts for D3
+- Missing or weak ERA may result in immediate rejection before technical review
+
+**D2 — Problem Description**
+
+- Is/Is-Not is a mandatory structured field in the Ford form (not free text)
+- Problem description must reference the customer symptom as reported (verbatim from the concern)
+- Ford Concern ID must be referenced
+
+**D4 — Root Cause**
+
+- Must explicitly separate root cause of occurrence and root cause of non-detection
+- "Verification method" is a mandatory sub-field — what test confirmed this is the root cause
+
+**D6 — Verification**
+
+- Ford specifies minimum run quantity for different product types
+- Include SPC data or inspection records showing before/after comparison
+
+**D7 — Systemisation**
+
+- Must reference specific PFMEA revision number after update
+- Must reference specific Control Plan revision number after update
+- "Lessons learned shared with" is a mandatory field — names or product families listed
+
+**Submission timing**
+
+- Safety defects: D3 within 24 hours of acknowledgement
+- Non-safety defects: Initial response within 5 business days, full 8D within 30 days
+- Delays must be proactively communicated to the Ford SQE with justification
+- Always check the current Ford CSR (Customer-Specific Requirements) for updates
+
+---
+
+## BMW — G8D
+
+**Full name:** Global 8D (BMW Group)
+
+### Key differences from standard 8D
+
+**Structured problem statement in D2**
+
+BMW's G8D form has structured fields for:
+
+- "Problem as described by customer" (verbatim)
+- "Problem as found at supplier" (your own investigation)
+- "Defect rate at customer" (PPM or %)
+- "Defect rate in your process" (internal data)
+
+**D4 — Separate cause fields**
+
+BMW explicitly separates:
+
+- "Why did the defect occur?" (occurrence root cause)
+- "Why was the defect not detected?" (escape root cause)
+- Each has its own 5-Why section in the form
+
+**D5 / D6 — Action effectiveness**
+
+- BMW requires a "lessons learned" connection in D5: which existing failure mode / FMEA entry was this related to?
+- D6 requires evidence that the FMEA and Control Plan were actually updated (revision numbers)
+
+**D7 — Similar products**
+
+BMW requires explicit documentation of:
+
+- Which similar BMW part numbers were assessed for the same root cause
+- What was found / what actions were taken for each
+
+**8D presentation**
+
+For premium defects (safety, significant warranty cost), BMW may require a live 8D presentation at the supplier quality engineer's request. The written 8D is the basis — prepare for verbal Q&A. Reports must be consistent with any presented data — discrepancies between written and verbal responses are treated as non-compliance.
+
+**Submission system:** SRM (Supplier Relationship Management) or BQMS depending on BMW division
+
+---
+
+## VW / Audi — QMSS / FORMEL Q
+
+**Full name:** Quality Management Supplier System (VW Group)
+
+### Key requirements
+
+**Immediate notification (D0)**
+
+VW requires notification within 24 hours for safety-related defects, and within 5 days for non-safety defects. Notification must include: part number, quantity affected, initial containment status.
+
+**D2 — Is/Is-Not**
+
+FORMEL Q form has a mandatory Is/Is-Not structured section. Each dimension (what, where, when, how many) must be completed. Leaving fields empty is not accepted.
+
+**D4 — Causal chain**
+
+VW uses a "causal chain" format:
+
+- Level 1: Direct cause (the immediate failure mechanism)
+- Level 2: Systemic cause (why the direct cause was possible)
+- Level 3: Escape cause (why the detection system failed)
+
+All three must be answered.
+
+**D7 — Process / product audit**
+
+After a major defect, VW may require a formal process audit of the affected production line. The audit result and the resulting actions are referenced in D7.
+
+**Secured quantity (FORMEL Q field)**
+
+A unique VW requirement: in D3, document the "secured quantity" — the number of confirmed-good parts available to ship while the non-conforming stock is being managed. Missing secured quantity may result in rejection of D3 containment.
+
+**Submission timing:** initial response 24 hours; full 8D within 25 working days (check current CSR)
+
+---
+
+## GM — Global 8D
+
+### Key requirements
+
+**BIQS integration**
+
+GM's Supplier Quality system (BIQS — Become Involved in Quality Systems) links 8D status to the supplier's BIQS score. Open 8Ds and late 8Ds directly reduce the supplier score. Late 8D submissions impact supplier performance score and escalation status.
+
+**D7 — Lessons learned register**
+
+GM requires lessons learned to be entered into the supplier's own lessons learned register, and a reference to that register entry in D7.
+
+**Verification requirements (D6)**
+
+GM specifies minimum quantities for different defect types. Always check the current GM Supplier Quality Reference Manual (SQRM) for the applicable threshold.
+
+**Submission timing:** D3 acknowledgement within 24 hours; full 8D within 30 days
+
+---
+
+## Stellantis — MAQMSR 8D
+
+### Key requirements
+
+**MAQMSR framework**
+
+Stellantis follows the MAQMSR (Manufacturing Assurance Quality Management System Requirements). 8D is the mandatory problem-solving format for customer-reported concerns.
+
+**SQE approval for H-AP with no action**
+
+If a PFMEA H-AP item has no corrective action (documented management acceptance of residual risk), Stellantis SQE must approve the acceptance document before D8 can close. Closure without SQE approval for H-AP acceptance is not valid.
+
+**Submission timing:** 24 hours for D0/D3 notification; 30 days for full 8D; extensions require SQE approval
+
+---
+
+## Timing Requirements — Cross-OEM
+
+| Event | Ford | BMW | VW | GM | Stellantis |
+|-------|------|-----|----|----|-----------|
+| D3 ICA (safety) | 24 h | 24 h | 24 h | 24 h | 24 h |
+| D3 ICA (non-safety) | 5 days | 8 days | 5 days | 5 days | 5 days |
+| Full 8D | 30 days | Check CSR | 25 WD | 30 days | 30 days |
+
+Delays in D3 or final 8D submission must be proactively communicated to the OEM SQE with justification before the deadline passes — do not wait to be chased.
+
+---
+
+## Common OEM Submission Mistakes
+
+| Mistake | Impact | Fix |
+|---------|--------|-----|
+| Submitting in future tense ("will be implemented") | 8D rejected — D3 and D6 must be past tense with evidence | Verify implementation before submission |
+| Missing D0 / ERA field | 8D returned for revision | Always complete D0 even if brief |
+| "Human error" as root cause | D4 rejected by SQE | Always go systemic — what in the system allowed the error |
+| D7 without PFMEA/CP revision numbers | Audit finding | Include revision numbers and dates in D7 |
+| Sending own template instead of OEM form | Submission rejected | Always use the current OEM form — download before each submission |
+| Missing champion signature (D8) | 8D not formally closed | Obtain sign-off before submitting closure |
+| Mismatch between NCR, 8D, and customer claim data | Credibility failure / rejection risk | Verify D2 matches NCR and claim exactly |
+
+Incomplete or non-compliant 8Ds are typically returned by OEMs and may negatively affect supplier performance ratings.
+
+---
+
+## Version and Submission Governance
+
+- Maintain a controlled copy of each submitted 8D with version number and submission date
+- Ensure consistency between NCR, customer complaint, and 8D report data before submission
+- Always confirm template version before submission — check the template revision/date field
+
+---
+
+## Requesting Current OEM Templates
+
+OEM forms update regularly. Always download the current version from:
+
+- **Ford**: Ford Supplier Portal → Quality → TOPS-8D template
+- **BMW**: SRM → Supplier Quality → G8D template
+- **VW**: FORMEL Q portal → QMSS → Document download
+- **GM**: GM Supplier Portal → Supplier Quality → Global 8D
+- **Stellantis**: SQS Portal → Quality Documents → 8D template
+
+Do not use a template downloaded more than 12 months ago without checking for updates. Always confirm the template revision/date before submission.
+
+---
+
+## 8D Submission Checklist (OEM)
+
+☐ Correct OEM template used (latest version confirmed)
+☐ D0 / ERA completed (if required by OEM)
+☐ D2 matches customer claim exactly (verbatim where required)
+☐ D3 containment implemented with evidence (past tense)
+☐ Secured quantity documented (VW/Audi requirement)
+☐ D4 includes both occurrence and escape root causes — each validated with objective evidence
+☐ D5 actions directly linked to root causes (RCO and RCE)
+☐ D6 includes objective verification data with justified sample size
+☐ D7 includes PFMEA, CP, WI updates with revision numbers — all active in production
+☐ D7 includes lessons learned register entry and horizontal deployment to similar products
+☐ D8 includes champion sign-off
+☐ All OEM-specific mandatory fields completed (Is/Is-Not, secured quantity, lessons learned, etc.)
+☐ All supporting evidence attached (photos, data, revised documents)
+☐ Dates are chronological and consistent across all disciplines
+☐ Controlled copy retained with version and submission date
+
+---
+
+## Source: skills/documentation/car-corrective-action/SKILL.md
+
+---
+name: car-corrective-action
+description: >-
+  Write a corrective action report, CAPA, respond to an NCR or audit finding, or document
+  an 8D D5 root cause action. Covers the full CAR structure: root cause analysis, corrective
+  actions, implementation evidence, and verification of effectiveness (VOE) per ISO 9001
+  §10.2. Use for any quality escape requiring documented systemic corrective action.
+license: MIT
+metadata:
+  author: RBraga01
+  version: "1.1.0"
+  iso-9001: "10.2"
+  iatf-16949: "10.2.3"
+  domain: quality-engineering
+  subdomain: documentation
+  industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-01"
+  last_updated: "2026-06-04"
+  updated_by: migmcc
+  reviewed_by: RBraga01
+  standard_edition: "ISO 9001:2015"
+---
+
+# Corrective Action Request (CAR) Writing
+
+## When to use
+
+A CAR is written in response to:
+- An NCR requiring permanent corrective action
+- A customer complaint
+- An internal or external audit finding (Major or Minor non-conformance)
+- A recurring non-conformance requiring systemic correction
+
+The CAR is the documented evidence that the problem was analysed, corrected, and prevented from recurring. ISO 9001 §10.2.1 requires documented information of the actions taken and their results. For IATF 16949 audit Major NCs, CARs must typically be closed within 90 days; check the applicable CSR for customer-specific closure deadlines.
+
+## Key distinction from NCR
+
+| NCR | CAR |
+|-----|-----|
+| What is wrong (objective facts) | Why it is wrong + what is being done about it |
+| Detection point and evidence | Root cause analysis + actions |
+| Severity and disposition | Verification of effectiveness |
+| Written immediately | Written after investigation |
+
+A CAR references the NCR but extends it into corrective action territory.
+
+---
+
+## CAR structure
+
+### 1. Header
+
+| Field | Content |
+|-------|---------|
+| CAR number | Traceable to NCR or audit finding |
+| NCR / finding reference | Links this CAR to the trigger event |
+| Date opened | |
+| Owner | Responsible person (name, not function) |
+| Target closure date | |
+| Closure authority | Named person with authority to close this CAR (quality manager or equivalent) |
+| Actual closure date | (filled on closure) |
+
+### 2. Problem summary
+
+One or two sentences summarising the NCR or finding. Objective, factual. Must match the NCR description exactly — no new interpretation.
+
+Example:
+> "47 of 200 connector units in lot 2026-05-12-A had pin insertion depth 0.6–1.5 mm below lower specification limit (5.0 ± 0.3 mm). Detected at incoming inspection (NCR-2026-0047)."
+
+### 3. Immediate containment (if not already in NCR)
+
+Confirm containment is in place. If documented in the NCR, reference it. If not yet done, define it here.
+
+### 4. Root cause analysis
+
+This is the core of the CAR. Use structured methodology:
+
+**Recommended tools:**
+- [5-Why](../../problem-solving/5why-root-cause/) for linear cause chains
+- [Fishbone](../../problem-solving/fishbone-analysis/) for complex or multi-factor problems
+
+**Identify two root causes:**
+1. **Root cause of occurrence** — why did the non-conformance happen?
+2. **Root cause of escape** — why was it not detected before it reached the next customer?
+
+**Document the chain, not just the conclusion:**
+
+```
+Root cause of occurrence:
+Why: Connector pin depth OOS → Why: insertion force insufficient →
+Why: pneumatic jig set to wrong pressure → Why: pressure setpoint not in work instruction →
+Root cause: Work instruction for Station 3 does not specify jig pressure setpoint.
+
+Root cause of escape:
+Why: Not detected at our outgoing inspection → Why: no depth measurement in outgoing
+inspection plan → Root cause: Control Plan does not include pin depth at outgoing.
+```
+
+**Validation:** state how the root cause was confirmed. Acceptable validation methods:
+- Reproduction test (demonstrated that removing/restoring the root cause produces/prevents the defect)
+- Data correlation (statistical relationship between root cause variable and defect occurrence)
+- Physical evidence (inspection of the failed part or process reveals the causal mechanism)
+- Direct record review (confirms the absence of the required control)
+
+A root cause supported only by team opinion (not validated by evidence) cannot be used as the basis for CAR closure.
+
+### 5. Corrective actions
+
+One corrective action for each root cause. The action must directly address the root cause — not a symptom.
+
+| # | Root cause addressed | Corrective action | Owner | Target date |
+|---|---------------------|-------------------|-------|-------------|
+| 1 | WI missing jig pressure | Update WI-Station-3 to specify jig pressure 4.5 ± 0.2 bar | [Name] | 2026-06-05 |
+| 2 | CP no depth check at outgoing | Add pin depth measurement to Control Plan at outgoing, 10% sample, n=5 per batch | [Name] | 2026-06-05 |
+
+**Action quality check:**
+- Does this action, if implemented, prevent the root cause from occurring again?
+- Is it specific (who does what, by when)?
+- Can its implementation be verified?
+
+### 6. Implementation evidence
+
+For each corrective action, document that it was actually implemented:
+
+| Action | Evidence of implementation | Date verified |
+|--------|---------------------------|---------------|
+| WI updated | WI-Station-3 rev C, approved 2026-06-04, attached | 2026-06-04 |
+| Training conducted | Training attendance record attached (4 operators) | 2026-06-04 |
+| Control Plan updated | CP rev F, approved 2026-06-04, attached | 2026-06-04 |
+
+Documents must be revised with a new revision number and approval date. Verbal implementation is not evidence.
+
+### 7. Verification of effectiveness (VOE)
+
+This is where most CARs fail. The action is implemented, but nobody checks whether it actually prevents the defect.
+
+**VOE requirements (ISO 9001 §10.2.1.e):**
+
+1. **Method:** how will you check if the corrective action worked? (data collection, monitoring period)
+2. **Metric:** what will you measure? (defect rate, inspection results)
+3. **Volume/duration:** what sample size or time period constitutes sufficient evidence?
+4. **Target:** what result confirms the action was effective?
+
+**VOE minimum volume guidance:**
+- For a defect with known base rate: the VOE sample must be large enough to observe at least one recurrence if the action had failed. Example: if baseline defect rate was 5%, a zero-defect sample of 60 units gives 95% confidence the rate is now below 5%.
+- For process parameter changes: minimum 30 consecutive production cycles under the new conditions, or as defined by the Control Plan sampling frequency × 3 periods.
+- For detection control improvements: minimum one full inspection cycle of the affected product family with zero escapes.
+- Minimum in all cases: state the volume used and the basis for choosing it. "Zero defects in 10 units" is not a valid VOE for a high-volume process.
+
+**VOE result:**
+- Record the actual results after the monitoring period
+- State: Effective / Not effective
+- If not effective: return to root cause analysis and repeat
+
+### 8. AP revision (AIAG-VDA, if applicable)
+
+If the non-conformance relates to a PFMEA failure mode with an Action Priority (AP) rating:
+
+- After verified implementation of the corrective action, the PFMEA must be updated with a revised S, O, and/or D rating
+- The revised AP (AP-revised) must reflect the improvement — it must be lower than the original AP or documented with justification if unchanged
+- Revised AP is recorded only after VOE is complete, not at the time of action planning
+
+### 9. Systemic prevention and horizontal deployment
+
+Ask: could this same root cause exist in similar parts, processes, or product families?
+
+If yes:
+- List the similar areas
+- Document the actions taken to extend the corrective action
+- Evidence that horizontal deployment is complete
+
+### 10. Lessons learned
+
+One or two sentences capturing the key learning for future reference:
+
+> "Work instruction templates for assembly stations must include all process parameter setpoints. Control Plans must cover outgoing inspection of all safety-relevant characteristics."
+
+File in the lessons learned register and reference in PFMEA update.
+
+---
+
+## Closure criteria
+
+A CAR may only be closed when ALL of the following are true, and the closure authority (named in the header) has signed off:
+
+- [ ] Root causes of occurrence and escape are documented with validation evidence
+- [ ] Corrective actions are implemented and documented with revision numbers and approval dates
+- [ ] VOE is complete with documented sample volume and confirms effectiveness
+- [ ] PFMEA is updated (revised failure mode entry, revised AP if applicable)
+- [ ] Control Plan is updated (if detection control changed)
+- [ ] Work Instructions are updated (if process control changed)
+- [ ] Horizontal deployment is documented
+- [ ] Customer notified of closure (if CAR was triggered by customer complaint or CSR-required notification)
+- [ ] Closure authority sign-off obtained
+
+---
+
+## Common mistakes
+
+- **"Retrain operators"** as a corrective action for human error — this is never sufficient alone; the system that allowed the error must be changed
+- **Closing without VOE** — the most common reason for recurring non-conformances
+- **VOE on insufficient sample** — "zero defects in 5 units" is not effectiveness verification; define the minimum volume before collecting data
+- **Implementing actions without updating PFMEA and Control Plan** — next audit will find the gap
+- **Generic actions** — "review procedures" → not specific; must state which procedure, revised to say what, by whom, by when
+- **Closing without named authority sign-off** — any team member closing a CAR without defined authority is a governance gap
+- **Missing AP revision** — when PCA addresses a PFMEA failure mode, the revised AP must be recorded after VOE
+
+---
+
+## Output Format
+
+At the start of each use, ask the user:
+
+> "How would you like to receive the output?
+> **A** — Structured Markdown (formatted tables and sections, ready to copy)
+> **B** — Plain tables (simplified structure for Excel or Word)
+> **C** — Narrative report (flowing text for a formal document or email)
+>
+> Default: A."
+
+Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Expanded CAR linkage to D5-D6, added effectiveness verification requirements |
 
 ---
 
@@ -969,217 +1203,201 @@ The internal CAR in this scenario must also address the systemic question: "Why 
 
 ---
 
-## Source: skills/documentation/car-corrective-action/SKILL.md
+## Source: skills/documentation/ncr-writing/SKILL.md
 
 ---
-name: car-corrective-action
+name: ncr-writing
 description: >-
-  Write a corrective action report, CAPA, respond to an NCR or audit finding, or document
-  an 8D D5 root cause action. Covers the full CAR structure: root cause analysis, corrective
-  actions, implementation evidence, and verification of effectiveness (VOE) per ISO 9001
-  §10.2. Use for any quality escape requiring documented systemic corrective action.
+  Write a non-conformance report, NCR, reject a supplier, or document a defect with
+  objective-evidence language and correct severity grading (Critical/Major/Minor). Covers
+  disposition recommendations and segregation requirements for incoming inspection failures,
+  in-process defects, customer returns, and audit findings.
 license: MIT
 metadata:
   author: RBraga01
   version: "1.1.0"
-  iso-9001: "10.2"
-  iatf-16949: "10.2.3"
+  iso-9001: "8.7"
+  iatf-16949: "8.7.1"
   domain: quality-engineering
   subdomain: documentation
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-01"
-  last_updated: "2026-06-04"
+  last_updated: "2026-06-03"
   updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "ISO 9001:2015"
 ---
 
-# Corrective Action Request (CAR) Writing
+# Non-Conformance Report (NCR) Writing
 
 ## When to use
 
-A CAR is written in response to:
-- An NCR requiring permanent corrective action
-- A customer complaint
-- An internal or external audit finding (Major or Minor non-conformance)
-- A recurring non-conformance requiring systemic correction
+Write an NCR whenever a product, material, or service does not conform to a specified requirement:
 
-The CAR is the documented evidence that the problem was analysed, corrected, and prevented from recurring. ISO 9001 §10.2.1 requires documented information of the actions taken and their results. For IATF 16949 audit Major NCs, CARs must typically be closed within 90 days; check the applicable CSR for customer-specific closure deadlines.
+- Incoming inspection failure
+- In-process defect found at any production step
+- Final inspection rejection
+- Customer return or field complaint
+- Audit finding on a product characteristic
 
-## Key distinction from NCR
+## The non-negotiable rule
 
-| NCR | CAR |
-|-----|-----|
-| What is wrong (objective facts) | Why it is wrong + what is being done about it |
-| Detection point and evidence | Root cause analysis + actions |
-| Severity and disposition | Verification of effectiveness |
-| Written immediately | Written after investigation |
+**An NCR describes WHAT is wrong, not WHY.**
 
-A CAR references the NCR but extends it into corrective action territory.
+Root cause belongs in the CAPA / 8D. The NCR is the factual record of the non-conformance itself. Mixing root cause speculation into the NCR contaminates the record.
+
+An NCR is a controlled quality record and may be used in audits, customer reviews, and legal contexts. All content must be objective and defensible.
+
+## Required NCR Checklist
+
+☐ Requirement clearly referenced (drawing/specification number and revision)
+☐ Actual value or observed defect recorded with quantified measurement
+☐ Gap between required and actual explicitly defined
+☐ Evidence attached or referenced and traceable to this NCR
+☐ Severity correctly classified — grade higher when in doubt
+☐ Affected quantity and population at risk identified
+☐ Material physically segregated and identified before NCR is closed
+☐ Detection point reflects where the defect was found, not where it originated
+☐ Disposition defined and approved by authorised personnel
+☐ Containment actions documented with timestamps (if applicable)
+☐ Language is objective — no subjective terms, no root cause, no opinion
+☐ NCR traceable to production records, batch records, and inspection logs
 
 ---
 
-## CAR structure
+## NCR structure
 
 ### 1. Header
 
 | Field | Content |
 |-------|---------|
-| CAR number | Traceable to NCR or audit finding |
-| NCR / finding reference | Links this CAR to the trigger event |
-| Date opened | |
-| Owner | Responsible person (name, not function) |
-| Target closure date | |
-| Closure authority | Named person with authority to close this CAR (quality manager or equivalent) |
-| Actual closure date | (filled on closure) |
+| NCR number | Sequential, traceable |
+| Date | Date of detection |
+| Part number | Exact part number + revision |
+| Part description | Name |
+| Supplier / source | Supplier name + supplier code (for incoming) or line/station (for in-process) |
+| Batch / lot | Traceability reference |
+| Quantity affected | Non-conforming qty / total inspected |
+| Detected by | Name + function |
+| Detection point | Incoming / in-process station / outgoing / customer |
 
-### 2. Problem summary
+### 2. Non-conformance description
 
-One or two sentences summarising the NCR or finding. Objective, factual. Must match the NCR description exactly — no new interpretation.
+**Write like a measurement report, not a complaint.**
 
-Example:
-> "47 of 200 connector units in lot 2026-05-12-A had pin insertion depth 0.6–1.5 mm below lower specification limit (5.0 ± 0.3 mm). Detected at incoming inspection (NCR-2026-0047)."
+Required elements:
 
-### 3. Immediate containment (if not already in NCR)
+- What is the specified requirement? (drawing dimension, specification, standard)
+- What was actually observed or measured? (actual value, description)
+- What is the gap? (difference between required and actual)
 
-Confirm containment is in place. If documented in the NCR, reference it. If not yet done, define it here.
+Every NCR description must be independently understandable without additional explanation. Do not rely on attachments to complete the description.
 
-### 4. Root cause analysis
+**Good NCR description:**
+> "Connector housing flange thickness measured at 1.8 mm ± 0.05 mm on 3 of 5 sampled units. Drawing specification: 2.2 mm ± 0.1 mm (ref. DWG-12345 rev B, detail B-3). Non-conformance: measured values 0.35–0.42 mm below lower specification limit."
 
-This is the core of the CAR. Use structured methodology:
+**Bad NCR description (do not write):**
+> "Parts are out of spec. The housing looks too thin and won't fit properly."
 
-**Recommended tools:**
-- [5-Why](../../problem-solving/5why-root-cause/) for linear cause chains
-- [Fishbone](../../problem-solving/fishbone-analysis/) for complex or multi-factor problems
+**Rules for the description:**
 
-**Identify two root causes:**
-1. **Root cause of occurrence** — why did the non-conformance happen?
-2. **Root cause of escape** — why was it not detected before it reached the next customer?
+- Use numbers: actual value, specification value, tolerance, quantity
+- Reference the requirement: drawing number + revision, specification number, purchase order
+- Describe the physical observation: measured value, visual characteristic (location, extent, appearance)
+- Avoid subjective language ("poor quality", "bad parts", "looks wrong") — use measurable and observable facts only
+- Do NOT include hypotheses ("probably because…"), root cause, or blame
 
-**Document the chain, not just the conclusion:**
+### 3. Objective evidence
 
-```
-Root cause of occurrence:
-Why: Connector pin depth OOS → Why: insertion force insufficient →
-Why: pneumatic jig set to wrong pressure → Why: pressure setpoint not in work instruction →
-Root cause: Work instruction for Station 3 does not specify jig pressure setpoint.
+List what evidence exists:
 
-Root cause of escape:
-Why: Not detected at our outgoing inspection → Why: no depth measurement in outgoing
-inspection plan → Root cause: Control Plan does not include pin depth at outgoing.
-```
+- Measurement records (gauge reading, CMM report, test result) — all evidence must be traceable to this NCR by ID or reference
+- Photos (reference photo numbers or attach)
+- Sample availability (samples retained: Yes/No, location)
+- Batch / lot traceability (delivery note, batch record)
 
-**Validation:** state how the root cause was confirmed. Acceptable validation methods:
-- Reproduction test (demonstrated that removing/restoring the root cause produces/prevents the defect)
-- Data correlation (statistical relationship between root cause variable and defect occurrence)
-- Physical evidence (inspection of the failed part or process reveals the causal mechanism)
-- Direct record review (confirms the absence of the required control)
+### 4. Severity classification
 
-A root cause supported only by team opinion (not validated by evidence) cannot be used as the basis for CAR closure.
+| Grade | Definition | Examples |
+|-------|-----------|---------|
+| **Critical** | Affects safety, regulatory compliance, or potential field failure that cannot be contained internally | Safety-related dimension OOS, regulatory label missing, electrical isolation failure, risk of harm to end user |
+| **Major** | Affects form, fit, or function — customer will likely detect | Dimension preventing assembly, performance parameter below specification, missing required feature |
+| **Minor** | Does not affect form, fit, or function — cosmetic or documentation | Surface scratch within defined limits, label position deviation, minor visual blemish |
+| **OFI** | Observation for improvement — technically conforming but below best practice | (Used in audit context only, not for product NCRs) |
 
-### 5. Corrective actions
+**When in doubt, grade higher.** It is easier to downgrade after review than to explain why a major issue was graded minor.
 
-One corrective action for each root cause. The action must directly address the root cause — not a symptom.
+### 5. Affected quantity and segregation status
 
-| # | Root cause addressed | Corrective action | Owner | Target date |
-|---|---------------------|-------------------|-------|-------------|
-| 1 | WI missing jig pressure | Update WI-Station-3 to specify jig pressure 4.5 ± 0.2 bar | [Name] | 2026-06-05 |
-| 2 | CP no depth check at outgoing | Add pin depth measurement to Control Plan at outgoing, 10% sample, n=5 per batch | [Name] | 2026-06-05 |
+- How many units are affected? (inspected quantity, non-conforming quantity, population at risk)
+- Where is the suspect material now? (on-hold location: shelf, bin, quarantine area)
+- Has it been segregated? (Yes / No / In progress)
+- Has it been identified? (red tag, quarantine label, system flag)
 
-**Action quality check:**
-- Does this action, if implemented, prevent the root cause from occurring again?
-- Is it specific (who does what, by when)?
-- Can its implementation be verified?
+**Segregation must occur immediately upon detection, before NCR documentation is completed.**
 
-### 6. Implementation evidence
+**Any non-conforming material must be physically identified and segregated before the NCR is closed.**
 
-For each corrective action, document that it was actually implemented:
+### 6. Disposition
 
-| Action | Evidence of implementation | Date verified |
-|--------|---------------------------|---------------|
-| WI updated | WI-Station-3 rev C, approved 2026-06-04, attached | 2026-06-04 |
-| Training conducted | Training attendance record attached (4 operators) | 2026-06-04 |
-| Control Plan updated | CP rev F, approved 2026-06-04, attached | 2026-06-04 |
+| Disposition | When to use |
+|------------|-------------|
+| **Use As Is (UAI)** | Non-conformance does not affect form, fit, function or safety — requires engineering approval with documented rationale |
+| **Rework** | Non-conformance can be corrected to bring part into specification — specify rework method and re-inspection required |
+| **Repair** | Non-conformance can be corrected, but result will not meet original specification — requires customer deviation approval if shipping to customer |
+| **Return to Supplier (RTS)** | Incoming material non-conformance — returned with copy of NCR |
+| **Scrap** | Cannot be reworked or repaired — irreversible disposal |
 
-Documents must be revised with a new revision number and approval date. Verbal implementation is not evidence.
+UAI requires documented approval with technical justification. Never approve UAI verbally.
 
-### 7. Verification of effectiveness (VOE)
+Disposition must be approved by authorised personnel per the defined approval matrix.
 
-This is where most CARs fail. The action is implemented, but nobody checks whether it actually prevents the defect.
+### 7. Immediate containment (if applicable)
 
-**VOE requirements (ISO 9001 §10.2.1.e):**
+If suspect material may have already passed to a downstream process or customer:
 
-1. **Method:** how will you check if the corrective action worked? (data collection, monitoring period)
-2. **Metric:** what will you measure? (defect rate, inspection results)
-3. **Volume/duration:** what sample size or time period constitutes sufficient evidence?
-4. **Target:** what result confirms the action was effective?
-
-**VOE minimum volume guidance:**
-- For a defect with known base rate: the VOE sample must be large enough to observe at least one recurrence if the action had failed. Example: if baseline defect rate was 5%, a zero-defect sample of 60 units gives 95% confidence the rate is now below 5%.
-- For process parameter changes: minimum 30 consecutive production cycles under the new conditions, or as defined by the Control Plan sampling frequency × 3 periods.
-- For detection control improvements: minimum one full inspection cycle of the affected product family with zero escapes.
-- Minimum in all cases: state the volume used and the basis for choosing it. "Zero defects in 10 units" is not a valid VOE for a high-volume process.
-
-**VOE result:**
-- Record the actual results after the monitoring period
-- State: Effective / Not effective
-- If not effective: return to root cause analysis and repeat
-
-### 8. AP revision (AIAG-VDA, if applicable)
-
-If the non-conformance relates to a PFMEA failure mode with an Action Priority (AP) rating:
-
-- After verified implementation of the corrective action, the PFMEA must be updated with a revised S, O, and/or D rating
-- The revised AP (AP-revised) must reflect the improvement — it must be lower than the original AP or documented with justification if unchanged
-- Revised AP is recorded only after VOE is complete, not at the time of action planning
-
-### 9. Systemic prevention and horizontal deployment
-
-Ask: could this same root cause exist in similar parts, processes, or product families?
-
-If yes:
-- List the similar areas
-- Document the actions taken to extend the corrective action
-- Evidence that horizontal deployment is complete
-
-### 10. Lessons learned
-
-One or two sentences capturing the key learning for future reference:
-
-> "Work instruction templates for assembly stations must include all process parameter setpoints. Control Plans must cover outgoing inspection of all safety-relevant characteristics."
-
-File in the lessons learned register and reference in PFMEA update.
+- List containment actions taken (sort, inspection, ship-hold) — all actions must be time-stamped and traceable
+- Reference the 8D / CAPA initiated (if applicable)
 
 ---
 
-## Closure criteria
+## Output format — example NCR
 
-A CAR may only be closed when ALL of the following are true, and the closure authority (named in the header) has signed off:
+```
+NCR-2026-0047
+Date: 2026-05-28 | Part: 12345-B | Lot: 2026-05-12-A | Qty: 47/200 = 23.5%
+Detection: Incoming inspection | Supplier: ABC Electronics
 
-- [ ] Root causes of occurrence and escape are documented with validation evidence
-- [ ] Corrective actions are implemented and documented with revision numbers and approval dates
-- [ ] VOE is complete with documented sample volume and confirms effectiveness
-- [ ] PFMEA is updated (revised failure mode entry, revised AP if applicable)
-- [ ] Control Plan is updated (if detection control changed)
-- [ ] Work Instructions are updated (if process control changed)
-- [ ] Horizontal deployment is documented
-- [ ] Customer notified of closure (if CAR was triggered by customer complaint or CSR-required notification)
-- [ ] Closure authority sign-off obtained
+NON-CONFORMANCE:
+Connector pin insertion depth measured at 3.8–4.1 mm on 47 of 200 sampled units.
+Specification: 5.0 ± 0.3 mm (DWG-12345 rev B, detail C-1).
+Non-conformance: 0.6–1.5 mm below lower limit on 23.5% of sampled parts.
 
----
+EVIDENCE:
+Measurement records: Sheet INS-2026-0047 (caliper, calibration cert. 2026-03-01)
+Photos: NCR-2026-0047-Photo-01 to 05
+Samples retained: 5 units, quarantine bin QA-07
+
+SEVERITY: Major — connector will not achieve full mating depth, risking intermittent
+electrical contact failure at the assembly stage.
+
+SEGREGATION: 200 sampled units on hold, quarantine bin QA-07.
+Remaining units in delivery note 55512 (1,500 units) on ship-hold pending 100% sort.
+
+DISPOSITION: Return to Supplier pending investigation.
+Immediate containment: 100% incoming inspection of remaining 1,500 units.
+```
 
 ## Common mistakes
 
-- **"Retrain operators"** as a corrective action for human error — this is never sufficient alone; the system that allowed the error must be changed
-- **Closing without VOE** — the most common reason for recurring non-conformances
-- **VOE on insufficient sample** — "zero defects in 5 units" is not effectiveness verification; define the minimum volume before collecting data
-- **Implementing actions without updating PFMEA and Control Plan** — next audit will find the gap
-- **Generic actions** — "review procedures" → not specific; must state which procedure, revised to say what, by whom, by when
-- **Closing without named authority sign-off** — any team member closing a CAR without defined authority is a governance gap
-- **Missing AP revision** — when PCA addresses a PFMEA failure mode, the revised AP must be recorded after VOE
-
----
+- **"Parts are bad"** — too vague; always give measured values vs. specification
+- **Root cause in the description** — "caused by incorrect tooling setting" → remove from NCR, goes in 8D D4
+- **Missing traceability** — no batch or lot number makes containment impossible
+- **Incorrect severity grade** — failing to grade Critical when safety is at risk
+- **UAI without engineering approval** — verbal approval is not acceptable
+- **Not segregating before writing the NCR** — segregation must happen immediately, before the paperwork
+- **Subjective language** — "poor quality", "bad supplier", "looks wrong" — use objective, measurable facts
 
 ## Output Format
 
@@ -1194,12 +1412,16 @@ At the start of each use, ask the user:
 
 Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
 
+## Reference files
+
+- [NCR template](assets/ncr-template.md)
+
 ## Changelog
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1.0 | 2026-06-04 | @migmcc | Expanded CAR linkage to D5-D6, added effectiveness verification requirements |
+| 1.1.0 | 2026-06-03 | @migmcc | Expanded severity classification criteria and disposition guidance |
 
 ---
 
@@ -1477,226 +1699,4 @@ Electronic approval allowed: ☐ Yes ☐ No (system reference: _____________)
 | **DO NOT include:** root cause, hypothesis, opinion, who is to blame | |
 | **DO NOT include:** future actions (those go in CAPA/8D) | |
 | **DO NOT use:** "poor quality", "bad supplier", "unacceptable" — use measured facts | |
-
----
-
-## Source: skills/documentation/ncr-writing/SKILL.md
-
----
-name: ncr-writing
-description: >-
-  Write a non-conformance report, NCR, reject a supplier, or document a defect with
-  objective-evidence language and correct severity grading (Critical/Major/Minor). Covers
-  disposition recommendations and segregation requirements for incoming inspection failures,
-  in-process defects, customer returns, and audit findings.
-license: MIT
-metadata:
-  author: RBraga01
-  version: "1.1.0"
-  iso-9001: "8.7"
-  iatf-16949: "8.7.1"
-  domain: quality-engineering
-  subdomain: documentation
-  industries: automotive,electronics,aerospace,medical,general
-  status: approved
-  created: "2026-06-01"
-  last_updated: "2026-06-03"
-  updated_by: migmcc
-  reviewed_by: RBraga01
-  standard_edition: "ISO 9001:2015"
----
-
-# Non-Conformance Report (NCR) Writing
-
-## When to use
-
-Write an NCR whenever a product, material, or service does not conform to a specified requirement:
-
-- Incoming inspection failure
-- In-process defect found at any production step
-- Final inspection rejection
-- Customer return or field complaint
-- Audit finding on a product characteristic
-
-## The non-negotiable rule
-
-**An NCR describes WHAT is wrong, not WHY.**
-
-Root cause belongs in the CAPA / 8D. The NCR is the factual record of the non-conformance itself. Mixing root cause speculation into the NCR contaminates the record.
-
-An NCR is a controlled quality record and may be used in audits, customer reviews, and legal contexts. All content must be objective and defensible.
-
-## Required NCR Checklist
-
-☐ Requirement clearly referenced (drawing/specification number and revision)
-☐ Actual value or observed defect recorded with quantified measurement
-☐ Gap between required and actual explicitly defined
-☐ Evidence attached or referenced and traceable to this NCR
-☐ Severity correctly classified — grade higher when in doubt
-☐ Affected quantity and population at risk identified
-☐ Material physically segregated and identified before NCR is closed
-☐ Detection point reflects where the defect was found, not where it originated
-☐ Disposition defined and approved by authorised personnel
-☐ Containment actions documented with timestamps (if applicable)
-☐ Language is objective — no subjective terms, no root cause, no opinion
-☐ NCR traceable to production records, batch records, and inspection logs
-
----
-
-## NCR structure
-
-### 1. Header
-
-| Field | Content |
-|-------|---------|
-| NCR number | Sequential, traceable |
-| Date | Date of detection |
-| Part number | Exact part number + revision |
-| Part description | Name |
-| Supplier / source | Supplier name + supplier code (for incoming) or line/station (for in-process) |
-| Batch / lot | Traceability reference |
-| Quantity affected | Non-conforming qty / total inspected |
-| Detected by | Name + function |
-| Detection point | Incoming / in-process station / outgoing / customer |
-
-### 2. Non-conformance description
-
-**Write like a measurement report, not a complaint.**
-
-Required elements:
-
-- What is the specified requirement? (drawing dimension, specification, standard)
-- What was actually observed or measured? (actual value, description)
-- What is the gap? (difference between required and actual)
-
-Every NCR description must be independently understandable without additional explanation. Do not rely on attachments to complete the description.
-
-**Good NCR description:**
-> "Connector housing flange thickness measured at 1.8 mm ± 0.05 mm on 3 of 5 sampled units. Drawing specification: 2.2 mm ± 0.1 mm (ref. DWG-12345 rev B, detail B-3). Non-conformance: measured values 0.35–0.42 mm below lower specification limit."
-
-**Bad NCR description (do not write):**
-> "Parts are out of spec. The housing looks too thin and won't fit properly."
-
-**Rules for the description:**
-
-- Use numbers: actual value, specification value, tolerance, quantity
-- Reference the requirement: drawing number + revision, specification number, purchase order
-- Describe the physical observation: measured value, visual characteristic (location, extent, appearance)
-- Avoid subjective language ("poor quality", "bad parts", "looks wrong") — use measurable and observable facts only
-- Do NOT include hypotheses ("probably because…"), root cause, or blame
-
-### 3. Objective evidence
-
-List what evidence exists:
-
-- Measurement records (gauge reading, CMM report, test result) — all evidence must be traceable to this NCR by ID or reference
-- Photos (reference photo numbers or attach)
-- Sample availability (samples retained: Yes/No, location)
-- Batch / lot traceability (delivery note, batch record)
-
-### 4. Severity classification
-
-| Grade | Definition | Examples |
-|-------|-----------|---------|
-| **Critical** | Affects safety, regulatory compliance, or potential field failure that cannot be contained internally | Safety-related dimension OOS, regulatory label missing, electrical isolation failure, risk of harm to end user |
-| **Major** | Affects form, fit, or function — customer will likely detect | Dimension preventing assembly, performance parameter below specification, missing required feature |
-| **Minor** | Does not affect form, fit, or function — cosmetic or documentation | Surface scratch within defined limits, label position deviation, minor visual blemish |
-| **OFI** | Observation for improvement — technically conforming but below best practice | (Used in audit context only, not for product NCRs) |
-
-**When in doubt, grade higher.** It is easier to downgrade after review than to explain why a major issue was graded minor.
-
-### 5. Affected quantity and segregation status
-
-- How many units are affected? (inspected quantity, non-conforming quantity, population at risk)
-- Where is the suspect material now? (on-hold location: shelf, bin, quarantine area)
-- Has it been segregated? (Yes / No / In progress)
-- Has it been identified? (red tag, quarantine label, system flag)
-
-**Segregation must occur immediately upon detection, before NCR documentation is completed.**
-
-**Any non-conforming material must be physically identified and segregated before the NCR is closed.**
-
-### 6. Disposition
-
-| Disposition | When to use |
-|------------|-------------|
-| **Use As Is (UAI)** | Non-conformance does not affect form, fit, function or safety — requires engineering approval with documented rationale |
-| **Rework** | Non-conformance can be corrected to bring part into specification — specify rework method and re-inspection required |
-| **Repair** | Non-conformance can be corrected, but result will not meet original specification — requires customer deviation approval if shipping to customer |
-| **Return to Supplier (RTS)** | Incoming material non-conformance — returned with copy of NCR |
-| **Scrap** | Cannot be reworked or repaired — irreversible disposal |
-
-UAI requires documented approval with technical justification. Never approve UAI verbally.
-
-Disposition must be approved by authorised personnel per the defined approval matrix.
-
-### 7. Immediate containment (if applicable)
-
-If suspect material may have already passed to a downstream process or customer:
-
-- List containment actions taken (sort, inspection, ship-hold) — all actions must be time-stamped and traceable
-- Reference the 8D / CAPA initiated (if applicable)
-
----
-
-## Output format — example NCR
-
-```
-NCR-2026-0047
-Date: 2026-05-28 | Part: 12345-B | Lot: 2026-05-12-A | Qty: 47/200 = 23.5%
-Detection: Incoming inspection | Supplier: ABC Electronics
-
-NON-CONFORMANCE:
-Connector pin insertion depth measured at 3.8–4.1 mm on 47 of 200 sampled units.
-Specification: 5.0 ± 0.3 mm (DWG-12345 rev B, detail C-1).
-Non-conformance: 0.6–1.5 mm below lower limit on 23.5% of sampled parts.
-
-EVIDENCE:
-Measurement records: Sheet INS-2026-0047 (caliper, calibration cert. 2026-03-01)
-Photos: NCR-2026-0047-Photo-01 to 05
-Samples retained: 5 units, quarantine bin QA-07
-
-SEVERITY: Major — connector will not achieve full mating depth, risking intermittent
-electrical contact failure at the assembly stage.
-
-SEGREGATION: 200 sampled units on hold, quarantine bin QA-07.
-Remaining units in delivery note 55512 (1,500 units) on ship-hold pending 100% sort.
-
-DISPOSITION: Return to Supplier pending investigation.
-Immediate containment: 100% incoming inspection of remaining 1,500 units.
-```
-
-## Common mistakes
-
-- **"Parts are bad"** — too vague; always give measured values vs. specification
-- **Root cause in the description** — "caused by incorrect tooling setting" → remove from NCR, goes in 8D D4
-- **Missing traceability** — no batch or lot number makes containment impossible
-- **Incorrect severity grade** — failing to grade Critical when safety is at risk
-- **UAI without engineering approval** — verbal approval is not acceptable
-- **Not segregating before writing the NCR** — segregation must happen immediately, before the paperwork
-- **Subjective language** — "poor quality", "bad supplier", "looks wrong" — use objective, measurable facts
-
-## Output Format
-
-At the start of each use, ask the user:
-
-> "How would you like to receive the output?
-> **A** — Structured Markdown (formatted tables and sections, ready to copy)
-> **B** — Plain tables (simplified structure for Excel or Word)
-> **C** — Narrative report (flowing text for a formal document or email)
->
-> Default: A."
-
-Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
-
-## Reference files
-
-- [NCR template](assets/ncr-template.md)
-
-## Changelog
-
-| Version | Date | Author | Change |
-|---------|------|--------|--------|
-| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1.0 | 2026-06-03 | @migmcc | Expanded severity classification criteria and disposition guidance |
 

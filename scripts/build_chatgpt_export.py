@@ -9,16 +9,15 @@ SOURCE = ROOT / "skills"
 DEST = ROOT / "platforms/chatgpt/export"
 
 def contents() -> dict[str, str]:
-    sources = sorted(SOURCE.rglob("*.md"))
+    sources = sorted(SOURCE.rglob("*.md"), key=lambda path: path.relative_to(SOURCE).as_posix())
     groups: dict[str, list[Path]] = {}
     for path in sources:
         groups.setdefault(path.relative_to(SOURCE).parts[0], []).append(path)
     result: dict[str, str] = {}
     index = "# QES Knowledge Export — complete source index\n\n"
     index += "This is a deterministic export of the canonical Markdown skills, agents, references and templates. The 36-file platform mirrors stay unchanged.\n\n"
-    sections = [(group, paths[i:i + 10], k) for group, files in sorted(groups.items())
-                for k, i in enumerate(range(0, len(files), 10), 1)
-                for paths in [sorted(files)]]
+    sections = [(group, paths[i:i + 10], k) for group, paths in sorted(groups.items())
+                for k, i in enumerate(range(0, len(paths), 10), 1)]
     index += f"Source files: {len(sources)}; skills: 23; agents: 8. Upload all {len(sections) + 1} Markdown files in this folder (including this index).\n\n"
     for n, (domain, paths, part) in enumerate(sections, 1):
         suffix = f"-part-{part}" if len(groups[domain]) > 10 else ""
@@ -47,7 +46,7 @@ def main() -> int:
     if options.write:
         DEST.mkdir(parents=True, exist_ok=True)
         for name, content in expected.items():
-            (DEST / name).write_text(content, encoding="utf-8")
+            (DEST / name).write_text(content, encoding="utf-8", newline="\n")
     actual = {p.name for p in DEST.glob("*.md")} if DEST.exists() else set()
     errors = sorted(actual.symmetric_difference(expected))
     for name, content in expected.items():

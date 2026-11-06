@@ -15,6 +15,16 @@ UPDATED_SKILLS = [
 
 
 class StandardEditionRegressionTests(unittest.TestCase):
+    def test_export_sources_use_platform_independent_order(self):
+        for path in (REPO / "platforms/chatgpt/export").glob("*.md"):
+            with self.subTest(export=path.name):
+                sources = [
+                    line.removeprefix("## Source: ")
+                    for line in path.read_text(encoding="utf-8").splitlines()
+                    if line.startswith("## Source: ")
+                ]
+                self.assertEqual(sources, sorted(sources))
+
     def test_readme_and_plugin_guide_match_the_skill_inventory(self):
         skills = list((REPO / "skills").rglob("SKILL.md"))
         agents = list((REPO / "skills/agents").rglob("SKILL.md"))

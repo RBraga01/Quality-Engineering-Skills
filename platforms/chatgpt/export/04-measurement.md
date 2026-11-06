@@ -4,6 +4,231 @@ Generated from the canonical skills tree; each document follows in full.
 
 ---
 
+## Source: skills/measurement/msa-gauge-rr/SKILL.md
+
+---
+name: msa-gauge-rr
+description: >-
+  Measurement System Analysis (MSA) and Gauge Repeatability & Reproducibility (Gauge R&R) — plan,
+  execute, and interpret an MSA study for variable or attribute measurement systems. Use when
+  qualifying a gauge for a new part, validating a measurement system before PPAP, interpreting
+  Gauge R&R results, or auditing MSA studies for adequacy. Covers AIAG MSA 4th edition.
+license: MIT
+metadata:
+  author: RBraga01
+  version: "1.1.0"
+  iso-9001: "7.1.5"
+  iatf-16949: "7.1.5.1, 7.1.5.2"
+  aiag-reference: "AIAG MSA 4th Edition"
+  domain: quality-engineering
+  subdomain: measurement
+  industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-06"
+  last_updated: "2026-06-06"
+  updated_by: migmcc
+  reviewed_by: RBraga01
+  standard_edition: "AIAG MSA 4th Edition (2010)"
+---
+
+# Measurement System Analysis (MSA) / Gauge R&R
+
+## When to use
+
+Use this skill when:
+- Qualifying a measurement system for a new part or process (PPAP requirement)
+- Interpreting Gauge R&R results — is this gauge acceptable?
+- Auditing a supplier's MSA study for correctness and adequacy
+- Selecting the right study type for a given measurement situation
+- Investigating a quality problem where measurement error may be a factor
+- Responding to a customer request for MSA data on a specific characteristic
+
+## Prerequisites
+
+- The characteristic to be measured (product or process)
+- The gauge or measurement system to be studied
+- Production parts spanning the expected process variation (10 parts minimum)
+- At least 2 trained appraisers who normally perform the measurement
+- The specification (tolerance) for the characteristic
+
+## Workflow
+
+### Step 1 — Select the MSA study type
+
+| Study type | When to use |
+|-----------|-------------|
+| **Gauge R&R (crossed)** | Variable data, 2–3 appraisers, each measures all parts (most common) |
+| **Gauge R&R (nested)** | Variable data, parts are destroyed during measurement (e.g., tensile test) |
+| **Attribute MSA** | Pass/fail, go/no-go, visual inspection — data is not a number |
+| **Bias study** | Accuracy of a single gauge vs. a reference standard |
+| **Linearity study** | Whether gauge accuracy is consistent across its measurement range |
+| **Stability study** | Whether gauge accuracy drifts over time |
+
+For PPAP: Crossed Gauge R&R is required for all variable gauges on special characteristics.
+
+---
+
+### Step 2 — Crossed Gauge R&R study procedure
+
+**Setup:**
+- Minimum **10 parts** selected to represent the full process variation range (not cherry-picked from centre of tolerance)
+- Minimum **2 appraisers** (3 preferred)
+- Minimum **2 trials** per appraiser per part (3 preferred)
+- Parts randomly numbered and labelled — appraisers must not see each other's measurements
+- Measurement conditions must match normal production conditions
+
+**Standard study design:**
+- 10 parts × 3 appraisers × 2 trials = 60 measurements
+- 10 parts × 2 appraisers × 3 trials = 60 measurements
+
+**Execution:**
+1. Appraiser A measures all 10 parts in random order — record results
+2. Appraiser B measures all 10 parts in random order — record results
+3. Appraiser C measures all 10 parts in random order — record results
+4. Repeat the cycle for trial 2 (and trial 3 if applicable)
+5. Appraisers must not see their own previous results or other appraisers' results during the study
+
+**Do NOT:**
+- Allow appraisers to adjust the gauge between trials
+- Use parts that are all near the nominal value (no spread)
+- Record only one trial (single measurement per appraiser per part is insufficient)
+
+---
+
+### Step 3 — Interpret the results
+
+#### %GRR (Gauge R&R as % of Total Variation or % of Tolerance)
+
+| %GRR | Interpretation | Decision |
+|------|---------------|---------|
+| < 10% | Excellent | ✅ Gauge accepted |
+| 10% – 30% | Marginal | ⚠️ May be acceptable based on application — requires engineering review and customer approval |
+| > 30% | Unacceptable | ❌ Gauge not suitable — investigate and improve before use in production |
+
+**Two calculation methods:**
+- **% of Study Variation (% of TV):** GRR / Total Variation × 100 — preferred when process is in control
+- **% of Tolerance:** GRR / Tolerance × 100 — use when process capability is unknown or for attribute gauging
+
+For PPAP, %GRR < 30% (tolerance method) is the typical customer acceptance criterion. <10% is the target.
+
+#### Number of Distinct Categories (ndc)
+
+ndc = 1.41 × (Part Variation / GRR)
+
+| ndc | Interpretation |
+|-----|---------------|
+| ≥ 5 | ✅ Gauge can distinguish adequate number of categories |
+| 3 – 4 | ⚠️ Gauge can be used for go/no-go decisions only |
+| 1 – 2 | ❌ Gauge cannot distinguish parts — unacceptable |
+
+ndc ≥ 5 is required for measurement systems used on special characteristics.
+
+#### Repeatability vs. Reproducibility
+
+| Component | Description | Common cause |
+|-----------|-------------|-------------|
+| **EV (Equipment Variation / Repeatability)** | Variation when same appraiser measures same part multiple times | Gauge imprecision, worn parts, environment |
+| **AV (Appraiser Variation / Reproducibility)** | Variation between different appraisers measuring the same part | Training inconsistency, measurement technique, gauge setup |
+
+If EV > AV: investigate gauge (calibration, maintenance, resolution)
+If AV > EV: investigate training, measurement procedure, gauge fixture/setup
+
+#### When %GRR > 30% — improving the measurement system
+
+A result >30% means the gauge is not suitable for production use. Do not proceed to PPAP — investigate and retest. Common root causes and actions:
+
+| Root cause (high EV) | Action |
+|---------------------|--------|
+| Gauge resolution too coarse | Replace with a gauge of finer resolution (rule: resolution ≤ 10% of tolerance) |
+| Gauge worn or damaged | Inspect, recalibrate, or replace the gauge |
+| Environmental interference (vibration, temperature) | Move measurement to a stable environment; add fixture if needed |
+| Inconsistent part fixturing | Design a repeatable fixture or measurement aid |
+
+| Root cause (high AV) | Action |
+|---------------------|--------|
+| Measurement technique varies by appraiser | Develop a standardised measurement instruction (WI with photos/video) |
+| Gauge difficult to read or position | Redesign fixture; add a datum locator; use a self-positioning gauge |
+| Training gap | Retrain all appraisers using the standardised measurement WI; repeat the study |
+
+After implementing improvements: re-run the full study. Do not accept a %GRR > 30% result with a customer waiver unless the characteristic is non-critical and the customer explicitly agrees in writing.
+
+---
+
+### Step 4 — Attribute MSA (pass/fail gauges)
+
+For go/no-go gauges, visual inspection, and any pass/fail decision:
+
+**Expanded attribute study (recommended for PPAP):**
+- 50 parts spanning the full range (include parts near the accept/reject boundary)
+- 3 appraisers × 3 trials per part = 450 measurements
+- Calculate % agreement (within appraiser and between appraisers)
+- Calculate kappa statistic (Cohen's kappa ≥ 0.9 is acceptable)
+
+**Short method (minimum acceptable):**
+- 20 parts × 2 appraisers × 2 trials
+- 90% agreement within and between appraisers required
+- Include borderline parts near the specification limit
+
+---
+
+### Step 5 — Audit an existing MSA study
+
+When reviewing a supplier's or internal MSA, check:
+
+- [ ] Parts selected represent the full process variation range (not all near nominal)
+- [ ] Minimum 10 parts, 2 appraisers, 2 trials confirmed
+- [ ] Appraisers did not see each other's or their own previous results
+- [ ] %GRR result stated clearly (tolerance method or study variation method — which one?)
+- [ ] ndc ≥ 5 for all special characteristics
+- [ ] EV vs. AV breakdown analysed and interpreted
+- [ ] %GRR < 30% (conditional: <10% preferred)
+- [ ] For attribute gauges: kappa statistic calculated
+- [ ] Study performed in production conditions (not in metrology lab if production measurement is on the line)
+- [ ] Gauge calibration certificate current at time of study
+
+---
+
+## Validation criteria
+
+An MSA study is acceptable for PPAP when:
+- %GRR < 30% (tolerance method) — <10% preferred
+- ndc ≥ 5
+- Study conducted with production appraisers using production gauges in production conditions
+- Parts selected from the full process variation range
+- Results documented with part numbers, appraiser IDs, gauge ID, and calibration reference
+
+## Common mistakes
+
+- Parts selected near the nominal value only — artificially inflates ndc and understates GRR
+- Appraiser A re-measures all parts immediately — not the same as separate trials (must separate in time)
+- Using metrology lab gauges for an MSA of a production line gauge — study must use the same gauge in the same conditions
+- %GRR > 30% submitted in PPAP without explanation or customer waiver
+- Gauge calibration expired at time of MSA study — study is invalid
+- ndc < 5 on a special characteristic — automatic PPAP finding in IATF audits
+- Attribute MSA with only 2 appraisers and no borderline parts — study has no discriminating power
+
+## Output Format
+
+At the start of each use, ask the user:
+
+> "How would you like to receive the output?
+> **A** — Structured Markdown (formatted tables and sections, ready to copy)
+> **B** — Plain tables (simplified structure for Excel or Word)
+> **C** — Narrative report (flowing text for a formal document or email)
+>
+> Default: A."
+
+Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added improvement guidance for %GRR > 30% — root cause table for high EV and high AV with corrective actions |
+
+---
+
 ## Source: skills/measurement/msa-gauge-rr/references/gauge-rr-study-guide.md
 
 ---
@@ -326,208 +551,293 @@ The formal MSA study report submitted with PPAP or to a customer must contain:
 
 ---
 
-## Source: skills/measurement/msa-gauge-rr/SKILL.md
+## Source: skills/measurement/spc-control-charts/SKILL.md
 
 ---
-name: msa-gauge-rr
+name: spc-control-charts
 description: >-
-  Measurement System Analysis (MSA) and Gauge Repeatability & Reproducibility (Gauge R&R) — plan,
-  execute, and interpret an MSA study for variable or attribute measurement systems. Use when
-  qualifying a gauge for a new part, validating a measurement system before PPAP, interpreting
-  Gauge R&R results, or auditing MSA studies for adequacy. Covers AIAG MSA 4th edition.
+  Statistical Process Control (SPC) — select the correct control chart, interpret out-of-control
+  signals using Western Electric rules, calculate and interpret Cp, Cpk, Pp, Ppk. Use when setting
+  up SPC for a new characteristic, interpreting control chart signals, responding to special cause
+  variation, or auditing SPC implementation. Covers the AIAG & VDA SPC 1st edition (2026)
+  harmonisation, the superseded AIAG SPC 2nd edition, and IATF 16949 §8.3.3.
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1.0"
-  iso-9001: "7.1.5"
-  iatf-16949: "7.1.5.1, 7.1.5.2"
-  aiag-reference: "AIAG MSA 4th Edition"
+  version: "2.0.0"
+  iso-9001: "9.1"
+  iatf-16949: "8.3.3, 9.1.1"
+  aiag-reference: "AIAG & VDA SPC 1st Edition (2026)"
   domain: quality-engineering
   subdomain: measurement
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-06-06"
-  updated_by: migmcc
-  reviewed_by: RBraga01
-  standard_edition: "AIAG MSA 4th Edition (2010)"
+  last_updated: "2026-11-06"
+  updated_by: RBraga01
+  reviewed_by: migmcc
+  standard_edition: "AIAG & VDA SPC 1st Edition (2026) — transition; AIAG SPC 2nd Edition (2005) for legacy programmes"
+  supersedes_edition: "AIAG SPC 2nd Edition (2005)"
 ---
 
-# Measurement System Analysis (MSA) / Gauge R&R
+# Statistical Process Control (SPC)
+
+## Standard edition and currency
+
+**SPC was harmonised in 2026.** AIAG and VDA jointly announced the **AIAG & VDA SPC
+Handbook** on 30 June 2026, available from the VDA QMC webshop from 1 July 2026. It is
+the second Core Tool harmonised after FMEA, and it supersedes the AIAG SPC 2nd
+Edition — which had stood unrevised since **2005**.
+
+This is a live transition. Existing programmes will be running to the 2nd Edition for
+some time, and customer-specific requirements decide which applies to a given part.
+**Ask which manual the customer requires before reporting capability.**
+
+**What changed that affects the numbers you report:**
+
+| Area | AIAG SPC 2nd Ed (2005) | AIAG & VDA SPC 1st Ed (2026) |
+|---|---|---|
+| Machine indices | Cm, Cmk | **Pm, Pmk** — renamed to performance indices |
+| Study progression | Short-term Cp/Cpk vs long-term Pp/Ppk | **Maturity progression:** machine performance (Pm/Pmk) → process performance (Pp/Ppk) → process capability (Cp/Cpk) **only once stability is demonstrated** |
+| Distribution | Largely normal-distribution based | Index calculation preceded by determining the **distribution type** rather than assuming normality |
+| Thresholds | Left to PPAP and customer requirements | Reported to state the linkage to acceptance criteria explicitly — see [Acceptance criteria](#acceptance-criteria) for where the numbers actually come from |
+| Framing | "Is the process stable and predictable?" | "Can we predict the probability of producing nonconforming parts?" |
+
+> **Not yet verified against the manual.** The rows above are drawn from the joint
+> announcement and from published previews, not from the handbook itself. The
+> direction of travel is well corroborated, but treat the detail as orientation until
+> someone has checked it against a licensed copy. Reported alignment with **ISO 22514**
+> for distribution handling is plausible and consistent with VDA practice, but we could
+> not corroborate it in a primary source — it is deliberately not stated as fact here.
+
+The practical consequence: **do not report Cp/Cpk on a process you have not shown to
+be stable.** Report Pp/Ppk instead. Under the harmonised manual, calling an unstable
+process "capable" is a category error, not a conservative estimate.
+
+> **Currency limitation.** The chart selection logic, Western Electric rules and the
+> capability formulas below are mathematics and long-standing published practice, not
+> manual text, and are unaffected by the harmonisation. What this skill does **not**
+> reproduce is the new manual's distribution-selection methodology (reported to include
+> the General Geometric Method and Exceedance Proportion / z-Score / Bothe approaches),
+> its worked examples or its
+> tables. For those, use your licensed copy of the AIAG & VDA SPC manual.
+
+---
 
 ## When to use
 
 Use this skill when:
-- Qualifying a measurement system for a new part or process (PPAP requirement)
-- Interpreting Gauge R&R results — is this gauge acceptable?
-- Auditing a supplier's MSA study for correctness and adequacy
-- Selecting the right study type for a given measurement situation
-- Investigating a quality problem where measurement error may be a factor
-- Responding to a customer request for MSA data on a specific characteristic
+- Selecting the correct control chart type for a process characteristic
+- Interpreting control chart signals — is this special cause or common cause?
+- Calculating Cp, Cpk, Pp, Ppk and determining if the process is capable
+- Responding to an out-of-control signal on a production line
+- Setting up SPC for a new special characteristic (PPAP/APQP requirement)
+- Auditing an SPC system for correctness and adequacy
+- Explaining SPC results to a customer or during an audit
 
 ## Prerequisites
 
-- The characteristic to be measured (product or process)
-- The gauge or measurement system to be studied
-- Production parts spanning the expected process variation (10 parts minimum)
-- At least 2 trained appraisers who normally perform the measurement
-- The specification (tolerance) for the characteristic
+- The characteristic to monitor (variable or attribute data)
+- Production data (minimum 25 subgroups for control limits, 100+ pieces for capability)
+- MSA study completed and %GRR < 30% for variable charts
+- Process specification (nominal + tolerance) for capability calculations
+- Subgroup size decided based on rational subgrouping principle
 
 ## Workflow
 
-### Step 1 — Select the MSA study type
+### Step 1 — Select the correct control chart
 
-| Study type | When to use |
-|-----------|-------------|
-| **Gauge R&R (crossed)** | Variable data, 2–3 appraisers, each measures all parts (most common) |
-| **Gauge R&R (nested)** | Variable data, parts are destroyed during measurement (e.g., tensile test) |
-| **Attribute MSA** | Pass/fail, go/no-go, visual inspection — data is not a number |
-| **Bias study** | Accuracy of a single gauge vs. a reference standard |
-| **Linearity study** | Whether gauge accuracy is consistent across its measurement range |
-| **Stability study** | Whether gauge accuracy drifts over time |
+#### Variable data (measured values — length, weight, pressure, temperature)
 
-For PPAP: Crossed Gauge R&R is required for all variable gauges on special characteristics.
+| Chart | When to use |
+|-------|------------|
+| **X̄-R (X-bar/Range)** | Subgroup size 2–9; most common in manufacturing |
+| **X̄-S (X-bar/Sigma)** | Subgroup size ≥ 10; better sensitivity to spread |
+| **I-MR (Individuals/Moving Range)** | Subgroup size = 1; one measurement per inspection (slow processes, destructive tests) |
 
----
+#### Attribute data (counts, pass/fail, defect rates)
 
-### Step 2 — Crossed Gauge R&R study procedure
+| Chart | When to use |
+|-------|------------|
+| **p-chart** | Proportion defective; variable subgroup size |
+| **np-chart** | Number defective; constant subgroup size |
+| **c-chart** | Count of defects per unit; constant inspection area |
+| **u-chart** | Defects per unit; variable inspection area |
 
-**Setup:**
-- Minimum **10 parts** selected to represent the full process variation range (not cherry-picked from centre of tolerance)
-- Minimum **2 appraisers** (3 preferred)
-- Minimum **2 trials** per appraiser per part (3 preferred)
-- Parts randomly numbered and labelled — appraisers must not see each other's measurements
-- Measurement conditions must match normal production conditions
-
-**Standard study design:**
-- 10 parts × 3 appraisers × 2 trials = 60 measurements
-- 10 parts × 2 appraisers × 3 trials = 60 measurements
-
-**Execution:**
-1. Appraiser A measures all 10 parts in random order — record results
-2. Appraiser B measures all 10 parts in random order — record results
-3. Appraiser C measures all 10 parts in random order — record results
-4. Repeat the cycle for trial 2 (and trial 3 if applicable)
-5. Appraisers must not see their own previous results or other appraisers' results during the study
-
-**Do NOT:**
-- Allow appraisers to adjust the gauge between trials
-- Use parts that are all near the nominal value (no spread)
-- Record only one trial (single measurement per appraiser per part is insufficient)
+**Decision rule:** If you can measure it with a number, use a variable chart. Variable charts are more sensitive and require smaller samples to detect process shifts.
 
 ---
 
-### Step 3 — Interpret the results
+### Step 2 — Calculate control limits
 
-#### %GRR (Gauge R&R as % of Total Variation or % of Tolerance)
+#### X̄-R chart
 
-| %GRR | Interpretation | Decision |
-|------|---------------|---------|
-| < 10% | Excellent | ✅ Gauge accepted |
-| 10% – 30% | Marginal | ⚠️ May be acceptable based on application — requires engineering review and customer approval |
-| > 30% | Unacceptable | ❌ Gauge not suitable — investigate and improve before use in production |
+From at least 25 subgroups of size n:
 
-**Two calculation methods:**
-- **% of Study Variation (% of TV):** GRR / Total Variation × 100 — preferred when process is in control
-- **% of Tolerance:** GRR / Tolerance × 100 — use when process capability is unknown or for attribute gauging
+- **Centre line (X̄̄):** Grand average of all subgroup means
+- **UCL_X̄ = X̄̄ + A₂ × R̄**
+- **LCL_X̄ = X̄̄ − A₂ × R̄**
+- **Centre line (R̄):** Average of all subgroup ranges
+- **UCL_R = D₄ × R̄**
+- **LCL_R = D₃ × R̄** (= 0 for n ≤ 6)
 
-For PPAP, %GRR < 30% (tolerance method) is the typical customer acceptance criterion. <10% is the target.
+Constants for common subgroup sizes:
 
-#### Number of Distinct Categories (ndc)
+| n | A₂ | D₃ | D₄ |
+|---|----|----|-----|
+| 2 | 1.880 | 0 | 3.267 |
+| 3 | 1.023 | 0 | 2.574 |
+| 4 | 0.729 | 0 | 2.282 |
+| 5 | 0.577 | 0 | 2.114 |
 
-ndc = 1.41 × (Part Variation / GRR)
-
-| ndc | Interpretation |
-|-----|---------------|
-| ≥ 5 | ✅ Gauge can distinguish adequate number of categories |
-| 3 – 4 | ⚠️ Gauge can be used for go/no-go decisions only |
-| 1 – 2 | ❌ Gauge cannot distinguish parts — unacceptable |
-
-ndc ≥ 5 is required for measurement systems used on special characteristics.
-
-#### Repeatability vs. Reproducibility
-
-| Component | Description | Common cause |
-|-----------|-------------|-------------|
-| **EV (Equipment Variation / Repeatability)** | Variation when same appraiser measures same part multiple times | Gauge imprecision, worn parts, environment |
-| **AV (Appraiser Variation / Reproducibility)** | Variation between different appraisers measuring the same part | Training inconsistency, measurement technique, gauge setup |
-
-If EV > AV: investigate gauge (calibration, maintenance, resolution)
-If AV > EV: investigate training, measurement procedure, gauge fixture/setup
-
-#### When %GRR > 30% — improving the measurement system
-
-A result >30% means the gauge is not suitable for production use. Do not proceed to PPAP — investigate and retest. Common root causes and actions:
-
-| Root cause (high EV) | Action |
-|---------------------|--------|
-| Gauge resolution too coarse | Replace with a gauge of finer resolution (rule: resolution ≤ 10% of tolerance) |
-| Gauge worn or damaged | Inspect, recalibrate, or replace the gauge |
-| Environmental interference (vibration, temperature) | Move measurement to a stable environment; add fixture if needed |
-| Inconsistent part fixturing | Design a repeatable fixture or measurement aid |
-
-| Root cause (high AV) | Action |
-|---------------------|--------|
-| Measurement technique varies by appraiser | Develop a standardised measurement instruction (WI with photos/video) |
-| Gauge difficult to read or position | Redesign fixture; add a datum locator; use a self-positioning gauge |
-| Training gap | Retrain all appraisers using the standardised measurement WI; repeat the study |
-
-After implementing improvements: re-run the full study. Do not accept a %GRR > 30% result with a customer waiver unless the characteristic is non-critical and the customer explicitly agrees in writing.
+**Important:** Control limits are calculated FROM THE DATA — never set them to match the specification limits. Specification limits and control limits are completely separate concepts.
 
 ---
 
-### Step 4 — Attribute MSA (pass/fail gauges)
+### Step 3 — Apply Western Electric Rules (out-of-control signals)
 
-For go/no-go gauges, visual inspection, and any pass/fail decision:
+Divide the control chart into zones: Zone A (2–3σ from centre), Zone B (1–2σ), Zone C (0–1σ).
 
-**Expanded attribute study (recommended for PPAP):**
-- 50 parts spanning the full range (include parts near the accept/reject boundary)
-- 3 appraisers × 3 trials per part = 450 measurements
-- Calculate % agreement (within appraiser and between appraisers)
-- Calculate kappa statistic (Cohen's kappa ≥ 0.9 is acceptable)
+| Rule | Signal | Interpretation |
+|------|--------|----------------|
+| **Rule 1** | 1 point beyond 3σ (outside control limits) | Large, immediate shift |
+| **Rule 2** | 9 consecutive points on same side of centre line | Process mean has shifted |
+| **Rule 3** | 6 consecutive points steadily increasing or decreasing | Trend — tool wear, drift |
+| **Rule 4** | 14 consecutive points alternating up and down | Systematic variation — two alternating distributions |
+| **Rule 5** | 2 of 3 consecutive points in Zone A or beyond (same side) | Large shift signal |
+| **Rule 6** | 4 of 5 consecutive points in Zone B or beyond (same side) | Moderate shift |
+| **Rule 7** | 15 consecutive points in Zone C (either side of centre line) | Stratification — data from two separate distributions |
+| **Rule 8** | 8 consecutive points beyond Zone C (either side) | Mixture — sampling from two processes |
 
-**Short method (minimum acceptable):**
-- 20 parts × 2 appraisers × 2 trials
-- 90% agreement within and between appraisers required
-- Include borderline parts near the specification limit
+**Action required for ANY rule violation:** Stop and investigate immediately. Do not reset control limits. Do not restart until root cause is identified.
+
+Most commonly applied in automotive: Rules 1, 2, 3 minimum. Rules 1–8 for safety-critical characteristics.
 
 ---
 
-### Step 5 — Audit an existing MSA study
+### Step 4 — Calculate and interpret process capability
 
-When reviewing a supplier's or internal MSA, check:
+**Capability data requirements:** Process capability is only valid when calculated on a process that is in statistical control (no out-of-control signals) and with a minimum of **100 consecutive parts** from that stable process. Fewer parts produce unreliable Cpk estimates — a Cpk calculated on 30 parts can vary by ±0.3 from the true value. Do not report Cpk based on fewer than 100 parts as a production capability figure; label it "preliminary" and state the sample size.
 
-- [ ] Parts selected represent the full process variation range (not all near nominal)
-- [ ] Minimum 10 parts, 2 appraisers, 2 trials confirmed
-- [ ] Appraisers did not see each other's or their own previous results
-- [ ] %GRR result stated clearly (tolerance method or study variation method — which one?)
-- [ ] ndc ≥ 5 for all special characteristics
-- [ ] EV vs. AV breakdown analysed and interpreted
-- [ ] %GRR < 30% (conditional: <10% preferred)
-- [ ] For attribute gauges: kappa statistic calculated
-- [ ] Study performed in production conditions (not in metrology lab if production measurement is on the line)
-- [ ] Gauge calibration certificate current at time of study
+**Short-term capability (within-subgroup variation):**
+
+- **Cp = (USL − LSL) / (6σ̂)**  — capability — process spread vs. tolerance
+- **Cpk = min[(USL − X̄̄) / (3σ̂), (X̄̄ − LSL) / (3σ̂)]** — centred capability — accounts for process mean location
+
+σ̂ = R̄ / d₂ (for X̄-R chart)
+
+**Long-term performance (total variation including between-subgroup):**
+
+- **Pp = (USL − LSL) / (6s)**  — same formula but uses overall standard deviation s
+- **Ppk = min[(USL − X̄̄) / (3s), (X̄̄ − LSL) / (3s)]**
+
+**Machine performance (single machine, short run):**
+
+- **Pm, Pmk** — same forms applied to a machine study. The AIAG & VDA SPC 1st Edition
+  renamed these from **Cm, Cmk**. If a customer document or an internal template still
+  says Cm/Cmk, it is the same study under the previous name — do not report both as if
+  they were different results.
+
+**Which index to report** (AIAG & VDA SPC 1st Ed maturity progression):
+
+| Stage | Report | Precondition |
+|---|---|---|
+| Machine qualification | Pm, Pmk | Single machine, short run, isolated conditions |
+| Process not yet demonstrated stable | Pp, Ppk | Overall variation, no stability claim |
+| Process demonstrated stable | Cp, Cpk | In statistical control, no out-of-control signals |
+
+Determine the distribution type before calculating any index. A non-normal process
+evaluated with normal-distribution formulas produces an index that does not mean what
+it appears to mean.
+
+#### Acceptance criteria
+
+Minimum acceptable values. **There is no separate "target" — 1.67 is a minimum in its
+own context, not an aspiration above 1.33.**
+
+| Index | New process / initial study | Established series production |
+|-------|-----------------------------|-------------------------------|
+| **Ppk** — initial process study, stability not yet demonstrated | **≥ 1.67** | — |
+| **Cpk** — ongoing, process demonstrated stable | — | **≥ 1.33** |
+
+**Where these numbers come from.** IATF 16949:2016 §9.1.1.1 requires manufacturing
+process studies and capability determination, but **does not state numeric acceptance
+values**. Consult the licensed **AIAG PPAP 4th Edition** and applicable
+customer-specific requirements for the accepted index, the exact boundary rule and
+any approval requirements. Treat the values below as screening guidance. Do not
+cite a capability threshold as an IATF requirement.
+
+**Select the initial-study index with the customer.** Report Pp/Ppk when stability
+has not been demonstrated. Use Cpk only with demonstrated stability and when the
+applicable criteria allow it. Do not use the established-production threshold as
+the PPAP initial-study decision rule.
+
+| Initial study Ppk | Interpretation | PPAP action |
+|-------------------|----------------|-------------|
+| ≥ 1.67 | Candidate for acceptance | Verify the applicable boundary rule before submission; element 11 alone does not approve the PPAP |
+| 1.33 <= index < 1.67 | **Below requirement** — not acceptable by default | ⚠️ Contact the customer *before* submission; corrective action, and containment if the customer requires it |
+| < 1.33 | Does not meet requirement | ❌ Contact the customer; 100% inspection or containment; corrective action mandatory |
+
+For **established series production**, Cpk ≥ 1.33 is the usual ongoing acceptance
+level, with a reaction plan triggered below it. A characteristic that drifts under
+1.33 in series production is a control plan reaction, not a PPAP decision.
+
+#### Cp vs. Cpk relationship
+
+- Cp = Cpk: process is perfectly centred
+- Cp > Cpk: process is off-centre — improve centering before widening control limits
+- Never report only Cp without Cpk — a process can be off-centre and still show a good Cp
+
+---
+
+### Step 5 — Respond to an out-of-control condition
+
+1. **Stop the process** (or place affected output on hold) — do not continue producing to an out-of-control process
+2. **Contain** — identify affected output since last in-control point
+3. **Investigate** — ask: what changed? (material lot, operator, shift, tooling, environment)
+4. **Identify root cause** — use 5-Why or Fishbone (is-is-not to scope the problem first)
+5. **Correct** — implement correction and verify the process returns to control
+6. **Document** — note the signal, investigation, and action taken on the chart (or in the log)
+7. **Update PFMEA and Control Plan** if the root cause reveals a new failure mode
+
+Do NOT simply recalculate control limits after a shift to make the chart "look in control."
+
+---
+
+### Step 6 — Audit an SPC implementation
+
+When reviewing SPC in production or at a supplier:
+
+- [ ] Correct chart type selected for data type (variable vs. attribute)
+- [ ] Minimum 25 subgroups used to calculate initial control limits
+- [ ] Control limits calculated from process data — NOT set to specification limits
+- [ ] Western Electric rules applied (minimum Rule 1, 2, 3)
+- [ ] Out-of-control signals are annotated on the chart with the action taken
+- [ ] Process capability calculated on stable (in-control) process only
+- [ ] Cpk ≥ 1.33 minimum; 1.67 for special characteristics
+- [ ] MSA study complete and %GRR < 30% for the gauge being used
+- [ ] Control chart is used for decision-making — not filled in retroactively
 
 ---
 
 ## Validation criteria
 
-An MSA study is acceptable for PPAP when:
-- %GRR < 30% (tolerance method) — <10% preferred
-- ndc ≥ 5
-- Study conducted with production appraisers using production gauges in production conditions
-- Parts selected from the full process variation range
-- Results documented with part numbers, appraiser IDs, gauge ID, and calibration reference
+An SPC implementation is adequate when:
+- Chart type matches data type and subgroup size
+- Control limits calculated from minimum 25 subgroups of production data
+- Process in statistical control before capability is calculated
+- Cpk ≥ 1.33 (minimum) for all monitored characteristics
+- Out-of-control signals trigger documented investigation and corrective action
 
 ## Common mistakes
 
-- Parts selected near the nominal value only — artificially inflates ndc and understates GRR
-- Appraiser A re-measures all parts immediately — not the same as separate trials (must separate in time)
-- Using metrology lab gauges for an MSA of a production line gauge — study must use the same gauge in the same conditions
-- %GRR > 30% submitted in PPAP without explanation or customer waiver
-- Gauge calibration expired at time of MSA study — study is invalid
-- ndc < 5 on a special characteristic — automatic PPAP finding in IATF audits
-- Attribute MSA with only 2 appraisers and no borderline parts — study has no discriminating power
+- Setting control limits equal to specification limits (a fundamental SPC error — these are different concepts)
+- Calculating capability on an out-of-control process (meaningless — must be stable first)
+- Reporting Cp but not Cpk — hides off-centre processes
+- Using only n=1 individual charts when subgrouping would reveal more
+- Filling in control charts retroactively at end of shift — defeats the purpose of real-time monitoring
+- Recalculating control limits to eliminate out-of-control points without identifying root cause
+- Reporting Cpk = 1.45 based on 30 parts — too few; minimum 100 pieces for reliable capability
 
 ## Output Format
 
@@ -547,7 +857,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1.0 | 2026-06-06 | @migmcc | Added improvement guidance for %GRR > 30% — root cause table for high EV and high AV with corrective actions |
+| 1.1.0 | 2026-06-06 | @migmcc | Added 100-part minimum requirement for valid capability study in Step 4; clarified in-control prerequisite before capability calculation |
+| 2.0.0 | 2026-11-06 | @RBraga01 | Distinguish initial-study Ppk from stable-production Cpk, define non-overlapping ranges and update standards attribution and edition. |
 
 ---
 
@@ -877,315 +1188,4 @@ For processes producing one unit per cycle across multiple part numbers:
 - Do not use Western Electric pattern rules (Rules 2–8) until at least 20–25 points are plotted for a given part/product. Pattern rules require adequate data.
 - Capability indices (Cp, Cpk) cannot be reliably estimated in short-run scenarios from production data alone. Use process qualification data or historical analogous-process data with justified transfer.
 - Short-run SPC is a monitoring tool, not a substitute for robust process qualification.
-
----
-
-## Source: skills/measurement/spc-control-charts/SKILL.md
-
----
-name: spc-control-charts
-description: >-
-  Statistical Process Control (SPC) — select the correct control chart, interpret out-of-control
-  signals using Western Electric rules, calculate and interpret Cp, Cpk, Pp, Ppk. Use when setting
-  up SPC for a new characteristic, interpreting control chart signals, responding to special cause
-  variation, or auditing SPC implementation. Covers the AIAG & VDA SPC 1st edition (2026)
-  harmonisation, the superseded AIAG SPC 2nd edition, and IATF 16949 §8.3.3.
-license: MIT
-metadata:
-  author: RBraga01
-  version: "2.0.0"
-  iso-9001: "9.1"
-  iatf-16949: "8.3.3, 9.1.1"
-  aiag-reference: "AIAG & VDA SPC 1st Edition (2026)"
-  domain: quality-engineering
-  subdomain: measurement
-  industries: automotive,electronics,aerospace,medical,general
-  status: approved
-  created: "2026-06-06"
-  last_updated: "2026-11-06"
-  updated_by: RBraga01
-  reviewed_by: migmcc
-  standard_edition: "AIAG & VDA SPC 1st Edition (2026) — transition; AIAG SPC 2nd Edition (2005) for legacy programmes"
-  supersedes_edition: "AIAG SPC 2nd Edition (2005)"
----
-
-# Statistical Process Control (SPC)
-
-## Standard edition and currency
-
-**SPC was harmonised in 2026.** AIAG and VDA jointly announced the **AIAG & VDA SPC
-Handbook** on 30 June 2026, available from the VDA QMC webshop from 1 July 2026. It is
-the second Core Tool harmonised after FMEA, and it supersedes the AIAG SPC 2nd
-Edition — which had stood unrevised since **2005**.
-
-This is a live transition. Existing programmes will be running to the 2nd Edition for
-some time, and customer-specific requirements decide which applies to a given part.
-**Ask which manual the customer requires before reporting capability.**
-
-**What changed that affects the numbers you report:**
-
-| Area | AIAG SPC 2nd Ed (2005) | AIAG & VDA SPC 1st Ed (2026) |
-|---|---|---|
-| Machine indices | Cm, Cmk | **Pm, Pmk** — renamed to performance indices |
-| Study progression | Short-term Cp/Cpk vs long-term Pp/Ppk | **Maturity progression:** machine performance (Pm/Pmk) → process performance (Pp/Ppk) → process capability (Cp/Cpk) **only once stability is demonstrated** |
-| Distribution | Largely normal-distribution based | Index calculation preceded by determining the **distribution type** rather than assuming normality |
-| Thresholds | Left to PPAP and customer requirements | Reported to state the linkage to acceptance criteria explicitly — see [Acceptance criteria](#acceptance-criteria) for where the numbers actually come from |
-| Framing | "Is the process stable and predictable?" | "Can we predict the probability of producing nonconforming parts?" |
-
-> **Not yet verified against the manual.** The rows above are drawn from the joint
-> announcement and from published previews, not from the handbook itself. The
-> direction of travel is well corroborated, but treat the detail as orientation until
-> someone has checked it against a licensed copy. Reported alignment with **ISO 22514**
-> for distribution handling is plausible and consistent with VDA practice, but we could
-> not corroborate it in a primary source — it is deliberately not stated as fact here.
-
-The practical consequence: **do not report Cp/Cpk on a process you have not shown to
-be stable.** Report Pp/Ppk instead. Under the harmonised manual, calling an unstable
-process "capable" is a category error, not a conservative estimate.
-
-> **Currency limitation.** The chart selection logic, Western Electric rules and the
-> capability formulas below are mathematics and long-standing published practice, not
-> manual text, and are unaffected by the harmonisation. What this skill does **not**
-> reproduce is the new manual's distribution-selection methodology (reported to include
-> the General Geometric Method and Exceedance Proportion / z-Score / Bothe approaches),
-> its worked examples or its
-> tables. For those, use your licensed copy of the AIAG & VDA SPC manual.
-
----
-
-## When to use
-
-Use this skill when:
-- Selecting the correct control chart type for a process characteristic
-- Interpreting control chart signals — is this special cause or common cause?
-- Calculating Cp, Cpk, Pp, Ppk and determining if the process is capable
-- Responding to an out-of-control signal on a production line
-- Setting up SPC for a new special characteristic (PPAP/APQP requirement)
-- Auditing an SPC system for correctness and adequacy
-- Explaining SPC results to a customer or during an audit
-
-## Prerequisites
-
-- The characteristic to monitor (variable or attribute data)
-- Production data (minimum 25 subgroups for control limits, 100+ pieces for capability)
-- MSA study completed and %GRR < 30% for variable charts
-- Process specification (nominal + tolerance) for capability calculations
-- Subgroup size decided based on rational subgrouping principle
-
-## Workflow
-
-### Step 1 — Select the correct control chart
-
-#### Variable data (measured values — length, weight, pressure, temperature)
-
-| Chart | When to use |
-|-------|------------|
-| **X̄-R (X-bar/Range)** | Subgroup size 2–9; most common in manufacturing |
-| **X̄-S (X-bar/Sigma)** | Subgroup size ≥ 10; better sensitivity to spread |
-| **I-MR (Individuals/Moving Range)** | Subgroup size = 1; one measurement per inspection (slow processes, destructive tests) |
-
-#### Attribute data (counts, pass/fail, defect rates)
-
-| Chart | When to use |
-|-------|------------|
-| **p-chart** | Proportion defective; variable subgroup size |
-| **np-chart** | Number defective; constant subgroup size |
-| **c-chart** | Count of defects per unit; constant inspection area |
-| **u-chart** | Defects per unit; variable inspection area |
-
-**Decision rule:** If you can measure it with a number, use a variable chart. Variable charts are more sensitive and require smaller samples to detect process shifts.
-
----
-
-### Step 2 — Calculate control limits
-
-#### X̄-R chart
-
-From at least 25 subgroups of size n:
-
-- **Centre line (X̄̄):** Grand average of all subgroup means
-- **UCL_X̄ = X̄̄ + A₂ × R̄**
-- **LCL_X̄ = X̄̄ − A₂ × R̄**
-- **Centre line (R̄):** Average of all subgroup ranges
-- **UCL_R = D₄ × R̄**
-- **LCL_R = D₃ × R̄** (= 0 for n ≤ 6)
-
-Constants for common subgroup sizes:
-
-| n | A₂ | D₃ | D₄ |
-|---|----|----|-----|
-| 2 | 1.880 | 0 | 3.267 |
-| 3 | 1.023 | 0 | 2.574 |
-| 4 | 0.729 | 0 | 2.282 |
-| 5 | 0.577 | 0 | 2.114 |
-
-**Important:** Control limits are calculated FROM THE DATA — never set them to match the specification limits. Specification limits and control limits are completely separate concepts.
-
----
-
-### Step 3 — Apply Western Electric Rules (out-of-control signals)
-
-Divide the control chart into zones: Zone A (2–3σ from centre), Zone B (1–2σ), Zone C (0–1σ).
-
-| Rule | Signal | Interpretation |
-|------|--------|----------------|
-| **Rule 1** | 1 point beyond 3σ (outside control limits) | Large, immediate shift |
-| **Rule 2** | 9 consecutive points on same side of centre line | Process mean has shifted |
-| **Rule 3** | 6 consecutive points steadily increasing or decreasing | Trend — tool wear, drift |
-| **Rule 4** | 14 consecutive points alternating up and down | Systematic variation — two alternating distributions |
-| **Rule 5** | 2 of 3 consecutive points in Zone A or beyond (same side) | Large shift signal |
-| **Rule 6** | 4 of 5 consecutive points in Zone B or beyond (same side) | Moderate shift |
-| **Rule 7** | 15 consecutive points in Zone C (either side of centre line) | Stratification — data from two separate distributions |
-| **Rule 8** | 8 consecutive points beyond Zone C (either side) | Mixture — sampling from two processes |
-
-**Action required for ANY rule violation:** Stop and investigate immediately. Do not reset control limits. Do not restart until root cause is identified.
-
-Most commonly applied in automotive: Rules 1, 2, 3 minimum. Rules 1–8 for safety-critical characteristics.
-
----
-
-### Step 4 — Calculate and interpret process capability
-
-**Capability data requirements:** Process capability is only valid when calculated on a process that is in statistical control (no out-of-control signals) and with a minimum of **100 consecutive parts** from that stable process. Fewer parts produce unreliable Cpk estimates — a Cpk calculated on 30 parts can vary by ±0.3 from the true value. Do not report Cpk based on fewer than 100 parts as a production capability figure; label it "preliminary" and state the sample size.
-
-**Short-term capability (within-subgroup variation):**
-
-- **Cp = (USL − LSL) / (6σ̂)**  — capability — process spread vs. tolerance
-- **Cpk = min[(USL − X̄̄) / (3σ̂), (X̄̄ − LSL) / (3σ̂)]** — centred capability — accounts for process mean location
-
-σ̂ = R̄ / d₂ (for X̄-R chart)
-
-**Long-term performance (total variation including between-subgroup):**
-
-- **Pp = (USL − LSL) / (6s)**  — same formula but uses overall standard deviation s
-- **Ppk = min[(USL − X̄̄) / (3s), (X̄̄ − LSL) / (3s)]**
-
-**Machine performance (single machine, short run):**
-
-- **Pm, Pmk** — same forms applied to a machine study. The AIAG & VDA SPC 1st Edition
-  renamed these from **Cm, Cmk**. If a customer document or an internal template still
-  says Cm/Cmk, it is the same study under the previous name — do not report both as if
-  they were different results.
-
-**Which index to report** (AIAG & VDA SPC 1st Ed maturity progression):
-
-| Stage | Report | Precondition |
-|---|---|---|
-| Machine qualification | Pm, Pmk | Single machine, short run, isolated conditions |
-| Process not yet demonstrated stable | Pp, Ppk | Overall variation, no stability claim |
-| Process demonstrated stable | Cp, Cpk | In statistical control, no out-of-control signals |
-
-Determine the distribution type before calculating any index. A non-normal process
-evaluated with normal-distribution formulas produces an index that does not mean what
-it appears to mean.
-
-#### Acceptance criteria
-
-Minimum acceptable values. **There is no separate "target" — 1.67 is a minimum in its
-own context, not an aspiration above 1.33.**
-
-| Index | New process / initial study | Established series production |
-|-------|-----------------------------|-------------------------------|
-| **Ppk** — initial process study, stability not yet demonstrated | **≥ 1.67** | — |
-| **Cpk** — ongoing, process demonstrated stable | — | **≥ 1.33** |
-
-**Where these numbers come from.** IATF 16949:2016 §9.1.1.1 requires manufacturing
-process studies and capability determination, but **does not state numeric acceptance
-values**. Consult the licensed **AIAG PPAP 4th Edition** and applicable
-customer-specific requirements for the accepted index, the exact boundary rule and
-any approval requirements. Treat the values below as screening guidance. Do not
-cite a capability threshold as an IATF requirement.
-
-**Select the initial-study index with the customer.** Report Pp/Ppk when stability
-has not been demonstrated. Use Cpk only with demonstrated stability and when the
-applicable criteria allow it. Do not use the established-production threshold as
-the PPAP initial-study decision rule.
-
-| Initial study Ppk | Interpretation | PPAP action |
-|-------------------|----------------|-------------|
-| ≥ 1.67 | Candidate for acceptance | Verify the applicable boundary rule before submission; element 11 alone does not approve the PPAP |
-| 1.33 <= index < 1.67 | **Below requirement** — not acceptable by default | ⚠️ Contact the customer *before* submission; corrective action, and containment if the customer requires it |
-| < 1.33 | Does not meet requirement | ❌ Contact the customer; 100% inspection or containment; corrective action mandatory |
-
-For **established series production**, Cpk ≥ 1.33 is the usual ongoing acceptance
-level, with a reaction plan triggered below it. A characteristic that drifts under
-1.33 in series production is a control plan reaction, not a PPAP decision.
-
-#### Cp vs. Cpk relationship
-
-- Cp = Cpk: process is perfectly centred
-- Cp > Cpk: process is off-centre — improve centering before widening control limits
-- Never report only Cp without Cpk — a process can be off-centre and still show a good Cp
-
----
-
-### Step 5 — Respond to an out-of-control condition
-
-1. **Stop the process** (or place affected output on hold) — do not continue producing to an out-of-control process
-2. **Contain** — identify affected output since last in-control point
-3. **Investigate** — ask: what changed? (material lot, operator, shift, tooling, environment)
-4. **Identify root cause** — use 5-Why or Fishbone (is-is-not to scope the problem first)
-5. **Correct** — implement correction and verify the process returns to control
-6. **Document** — note the signal, investigation, and action taken on the chart (or in the log)
-7. **Update PFMEA and Control Plan** if the root cause reveals a new failure mode
-
-Do NOT simply recalculate control limits after a shift to make the chart "look in control."
-
----
-
-### Step 6 — Audit an SPC implementation
-
-When reviewing SPC in production or at a supplier:
-
-- [ ] Correct chart type selected for data type (variable vs. attribute)
-- [ ] Minimum 25 subgroups used to calculate initial control limits
-- [ ] Control limits calculated from process data — NOT set to specification limits
-- [ ] Western Electric rules applied (minimum Rule 1, 2, 3)
-- [ ] Out-of-control signals are annotated on the chart with the action taken
-- [ ] Process capability calculated on stable (in-control) process only
-- [ ] Cpk ≥ 1.33 minimum; 1.67 for special characteristics
-- [ ] MSA study complete and %GRR < 30% for the gauge being used
-- [ ] Control chart is used for decision-making — not filled in retroactively
-
----
-
-## Validation criteria
-
-An SPC implementation is adequate when:
-- Chart type matches data type and subgroup size
-- Control limits calculated from minimum 25 subgroups of production data
-- Process in statistical control before capability is calculated
-- Cpk ≥ 1.33 (minimum) for all monitored characteristics
-- Out-of-control signals trigger documented investigation and corrective action
-
-## Common mistakes
-
-- Setting control limits equal to specification limits (a fundamental SPC error — these are different concepts)
-- Calculating capability on an out-of-control process (meaningless — must be stable first)
-- Reporting Cp but not Cpk — hides off-centre processes
-- Using only n=1 individual charts when subgrouping would reveal more
-- Filling in control charts retroactively at end of shift — defeats the purpose of real-time monitoring
-- Recalculating control limits to eliminate out-of-control points without identifying root cause
-- Reporting Cpk = 1.45 based on 30 parts — too few; minimum 100 pieces for reliable capability
-
-## Output Format
-
-At the start of each use, ask the user:
-
-> "How would you like to receive the output?
-> **A** — Structured Markdown (formatted tables and sections, ready to copy)
-> **B** — Plain tables (simplified structure for Excel or Word)
-> **C** — Narrative report (flowing text for a formal document or email)
->
-> Default: A."
-
-Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
-
-## Changelog
-
-| Version | Date | Author | Change |
-|---------|------|--------|--------|
-| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1.0 | 2026-06-06 | @migmcc | Added 100-part minimum requirement for valid capability study in Step 4; clarified in-control prerequisite before capability calculation |
-| 2.0.0 | 2026-11-06 | @RBraga01 | Distinguish initial-study Ppk from stable-production Cpk, define non-overlapping ranges and update standards attribution and edition. |
 

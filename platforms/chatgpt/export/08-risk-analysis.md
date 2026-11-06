@@ -4,6 +4,233 @@ Generated from the canonical skills tree; each document follows in full.
 
 ---
 
+## Source: skills/risk-analysis/action-priority-ap/SKILL.md
+
+---
+name: action-priority-ap
+description: >-
+  Assign AP table ratings (H-AP, M-AP, L-AP) in PFMEA or DFMEA — the RPN replacement from
+  AIAG-VDA FMEA Handbook 2019. Explains H/M/L classification logic, mandatory action
+  requirements for High Priority items, and OEM-specific thresholds. Use when assigning risk
+  levels in PFMEA or DFMEA, or auditing FMEA documents for AP compliance.
+license: MIT
+metadata:
+  author: RBraga01
+  version: "1.1.0"
+  iatf-16949: "8.3.3.3"
+  aiag-reference: "AIAG-VDA FMEA Handbook 2019, Step 5, Table 5-3"
+  domain: quality-engineering
+  subdomain: risk-analysis
+  industries: automotive,electronics,aerospace,medical,general
+  status: approved
+  created: "2026-06-01"
+  last_updated: "2026-06-03"
+  updated_by: migmcc
+  reviewed_by: RBraga01
+  standard_edition: "AIAG-VDA FMEA Handbook 2019"
+---
+
+# Action Priority (AP) — AIAG-VDA 2019
+
+## Goal
+
+Assign and audit Action Priority (AP) ratings correctly using the AIAG-VDA 2019 method, ensuring high-risk items receive justified action or formal risk acceptance. This skill is used when classifying risk levels in PFMEA or DFMEA, reviewing existing ratings, or auditing FMEA documents for AP compliance.
+
+---
+
+## Required AP Review Checklist
+
+☐ Confirm the linked Failure Effect, Failure Mode, and Failure Cause are correct before assigning AP
+☐ Confirm S is based on the Failure Effect (severity to the customer or end user)
+☐ Confirm O is based on the Failure Cause with current prevention controls in place
+☐ Confirm D is based on current detection controls for this Failure Mode
+☐ All S, O, and D ratings are supported by data, field history, capability data, or documented engineering judgement — not guesses
+☐ Assign AP using the full AP determination rules (see [ap-table.md](../pfmea-process/assets/ap-table.md)) — not only the summary patterns in this skill
+☐ For formal PPAP submissions, customer-facing FMEAs, or any disputed rating, confirm against your licensed AIAG-VDA FMEA Handbook — the rating criteria that make an S, O or D value defensible are in the handbook, not in this skill
+☐ For every H-AP item: define a corrective action with owner and target date, or document a formal escalation rationale
+☐ Reassess AP only after the corrective action is implemented and verified — not when only planned
+☐ Verify Special Characteristics are rated S = 9 or 10
+☐ Document the evaluation decision for every M-AP item (action taken or rationale for no action)
+☐ Document rationale for every L-AP item
+
+---
+
+## Why AP replaces RPN
+
+The legacy **RPN = Severity × Occurrence × Detection** had critical flaws:
+
+**Problem 1 — Same RPN, very different risk**
+- S=6, O=6, D=6 → RPN = 216
+- S=9, O=8, D=3 → RPN = 216
+The second scenario involves a safety-related severity (S=9) and high occurrence — far more dangerous — yet produces the same RPN.
+
+**Problem 2 — Easy to game**
+Teams learned to lower RPN cheaply by improving detection (adding an inspection step). D: 8→3 drops RPN by 62.5%. But the defect is still being made — it's just being caught later. Prevention (reducing occurrence) is harder but far more valuable.
+
+**Problem 3 — No mandatory threshold**
+RPN had no defined threshold for mandatory action. "High RPN" meant different things to different teams and customers.
+
+**The AP fix:**
+- S=9 or S=10 → **always H** (mandatory action), regardless of O and D
+- AP looks at S and O together first (risk of harm occurring), then considers D
+- Requires documented action or documented rationale for no action
+
+---
+
+## AP Classification
+
+### H — High Priority
+
+**Action required.** Assign a responsible person and a target completion date.
+
+If no improvement is achievable (technically or economically), the team must:
+1. Document why no action is possible
+2. Escalate to management for acceptance of residual risk
+3. Get management sign-off
+
+H-AP items must never be silently ignored.
+
+**Conditions that always produce H:**
+- S = 9 or 10 (any O, any D)
+- S = 8 + O = 6–10 + D = 6–10
+
+### M — Medium Priority
+
+**Action recommended.** The team should evaluate whether risk reduction is beneficial.
+
+M-AP does not mean "no action needed." It means action is not mandatory, but the team must document its evaluation decision:
+- Action taken → describe the action
+- No action → document why (risk accepted, cost-prohibitive, technically infeasible)
+
+### L — Low Priority
+
+**No action required.** Document rationale for the record.
+
+---
+
+## AP Assessment Workflow
+
+> This skill explains AP logic and decision patterns. Use the full AP determination rules ([ap-table.md](../pfmea-process/assets/ap-table.md)) for final rating assignment. Do not rely solely on the summary patterns below for disputed cases or formal PPAP submissions — those require the rating criteria in your licensed AIAG-VDA FMEA Handbook.
+
+**Before assigning AP:** Do not assign AP unless S, O, and D are already justified based on the linked failure effect, failure cause, and current controls. AP is only as good as the ratings it is built on.
+
+For each FC (Failure Cause) row in the PFMEA/DFMEA:
+
+```
+1. Assign S (for the linked Failure Effect)
+2. Is S = 9 or 10?
+   → Yes: AP = H. Done.
+   → No: continue
+
+3. Assign O (for this Failure Cause with current prevention controls)
+4. Assign D (for this Failure Mode with current detection controls)
+5. Look up AP in the full table (see ../pfmea-process/assets/ap-table.md)
+```
+
+**All S, O, and D ratings must be supported by test data, field history, capability data, or documented engineering judgement.**
+
+---
+
+## Action priority by S bracket
+
+> The patterns below are practical summaries for working use. Final AP assignment must always be confirmed against the full AIAG-VDA AP table. For disputed cases or audits, the full table takes precedence.
+
+### S = 9–10 (Safety / Regulatory)
+
+| O | D | AP |
+|---|---|----|
+| Any | Any | **H** |
+
+### S = 8 (Loss of primary function)
+
+| O | D | AP |
+|---|---|----|
+| 6–10 | Any | **H** |
+| 4–5 | 6–10 | **H** |
+| 4–5 | 1–5 | **M** |
+| 1–3 | Any | **M** |
+
+### S = 7 (Reduced primary function)
+
+| O | D | AP |
+|---|---|----|
+| 6–10 | 7–10 | **H** |
+| 6–10 | 4–6 | **M** |
+| 6–10 | 1–3 | **M** |
+| 4–5 | 7–10 | **M** |
+| 4–5 | 4–6 | **M** |
+| 4–5 | 1–3 | **L** |
+| 1–3 | Any | **L** |
+
+### S = 6 (Loss of comfort/convenience)
+
+| O | D | AP |
+|---|---|----|
+| 8–10 | 7–10 | **H** |
+| 8–10 | 4–6 | **M** |
+| 8–10 | 1–3 | **M** |
+| 5–7 | 7–10 | **M** |
+| 5–7 | 1–6 | **L** |
+| 1–4 | Any | **L** |
+
+### S = 1–5
+
+All combinations → **L**
+
+---
+
+## Revised AP — Governance Rule
+
+Do not lower AP based on planned actions. Revised AP may only be assigned after the corrective action is implemented and the implementation is verified with objective evidence. A planned action is not a completed action.
+
+---
+
+## Reviewing an existing FMEA for AP compliance
+
+Audit questions:
+1. Are all S=9/10 rows assigned AP=H?
+2. Do all H-AP rows have an assigned owner AND target date?
+3. Are there any H-AP rows with no action and no documented escalation rationale?
+4. For rows where AP was improved (revised AP column): is the action implemented and verified — not just planned?
+5. Are Special Characteristics all rated S=9 or S=10?
+6. Are S, O, and D justified with data or engineering rationale, or were they guessed?
+
+---
+
+## Customer-specific notes
+
+| OEM | AP requirement |
+|-----|---------------|
+| Ford | H-AP items require mandatory action or documented engineering justification (EJ) |
+| GM | BIQS requires all H-AP items closed before PPAP Level 3 |
+| VW/Audi | AP H must be actioned or formally accepted by responsible engineer |
+| BMW | AP H items listed on open issues list until closed |
+| Stellantis | H-AP items require SQE approval for acceptance without action |
+
+Customer-Specific Requirements (CSR) are revision-controlled and may change. Always verify the latest customer requirement before release, PPAP, or customer submission. See [oem-requirements.md](references/oem-requirements.md) for OEM-specific detail.
+
+## Output Format
+
+At the start of each use, ask the user:
+
+> "How would you like to receive the output?
+> **A** — Structured Markdown (formatted tables and sections, ready to copy)
+> **B** — Plain tables (simplified structure for Excel or Word)
+> **C** — Narrative report (flowing text for a formal document or email)
+>
+> Default: A."
+
+Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
+
+## Changelog
+
+| Version | Date | Author | Change |
+|---------|------|--------|--------|
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-03 | @migmcc | Polished AP classification logic, added OEM CSR requirements table |
+
+---
+
 ## Source: skills/risk-analysis/action-priority-ap/references/oem-requirements.md
 
 ---
@@ -231,210 +458,224 @@ When a field failure or customer complaint traces to a failure mode in the PFMEA
 
 ---
 
-## Source: skills/risk-analysis/action-priority-ap/SKILL.md
+## Source: skills/risk-analysis/dfmea-design/SKILL.md
 
 ---
-name: action-priority-ap
+name: dfmea-design
 description: >-
-  Assign AP table ratings (H-AP, M-AP, L-AP) in PFMEA or DFMEA — the RPN replacement from
-  AIAG-VDA FMEA Handbook 2019. Explains H/M/L classification logic, mandatory action
-  requirements for High Priority items, and OEM-specific thresholds. Use when assigning risk
-  levels in PFMEA or DFMEA, or auditing FMEA documents for AP compliance.
+  Build a design risk analysis, DFMEA worksheet, or interface analysis using the AIAG-VDA
+  FMEA Handbook 2019. Covers design intent, interface failures, boundary diagram, and design
+  robustness before manufacturing. Use during new product development, design changes, or
+  when a field failure reveals a design weakness. Required for IATF 16949 §8.3 scope.
 license: MIT
 metadata:
   author: RBraga01
   version: "1.1.0"
+  iso-9001: "8.3"
   iatf-16949: "8.3.3.3"
-  aiag-reference: "AIAG-VDA FMEA Handbook 2019, Step 5, Table 5-3"
+  aiag-reference: "AIAG-VDA FMEA Handbook 2019, DFMEA chapters"
   domain: quality-engineering
   subdomain: risk-analysis
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-01"
-  last_updated: "2026-06-03"
-  updated_by: migmcc
+  last_updated: "2026-06-06"
+  updated_by: RBraga01
   reviewed_by: RBraga01
   standard_edition: "AIAG-VDA FMEA Handbook 2019"
 ---
 
-# Action Priority (AP) — AIAG-VDA 2019
+# Design FMEA (DFMEA) — AIAG-VDA 2019
 
 ## Goal
 
-Assign and audit Action Priority (AP) ratings correctly using the AIAG-VDA 2019 method, ensuring high-risk items receive justified action or formal risk acceptance. This skill is used when classifying risk levels in PFMEA or DFMEA, reviewing existing ratings, or auditing FMEA documents for AP compliance.
+Identify and mitigate design risks by analysing functions, interfaces, and failure modes — so that design weaknesses are resolved before release to manufacturing, and the results feed directly into the DVP, PFMEA, and Control Plan.
+
+## Required Execution Checklist
+
+- [ ] DFMEA scope defined: boundary diagram complete, inside/outside boundary identified
+- [ ] Product hierarchy mapped: system → subsystem → component → interface (Step 2)
+- [ ] All interfaces identified — internal (component-to-component), external (environment), and user/assembly
+- [ ] All functions defined with Verb + Noun + Measurable Standard (Step 3)
+- [ ] Each function has a measurable verification method confirmed in the DVP
+- [ ] Failure chain complete: Effect → Mode → Cause for each function (Step 4)
+- [ ] All Failure Causes validated using engineering analysis (FEA, calculation) or test evidence — not assumptions
+- [ ] S/O/D ratings justified using analysis, test data, or design history
+- [ ] All H-AP items have a defined action, named owner, and target date
+- [ ] DFMEA → DVP, PFMEA, and drawing linkage verified before release to manufacturing
 
 ---
 
-## Required AP Review Checklist
+## When to use
 
-☐ Confirm the linked Failure Effect, Failure Mode, and Failure Cause are correct before assigning AP
-☐ Confirm S is based on the Failure Effect (severity to the customer or end user)
-☐ Confirm O is based on the Failure Cause with current prevention controls in place
-☐ Confirm D is based on current detection controls for this Failure Mode
-☐ All S, O, and D ratings are supported by data, field history, capability data, or documented engineering judgement — not guesses
-☐ Assign AP using the full AP determination rules (see [ap-table.md](../pfmea-process/assets/ap-table.md)) — not only the summary patterns in this skill
-☐ For formal PPAP submissions, customer-facing FMEAs, or any disputed rating, confirm against your licensed AIAG-VDA FMEA Handbook — the rating criteria that make an S, O or D value defensible are in the handbook, not in this skill
-☐ For every H-AP item: define a corrective action with owner and target date, or document a formal escalation rationale
-☐ Reassess AP only after the corrective action is implemented and verified — not when only planned
-☐ Verify Special Characteristics are rated S = 9 or 10
-☐ Document the evaluation decision for every M-AP item (action taken or rationale for no action)
-☐ Document rationale for every L-AP item
+- New product development (integrate into APQP Phase 2 — Product Design and Development)
+- Design change or engineering change request (ECR)
+- Field failure investigation revealing a design root cause
+- Periodic design review
+- Before handoff to manufacturing (DFMEA drives the PFMEA)
 
----
+**Key difference from PFMEA:** DFMEA analyses the design intent and design robustness. PFMEA analyses the manufacturing process. DFMEA comes first — its failure effects and severity ratings inform the PFMEA.
 
-## Why AP replaces RPN
+## Prerequisites
 
-The legacy **RPN = Severity × Occurrence × Detection** had critical flaws:
+- Product requirements / specification (engineering drawing, customer spec)
+- System block diagram or product breakdown structure
+- Interface matrix (if system-level analysis)
+- Team: design engineer, systems engineer, quality engineer, reliability (if available)
 
-**Problem 1 — Same RPN, very different risk**
-- S=6, O=6, D=6 → RPN = 216
-- S=9, O=8, D=3 → RPN = 216
-The second scenario involves a safety-related severity (S=9) and high occurrence — far more dangerous — yet produces the same RPN.
-
-**Problem 2 — Easy to game**
-Teams learned to lower RPN cheaply by improving detection (adding an inspection step). D: 8→3 drops RPN by 62.5%. But the defect is still being made — it's just being caught later. Prevention (reducing occurrence) is harder but far more valuable.
-
-**Problem 3 — No mandatory threshold**
-RPN had no defined threshold for mandatory action. "High RPN" meant different things to different teams and customers.
-
-**The AP fix:**
-- S=9 or S=10 → **always H** (mandatory action), regardless of O and D
-- AP looks at S and O together first (risk of harm occurring), then considers D
-- Requires documented action or documented rationale for no action
+## The 7-Step AIAG-VDA 2019 Approach for DFMEA
 
 ---
 
-## AP Classification
+### Step 1 — Planning and Preparation
 
-### H — High Priority
-
-**Action required.** Assign a responsible person and a target completion date.
-
-If no improvement is achievable (technically or economically), the team must:
-1. Document why no action is possible
-2. Escalate to management for acceptance of residual risk
-3. Get management sign-off
-
-H-AP items must never be silently ignored.
-
-**Conditions that always produce H:**
-- S = 9 or 10 (any O, any D)
-- S = 8 + O = 6–10 + D = 6–10
-
-### M — Medium Priority
-
-**Action recommended.** The team should evaluate whether risk reduction is beneficial.
-
-M-AP does not mean "no action needed." It means action is not mandatory, but the team must document its evaluation decision:
-- Action taken → describe the action
-- No action → document why (risk accepted, cost-prohibitive, technically infeasible)
-
-### L — Low Priority
-
-**No action required.** Document rationale for the record.
+Define scope:
+- **Analysis object:** component, subsystem, or system
+- **Customer:** who is the next-level assembly? Who is the end user?
+- **Boundary diagram:** what is inside and outside the DFMEA scope
+- **Interface matrix:** what interacts with this component (mechanical, electrical, thermal, chemical)?
 
 ---
 
-## AP Assessment Workflow
+### Step 2 — Structure Analysis (Design Hierarchy)
 
-> This skill explains AP logic and decision patterns. Use the full AP determination rules ([ap-table.md](../pfmea-process/assets/ap-table.md)) for final rating assignment. Do not rely solely on the summary patterns below for disputed cases or formal PPAP submissions — those require the rating criteria in your licensed AIAG-VDA FMEA Handbook.
-
-**Before assigning AP:** Do not assign AP unless S, O, and D are already justified based on the linked failure effect, failure cause, and current controls. AP is only as good as the ratings it is built on.
-
-For each FC (Failure Cause) row in the PFMEA/DFMEA:
+Map the product hierarchy:
 
 ```
-1. Assign S (for the linked Failure Effect)
-2. Is S = 9 or 10?
-   → Yes: AP = H. Done.
-   → No: continue
-
-3. Assign O (for this Failure Cause with current prevention controls)
-4. Assign D (for this Failure Mode with current detection controls)
-5. Look up AP in the full table (see ../pfmea-process/assets/ap-table.md)
+System (e.g., Steering Column)
+└── Subsystem (e.g., Tilt Mechanism)
+    └── Component (e.g., Pivot Pin)
+        └── Interface (e.g., Pin-to-Bracket contact)
 ```
 
-**All S, O, and D ratings must be supported by test data, field history, capability data, or documented engineering judgement.**
+**Interface matrix:**
+For each component, identify:
+- Interfaces to other components (internal)
+- Interfaces to the environment (external): heat, vibration, corrosion, electromagnetic
+- Interfaces to the user or assembly process
+
+Interfaces are where most design failures occur. Each interface must be analysed as a potential failure location in its own right — not just the components that share it. In practice, at least 50% of DFMEA effort should focus on interfaces and interactions; component-only analysis misses the most common field failure modes.
 
 ---
 
-## Action priority by S bracket
+### Step 3 — Function Analysis
 
-> The patterns below are practical summaries for working use. Final AP assignment must always be confirmed against the full AIAG-VDA AP table. For disputed cases or audits, the full table takes precedence.
+For each element in the structure, define its design function:
 
-### S = 9–10 (Safety / Regulatory)
+**Format:** Verb + Noun + Measurable Standard
 
-| O | D | AP |
-|---|---|----|
-| Any | Any | **H** |
+Examples:
+- Component function: "Transmit torque of 50 Nm ± 5 Nm without permanent deformation"
+- Interface function: "Maintain sealing at pressure 2.5 bar across -40°C to +120°C"
+- System function: "Provide steering angle feedback with latency < 50ms"
 
-### S = 8 (Loss of primary function)
+Identify **Special Characteristics** from the drawing — these get S = 9 or 10 in Step 5.
 
-| O | D | AP |
-|---|---|----|
-| 6–10 | Any | **H** |
-| 4–5 | 6–10 | **H** |
-| 4–5 | 1–5 | **M** |
-| 1–3 | Any | **M** |
-
-### S = 7 (Reduced primary function)
-
-| O | D | AP |
-|---|---|----|
-| 6–10 | 7–10 | **H** |
-| 6–10 | 4–6 | **M** |
-| 6–10 | 1–3 | **M** |
-| 4–5 | 7–10 | **M** |
-| 4–5 | 4–6 | **M** |
-| 4–5 | 1–3 | **L** |
-| 1–3 | Any | **L** |
-
-### S = 6 (Loss of comfort/convenience)
-
-| O | D | AP |
-|---|---|----|
-| 8–10 | 7–10 | **H** |
-| 8–10 | 4–6 | **M** |
-| 8–10 | 1–3 | **M** |
-| 5–7 | 7–10 | **M** |
-| 5–7 | 1–6 | **L** |
-| 1–4 | Any | **L** |
-
-### S = 1–5
-
-All combinations → **L**
+**Testability rule:** Every function must be measurable and verifiable — a test or analysis method must exist in the DVP. A function with no verification method cannot receive a credible D rating in Step 5.
 
 ---
 
-## Revised AP — Governance Rule
+### Step 4 — Failure Analysis
 
-Do not lower AP based on planned actions. Revised AP may only be assigned after the corrective action is implemented and the implementation is verified with objective evidence. A planned action is not a completed action.
+The failure chain for DFMEA: **Failure Effect → Failure Mode → Failure Cause**
+
+**Failure Effect (FE):**
+- End-user effect: safety hazard, loss of primary function, reduced performance
+- Vehicle/system effect: damage to adjacent components, secondary failures
+- Manufacturing effect (if component is not to spec): inability to assemble, rework
+
+**Failure Mode (FM):**
+How does this component fail to perform its design function?
+- Fracture, wear, corrosion, deformation, signal loss, leakage, dimensional drift, electrical short/open
+
+**Failure Cause (FC):**
+What design parameter or design decision causes the failure mode?
+- Insufficient material strength (wrong grade, wrong heat treat)
+- Inadequate geometry (stress concentration, insufficient wall thickness)
+- Thermal expansion mismatch
+- Corrosion protection insufficient for environment
+- Tolerance stack-up causing interference
+- Interface design not accounting for assembly variation
+
+**Failure Cause validation:** Failure Causes must be validated using engineering analysis (FEA, structural calculation, thermal simulation) or test evidence. Unverified assumptions — "probably," "likely," "may be" — are not acceptable as final Failure Causes. Use CAE (FEA, simulation), test data, and field return data to support both the failure modes identified and their causes. For post-field-failure DFMEA updates, the FC must match the validated root cause from the 8D or field investigation.
 
 ---
 
-## Reviewing an existing FMEA for AP compliance
+### Step 5 — Risk Analysis
 
-Audit questions:
-1. Are all S=9/10 rows assigned AP=H?
-2. Do all H-AP rows have an assigned owner AND target date?
-3. Are there any H-AP rows with no action and no documented escalation rationale?
-4. For rows where AP was improved (revised AP column): is the action implemented and verified — not just planned?
-5. Are Special Characteristics all rated S=9 or S=10?
-6. Are S, O, and D justified with data or engineering rationale, or were they guessed?
+Use the same S/O/D ratings and AP table as PFMEA (see [action-priority-ap](../action-priority-ap/) and [pfmea-process](../pfmea-process/) for the tables).
+
+**Key DFMEA-specific notes:**
+
+**Occurrence (O) in DFMEA** considers:
+- Design maturity (new design = higher O)
+- Similar design history (similar designs with this failure = higher O)
+- Prevention controls: design reviews, CAE / FEA, DVP testing
+
+**Detection (D) in DFMEA** considers:
+- Design verification tests (DVP)
+- Engineering analysis (FEA, simulation)
+- Design reviews with checklists
+- Prototype testing
+
+D = 10 means no design verification for this failure mode. This is common for new features — it drives the DVP.
+
+**Ratings justification:** All S/O/D ratings must be justified using analysis, test data, or design history. A rating without documented justification will not withstand OEM audit. Where design history exists from similar components, reference it explicitly. Where data is absent, mark O and D as preliminary and flag the DVP entry that will confirm them.
 
 ---
 
-## Customer-specific notes
+### Step 6 — Optimization
 
-| OEM | AP requirement |
-|-----|---------------|
-| Ford | H-AP items require mandatory action or documented engineering justification (EJ) |
-| GM | BIQS requires all H-AP items closed before PPAP Level 3 |
-| VW/Audi | AP H must be actioned or formally accepted by responsible engineer |
-| BMW | AP H items listed on open issues list until closed |
-| Stellantis | H-AP items require SQE approval for acceptance without action |
+For H-AP items in DFMEA, actions typically fall into:
 
-Customer-Specific Requirements (CSR) are revision-controlled and may change. Always verify the latest customer requirement before release, PPAP, or customer submission. See [oem-requirements.md](references/oem-requirements.md) for OEM-specific detail.
+1. **Design change:** change geometry, material, tolerance, or coating
+2. **Add design verification:** add DVP test entry to confirm the design meets the requirement
+3. **Add prevention:** design guideline, DFM/DFA rule, standard reference
+4. **Improve detection:** add inspection requirement to DVP or design review checklist
+
+**DFMEA → DVP linkage:**
+Every detection control (D rating improvement) must have a corresponding entry in the Design Verification Plan (DVP). If you improve D because "we will test it," the test must exist in the DVP.
+
+**Action tracking:** All actions must be tracked to closure with objective evidence — test results, simulation output, or updated analysis. Actions marked "complete" without verification evidence are not acceptable. Open H-AP items past their target date must be escalated to the design review owner or programme manager, with a revised date and documented reason for delay.
+
+---
+
+### Step 7 — Results Documentation
+
+DFMEA outputs that feed other APQP documents:
+- **Special Characteristics** identified in DFMEA → transferred to Control Plan and PFMEA
+- **Detection controls** → DVP entries
+- **Interface failure modes** → PFMEA structure analysis inputs
+- **Material / geometry requirements confirmed** → released drawing
+
+## DFMEA → PFMEA handoff
+
+The DFMEA and PFMEA are linked:
+
+| DFMEA | → | PFMEA |
+|-------|---|-------|
+| Design Failure Effects (end-user impact) | → | Severity ratings in PFMEA |
+| Special Characteristics | → | SC flagging in PFMEA process steps |
+| Interface failure modes | → | PFMEA failure modes for assembly steps |
+| Design intent (function) | → | Process step function requirements |
+
+## Mandatory DFMEA review events (APQP / IATF 16949 §8.3)
+
+| Trigger | Required action |
+|---------|----------------|
+| New product development | Start DFMEA at APQP Phase 2 — before design freeze. DFMEA initiated after freeze has no corrective value. |
+| Engineering change request (ECR) | Review and update the DFMEA for all functions, failure modes, and interfaces affected by the change — before the change is released. |
+| Design milestone / design review | Present DFMEA status: open H-AP items, actions, and revised ratings. DFMEA must be current at each gate. |
+| Field failure with confirmed design root cause | Update FC, ratings, and actions to match validated root cause from 8D/field investigation. Update DVP to include the failure mode. |
+
+A DFMEA that is not updated through the programme lifecycle is a design quality assurance gap — not a living document.
+
+## Common mistakes
+
+- **Starting DFMEA after design is frozen** — DFMEA has no value if no changes can be made
+- **Only analysing the component, not the interfaces** — most design failures are interface failures
+- **Improving D without adding DVP tests** — detection credit without actual testing
+- **DFMEA and PFMEA teams working in silos** — they must share severity ratings and special characteristics
 
 ## Output Format
 
@@ -449,12 +690,16 @@ At the start of each use, ask the user:
 
 Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
 
+## Reference files
+
+- [Interface matrix construction guide](references/interface-matrix.md)
+
 ## Changelog
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1.0 | 2026-06-03 | @migmcc | Polished AP classification logic, added OEM CSR requirements table |
+| 1.1.0 | 2026-06-03 | @RBraga01 | Added interface matrix integration and DFMEA-to-PFMEA handoff workflow |
 
 ---
 
@@ -710,224 +955,260 @@ Link each critical interface failure mode to a DVP test entry. If no test exists
 
 ---
 
-## Source: skills/risk-analysis/dfmea-design/SKILL.md
+## Source: skills/risk-analysis/pfmea-process/SKILL.md
 
 ---
-name: dfmea-design
+name: pfmea-process
 description: >-
-  Build a design risk analysis, DFMEA worksheet, or interface analysis using the AIAG-VDA
-  FMEA Handbook 2019. Covers design intent, interface failures, boundary diagram, and design
-  robustness before manufacturing. Use during new product development, design changes, or
-  when a field failure reveals a design weakness. Required for IATF 16949 §8.3 scope.
+  Build a PFMEA worksheet, process risk analysis, or AP table using the AIAG-VDA FMEA
+  Handbook 2019 7-step approach. Covers Structure Analysis, Function Analysis, Failure
+  Analysis, Risk Analysis (Action Priority H/M/L), Optimization, and Documentation.
+  Required by IATF 16949 and OEM customer-specific requirements for new processes,
+  process changes, and post-escape PFMEA updates.
 license: MIT
 metadata:
   author: RBraga01
   version: "1.1.0"
-  iso-9001: "8.3"
+  iso-9001: "8.1"
   iatf-16949: "8.3.3.3"
-  aiag-reference: "AIAG-VDA FMEA Handbook 2019, DFMEA chapters"
+  aiag-reference: "AIAG-VDA FMEA Handbook 2019, Steps 1–7"
   domain: quality-engineering
   subdomain: risk-analysis
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-01"
-  last_updated: "2026-06-06"
+  last_updated: "2026-06-03"
   updated_by: RBraga01
   reviewed_by: RBraga01
   standard_edition: "AIAG-VDA FMEA Handbook 2019"
 ---
 
-# Design FMEA (DFMEA) — AIAG-VDA 2019
+# Process FMEA (PFMEA) — AIAG-VDA 2019
 
 ## Goal
 
-Identify and mitigate design risks by analysing functions, interfaces, and failure modes — so that design weaknesses are resolved before release to manufacturing, and the results feed directly into the DVP, PFMEA, and Control Plan.
+Identify and prioritise process risk before production — using the AIAG-VDA 2019 7-step approach — so that high-priority failure modes are eliminated or controlled before they reach the customer, and the result feeds directly into the Control Plan and Work Instructions.
 
 ## Required Execution Checklist
 
-- [ ] DFMEA scope defined: boundary diagram complete, inside/outside boundary identified
-- [ ] Product hierarchy mapped: system → subsystem → component → interface (Step 2)
-- [ ] All interfaces identified — internal (component-to-component), external (environment), and user/assembly
-- [ ] All functions defined with Verb + Noun + Measurable Standard (Step 3)
-- [ ] Each function has a measurable verification method confirmed in the DVP
-- [ ] Failure chain complete: Effect → Mode → Cause for each function (Step 4)
-- [ ] All Failure Causes validated using engineering analysis (FEA, calculation) or test evidence — not assumptions
-- [ ] S/O/D ratings justified using analysis, test data, or design history
-- [ ] All H-AP items have a defined action, named owner, and target date
-- [ ] DFMEA → DVP, PFMEA, and drawing linkage verified before release to manufacturing
+- [ ] Scope defined: process step boundaries, model year, team assembled with cross-functional representation
+- [ ] Process Flow Diagram (PFD) available and used as Step 2 input
+- [ ] All process steps in the PFD have a corresponding entry in Structure Analysis (Step 2)
+- [ ] Every process step has at least one Function defined in Step 3
+- [ ] Failure chain complete for each function: Effect → Mode → Cause (in this direction — not reversed)
+- [ ] All Failure Causes are evidence-based — no unverified assumptions used as final causes
+- [ ] S/O/D ratings agreed by the cross-functional team and documented
+- [ ] All Special Characteristics have S=9 or S=10
+- [ ] Every H-AP item has a named owner, target date, and is tracked to closure
+- [ ] PFMEA detection controls match the Control Plan; prevention controls match Work Instructions
 
 ---
 
 ## When to use
 
-- New product development (integrate into APQP Phase 2 — Product Design and Development)
-- Design change or engineering change request (ECR)
-- Field failure investigation revealing a design root cause
-- Periodic design review
-- Before handoff to manufacturing (DFMEA drives the PFMEA)
-
-**Key difference from PFMEA:** DFMEA analyses the design intent and design robustness. PFMEA analyses the manufacturing process. DFMEA comes first — its failure effects and severity ratings inform the PFMEA.
+- New process development (pre-production)
+- Existing process change or transfer
+- After a quality escape (update to reflect failure mode)
+- Periodic review (IATF requires annual review or at change)
+- Customer-specific requirement (Ford, GM, Stellantis, BMW, VW all require PFMEA)
 
 ## Prerequisites
 
-- Product requirements / specification (engineering drawing, customer spec)
-- System block diagram or product breakdown structure
-- Interface matrix (if system-level analysis)
-- Team: design engineer, systems engineer, quality engineer, reliability (if available)
+- Process flow diagram (PFD) — required for Step 2
+- Product drawings with special characteristics identified
+- DFMEA (if applicable) for effect severity reference
+- Team: process engineer, quality engineer, production supervisor, maintenance
 
-## The 7-Step AIAG-VDA 2019 Approach for DFMEA
+## The 7-Step AIAG-VDA 2019 Approach
 
 ---
 
 ### Step 1 — Planning and Preparation
 
-Define scope:
-- **Analysis object:** component, subsystem, or system
-- **Customer:** who is the next-level assembly? Who is the end user?
-- **Boundary diagram:** what is inside and outside the DFMEA scope
-- **Interface matrix:** what interacts with this component (mechanical, electrical, thermal, chemical)?
+Define the scope:
+- **FMEA header:** part number, part name, model year, process step scope, revision, date, team
+- **Analysis boundary:** which process steps are in scope (start point and end point)
+- **Timeline:** new PFMEA or revision of existing?
+
+Prepare:
+- Process Flow Diagram (PFD) — this drives Steps 2 and 3
+- List of Special Characteristics (SC) from the drawing (symbols: ◆ ★ ⬟ vary by customer)
 
 ---
 
-### Step 2 — Structure Analysis (Design Hierarchy)
+### Step 2 — Structure Analysis
 
-Map the product hierarchy:
-
+Map the process hierarchy:
 ```
-System (e.g., Steering Column)
-└── Subsystem (e.g., Tilt Mechanism)
-    └── Component (e.g., Pivot Pin)
-        └── Interface (e.g., Pin-to-Bracket contact)
+Process Item (e.g., Steering Column Assembly Line)
+└── Process Step (e.g., Station 3 — Torque tightening)
+    └── Work Element (e.g., Pneumatic driver, torque wrench)
 ```
 
-**Interface matrix:**
-For each component, identify:
-- Interfaces to other components (internal)
-- Interfaces to the environment (external): heat, vibration, corrosion, electromagnetic
-- Interfaces to the user or assembly process
+For each process step, identify the **4M inputs**: Man, Machine, Method, Material.
 
-Interfaces are where most design failures occur. Each interface must be analysed as a potential failure location in its own right — not just the components that share it. In practice, at least 50% of DFMEA effort should focus on interfaces and interactions; component-only analysis misses the most common field failure modes.
+This structure becomes the "what can go wrong" framework in Step 4.
+
+**Consistency check:** Every Process Step defined here must have at least one Function defined in Step 3. A process step with no function is incomplete — it cannot be analysed for failure in Step 4.
 
 ---
 
 ### Step 3 — Function Analysis
 
-For each element in the structure, define its design function:
+For each process step and work element, define:
+- **Process function:** what should happen? (verb + noun + measurable characteristic)
+  - Example: "Tighten bolt M8 to 22 ± 2 Nm"
+- **Product characteristic:** what product feature results from this step?
+  - Flag all Special Characteristics (SC) — these get highest attention in D/O/D ratings
 
-**Format:** Verb + Noun + Measurable Standard
-
-Examples:
-- Component function: "Transmit torque of 50 Nm ± 5 Nm without permanent deformation"
-- Interface function: "Maintain sealing at pressure 2.5 bar across -40°C to +120°C"
-- System function: "Provide steering angle feedback with latency < 50ms"
-
-Identify **Special Characteristics** from the drawing — these get S = 9 or 10 in Step 5.
-
-**Testability rule:** Every function must be measurable and verifiable — a test or analysis method must exist in the DVP. A function with no verification method cannot receive a credible D rating in Step 5.
+**Functional chain:**
+```
+Work Element function → Process Step function → Product Characteristic
+(tool applies torque) → (bolt is tightened to spec) → (joint meets strength requirement)
+```
 
 ---
 
 ### Step 4 — Failure Analysis
 
-The failure chain for DFMEA: **Failure Effect → Failure Mode → Failure Cause**
+For each function, identify the failure chain: **Failure Effect → Failure Mode → Failure Cause**
 
-**Failure Effect (FE):**
-- End-user effect: safety hazard, loss of primary function, reduced performance
-- Vehicle/system effect: damage to adjacent components, secondary failures
-- Manufacturing effect (if component is not to spec): inability to assemble, rework
+Work in this direction (Effect first, then Mode, then Cause):
 
-**Failure Mode (FM):**
-How does this component fail to perform its design function?
-- Fracture, wear, corrosion, deformation, signal loss, leakage, dimensional drift, electrical short/open
+**Failure Effect (FE):** what is the impact on the customer (internal or end user)?
+- End-user effect (most severe): safety, regulatory non-compliance, loss of function
+- Manufacturing effect: rework, scrap, line stoppage, warranty
 
-**Failure Cause (FC):**
-What design parameter or design decision causes the failure mode?
-- Insufficient material strength (wrong grade, wrong heat treat)
-- Inadequate geometry (stress concentration, insufficient wall thickness)
-- Thermal expansion mismatch
-- Corrosion protection insufficient for environment
-- Tolerance stack-up causing interference
-- Interface design not accounting for assembly variation
+**Failure Mode (FM):** how does this process step fail to perform its function?
+- Example: "Bolt torqued too low", "Part installed backwards", "Incorrect material loaded"
 
-**Failure Cause validation:** Failure Causes must be validated using engineering analysis (FEA, structural calculation, thermal simulation) or test evidence. Unverified assumptions — "probably," "likely," "may be" — are not acceptable as final Failure Causes. Use CAE (FEA, simulation), test data, and field return data to support both the failure modes identified and their causes. For post-field-failure DFMEA updates, the FC must match the validated root cause from the 8D or field investigation.
+**Failure Cause (FC):** what causes the failure mode?
+- Machine: "Torque wrench not calibrated", "Air pressure drop"
+- Man: "Work instruction not followed", "Untrained operator"
+- Method: "Incorrect torque value in WI", "No torque verification step"
+- Material: "Wrong bolt grade loaded", "Lubrication not applied"
+
+**Multiple causes per failure mode are normal** — each FC gets its own row.
+
+**Failure Cause validation:** Failure Causes must be supported by objective evidence or structured root cause analysis (e.g., [5-Why](../../problem-solving/5why-root-cause/)). Unverified assumptions — "probably," "may be," "could be" — must not be entered as final Failure Causes. For post-escape PFMEA updates, the FC must match the validated root cause from the 8D or CAPA, not a revised opinion.
 
 ---
 
-### Step 5 — Risk Analysis
+### Step 5 — Risk Analysis (Action Priority)
 
-Use the same S/O/D ratings and AP table as PFMEA (see [action-priority-ap](../action-priority-ap/) and [pfmea-process](../pfmea-process/) for the tables).
+For each FC row, assign three ratings:
 
-**Key DFMEA-specific notes:**
+#### Severity (S) — impact of the Failure Effect on the customer
 
-**Occurrence (O) in DFMEA** considers:
-- Design maturity (new design = higher O)
-- Similar design history (similar designs with this failure = higher O)
-- Prevention controls: design reviews, CAE / FEA, DVP testing
+| S | Effect |
+|---|--------|
+| 10 | Safety — affects operator safety without warning |
+| 9 | Regulatory non-compliance |
+| 8 | Loss of primary function (end user) |
+| 7 | Reduced primary function |
+| 6 | Loss of comfort / convenience function |
+| 5 | Reduced comfort / convenience function |
+| 4 | Appearance issue — noticed by most |
+| 3 | Appearance issue — noticed by some |
+| 2 | Appearance issue — noticed by discriminating |
+| 1 | No effect |
 
-**Detection (D) in DFMEA** considers:
-- Design verification tests (DVP)
-- Engineering analysis (FEA, simulation)
-- Design reviews with checklists
-- Prototype testing
+**Severity rates the EFFECT, not the mode or cause.** S=10 or S=9 means you must act regardless of O and D.
 
-D = 10 means no design verification for this failure mode. This is common for new features — it drives the DVP.
+#### Occurrence (O) — likelihood the Failure Cause leads to the Failure Mode
 
-**Ratings justification:** All S/O/D ratings must be justified using analysis, test data, or design history. A rating without documented justification will not withstand OEM audit. Where design history exists from similar components, reference it explicitly. Where data is absent, mark O and D as preliminary and flag the DVP entry that will confirm them.
+| O | Failure Rate |
+|---|-------------|
+| 10 | ≥ 1 in 2 |
+| 9 | 1 in 8 |
+| 8 | 1 in 20 |
+| 7 | 1 in 80 |
+| 6 | 1 in 400 |
+| 5 | 1 in 2,000 |
+| 4 | 1 in 15,000 |
+| 3 | 1 in 150,000 |
+| 2 | 1 in 1,500,000 |
+| 1 | Failure eliminated by prevention control |
+
+O considers **prevention controls** already in place (poka-yoke, SPC, incoming inspection of material).
+
+#### Detection (D) — effectiveness of detection controls before product reaches next customer
+
+| D | Detection |
+|---|-----------|
+| 10 | No detection control |
+| 9 | Control unlikely to detect |
+| 8 | Control may detect |
+| 7 | Control has low chance of detection |
+| 6 | Control may detect — moderate |
+| 5 | Control likely to detect |
+| 4 | Control has good chance of detection |
+| 3 | Control almost certain to detect |
+| 2 | Control certain to detect — automatic rejection |
+| 1 | Failure mode cannot occur (prevented) |
+
+D considers **detection controls** already in place (gauging, inspection, poka-yoke).
+
+#### Action Priority (AP) — replaces legacy RPN
+
+Use the AP table (see [action-priority-ap](../action-priority-ap/) skill for full table):
+
+| AP | Meaning | Required action |
+|----|---------|-----------------|
+| **H** (High) | Action required | Assign responsible owner + target date. Escalate if no improvement possible. |
+| **M** (Medium) | Action recommended | Team should evaluate — reduction may be beneficial |
+| **L** (Low) | No action required | Document rationale for no action |
+
+**Critical rule:** S = 9 or 10 → AP is always H regardless of O and D.
+
+**Ratings discipline:** All S/O/D ratings must be agreed by the cross-functional team — not assigned unilaterally by one engineer. Where team members disagree, document the rationale for the rating chosen. Ratings without team consensus are not acceptable for PPAP submission or customer OEM review.
 
 ---
 
 ### Step 6 — Optimization
 
-For H-AP items in DFMEA, actions typically fall into:
+For every H-AP item: define a corrective action.
 
-1. **Design change:** change geometry, material, tolerance, or coating
-2. **Add design verification:** add DVP test entry to confirm the design meets the requirement
-3. **Add prevention:** design guideline, DFM/DFA rule, standard reference
-4. **Improve detection:** add inspection requirement to DVP or design review checklist
+For each action:
+- Description of the action
+- Responsible person (name, not function)
+- Target completion date
+- Re-assess S/O/D after action: new AP (revised)
 
-**DFMEA → DVP linkage:**
-Every detection control (D rating improvement) must have a corresponding entry in the Design Verification Plan (DVP). If you improve D because "we will test it," the test must exist in the DVP.
+**Priority for action type:**
+1. **Prevent the cause** (best): eliminate the cause by design or poka-yoke
+2. **Reduce occurrence**: add process control that makes the cause less likely
+3. **Improve detection**: add or improve detection control (least preferred — doesn't prevent defect, only catches it)
 
-**Action tracking:** All actions must be tracked to closure with objective evidence — test results, simulation output, or updated analysis. Actions marked "complete" without verification evidence are not acceptable. Open H-AP items past their target date must be escalated to the design review owner or programme manager, with a revised date and documented reason for delay.
+Avoid the common trap of only improving detection (lowering D) — this catches defects but doesn't prevent them.
+
+**Tracking discipline:** All actions must be logged in the PFMEA and tracked to closure with objective evidence (completed action description + implementation date + revised S/O/D ratings). Open H-AP items past their target date must be escalated to management with a documented reason for delay and a revised target date. A PFMEA with overdue open H-AP items is not acceptable for PPAP submission or OEM audit.
 
 ---
 
 ### Step 7 — Results Documentation
 
-DFMEA outputs that feed other APQP documents:
-- **Special Characteristics** identified in DFMEA → transferred to Control Plan and PFMEA
-- **Detection controls** → DVP entries
-- **Interface failure modes** → PFMEA structure analysis inputs
-- **Material / geometry requirements confirmed** → released drawing
+Final PFMEA deliverables:
+- Completed PFMEA form with all 7 steps documented
+- Summary of H-AP items and their actions (status: open/closed)
+- Link to updated Control Plan (detection controls in PFMEA → control methods in CP)
+- Link to updated Work Instructions (prevention controls → WI procedures)
+- PFMEA revision history
 
-## DFMEA → PFMEA handoff
+**PFMEA → Control Plan linkage:**
+Every detection control in the PFMEA must have a corresponding entry in the Control Plan. Every prevention control must be reflected in the Work Instruction.
 
-The DFMEA and PFMEA are linked:
+## Validation checklist
 
-| DFMEA | → | PFMEA |
-|-------|---|-------|
-| Design Failure Effects (end-user impact) | → | Severity ratings in PFMEA |
-| Special Characteristics | → | SC flagging in PFMEA process steps |
-| Interface failure modes | → | PFMEA failure modes for assembly steps |
-| Design intent (function) | → | Process step function requirements |
-
-## Mandatory DFMEA review events (APQP / IATF 16949 §8.3)
-
-| Trigger | Required action |
-|---------|----------------|
-| New product development | Start DFMEA at APQP Phase 2 — before design freeze. DFMEA initiated after freeze has no corrective value. |
-| Engineering change request (ECR) | Review and update the DFMEA for all functions, failure modes, and interfaces affected by the change — before the change is released. |
-| Design milestone / design review | Present DFMEA status: open H-AP items, actions, and revised ratings. DFMEA must be current at each gate. |
-| Field failure with confirmed design root cause | Update FC, ratings, and actions to match validated root cause from 8D/field investigation. Update DVP to include the failure mode. |
-
-A DFMEA that is not updated through the programme lifecycle is a design quality assurance gap — not a living document.
-
-## Common mistakes
-
-- **Starting DFMEA after design is frozen** — DFMEA has no value if no changes can be made
-- **Only analysing the component, not the interfaces** — most design failures are interface failures
-- **Improving D without adding DVP tests** — detection credit without actual testing
-- **DFMEA and PFMEA teams working in silos** — they must share severity ratings and special characteristics
+Before releasing the PFMEA:
+- [ ] All process steps from the PFD are in the Structure Analysis
+- [ ] All Special Characteristics are identified and have S=9 or S=10
+- [ ] Every H-AP item has an owner and a target date
+- [ ] No H-AP items remain open without documented escalation reason
+- [ ] Detection controls in PFMEA match the Control Plan
+- [ ] Prevention controls in PFMEA match Work Instructions
+- [ ] All Failure Causes are evidence-based (no unverified assumptions used as final causes)
+- [ ] PFMEA review triggered by one of the mandatory events: process change, quality escape (post-8D update), or annual review (IATF 16949 §8.3.3.3)
 
 ## Output Format
 
@@ -944,14 +1225,15 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 ## Reference files
 
-- [Interface matrix construction guide](references/interface-matrix.md)
+- [AIAG-VDA 2019 step-by-step guide](references/aiag-vda-2019.md)
+- [Action Priority table](assets/ap-table.md)
 
 ## Changelog
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
 | 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1.0 | 2026-06-03 | @RBraga01 | Added interface matrix integration and DFMEA-to-PFMEA handoff workflow |
+| 1.1.0 | 2026-06-03 | @RBraga01 | Expanded 7-step workflow with AP gate requirements and PPAP integration |
 
 ---
 
@@ -1369,286 +1651,4 @@ Use at PFMEA release, PPAP submission, or audit preparation. All items must be c
 | 16 | Detection controls in PFMEA match corresponding entries in the Control Plan | ☐ |
 | 17 | Prevention controls in PFMEA reflected in Work Instructions (current revision) | ☐ |
 | 18 | PFMEA review triggered by one of: quality escape, process change, or annual review | ☐ |
-
----
-
-## Source: skills/risk-analysis/pfmea-process/SKILL.md
-
----
-name: pfmea-process
-description: >-
-  Build a PFMEA worksheet, process risk analysis, or AP table using the AIAG-VDA FMEA
-  Handbook 2019 7-step approach. Covers Structure Analysis, Function Analysis, Failure
-  Analysis, Risk Analysis (Action Priority H/M/L), Optimization, and Documentation.
-  Required by IATF 16949 and OEM customer-specific requirements for new processes,
-  process changes, and post-escape PFMEA updates.
-license: MIT
-metadata:
-  author: RBraga01
-  version: "1.1.0"
-  iso-9001: "8.1"
-  iatf-16949: "8.3.3.3"
-  aiag-reference: "AIAG-VDA FMEA Handbook 2019, Steps 1–7"
-  domain: quality-engineering
-  subdomain: risk-analysis
-  industries: automotive,electronics,aerospace,medical,general
-  status: approved
-  created: "2026-06-01"
-  last_updated: "2026-06-03"
-  updated_by: RBraga01
-  reviewed_by: RBraga01
-  standard_edition: "AIAG-VDA FMEA Handbook 2019"
----
-
-# Process FMEA (PFMEA) — AIAG-VDA 2019
-
-## Goal
-
-Identify and prioritise process risk before production — using the AIAG-VDA 2019 7-step approach — so that high-priority failure modes are eliminated or controlled before they reach the customer, and the result feeds directly into the Control Plan and Work Instructions.
-
-## Required Execution Checklist
-
-- [ ] Scope defined: process step boundaries, model year, team assembled with cross-functional representation
-- [ ] Process Flow Diagram (PFD) available and used as Step 2 input
-- [ ] All process steps in the PFD have a corresponding entry in Structure Analysis (Step 2)
-- [ ] Every process step has at least one Function defined in Step 3
-- [ ] Failure chain complete for each function: Effect → Mode → Cause (in this direction — not reversed)
-- [ ] All Failure Causes are evidence-based — no unverified assumptions used as final causes
-- [ ] S/O/D ratings agreed by the cross-functional team and documented
-- [ ] All Special Characteristics have S=9 or S=10
-- [ ] Every H-AP item has a named owner, target date, and is tracked to closure
-- [ ] PFMEA detection controls match the Control Plan; prevention controls match Work Instructions
-
----
-
-## When to use
-
-- New process development (pre-production)
-- Existing process change or transfer
-- After a quality escape (update to reflect failure mode)
-- Periodic review (IATF requires annual review or at change)
-- Customer-specific requirement (Ford, GM, Stellantis, BMW, VW all require PFMEA)
-
-## Prerequisites
-
-- Process flow diagram (PFD) — required for Step 2
-- Product drawings with special characteristics identified
-- DFMEA (if applicable) for effect severity reference
-- Team: process engineer, quality engineer, production supervisor, maintenance
-
-## The 7-Step AIAG-VDA 2019 Approach
-
----
-
-### Step 1 — Planning and Preparation
-
-Define the scope:
-- **FMEA header:** part number, part name, model year, process step scope, revision, date, team
-- **Analysis boundary:** which process steps are in scope (start point and end point)
-- **Timeline:** new PFMEA or revision of existing?
-
-Prepare:
-- Process Flow Diagram (PFD) — this drives Steps 2 and 3
-- List of Special Characteristics (SC) from the drawing (symbols: ◆ ★ ⬟ vary by customer)
-
----
-
-### Step 2 — Structure Analysis
-
-Map the process hierarchy:
-```
-Process Item (e.g., Steering Column Assembly Line)
-└── Process Step (e.g., Station 3 — Torque tightening)
-    └── Work Element (e.g., Pneumatic driver, torque wrench)
-```
-
-For each process step, identify the **4M inputs**: Man, Machine, Method, Material.
-
-This structure becomes the "what can go wrong" framework in Step 4.
-
-**Consistency check:** Every Process Step defined here must have at least one Function defined in Step 3. A process step with no function is incomplete — it cannot be analysed for failure in Step 4.
-
----
-
-### Step 3 — Function Analysis
-
-For each process step and work element, define:
-- **Process function:** what should happen? (verb + noun + measurable characteristic)
-  - Example: "Tighten bolt M8 to 22 ± 2 Nm"
-- **Product characteristic:** what product feature results from this step?
-  - Flag all Special Characteristics (SC) — these get highest attention in D/O/D ratings
-
-**Functional chain:**
-```
-Work Element function → Process Step function → Product Characteristic
-(tool applies torque) → (bolt is tightened to spec) → (joint meets strength requirement)
-```
-
----
-
-### Step 4 — Failure Analysis
-
-For each function, identify the failure chain: **Failure Effect → Failure Mode → Failure Cause**
-
-Work in this direction (Effect first, then Mode, then Cause):
-
-**Failure Effect (FE):** what is the impact on the customer (internal or end user)?
-- End-user effect (most severe): safety, regulatory non-compliance, loss of function
-- Manufacturing effect: rework, scrap, line stoppage, warranty
-
-**Failure Mode (FM):** how does this process step fail to perform its function?
-- Example: "Bolt torqued too low", "Part installed backwards", "Incorrect material loaded"
-
-**Failure Cause (FC):** what causes the failure mode?
-- Machine: "Torque wrench not calibrated", "Air pressure drop"
-- Man: "Work instruction not followed", "Untrained operator"
-- Method: "Incorrect torque value in WI", "No torque verification step"
-- Material: "Wrong bolt grade loaded", "Lubrication not applied"
-
-**Multiple causes per failure mode are normal** — each FC gets its own row.
-
-**Failure Cause validation:** Failure Causes must be supported by objective evidence or structured root cause analysis (e.g., [5-Why](../../problem-solving/5why-root-cause/)). Unverified assumptions — "probably," "may be," "could be" — must not be entered as final Failure Causes. For post-escape PFMEA updates, the FC must match the validated root cause from the 8D or CAPA, not a revised opinion.
-
----
-
-### Step 5 — Risk Analysis (Action Priority)
-
-For each FC row, assign three ratings:
-
-#### Severity (S) — impact of the Failure Effect on the customer
-
-| S | Effect |
-|---|--------|
-| 10 | Safety — affects operator safety without warning |
-| 9 | Regulatory non-compliance |
-| 8 | Loss of primary function (end user) |
-| 7 | Reduced primary function |
-| 6 | Loss of comfort / convenience function |
-| 5 | Reduced comfort / convenience function |
-| 4 | Appearance issue — noticed by most |
-| 3 | Appearance issue — noticed by some |
-| 2 | Appearance issue — noticed by discriminating |
-| 1 | No effect |
-
-**Severity rates the EFFECT, not the mode or cause.** S=10 or S=9 means you must act regardless of O and D.
-
-#### Occurrence (O) — likelihood the Failure Cause leads to the Failure Mode
-
-| O | Failure Rate |
-|---|-------------|
-| 10 | ≥ 1 in 2 |
-| 9 | 1 in 8 |
-| 8 | 1 in 20 |
-| 7 | 1 in 80 |
-| 6 | 1 in 400 |
-| 5 | 1 in 2,000 |
-| 4 | 1 in 15,000 |
-| 3 | 1 in 150,000 |
-| 2 | 1 in 1,500,000 |
-| 1 | Failure eliminated by prevention control |
-
-O considers **prevention controls** already in place (poka-yoke, SPC, incoming inspection of material).
-
-#### Detection (D) — effectiveness of detection controls before product reaches next customer
-
-| D | Detection |
-|---|-----------|
-| 10 | No detection control |
-| 9 | Control unlikely to detect |
-| 8 | Control may detect |
-| 7 | Control has low chance of detection |
-| 6 | Control may detect — moderate |
-| 5 | Control likely to detect |
-| 4 | Control has good chance of detection |
-| 3 | Control almost certain to detect |
-| 2 | Control certain to detect — automatic rejection |
-| 1 | Failure mode cannot occur (prevented) |
-
-D considers **detection controls** already in place (gauging, inspection, poka-yoke).
-
-#### Action Priority (AP) — replaces legacy RPN
-
-Use the AP table (see [action-priority-ap](../action-priority-ap/) skill for full table):
-
-| AP | Meaning | Required action |
-|----|---------|-----------------|
-| **H** (High) | Action required | Assign responsible owner + target date. Escalate if no improvement possible. |
-| **M** (Medium) | Action recommended | Team should evaluate — reduction may be beneficial |
-| **L** (Low) | No action required | Document rationale for no action |
-
-**Critical rule:** S = 9 or 10 → AP is always H regardless of O and D.
-
-**Ratings discipline:** All S/O/D ratings must be agreed by the cross-functional team — not assigned unilaterally by one engineer. Where team members disagree, document the rationale for the rating chosen. Ratings without team consensus are not acceptable for PPAP submission or customer OEM review.
-
----
-
-### Step 6 — Optimization
-
-For every H-AP item: define a corrective action.
-
-For each action:
-- Description of the action
-- Responsible person (name, not function)
-- Target completion date
-- Re-assess S/O/D after action: new AP (revised)
-
-**Priority for action type:**
-1. **Prevent the cause** (best): eliminate the cause by design or poka-yoke
-2. **Reduce occurrence**: add process control that makes the cause less likely
-3. **Improve detection**: add or improve detection control (least preferred — doesn't prevent defect, only catches it)
-
-Avoid the common trap of only improving detection (lowering D) — this catches defects but doesn't prevent them.
-
-**Tracking discipline:** All actions must be logged in the PFMEA and tracked to closure with objective evidence (completed action description + implementation date + revised S/O/D ratings). Open H-AP items past their target date must be escalated to management with a documented reason for delay and a revised target date. A PFMEA with overdue open H-AP items is not acceptable for PPAP submission or OEM audit.
-
----
-
-### Step 7 — Results Documentation
-
-Final PFMEA deliverables:
-- Completed PFMEA form with all 7 steps documented
-- Summary of H-AP items and their actions (status: open/closed)
-- Link to updated Control Plan (detection controls in PFMEA → control methods in CP)
-- Link to updated Work Instructions (prevention controls → WI procedures)
-- PFMEA revision history
-
-**PFMEA → Control Plan linkage:**
-Every detection control in the PFMEA must have a corresponding entry in the Control Plan. Every prevention control must be reflected in the Work Instruction.
-
-## Validation checklist
-
-Before releasing the PFMEA:
-- [ ] All process steps from the PFD are in the Structure Analysis
-- [ ] All Special Characteristics are identified and have S=9 or S=10
-- [ ] Every H-AP item has an owner and a target date
-- [ ] No H-AP items remain open without documented escalation reason
-- [ ] Detection controls in PFMEA match the Control Plan
-- [ ] Prevention controls in PFMEA match Work Instructions
-- [ ] All Failure Causes are evidence-based (no unverified assumptions used as final causes)
-- [ ] PFMEA review triggered by one of the mandatory events: process change, quality escape (post-8D update), or annual review (IATF 16949 §8.3.3.3)
-
-## Output Format
-
-At the start of each use, ask the user:
-
-> "How would you like to receive the output?
-> **A** — Structured Markdown (formatted tables and sections, ready to copy)
-> **B** — Plain tables (simplified structure for Excel or Word)
-> **C** — Narrative report (flowing text for a formal document or email)
->
-> Default: A."
-
-Adapt all output sections to the chosen format. If the platform or session context already defines a format preference, skip this question.
-
-## Reference files
-
-- [AIAG-VDA 2019 step-by-step guide](references/aiag-vda-2019.md)
-- [Action Priority table](assets/ap-table.md)
-
-## Changelog
-
-| Version | Date | Author | Change |
-|---------|------|--------|--------|
-| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1.0 | 2026-06-03 | @RBraga01 | Expanded 7-step workflow with AP gate requirements and PPAP integration |
 

@@ -5,6 +5,11 @@ synthetic input. Record the host, model/version, skill revision and response.
 Mark a case as passed only when the response meets every expected outcome.
 The offline CI tests check the source contracts separately.
 
+On 6 November 2026, all eight decisions and actions matched the criteria in a
+single Codex CLI run using `gpt-6.1-sol`. The run supplied the six skill documents
+and the synthetic inputs without the expected outcomes. This is evidence for
+these cases and this model. Plugin installation was checked separately.
+
 | Case | Skill | Input | Expected outcome |
 |---|---|---|---|
 | SPC-01 | `spc-control-charts` | Initial PPAP study, Ppk 1.45, no customer-specific limit. Is element 11 ready? | Escalate before submission. Do not treat 1.33 as the initial-study acceptance threshold. |
