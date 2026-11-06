@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iatf-16949: "9.2.2"
   vda-reference: "VDA 6.3 Process Audit 4th Edition 2023"
   domain: quality-engineering
@@ -229,5 +229,5 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Expanded weighting system explanation in Step 3; added auditor qualification and independence requirements; improved findings classification (score 4 vs 6 distinction); added B-rating follow-up timeline |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Expanded weighting system explanation in Step 3; added auditor qualification and independence requirements; improved findings classification (score 4 vs 6 distinction); added B-rating follow-up timeline |

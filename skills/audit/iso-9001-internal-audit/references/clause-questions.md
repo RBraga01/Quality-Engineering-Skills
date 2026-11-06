@@ -3,7 +3,7 @@ name: clause-questions
 type: reference
 parent_skill: iso-9001-internal-audit
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"

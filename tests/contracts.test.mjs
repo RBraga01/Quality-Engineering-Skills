@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { join, dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
 import { webcrypto } from 'node:crypto';
@@ -42,8 +42,9 @@ test('canonical skills inventory is 23 skills and 8 agents', () => {
     }
   }
   walk('skills');
-  assert.equal(list.filter(x => !x.includes('skills/agents/')).length, 23);
-  assert.equal(list.filter(x => x.includes('skills/agents/')).length, 8);
+  const agentPrefix = join('skills', 'agents') + sep;
+  assert.equal(list.filter(path => !path.startsWith(agentPrefix)).length, 23);
+  assert.equal(list.filter(path => path.startsWith(agentPrefix)).length, 8);
 });
 
 test('M365 rejects unauthenticated operations without upstream calls', async () => {

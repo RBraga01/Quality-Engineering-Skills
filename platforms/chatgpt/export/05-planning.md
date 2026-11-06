@@ -12,26 +12,62 @@ description: >-
   Advanced Product Quality Planning (APQP) — plan and track a new product launch through all 5 phases,
   identify deliverables per phase, run gate reviews, and ensure quality outputs are complete before
   Start of Production (SOP). Use when launching a new part, managing an APQP project, or auditing
-  APQP completeness. Covers AIAG APQP 2nd edition and IATF 16949 §8.3.
+  APQP completeness. Covers AIAG APQP 3rd edition (2024) and IATF 16949 §8.3.
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "2.0.0"
   iso-9001: "8.3"
   iatf-16949: "8.3"
-  aiag-reference: "AIAG APQP 2nd Edition"
+  aiag-reference: "AIAG APQP 3rd Edition (2024)"
   domain: quality-engineering
   subdomain: planning
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-06-06"
-  updated_by: migmcc
-  reviewed_by: RBraga01
-  standard_edition: "AIAG APQP 2nd Edition (2008) / IATF 16949:2016 §8.3"
+  last_updated: "2026-11-06"
+  updated_by: RBraga01
+  reviewed_by: migmcc
+  standard_edition: "AIAG APQP 3rd Edition (2024) / IATF 16949:2016 §8.3"
+  supersedes_edition: "AIAG APQP 2nd Edition (2008)"
 ---
 
 # Advanced Product Quality Planning (APQP)
+
+## Standard edition and currency
+
+**The current manual is AIAG APQP 3rd Edition, published March 2024.** It replaces the
+2nd Edition (2008). Customer implementation was required by **GM and Stellantis from
+1 September 2024** and by **Ford from 31 December 2024** — if you are working to a
+2nd Edition plan for these OEMs, you are behind a customer requirement, not merely
+out of date.
+
+**The Control Plan is no longer part of this manual.** The 3rd Edition split it out
+into a standalone AIAG Control Plan 1st Edition (2024), so that each can be revised
+independently. See the [control-plan](../control-plan/) skill.
+
+**What the 3rd Edition added** (structural changes, for orientation):
+
+| Area | Change |
+|---|---|
+| Sourcing | New section covering supplier selection within the APQP process |
+| Change management | New section — managing change across the launch |
+| Program metrics | New section defining APQP indicators to monitor |
+| Risk | Risk Evaluation and Mitigation Strategy (REMS), evolving the earlier risk minimisation action plans |
+| Gated management | Formalised gate/phase governance |
+| Traceability | New content on part traceability |
+| Approach | Updated to reflect agile product management, higher automation, electrification and autonomous driving |
+| Support material | Revised checklists per phase, revised tables, forms and examples |
+
+> **Currency limitation — read this before relying on detail.** The phase and gate
+> guidance below reflects the APQP structure as practised, and the 5-phase model
+> carries over. But the 3rd Edition's specific checklists, forms, tables and its full
+> REMS methodology are manual content that this skill does not reproduce. For a real
+> launch, a customer submission, or an audit, work from your licensed copy of the 3rd
+> Edition. If the guidance here conflicts with the manual, **the manual wins** —
+> and please open an issue so the skill gets corrected.
+
+---
 
 ## When to use
 
@@ -159,7 +195,7 @@ All phases run with concurrent engineering — phases overlap and teams work in 
 |-------------|-------------|
 | Production Trial Run | Significant Production Run (minimum run to PPAP requirements) |
 | MSA Studies | Gauge R&R completed for all special characteristics |
-| Preliminary Process Capability | Cpk study on special characteristics (target ≥ 1.67) |
+| Preliminary Process Capability | Initial study on special characteristics using the customer-approved index and acceptance criteria. |
 | Production Part Approval (PPAP) | All 18 PPAP elements complete and submitted |
 | Production Validation Testing | Final validation tests on production parts |
 | Packaging Evaluation | Production packaging validated |
@@ -170,7 +206,7 @@ All phases run with concurrent engineering — phases overlap and teams work in 
 **Gate 4 pass criteria (= PPAP approval):**
 - Significant production run completed (minimum 300 consecutive parts per AIAG PPAP 4th ed §4.0, unless the customer specifies otherwise in writing)
 - Dimensional results 100% conforming
-- Cpk ≥ 1.67 on all special characteristics (or customer-approved deviation)
+- Initial process studies meet the customer-approved criteria for special characteristics, or have a documented customer-approved deviation. Use Ppk when long-term stability has not been demonstrated.
 - %GRR < 30% for all MSA studies
 - PPAP submitted and customer approval received
 - No open concerns from validation testing
@@ -249,8 +285,9 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum to Gate 4 criteria and Common Mistakes |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum to Gate 4 criteria and Common Mistakes |
+| 2.0.0 | 2026-11-06 | @RBraga01 | Updated for AIAG APQP 3rd Edition (2024), aligned linked Core Tools and applied customer-approved initial study criteria at Gate 4. |
 
 ---
 
@@ -261,7 +298,7 @@ name: phase-deliverables
 type: reference
 parent_skill: apqp
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
@@ -335,7 +372,7 @@ Use alongside the [apqp](../SKILL.md) skill.
 | Pre-Launch Control Plan | Supplier | Supplier | Stricter sample sizes than production CP; 100% inspection common at this stage |
 | Process Instructions / Work Instructions | Supplier | Supplier | Step-by-step operator instructions for all operations; tied to Control Plan |
 | MSA Plan | Supplier | Supplier | Identifies which gauges require GR&R; assigns responsibility and schedule |
-| Preliminary Process Capability Study Plan | Supplier | Supplier | Documents how the Cpk study will be run: n, characteristics, method |
+| Preliminary Process Capability Study Plan | Supplier | Supplier | Documents sample size, characteristics, method and customer-approved index |
 | Packaging Standards — Design | Supplier | Joint | Packaging design approved; MMOG/LE materials flow if required |
 | Packaging Specifications | Joint | Joint | Final packaging specs including OEM-specific label requirements |
 | Product / Process Quality System Review | Customer | Joint | Internal quality system audit against customer IATF/VDA requirements |
@@ -353,7 +390,7 @@ Use alongside the [apqp](../SKILL.md) skill.
 |-------------|-------------|----------------------------|-------|
 | Significant Production Run (Trial Run) | Supplier | Supplier | Minimum run size as agreed with customer; typically ≥ 300 pieces or customer-defined |
 | MSA Studies (Gauge R&R) | Supplier | Supplier | GR&R completed for all SC/CC/KPC gauges; must meet %GRR < 30% |
-| Process Capability Studies (Cpk) | Supplier | Supplier | From significant production run; Cpk ≥ 1.67 target for all SC/CC |
+| Initial Process Studies | Supplier | Supplier | From significant production run; use the agreed index and limits for SC/CC |
 | Production Control Plan | Supplier | Joint | Final production CP; supersedes Pre-Launch CP; submitted as PPAP Element 7 |
 | PPAP Package (all 18 elements) | Supplier | Supplier | Complete submission; see ppap SKILL.md for element details |
 | Production Validation Testing (PVT) | Supplier / Customer | Joint | Final DVP tests on production parts; all tests must show Pass |
@@ -426,7 +463,7 @@ Use alongside the [apqp](../SKILL.md) skill.
 |-------|---------------|
 | Significant production run complete | Minimum agreed quantity produced from production tooling at production conditions |
 | Dimensional results 100% conforming | Zero out-of-tolerance results across all ballooned dimensions, all sampled parts |
-| Cpk ≥ 1.67 for all SC/CC | Or customer-approved formal deviation with agreed containment |
+| Initial process studies meet the applicable criteria for all SC/CC | Or customer-approved formal deviation with agreed containment |
 | MSA %GRR < 30% for all SC/CC gauges | Preferably < 10%; 10–30% requires customer concurrence |
 | All DVP tests passed | Zero open failures; any failures resolved with DFMEA update and re-test |
 | PPAP package complete | All 18 elements present, accepted, and documented |
@@ -443,8 +480,8 @@ Use alongside the [apqp](../SKILL.md) skill.
 | DVP not aligned to DFMEA | Phase 2 | H-AP failure modes have no test coverage — PPAP Element 10 fails audit |
 | PFMEA created after process is running | Phase 3 | PFMEA is documenting the process, not driving controls — detection controls in PFMEA do not match actual Control Plan |
 | Pre-launch CP used as Production CP | Phase 4 | Control Plan submitted to PPAP is not the production-level document — rejected |
-| MSA studies not completed before PPAP run | Phase 4 | Capability data (Cpk) is from an unvalidated measurement system — invalid |
-| Capability study run on pre-production parts | Phase 3–4 | Cpk calculated from parts not produced at production tooling conditions — not valid for PPAP Element 11 |
+| MSA studies not completed before PPAP run | Phase 4 | Capability data is from an unvalidated measurement system — invalid |
+| Capability study run on pre-production parts | Phase 3–4 | Data from parts not produced at production tooling conditions — not valid for PPAP Element 11 |
 | Lessons learned not captured (Phase 5 skipped) | Phase 5 | Same PPAP gaps repeat on subsequent programmes; no institutional memory |
 | Prototype CP not replaced by Production CP | Phase 3–4 | PPAP Element 7 shows prototype-level controls only — missing production-specific controls and frequencies |
 | Gauge plan not executed — MSA missing for some characteristics | Phase 2–3 | Some SC/CC have no MSA — PPAP Element 8 incomplete |
@@ -466,7 +503,7 @@ Use alongside the [apqp](../SKILL.md) skill.
 | MSA Studies (Gauge R&R) | 4 | Element 8 — Measurement System Analysis |
 | Dimensional Results (from PPAP run) | 4 | Element 9 — Dimensional Results |
 | Production Validation Testing (DVP&R results) | 4 | Element 10 — Material / Performance Test Results |
-| Process Capability Studies (Cpk from PPAP run) | 4 | Element 11 — Initial Process Studies |
+| Process Capability Studies (from PPAP run) | 4 | Element 11 — Initial Process Studies |
 | Lab Documentation (ISO/IEC 17025 certs) | 4 | Element 12 — Qualified Laboratory Documentation |
 | Appearance Approval (customer AAR sign-off) | 2–4 | Element 13 — Appearance Approval Report |
 | Significant Production Run — sample parts | 4 | Element 14 — Sample Production Parts |
@@ -484,29 +521,59 @@ Use alongside the [apqp](../SKILL.md) skill.
 ---
 name: control-plan
 description: >-
-  Control Plan — build, review, or audit a Prototype, Pre-launch, or Production Control Plan linked
-  to PFMEA failure modes and controls. Use when creating a new control plan, updating after a process
-  change or corrective action, or auditing an existing CP for completeness and PFMEA alignment.
-  Covers AIAG Control Plan reference manual and IATF 16949 §8.5.1.
+  Control Plan — build, review, or audit a Prototype, Pre-launch, Production, or Safe Launch Control
+  Plan linked to PFMEA failure modes and controls. Use when creating a new control plan, updating
+  after a process change or corrective action, or auditing an existing CP for completeness and PFMEA
+  alignment. Covers AIAG Control Plan 1st Edition (2024) and IATF 16949 §8.5.1.
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "2.0.0"
   iso-9001: "8.5.1"
   iatf-16949: "8.5.1"
-  aiag-reference: "AIAG Control Plan Reference Manual"
+  aiag-reference: "AIAG Control Plan 1st Edition (2024)"
   domain: quality-engineering
   subdomain: planning
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-06-06"
-  updated_by: migmcc
-  reviewed_by: RBraga01
-  standard_edition: "AIAG Control Plan Reference Manual (1995) / IATF 16949:2016 §8.5.1"
+  last_updated: "2026-08-08"
+  updated_by: RBraga01
+  reviewed_by: migmcc
+  standard_edition: "AIAG Control Plan 1st Edition (2024) / IATF 16949:2016 §8.5.1"
+  supersedes_edition: "Control Plan chapter of AIAG APQP 2nd Edition (2008)"
 ---
 
 # Control Plan
+
+## Standard edition and currency
+
+**The Control Plan is now its own manual: AIAG Control Plan 1st Edition, published
+March 2024.** Until then it was a chapter inside the APQP manual, carried forward into
+APQP 2nd Edition (2008). It was split out so it can be revised independently of APQP.
+
+Customer implementation followed the APQP 3rd Edition dates — **GM and Stellantis from
+1 September 2024, Ford from 31 December 2024**.
+
+**What the 1st Edition added** (structural, for orientation):
+
+| Area | Change |
+|---|---|
+| Safe Launch | Added as a control plan phase alongside Prototype, Pre-launch and Production |
+| Characteristics | Expanded treatment of special and pass-through characteristics |
+| Automation | Examples for highly automated manufacturing |
+| Tooling | Guidance on using software to develop and manage control plans, including generating them from the FMEA |
+| Auditing | Layered process audits as a control plan verification mechanism |
+| Support material | Revised examples, tables, forms and checklists |
+
+> **Currency limitation.** The row structure, PFMEA linkage and reaction plan logic
+> below are stable across editions and are described here in our own words. The 1st
+> Edition's forms, checklists and worked examples are manual content and are **not**
+> reproduced. For a customer submission or an audit, work from your licensed copy —
+> and note that most OEMs mandate their own control plan form regardless of the
+> AIAG format.
+
+---
 
 ## When to use
 
@@ -534,8 +601,21 @@ Use this skill when:
 | **Prototype** | During prototype builds | Describes dimensional, material, and functional tests in prototype phase |
 | **Pre-launch** | After prototype, before PPAP | Describes controls in place during pilot/pre-production runs |
 | **Production** | After PPAP approval, at SOP | The living document — updated throughout product life |
+| **Safe Launch** | Early production, after SOP | Elevated controls held in place for a defined period or volume after launch, then formally exited back to the Production CP |
 
-All three types may coexist during APQP phases. The Production CP is the one submitted as PPAP Element 7.
+These types may coexist during APQP phases. The Production CP is the one submitted as PPAP Element 7.
+
+**Safe Launch is new in the Control Plan 1st Edition (2024)** — the earlier three-type
+model did not include it. It formalises what many OEMs already required by customer-
+specific requirement: additional containment, higher inspection frequency or 100%
+verification during the initial production period, with defined exit criteria.
+
+If you use a Safe Launch CP, define the exit explicitly — by volume, by time, or by
+demonstrated capability — and record who authorises the exit. A Safe Launch plan with
+no exit criterion is the common failure: it either runs forever as hidden cost, or it
+is dropped silently with no evidence the risk was retired. Consult your customer's CSR
+and your licensed copy of the manual for the required content, which this skill does
+not reproduce.
 
 ### Step 2 — Build the Control Plan structure
 
@@ -681,8 +761,9 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added OEM-specific special characteristic symbol conventions (Ford, GM, VW, BMW, Stellantis) in Step 4 |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added OEM-specific special characteristic symbol conventions (Ford, GM, VW, BMW, Stellantis) in Step 4 |
+| 1.2.0 | 2026-08-08 | @RBraga01 | Updated for AIAG Control Plan 1st Edition (2024), including Safe Launch guidance. |
 
 ---
 
@@ -693,7 +774,7 @@ name: control-plan-template
 type: reference
 parent_skill: control-plan
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
@@ -1003,7 +1084,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.2.0"
   iso-9001: "8.3.4"
   iatf-16949: "8.3.4.3"
   domain: quality-engineering
@@ -1011,10 +1092,10 @@ metadata:
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-06-06"
-  updated_by: migmcc
-  reviewed_by: RBraga01
-  standard_edition: "IATF 16949:2016 §8.3.4.3 / AIAG APQP 2nd Edition"
+  last_updated: "2026-08-08"
+  updated_by: RBraga01
+  reviewed_by: migmcc
+  standard_edition: "IATF 16949:2016 §8.3.4.3 / AIAG APQP 3rd Edition (2024)"
 ---
 
 # Design Verification Plan and Report (DVP&R)
@@ -1161,8 +1242,9 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added guidance for tests in-progress at PPAP submission (customer deviation process); added DVP revision synchronisation with DFMEA requirement |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added guidance for tests in-progress at PPAP submission (customer deviation process); added DVP revision synchronisation with DFMEA requirement |
+| 1.2.0 | 2026-08-08 | @RBraga01 | Updated APQP reference to the 3rd Edition (2024). |
 
 ---
 
@@ -1173,7 +1255,7 @@ name: dvp-template
 type: reference
 parent_skill: dvp-test-plan
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
@@ -1587,7 +1669,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "2.0.0"
   iso-9001: "8.4"
   iatf-16949: "8.3.4, 8.4.1"
   aiag-reference: "AIAG PPAP 4th Edition"
@@ -1596,7 +1678,7 @@ metadata:
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-06-06"
+  last_updated: "2026-11-06"
   updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "AIAG PPAP 4th Edition (2006)"
@@ -1700,8 +1782,8 @@ Verify each element against the level requirement. For Level 3 (default):
 
 **Element 11 — Initial Process Studies (Statistical)**
 - Capability studies for all special characteristics (Sc, CC, SC)
-- Minimum Cpk ≥ 1.67 preferred; ≥ 1.33 minimum acceptable
-- If Cpk < 1.33: customer-approved control plan with 100% inspection required
+- Apply the customer-approved initial-study index and acceptance criteria. Use Ppk when long-term stability has not been demonstrated.
+- Follow the [SPC initial study decision table](../../measurement/spc-control-charts/SKILL.md#acceptance-criteria) when no customer-specific criteria supersede it. Escalate a below-criteria result before submission.
 
 **Element 12 — Qualified Laboratory Documentation**
 - Test reports must be from accredited laboratories (ISO/IEC 17025 preferred)
@@ -1770,7 +1852,7 @@ Complete the PSW accurately:
 
 Before submitting PPAP:
 - All dimensional results 100% within specification
-- Cpk ≥ 1.67 for all special characteristics (or documented deviation with customer approval)
+- Initial study meets customer-approved criteria for all special characteristics (or documented deviation with customer approval)
 - %GRR < 30% for all measurement systems on special characteristics
 - All H-AP items in PFMEA have completed actions
 - Control Plan covers all special and significant characteristics
@@ -1782,7 +1864,7 @@ Before submitting PPAP:
 - Submitting with any out-of-specification dimensional result (automatic rejection)
 - Using prototype or pre-production samples for PPAP (must be from production tooling)
 - Production trial run shorter than 300 consecutive parts without written customer authorisation — automatic rejection at many OEMs
-- Cpk calculated on insufficient data (minimum 100 pieces for capability study)
+- Capability index calculated on insufficient data (confirm the applicable sampling requirements)
 - MSA not performed for all gauges used on special characteristics
 - PFMEA not updated after process changes made during PPAP run
 - PSW signed by someone without authority (Quality Manager signature required)
@@ -1806,8 +1888,9 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum (AIAG PPAP 4th ed §4.0); added to Common Mistakes |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum (AIAG PPAP 4th ed §4.0); added to Common Mistakes |
+| 2.0.0 | 2026-11-06 | @RBraga01 | Apply customer-approved initial study criteria and escalate below-criteria results before submission. |
 
 ---
 
@@ -1818,7 +1901,7 @@ name: 18-elements-checklist
 type: reference
 parent_skill: ppap
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
@@ -1995,7 +2078,7 @@ AIAG PPAP 4th Edition Table 4.1 — `R` = Retain at supplier, `S` = Submit to cu
 
 **Expected evidence:**
 - Production Control Plan (the version for submission — not Prototype or Pre-launch CP)
-- All columns populated per AIAG Control Plan Reference Manual: operation, machine/device, characteristic, specification, measurement method, sample size, frequency, control method, reaction plan
+- All columns populated per AIAG Control Plan 1st Edition (2024): operation, machine/device, characteristic, specification, measurement method, sample size, frequency, control method, reaction plan
 - All special characteristics (SC, CC, KPC) present with correct customer symbol
 - Signed by the multifunctional team; customer approval signature if required by the customer
 
@@ -2081,16 +2164,15 @@ AIAG PPAP 4th Edition Table 4.1 — `R` = Retain at supplier, `S` = Submit to cu
 ### Element 11 — Initial Process Studies (Capability)
 
 **Expected evidence:**
-- Cpk and Pp/Ppk study for each special characteristic (SC, CC, KPC, KCC)
+- Initial study for each special characteristic (SC, CC, KPC, KCC) using the customer-approved index. Use Ppk when stability has not been demonstrated.
 - Minimum 100 consecutive pieces from the PPAP significant production run (not from multiple runs combined)
 - Control chart (X-bar R or Individuals & Moving Range) showing process stability before calculating Cpk
 - Distribution analysis (normality check) — if non-normal, state the distribution used and justify
 
 **Acceptance criteria:**
-- Cpk ≥ 1.67: preferred — no additional conditions
-- Cpk 1.33–1.67: acceptable — customer may require an improvement plan
-- Cpk < 1.33: not acceptable unless customer grants a formal deviation; requires 100% inspection if deviation granted
-- Process must be stable before Cpk is calculated — if control chart shows special causes, the data is not valid
+- Apply the customer-approved criteria and follow the [SPC initial study decision table](../../../measurement/spc-control-charts/SKILL.md#acceptance-criteria) when no customer-specific criteria supersede it.
+- If the result is below the applicable criteria, contact the customer before submission and document the required corrective action and containment.
+- Investigate special causes before making capability claims. Do not report Cpk as evidence of a stable process without stability evidence.
 
 **Common rejection reasons:**
 - Cpk calculated on fewer than 30 pieces — some customers require a minimum of 100
@@ -2258,7 +2340,7 @@ Deviations from the AIAG PPAP 4th Edition baseline.
 | Design change documentation | ECN or equivalent | SREA (Supplier Request for Engineering Approval) — separate from ECN | Änderungsantrag through BMW system | VDA 2 deviation process | GPIRS (Global PPAP Initiating Request System) |
 | Process audit | Not explicitly required | Q1 process audit may be required at new suppliers | VDA 6.3 process audit required before PPAP for new suppliers | VDA 6.3 process audit — P5/P6/P7 elements must score ≥ 4.0 | Stellantis supplier assessment required |
 | ISIR | Not defined | ISIR (Initial Sample Inspection Report) may be required in addition to dimensional results | Dimensional results submitted within the 1410 form (integrated) | DFU dimensional results per QMSS format | Standard dimensional results accepted |
-| Capability minimum | Cpk ≥ 1.67 preferred; ≥ 1.33 minimum | Cpk ≥ 1.67 for all SC; Cpk < 1.67 requires Ford engineering approval | Cpk ≥ 1.67 for CC; Cpk ≥ 1.33 for SC | Cpk ≥ 1.67 for CC; Cpk ≥ 1.33 for SC | Cpk ≥ 1.67 for SC/CC; Cpk < 1.33 rejected |
+| Capability minimum | Confirm index and limits in the applicable PPAP and customer criteria | Confirm current Ford criteria | Confirm current GM criteria | Confirm current Stellantis criteria | Confirm current VW Group criteria |
 | Sample quantity | As specified per level | Typically 5 parts minimum per cavity for Level 3 | 5 parts minimum per cavity | 5 parts minimum | 5–10 parts per cavity depending on CSR |
 | AAR | Required for appearance parts | Ford-specific AAR form; colour measurement mandatory | BMW AAR process with styling centre sign-off | VW colour release process | Stellantis AAR through SQA portal |
 | Lab accreditation | ISO/IEC 17025 preferred | ISO/IEC 17025 required for safety/regulatory; A2LA or equivalent | ISO/IEC 17025 required; DAkkS (German accreditation) recognised | ISO/IEC 17025 required | ISO/IEC 17025 required for regulated tests |
@@ -2283,7 +2365,7 @@ Use this as the physical package checklist before sealing the PPAP submission.
 | 8 | MSA Studies | GR&R reports (one per gauge per characteristic); attribute agreement analysis if applicable | Minitab report / Excel / PDF |
 | 9 | Dimensional Results | Ballooned drawing + results spreadsheet, 5 parts per cavity | PDF (ballooned) + Excel (results) |
 | 10 | Material / Performance Tests | Lab test reports for all specification tests; material CoC | PDF (lab-stamped) |
-| 11 | Process Capability | Cpk study with control chart; ≥ 100 consecutive parts from PPAP run | Minitab / Excel / PDF |
+| 11 | Process Capability | Initial study with control chart, agreed index and applicable sample size | Minitab / Excel / PDF |
 | 12 | Lab Documentation | ISO/IEC 17025 certificate with scope covering the tests performed | PDF (current, not expired) |
 | 13 | AAR | Completed AAR form; colour measurement data; customer signature | PDF (signed) |
 | 14 | Sample Parts | Physical parts labelled with PN, rev, date, cavity — shipped or available on request | Physical |

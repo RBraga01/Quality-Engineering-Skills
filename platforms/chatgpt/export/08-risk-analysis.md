@@ -16,7 +16,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iatf-16949: "8.3.3.3"
   aiag-reference: "AIAG-VDA FMEA Handbook 2019, Step 5, Table 5-3"
   domain: quality-engineering
@@ -226,8 +226,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @migmcc | Polished AP classification logic, added OEM CSR requirements table |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-03 | @migmcc | Polished AP classification logic, added OEM CSR requirements table |
 
 ---
 
@@ -238,7 +238,7 @@ name: oem-requirements
 type: reference
 parent_skill: action-priority-ap
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"
@@ -470,7 +470,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "8.3"
   iatf-16949: "8.3.3.3"
   aiag-reference: "AIAG-VDA FMEA Handbook 2019, DFMEA chapters"
@@ -698,8 +698,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @RBraga01 | Added interface matrix integration and DFMEA-to-PFMEA handoff workflow |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-03 | @RBraga01 | Added interface matrix integration and DFMEA-to-PFMEA handoff workflow |
 
 ---
 
@@ -710,7 +710,7 @@ name: interface-matrix
 type: reference
 parent_skill: dfmea-design
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"
@@ -968,7 +968,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "8.1"
   iatf-16949: "8.3.3.3"
   aiag-reference: "AIAG-VDA FMEA Handbook 2019, Steps 1–7"
@@ -1232,8 +1232,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @RBraga01 | Expanded 7-step workflow with AP gate requirements and PPAP integration |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-03 | @RBraga01 | Expanded 7-step workflow with AP gate requirements and PPAP integration |
 
 ---
 
@@ -1244,7 +1244,7 @@ name: ap-table
 type: asset
 parent_skill: pfmea-process
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"
@@ -1340,7 +1340,7 @@ name: aiag-vda-2019
 type: reference
 parent_skill: pfmea-process
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"

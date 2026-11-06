@@ -11,7 +11,7 @@ name: hypothesis-elimination
 type: reference
 parent_skill: is-is-not-scoping
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
@@ -205,7 +205,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "10.3"
   iatf-16949: "10.3.1"
   domain: quality-engineering
@@ -386,8 +386,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-04 | @migmcc | Polished PDCA cycle workflow and D6 verification integration |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Polished PDCA cycle workflow and D6 verification integration |
 
 ---
 
@@ -398,7 +398,7 @@ name: pdca-examples
 type: reference
 parent_skill: pdca-improvement
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
@@ -772,7 +772,7 @@ description: >-
 license: MIT
 metadata:
   author: Crow12138
-  version: "1.0"
+  version: "1.0.0"
   iso-9001: "10.2 (supporting)"
   gbt-29076: "2021"
   domain: quality-engineering
@@ -1133,7 +1133,7 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-07-04 | @Crow12138 | Initial draft based on GB/T 29076—2021 |
+| 1.0.0 | 2026-07-04 | @Crow12138 | Initial draft based on GB/T 29076—2021 |
 
 ---
 
@@ -1144,7 +1144,7 @@ name: zeroing-report-template
 type: asset
 parent_skill: quality-problem-zeroing
 author: Crow12138
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-07-04"
 last_updated: "2026-07-04"
@@ -1476,7 +1476,7 @@ name: engineering-methods
 type: reference
 parent_skill: quality-problem-zeroing
 author: Crow12138
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-07-04"
 last_updated: "2026-07-04"
@@ -1723,7 +1723,7 @@ name: gbt-29076-2021-method-guide
 type: reference
 parent_skill: quality-problem-zeroing
 author: Crow12138
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-07-04"
 last_updated: "2026-07-04"

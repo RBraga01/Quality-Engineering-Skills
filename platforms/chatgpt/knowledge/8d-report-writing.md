@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "10.2"
   iatf-16949: "10.2.3"
   domain: quality-engineering
@@ -264,5 +264,5 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @migmcc | Added OEM format requirements and customer submission checklists |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-03 | @migmcc | Added OEM format requirements and customer submission checklists |

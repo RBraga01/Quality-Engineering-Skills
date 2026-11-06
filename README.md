@@ -30,6 +30,9 @@ git clone https://github.com/RBraga01/Quality-Engineering-Skills.git
 
 Or [download as ZIP](https://github.com/RBraga01/Quality-Engineering-Skills/archive/refs/heads/master.zip).
 
+For the Codex plugin pilot, see the [plugin guide](.codex-plugin/README.md).
+To check how the skills respond to realistic inputs, run the [skill behavior scenarios](tests/skill-scenarios.md).
+
 ---
 
 ## What this solves
@@ -49,10 +52,14 @@ Every skill maps to specific standard clauses. Every agent validates methodology
 | Problem Solving | 8D (D0–D8), 5-Why, Fishbone, Is/Is-Not, PDCA, DMAIC, Zeroing (双归零) | ISO 9001 §10.2, IATF 16949 §10.2.3, GB/T 29076—2021 |
 | Risk Analysis | PFMEA, DFMEA, Action Priority (AP) | AIAG-VDA FMEA 2019, IATF 16949 §8.3 |
 | Planning | PPAP (5 levels, 18 elements), APQP (5 phases), Control Plan, DVP&R | AIAG PPAP 4th Ed, IATF 16949 §8.3.4 |
-| Measurement | MSA / Gauge R&R, SPC / Control Charts | AIAG MSA 4th Ed, AIAG SPC 2nd Ed |
+| Measurement | MSA / Gauge R&R, SPC / Control Charts | AIAG MSA 4th Ed, AIAG & VDA SPC 1st Ed (2026) |
 | Documentation | NCR, CAR, 8D Customer Report | ISO 9001 §7.5, §8.7, §10.2 |
-| Audit | ISO 9001 Internal, IATF 16949 Supplemental, VDA 6.3 | ISO 9001:2015, IATF 16949:2016, VDA 6.3 2023 |
+| Audit | ISO 9001 Internal, IATF 16949 Supplemental, VDA 6.3 | ISO 9001:2015 + Amd 1:2024, IATF 16949:2016, VDA 6.3 2023 |
 | Supplier Quality | Supplier SCAR, corrective action escalation | ISO 9001 §8.4, IATF 16949 §8.4.1 |
+
+**[STANDARDS.md](STANDARDS.md)** records which edition of each standard every skill is
+written against, plus revisions in progress — currently ISO 9001:2026 (publication
+expected September 2026) and the live AIAG & VDA SPC transition.
 
 | Industries covered |
 |----|
@@ -126,7 +133,7 @@ Automated audit and scoring of SKILL.md and REFERENCE files against framework st
 </details>
 
 <details>
-<summary><strong>Planning</strong> (AIAG PPAP 4th Ed · APQP 2nd Ed · IATF 16949 §8.3)</summary>
+<summary><strong>Planning</strong> (AIAG PPAP 4th Ed · APQP 3rd Ed 2024 · Control Plan 1st Ed 2024 · IATF 16949 §8.3)</summary>
 
 | Skill | Description |
 |-------|-------------|
@@ -138,7 +145,7 @@ Automated audit and scoring of SKILL.md and REFERENCE files against framework st
 </details>
 
 <details>
-<summary><strong>Measurement</strong> (AIAG MSA 4th Ed · SPC 2nd Ed)</summary>
+<summary><strong>Measurement</strong> (AIAG MSA 4th Ed · AIAG &amp; VDA SPC 1st Ed 2026)</summary>
 
 | Skill | Description |
 |-------|-------------|

@@ -16,7 +16,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "10.2"
   iatf-16949: "10.2.3"
   domain: quality-engineering
@@ -194,8 +194,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @RBraga01 | Added dual-chain requirement (occurrence + escape), evidence status tracking |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-03 | @RBraga01 | Added dual-chain requirement (occurrence + escape), evidence status tracking |
 
 ---
 
@@ -206,7 +206,7 @@ name: chain-validation
 type: reference
 parent_skill: 5why-root-cause
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"
@@ -454,7 +454,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "10.2"
   iatf-16949: "10.2.3"
   domain: quality-engineering
@@ -721,8 +721,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @RBraga01 | Added Required Execution Checklist, D-level validation criteria, OEM gate rules |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-03 | @RBraga01 | Added Required Execution Checklist, D-level validation criteria, OEM gate rules |
 
 ---
 
@@ -733,7 +733,7 @@ name: 8d-template
 type: asset
 parent_skill: 8d-problem-solving
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"
@@ -875,7 +875,7 @@ name: d0-d8-guide
 type: reference
 parent_skill: 8d-problem-solving
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"
@@ -1138,7 +1138,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "10.3"
   iatf-16949: "10.1"
   domain: quality-engineering
@@ -1406,8 +1406,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added hypothesis test selection guide in Phase 3; added monitoring period closure criteria in Phase 5 (Cpk sustained on production data, not pilot) |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added hypothesis test selection guide in Phase 3; added monitoring period closure criteria in Phase 5 (Cpk sustained on production data, not pilot) |
 
 ---
 
@@ -1418,7 +1418,7 @@ name: statistical-tools
 type: reference
 parent_skill: dmaic
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
@@ -1685,7 +1685,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "10.2"
   iatf-16949: "10.2.3"
   domain: quality-engineering
@@ -1874,8 +1874,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-04 | @migmcc | Polished 6M categories, added validation criteria and 5-Why integration |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Polished 6M categories, added validation criteria and 5-Why integration |
 
 ---
 
@@ -1886,7 +1886,7 @@ name: 6m-category-guide
 type: reference
 parent_skill: fishbone-analysis
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
@@ -2184,7 +2184,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "10.2"
   iatf-16949: "10.2.3"
   domain: quality-engineering
@@ -2344,6 +2344,6 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-04 | @migmcc | Expanded Is/Is-Not table criteria and D2 integration guidance |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Expanded Is/Is-Not table criteria and D2 integration guidance |
 

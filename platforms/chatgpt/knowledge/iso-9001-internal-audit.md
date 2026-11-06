@@ -4,11 +4,11 @@ description: >-
   Conduct an internal audit by clause, answer ISO 9001 internal audit questions, or prepare
   evidence for §4 §5 §6 §7 §8 §9 §10. Provides key audit questions by clause, finding
   classification (Major NC / Minor NC / OFI), and audit report writing. Use when planning
-  or conducting an ISO 9001:2015 internal audit or preparing for third-party certification.
+  or conducting an ISO 9001:2015 internal audit or scoping the transition to ISO 9001:2026.
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.3.0"
   iso-9001: "9.2"
   iatf-16949: "9.2.2"
   domain: quality-engineering
@@ -16,10 +16,11 @@ metadata:
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-01"
-  last_updated: "2026-06-03"
-  updated_by: migmcc
-  reviewed_by: RBraga01
-  standard_edition: "ISO 9001:2015"
+  last_updated: "2026-11-06"
+  updated_by: RBraga01
+  reviewed_by: migmcc
+  standard_edition: "ISO 9001:2015 incl. Amd 1:2024 (climate action)"
+  edition_watch: "ISO 9001:2026 published 2026-09-16; detailed checklist still uses 2015/Amd 1:2024"
 ---
 
 # ISO 9001:2015 Internal Audit
@@ -27,6 +28,24 @@ metadata:
 ## Goal
 
 Plan, conduct, and document an ISO 9001:2015 internal audit using objective evidence, correct finding classification, and clear audit reporting. Use this skill for planning an audit programme, conducting process-based or clause-based audits, preparing for third-party certification, or training internal auditors.
+
+---
+
+## Standard edition and currency
+
+**Audit criteria in this skill: ISO 9001:2015, including Amendment 1:2024.**
+
+| Edition | Status | What it means for an audit today |
+|---|---|---|
+| ISO 9001:2015/Amd 1:2024 | Previous edition during certification transition | Use the checklist below when this is the agreed audit criterion. |
+| ISO 9001:2026 | Current edition, published 16 September 2026 | Use the applicable licensed 2026 text and approved audit criteria. |
+
+**Transition planning.** Confirm the applicable edition with the audit programme
+owner before classifying any findings. Check the certification body's schedule
+for the [three-year transition described by ISO](https://www.iso.org/quality-management/iso-9001-2026).
+If the edition is unknown, ask and withhold a compliance verdict. Do not use the 2015 checklist as 2026 audit criteria.
+For a 2026 audit, request the approved criteria or relevant licensed excerpts.
+Track readiness gaps separately from nonconformities against the agreed criteria.
 
 ---
 
@@ -97,13 +116,30 @@ Avoid conclusions without linking evidence to the specific requirement.
 - Is the context of the organisation documented (internal and external issues affecting the QMS)?
 - Are strategic direction and relevant interested parties considered?
 - Is the analysis reviewed and updated? When was it last updated?
+- **Has the organisation determined whether climate change is a relevant issue?** (Amendment 1:2024 — see below)
 - *Evidence:* SWOT, PEST analysis, or equivalent strategic analysis document
+
+> **Climate change — ISO 9001:2015/Amd 1:2024.** The amendment added one sentence to
+> §4.1 and a note to §4.2. The organisation must **determine whether climate change is a
+> relevant issue** for its QMS. It is not required to conclude that it *is* relevant, and
+> it is not required to have a climate strategy — but the determination must have been
+> made and must be evidenced.
+>
+> Audit it as a completeness question, not an environmental one: is climate change
+> present in the context analysis as a considered external issue, with a documented
+> conclusion either way? A context analysis that has never considered it is a **Minor
+> NC**. Do not raise a finding because the organisation concluded it was not relevant,
+> provided that conclusion is recorded and reasoned.
+>
+> This is a common audit gap because it was added to an existing certified standard —
+> organisations certified before 2024 often never revisited §4.1.
 
 **§4.2 — Understanding needs and expectations of interested parties**
 
 - Is there a list of interested parties (customers, regulators, employees, suppliers)?
 - Are their relevant needs and expectations identified?
 - Which of these have become QMS requirements?
+- **Have interested parties' requirements related to climate change been considered?** (Amd 1:2024 note to §4.2)
 - *Evidence:* stakeholder register, customer requirements register
 
 **§4.3 — Scope of the QMS**
@@ -365,10 +401,10 @@ FINDINGS:
 
 Finding 1 — MAJOR NC
 Clause: §9.3 Management Review
-Requirement: ISO 9001 §9.3.2 requires management review to include analysis of 
+Requirement: ISO 9001 §9.3.2 requires management review to include analysis of
 quality objectives performance.
-Evidence: Management review minutes dated 2026-03-15 reviewed. Quality objective 
-tracking data was not included or referenced. Quality manager confirmed no objectives 
+Evidence: Management review minutes dated 2026-03-15 reviewed. Quality objective
+tracking data was not included or referenced. Quality manager confirmed no objectives
 were discussed at the last two management reviews.
 Finding: Systemic absence of quality objectives review in management review process.
 
@@ -425,5 +461,7 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @migmcc | Expanded clause-by-clause question bank and evidence anchors |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-03 | @migmcc | Expanded clause-by-clause question bank and evidence anchors |
+| 1.2.0 | 2026-08-08 | @RBraga01 | Updated to ISO 9001:2015/Amd 1:2024 and added climate-change determination audit guidance. |
+| 1.3.0 | 2026-11-06 | @RBraga01 | Record ISO 9001:2026 publication and require explicit audit edition selection. |

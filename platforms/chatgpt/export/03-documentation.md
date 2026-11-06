@@ -16,7 +16,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "10.2"
   iatf-16949: "10.2.3"
   domain: quality-engineering
@@ -272,8 +272,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @migmcc | Added OEM format requirements and customer submission checklists |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-03 | @migmcc | Added OEM format requirements and customer submission checklists |
 
 ---
 
@@ -284,7 +284,7 @@ name: oem-formats
 type: reference
 parent_skill: 8d-report-writing
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"
@@ -558,7 +558,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "10.2"
   iatf-16949: "10.2.3"
   domain: quality-engineering
@@ -638,7 +638,7 @@ This is the core of the CAR. Use structured methodology:
 
 ```
 Root cause of occurrence:
-Why: Connector pin depth OOS → Why: insertion force insufficient → 
+Why: Connector pin depth OOS → Why: insertion force insufficient →
 Why: pneumatic jig set to wrong pressure → Why: pressure setpoint not in work instruction →
 Root cause: Work instruction for Station 3 does not specify jig pressure setpoint.
 
@@ -775,8 +775,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-04 | @migmcc | Expanded CAR linkage to D5-D6, added effectiveness verification requirements |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Expanded CAR linkage to D5-D6, added effectiveness verification requirements |
 
 ---
 
@@ -787,7 +787,7 @@ name: car-template
 type: reference
 parent_skill: car-corrective-action
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
@@ -1215,7 +1215,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "8.7"
   iatf-16949: "8.7.1"
   domain: quality-engineering
@@ -1420,8 +1420,8 @@ Adapt all output sections to the chosen format. If the platform or session conte
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-03 | @migmcc | Expanded severity classification criteria and disposition guidance |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-03 | @migmcc | Expanded severity classification criteria and disposition guidance |
 
 ---
 
@@ -1432,7 +1432,7 @@ name: ncr-template
 type: asset
 parent_skill: ncr-writing
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"

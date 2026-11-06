@@ -17,7 +17,7 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "10.2"
   iatf-16949: "10.2.3"
   domain: quality-engineering
@@ -235,8 +235,8 @@ Apply the chosen format to all outputs generated during the session. If the plat
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-04 | @migmcc | Polished gate validation logic, D3 rejection rules and ICA verification |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Polished gate validation logic, D3 rejection rules and ICA verification |
 
 ---
 
@@ -253,7 +253,7 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "9.2"
   iatf-16949: "9.2.2"
   domain: quality-engineering
@@ -475,8 +475,8 @@ Apply the chosen format to all outputs generated during the session. If the plat
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-04 | @migmcc | Polished clause-by-clause audit workflow, finding classification and report generation |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Polished clause-by-clause audit workflow, finding classification and report generation |
 
 ---
 
@@ -493,18 +493,18 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.2.0"
   iatf-16949: "8.5.1"
-  aiag-reference: "AIAG Control Plan Reference Manual"
+  aiag-reference: "AIAG Control Plan 1st Edition (2024)"
   domain: quality-engineering
   subdomain: planning
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-06-06"
-  updated_by: migmcc
-  reviewed_by: RBraga01
-  standard_edition: "AIAG Control Plan Reference Manual (1995) / IATF 16949:2016 §8.5.1"
+  last_updated: "2026-08-08"
+  updated_by: RBraga01
+  reviewed_by: migmcc
+  standard_edition: "AIAG Control Plan 1st Edition (2024) / IATF 16949:2016 §8.5.1"
 ---
 
 # Control Plan Builder Agent
@@ -620,8 +620,9 @@ Apply the chosen format to all outputs generated during the session.
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added MSA qualification question per measurement method (Step 2 Q7); added AP revision check in D7 mode (Step 5); added poka-yoke suggestion for H-AP inspection-only controls |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added MSA qualification question per measurement method (Step 2 Q7); added AP revision check in D7 mode (Step 5); added poka-yoke suggestion for H-AP inspection-only controls |
+| 1.2.0 | 2026-08-08 | @RBraga01 | Updated Control Plan references for AIAG Control Plan 1st Edition (2024). |
 
 ---
 
@@ -638,7 +639,7 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iatf-16949: "8.3.3.3"
   aiag-reference: "AIAG-VDA FMEA Handbook 2019"
   domain: quality-engineering
@@ -854,8 +855,8 @@ Apply the chosen format to all outputs generated during the session. If the plat
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-04 | @migmcc | Polished AP compliance review workflow and OEM CSR binding requirements |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Polished AP compliance review workflow and OEM CSR binding requirements |
 
 ---
 
@@ -872,7 +873,7 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "8.7"
   iatf-16949: "8.7.1"
   domain: quality-engineering
@@ -1089,8 +1090,8 @@ After generating the draft, review and remove any of the following if present:
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-04 | @migmcc | Polished NCR drafting workflow, objective-evidence language requirements |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Polished NCR drafting workflow, objective-evidence language requirements |
 
 ---
 
@@ -1106,7 +1107,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "2.0.0"
   iatf-16949: "8.3.4, 8.4.1"
   aiag-reference: "AIAG PPAP 4th Edition"
   domain: quality-engineering
@@ -1114,7 +1115,7 @@ metadata:
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-06-06"
+  last_updated: "2026-11-06"
   updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "AIAG PPAP 4th Edition (2006)"
@@ -1178,7 +1179,7 @@ The agent asks the user to describe what the supplier has submitted for each ele
 | 8 MSA | Is %GRR < 30% for all measurement systems on SC characteristics? Is ndc ≥ 5? |
 | 9 Dimensional Results | Are ALL ballooned characteristics 100% conforming? Parts identified by cavity? |
 | 10 Material/Performance Tests | Are all tests passed? Are lab reports from accredited labs? |
-| 11 Initial Process Studies | Is Cpk ≥ 1.67 on all special characteristics? If Cpk 1.33–1.67: flag as conditional — customer monitoring required. If Cpk 1.00–1.33: block — 100% inspection AND customer-approved deviation required. If Cpk < 1.00: block — cannot submit. |
+| 11 Initial Process Studies | Check the customer-approved index, sample and limits for each special characteristic. Use Ppk when stability has not been demonstrated. Apply the [SPC initial study decision table](../../measurement/spc-control-charts/SKILL.md#acceptance-criteria) when no customer-specific criteria supersede it. Escalate below-criteria results before submission. |
 | 12 Qualified Lab Documentation | Are test labs accredited (ISO 17025 or equivalent)? |
 | 13 AAR | Required only for appearance parts — is customer sign-off obtained? |
 | 14 Sample Parts | Are parts from the production run (not prototype)? Labelled correctly? |
@@ -1190,7 +1191,7 @@ The agent asks the user to describe what the supplier has submitted for each ele
 **Blocking conditions:** The agent will flag and block submission recommendation if:
 - Any dimensional result is out of specification
 - Production trial run fewer than 300 consecutive parts without written customer authorisation
-- Cpk < 1.33 on a special characteristic without a customer-approved deviation and 100% inspection plan
+- Initial study below the applicable criteria on a special characteristic without documented customer disposition and any required containment
 - %GRR > 30% without explanation
 - PSW unsigned or signed by someone other than Quality Manager
 - PSW form is the generic AIAG form when the customer requires an OEM-specific form (Ford requires Ford PSW; BMW requires Form 1410)
@@ -1214,8 +1215,9 @@ Apply the chosen format to all outputs generated during the session.
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-06 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-06 | @migmcc | Added production trial run check (300-part minimum); added OEM customer question at opening; corrected Element 11 Cpk thresholds (1.00–1.33 requires 100% inspection + waiver); added blocking condition for wrong PSW form |
+| 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-06 | @migmcc | Added production trial run check (300-part minimum); added OEM customer question at opening; corrected Element 11 Cpk thresholds (1.00–1.33 requires 100% inspection + waiver); added blocking condition for wrong PSW form |
+| 2.0.0 | 2026-11-06 | @RBraga01 | Evaluate Element 11 against the agreed index and criteria, and escalate below-criteria results before submission. |
 
 ---
 
@@ -1233,7 +1235,7 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "10.2"
   iatf-16949: "10.2.3"
   domain: quality-engineering
@@ -1451,8 +1453,8 @@ Apply the chosen format to all outputs generated during the session. If the plat
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-04 | @migmcc | Polished dual-chain requirement and circular-reasoning detection |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Polished dual-chain requirement and circular-reasoning detection |
 
 ---
 
@@ -1471,7 +1473,7 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   domain: quality-engineering
   subdomain: agents
   industries: automotive,electronics,aerospace,medical,general
@@ -1714,8 +1716,8 @@ Target for all skills in this repo: **Level 4 minimum, Level 5 at launch.**
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-05 | @RBraga01 | Initial release - scoring model, quality gates, maturity model |
-| 1.1 | 2026-06-05 | @RBraga01 | Added document control field checks to Structure scoring, block conditions, and Level 2 reference audit |
+| 1.0.0 | 2026-06-05 | @RBraga01 | Initial release - scoring model, quality gates, maturity model |
+| 1.1.0 | 2026-06-05 | @RBraga01 | Added document control field checks to Structure scoring, block conditions, and Level 2 reference audit |
 
 ---
 
@@ -1726,7 +1728,7 @@ name: cross-skill-rules
 type: reference
 parent_skill: skill-auditor
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-05"

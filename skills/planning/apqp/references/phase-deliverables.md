@@ -3,7 +3,7 @@ name: phase-deliverables
 type: reference
 parent_skill: apqp
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"
@@ -77,7 +77,7 @@ Use alongside the [apqp](../SKILL.md) skill.
 | Pre-Launch Control Plan | Supplier | Supplier | Stricter sample sizes than production CP; 100% inspection common at this stage |
 | Process Instructions / Work Instructions | Supplier | Supplier | Step-by-step operator instructions for all operations; tied to Control Plan |
 | MSA Plan | Supplier | Supplier | Identifies which gauges require GR&R; assigns responsibility and schedule |
-| Preliminary Process Capability Study Plan | Supplier | Supplier | Documents how the Cpk study will be run: n, characteristics, method |
+| Preliminary Process Capability Study Plan | Supplier | Supplier | Documents sample size, characteristics, method and customer-approved index |
 | Packaging Standards — Design | Supplier | Joint | Packaging design approved; MMOG/LE materials flow if required |
 | Packaging Specifications | Joint | Joint | Final packaging specs including OEM-specific label requirements |
 | Product / Process Quality System Review | Customer | Joint | Internal quality system audit against customer IATF/VDA requirements |
@@ -95,7 +95,7 @@ Use alongside the [apqp](../SKILL.md) skill.
 |-------------|-------------|----------------------------|-------|
 | Significant Production Run (Trial Run) | Supplier | Supplier | Minimum run size as agreed with customer; typically ≥ 300 pieces or customer-defined |
 | MSA Studies (Gauge R&R) | Supplier | Supplier | GR&R completed for all SC/CC/KPC gauges; must meet %GRR < 30% |
-| Process Capability Studies (Cpk) | Supplier | Supplier | From significant production run; Cpk ≥ 1.67 target for all SC/CC |
+| Initial Process Studies | Supplier | Supplier | From significant production run; use the agreed index and limits for SC/CC |
 | Production Control Plan | Supplier | Joint | Final production CP; supersedes Pre-Launch CP; submitted as PPAP Element 7 |
 | PPAP Package (all 18 elements) | Supplier | Supplier | Complete submission; see ppap SKILL.md for element details |
 | Production Validation Testing (PVT) | Supplier / Customer | Joint | Final DVP tests on production parts; all tests must show Pass |
@@ -168,7 +168,7 @@ Use alongside the [apqp](../SKILL.md) skill.
 |-------|---------------|
 | Significant production run complete | Minimum agreed quantity produced from production tooling at production conditions |
 | Dimensional results 100% conforming | Zero out-of-tolerance results across all ballooned dimensions, all sampled parts |
-| Cpk ≥ 1.67 for all SC/CC | Or customer-approved formal deviation with agreed containment |
+| Initial process studies meet the applicable criteria for all SC/CC | Or customer-approved formal deviation with agreed containment |
 | MSA %GRR < 30% for all SC/CC gauges | Preferably < 10%; 10–30% requires customer concurrence |
 | All DVP tests passed | Zero open failures; any failures resolved with DFMEA update and re-test |
 | PPAP package complete | All 18 elements present, accepted, and documented |
@@ -185,8 +185,8 @@ Use alongside the [apqp](../SKILL.md) skill.
 | DVP not aligned to DFMEA | Phase 2 | H-AP failure modes have no test coverage — PPAP Element 10 fails audit |
 | PFMEA created after process is running | Phase 3 | PFMEA is documenting the process, not driving controls — detection controls in PFMEA do not match actual Control Plan |
 | Pre-launch CP used as Production CP | Phase 4 | Control Plan submitted to PPAP is not the production-level document — rejected |
-| MSA studies not completed before PPAP run | Phase 4 | Capability data (Cpk) is from an unvalidated measurement system — invalid |
-| Capability study run on pre-production parts | Phase 3–4 | Cpk calculated from parts not produced at production tooling conditions — not valid for PPAP Element 11 |
+| MSA studies not completed before PPAP run | Phase 4 | Capability data is from an unvalidated measurement system — invalid |
+| Capability study run on pre-production parts | Phase 3–4 | Data from parts not produced at production tooling conditions — not valid for PPAP Element 11 |
 | Lessons learned not captured (Phase 5 skipped) | Phase 5 | Same PPAP gaps repeat on subsequent programmes; no institutional memory |
 | Prototype CP not replaced by Production CP | Phase 3–4 | PPAP Element 7 shows prototype-level controls only — missing production-specific controls and frequencies |
 | Gauge plan not executed — MSA missing for some characteristics | Phase 2–3 | Some SC/CC have no MSA — PPAP Element 8 incomplete |
@@ -208,7 +208,7 @@ Use alongside the [apqp](../SKILL.md) skill.
 | MSA Studies (Gauge R&R) | 4 | Element 8 — Measurement System Analysis |
 | Dimensional Results (from PPAP run) | 4 | Element 9 — Dimensional Results |
 | Production Validation Testing (DVP&R results) | 4 | Element 10 — Material / Performance Test Results |
-| Process Capability Studies (Cpk from PPAP run) | 4 | Element 11 — Initial Process Studies |
+| Process Capability Studies (from PPAP run) | 4 | Element 11 — Initial Process Studies |
 | Lab Documentation (ISO/IEC 17025 certs) | 4 | Element 12 — Qualified Laboratory Documentation |
 | Appearance Approval (customer AAR sign-off) | 2–4 | Element 13 — Appearance Approval Report |
 | Significant Production Run — sample parts | 4 | Element 14 — Sample Production Parts |

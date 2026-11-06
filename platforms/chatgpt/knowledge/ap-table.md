@@ -3,7 +3,7 @@ name: ap-table
 type: asset
 parent_skill: pfmea-process
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-01"
 last_updated: "2026-06-03"

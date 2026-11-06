@@ -3,7 +3,7 @@ name: 6m-category-guide
 type: reference
 parent_skill: fishbone-analysis
 author: RBraga01
-version: "1.0"
+version: "1.0.0"
 status: approved
 created: "2026-06-06"
 last_updated: "2026-06-06"

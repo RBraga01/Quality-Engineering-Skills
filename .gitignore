@@ -2,6 +2,7 @@
 Thumbs.db
 *.tmp
 node_modules/
+__pycache__/
 
 # Cloudflare Workers local dev secrets — must never be committed
 .dev.vars

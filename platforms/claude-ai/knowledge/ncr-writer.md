@@ -9,7 +9,7 @@ license: MIT
 compatibility: Designed for Claude Code and similar interactive AI coding agents
 metadata:
   author: RBraga01
-  version: "1.1"
+  version: "1.1.0"
   iso-9001: "8.7"
   iatf-16949: "8.7.1"
   domain: quality-engineering
@@ -226,5 +226,5 @@ After generating the draft, review and remove any of the following if present:
 
 | Version | Date | Author | Change |
 |---------|------|--------|--------|
-| 1.0 | 2026-06-01 | @RBraga01 | Initial release |
-| 1.1 | 2026-06-04 | @migmcc | Polished NCR drafting workflow, objective-evidence language requirements |
+| 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
+| 1.1.0 | 2026-06-04 | @migmcc | Polished NCR drafting workflow, objective-evidence language requirements |
