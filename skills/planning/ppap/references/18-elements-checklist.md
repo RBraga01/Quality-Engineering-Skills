@@ -266,16 +266,15 @@ AIAG PPAP 4th Edition Table 4.1 — `R` = Retain at supplier, `S` = Submit to cu
 ### Element 11 — Initial Process Studies (Capability)
 
 **Expected evidence:**
-- Cpk and Pp/Ppk study for each special characteristic (SC, CC, KPC, KCC)
+- Initial study for each special characteristic (SC, CC, KPC, KCC) using the customer-approved index. Use Ppk when stability has not been demonstrated.
 - Minimum 100 consecutive pieces from the PPAP significant production run (not from multiple runs combined)
 - Control chart (X-bar R or Individuals & Moving Range) showing process stability before calculating Cpk
 - Distribution analysis (normality check) — if non-normal, state the distribution used and justify
 
 **Acceptance criteria:**
-- Cpk ≥ 1.67: preferred — no additional conditions
-- Cpk 1.33–1.67: acceptable — customer may require an improvement plan
-- Cpk < 1.33: not acceptable unless customer grants a formal deviation; requires 100% inspection if deviation granted
-- Process must be stable before Cpk is calculated — if control chart shows special causes, the data is not valid
+- Apply the customer-approved criteria and follow the [SPC initial study decision table](../../../measurement/spc-control-charts/SKILL.md#acceptance-criteria) when no customer-specific criteria supersede it.
+- If the result is below the applicable criteria, contact the customer before submission and document the required corrective action and containment.
+- Investigate special causes before making capability claims. Do not report Cpk as evidence of a stable process without stability evidence.
 
 **Common rejection reasons:**
 - Cpk calculated on fewer than 30 pieces — some customers require a minimum of 100
@@ -443,7 +442,7 @@ Deviations from the AIAG PPAP 4th Edition baseline.
 | Design change documentation | ECN or equivalent | SREA (Supplier Request for Engineering Approval) — separate from ECN | Änderungsantrag through BMW system | VDA 2 deviation process | GPIRS (Global PPAP Initiating Request System) |
 | Process audit | Not explicitly required | Q1 process audit may be required at new suppliers | VDA 6.3 process audit required before PPAP for new suppliers | VDA 6.3 process audit — P5/P6/P7 elements must score ≥ 4.0 | Stellantis supplier assessment required |
 | ISIR | Not defined | ISIR (Initial Sample Inspection Report) may be required in addition to dimensional results | Dimensional results submitted within the 1410 form (integrated) | DFU dimensional results per QMSS format | Standard dimensional results accepted |
-| Capability minimum | Cpk ≥ 1.67 preferred; ≥ 1.33 minimum | Cpk ≥ 1.67 for all SC; Cpk < 1.67 requires Ford engineering approval | Cpk ≥ 1.67 for CC; Cpk ≥ 1.33 for SC | Cpk ≥ 1.67 for CC; Cpk ≥ 1.33 for SC | Cpk ≥ 1.67 for SC/CC; Cpk < 1.33 rejected |
+| Capability minimum | Confirm index and limits in the applicable PPAP and customer criteria | Confirm current Ford criteria | Confirm current GM criteria | Confirm current Stellantis criteria | Confirm current VW Group criteria |
 | Sample quantity | As specified per level | Typically 5 parts minimum per cavity for Level 3 | 5 parts minimum per cavity | 5 parts minimum | 5–10 parts per cavity depending on CSR |
 | AAR | Required for appearance parts | Ford-specific AAR form; colour measurement mandatory | BMW AAR process with styling centre sign-off | VW colour release process | Stellantis AAR through SQA portal |
 | Lab accreditation | ISO/IEC 17025 preferred | ISO/IEC 17025 required for safety/regulatory; A2LA or equivalent | ISO/IEC 17025 required; DAkkS (German accreditation) recognised | ISO/IEC 17025 required | ISO/IEC 17025 required for regulated tests |
@@ -468,7 +467,7 @@ Use this as the physical package checklist before sealing the PPAP submission.
 | 8 | MSA Studies | GR&R reports (one per gauge per characteristic); attribute agreement analysis if applicable | Minitab report / Excel / PDF |
 | 9 | Dimensional Results | Ballooned drawing + results spreadsheet, 5 parts per cavity | PDF (ballooned) + Excel (results) |
 | 10 | Material / Performance Tests | Lab test reports for all specification tests; material CoC | PDF (lab-stamped) |
-| 11 | Process Capability | Cpk study with control chart; ≥ 100 consecutive parts from PPAP run | Minitab / Excel / PDF |
+| 11 | Process Capability | Initial study with control chart, agreed index and applicable sample size | Minitab / Excel / PDF |
 | 12 | Lab Documentation | ISO/IEC 17025 certificate with scope covering the tests performed | PDF (current, not expired) |
 | 13 | AAR | Completed AAR form; colour measurement data; customer signature | PDF (signed) |
 | 14 | Sample Parts | Physical parts labelled with PN, rev, date, cavity — shipped or available on request | Physical |

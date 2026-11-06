@@ -11,18 +11,18 @@ this project, not a compliance checkbox.
 **Review cadence:** check this register every quarter, and whenever a Core Tool or
 management system standard is reported revised.
 
-_Last reviewed: 2026-08-08._
+_Last reviewed: 2026-11-06._
 
 ## Current editions
 
 | Standard | Edition in force | Published | Skills written against it |
 |---|---|---|---|
-| ISO 9001 | 2015, incl. **Amd 1:2024** (climate action) | Amd Feb 2024 | `iso-9001-internal-audit`, and the ISO 9001 clause mappings throughout |
+| ISO 9001 | **2026** | [16 September 2026](https://committee.iso.org/news/2026/09/ISO9001-2026) | `iso-9001-internal-audit` provides transition guidance. Its detailed checklist and existing QES clause mappings still use **2015/Amd 1:2024**. |
 | IATF 16949 | 2016 (1st Edition) | Oct 2016 | `iatf-16949-audit` |
 | AIAG-VDA FMEA | 2019 joint edition | Jun 2019 | `pfmea-process`, `dfmea-design`, `action-priority-ap`, `fmea-reviewer` |
-| AIAG APQP | **3rd Edition** | Mar 2024 | `apqp`, `dvp-test-plan` |
-| AIAG Control Plan | **1st Edition** (standalone) | Mar 2024 | `control-plan`, `control-plan-builder` |
-| AIAG & VDA SPC | **Harmonised handbook** (1st) | Announced 30 Jun 2026, available 1 Jul 2026 | `spc-control-charts` |
+| AIAG APQP | **3rd Edition** | [March 2024](https://www.aiag.org/docs/default-source/quality-/apqp_cp-faqs.pdf) | `apqp`, `dvp-test-plan` |
+| AIAG Control Plan | **1st Edition** (standalone) | [March 2024](https://www.aiag.org/docs/default-source/quality-/apqp_cp-faqs.pdf) | `control-plan`, `control-plan-builder` |
+| AIAG & VDA SPC | **Harmonised handbook** (1st) | [Available 1 July 2026](https://www.vda.de/en/press/press-releases/2026/230701_PM_International_cooperation_for_enhanced_quality_VDA_and_AIAG_publish_joint_standard) | `spc-control-charts` |
 | AIAG PPAP | 4th Edition | 2006 | `ppap`, `ppap-checker` |
 | AIAG MSA | 4th Edition | 2010 | `msa-gauge-rr` |
 | VDA 6.3 | 4th Edition | 2023 | `vda-6-3-audit` |
@@ -33,7 +33,7 @@ _Last reviewed: 2026-08-08._
 
 | Standard | Status | Action |
 |---|---|---|
-| **ISO 9001:2026** | FDIS approved 15 Jul 2026; publication expected **Sep 2026** | Update `iso-9001-internal-audit` on publication. Expect a three-year transition (to ~Sep 2029), so both editions stay auditable during that window. Reported additions: quality culture and ethical behaviour under leadership; climate change and sustainability explicit in context. Confirm against the published text — do not pre-write requirements from press summaries. |
+| **ISO 9001:2026** | Published; [ISO describes a three-year certification transition](https://www.iso.org/quality-management/iso-9001-2026) | Confirm the applicable audit edition and transition schedule with the audit programme and certification body. Review the licensed 2026 edition before updating clause-level criteria or checklists. |
 | **AIAG & VDA SPC 1st Ed** | Published, in live transition | Customer-specific requirements decide which manual applies per part. `spc-control-charts` covers both and says so. Revisit once OEM implementation dates are announced. |
 | AIAG PPAP | Long-standing 4th Edition (2006). A harmonised AIAG-VDA PPAP has been widely anticipated following FMEA and SPC | No action. Watch for announcement. |
 | AIAG MSA | 4th Edition dates from 2010 | No action. Watch for announcement. |

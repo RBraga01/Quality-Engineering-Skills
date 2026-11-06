@@ -8,7 +8,7 @@ description: >-
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.1.0"
+  version: "2.0.0"
   iso-9001: "8.4"
   iatf-16949: "8.3.4, 8.4.1"
   aiag-reference: "AIAG PPAP 4th Edition"
@@ -17,7 +17,7 @@ metadata:
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-06-06"
+  last_updated: "2026-11-06"
   updated_by: migmcc
   reviewed_by: RBraga01
   standard_edition: "AIAG PPAP 4th Edition (2006)"
@@ -121,8 +121,8 @@ Verify each element against the level requirement. For Level 3 (default):
 
 **Element 11 — Initial Process Studies (Statistical)**
 - Capability studies for all special characteristics (Sc, CC, SC)
-- Minimum Cpk ≥ 1.67 preferred; ≥ 1.33 minimum acceptable
-- If Cpk < 1.33: customer-approved control plan with 100% inspection required
+- Apply the customer-approved initial-study index and acceptance criteria. Use Ppk when long-term stability has not been demonstrated.
+- Follow the [SPC initial study decision table](../../measurement/spc-control-charts/SKILL.md#acceptance-criteria) when no customer-specific criteria supersede it. Escalate a below-criteria result before submission.
 
 **Element 12 — Qualified Laboratory Documentation**
 - Test reports must be from accredited laboratories (ISO/IEC 17025 preferred)
@@ -191,7 +191,7 @@ Complete the PSW accurately:
 
 Before submitting PPAP:
 - All dimensional results 100% within specification
-- Cpk ≥ 1.67 for all special characteristics (or documented deviation with customer approval)
+- Initial study meets customer-approved criteria for all special characteristics (or documented deviation with customer approval)
 - %GRR < 30% for all measurement systems on special characteristics
 - All H-AP items in PFMEA have completed actions
 - Control Plan covers all special and significant characteristics
@@ -203,7 +203,7 @@ Before submitting PPAP:
 - Submitting with any out-of-specification dimensional result (automatic rejection)
 - Using prototype or pre-production samples for PPAP (must be from production tooling)
 - Production trial run shorter than 300 consecutive parts without written customer authorisation — automatic rejection at many OEMs
-- Cpk calculated on insufficient data (minimum 100 pieces for capability study)
+- Capability index calculated on insufficient data (confirm the applicable sampling requirements)
 - MSA not performed for all gauges used on special characteristics
 - PFMEA not updated after process changes made during PPAP run
 - PSW signed by someone without authority (Quality Manager signature required)
@@ -229,3 +229,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 |---------|------|--------|--------|
 | 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
 | 1.1.0 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum (AIAG PPAP 4th ed §4.0); added to Common Mistakes |
+| 2.0.0 | 2026-11-06 | @RBraga01 | Apply customer-approved initial study criteria and escalate below-criteria results before submission. |

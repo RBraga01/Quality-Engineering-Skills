@@ -17,7 +17,7 @@ metadata:
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-08-08"
+  last_updated: "2026-11-06"
   updated_by: RBraga01
   reviewed_by: migmcc
   standard_edition: "AIAG APQP 3rd Edition (2024) / IATF 16949:2016 §8.3"
@@ -187,7 +187,7 @@ All phases run with concurrent engineering — phases overlap and teams work in 
 |-------------|-------------|
 | Production Trial Run | Significant Production Run (minimum run to PPAP requirements) |
 | MSA Studies | Gauge R&R completed for all special characteristics |
-| Preliminary Process Capability | Cpk study on special characteristics (target ≥ 1.67) |
+| Preliminary Process Capability | Initial study on special characteristics using the customer-approved index and acceptance criteria. |
 | Production Part Approval (PPAP) | All 18 PPAP elements complete and submitted |
 | Production Validation Testing | Final validation tests on production parts |
 | Packaging Evaluation | Production packaging validated |
@@ -198,7 +198,7 @@ All phases run with concurrent engineering — phases overlap and teams work in 
 **Gate 4 pass criteria (= PPAP approval):**
 - Significant production run completed (minimum 300 consecutive parts per AIAG PPAP 4th ed §4.0, unless the customer specifies otherwise in writing)
 - Dimensional results 100% conforming
-- Cpk ≥ 1.67 on all special characteristics (or customer-approved deviation)
+- Initial process studies meet the customer-approved criteria for special characteristics, or have a documented customer-approved deviation. Use Ppk when long-term stability has not been demonstrated.
 - %GRR < 30% for all MSA studies
 - PPAP submitted and customer approval received
 - No open concerns from validation testing
@@ -279,4 +279,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 |---------|------|--------|--------|
 | 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
 | 1.1.0 | 2026-06-06 | @migmcc | Added 300-part production trial run minimum to Gate 4 criteria and Common Mistakes |
-| 1.2.0 | 2026-08-08 | @RBraga01 | Updated for AIAG APQP 3rd Edition (2024) and aligned linked Core Tool references. |
+| 2.0.0 | 2026-11-06 | @RBraga01 | Updated for AIAG APQP 3rd Edition (2024), aligned linked Core Tools and applied customer-approved initial study criteria at Gate 4. |

@@ -29,6 +29,8 @@ Reference files added:
 
 ### Changed
 
+- Updated the standards register for the publication of ISO 9001:2026. The internal audit skill requires edition selection and limits its detailed checklist to ISO 9001:2015/Amd 1:2024.
+- Aligned SPC, APQP, PPAP and the PPAP Checker on initial studies, series production and customer-specific criteria. Added offline regressions and repeatable skill evaluation scenarios.
 - **Skill and agent counts corrected across all index files.** The skill above merged on
   2026-07-07 but was never registered, so `README.md` (badge, header, coverage table, skill
   index, roadmap), `STATUS.md` and `docs/index.html` continued to advertise 22 skills against
@@ -53,9 +55,7 @@ Reference files added:
 
 ---
 
-## [v2.2.0] — 2026-08-08
-
-### Changed
+### Standards Update
 
 - **Standard editions:** Updated ISO 9001 audit, APQP, Control Plan, DVP&R, Control Plan Builder and SPC skills for current editions; corrected SPC initial-study capability interpretation and source attribution. See `STANDARDS.md`.
 

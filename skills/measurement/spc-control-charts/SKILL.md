@@ -18,7 +18,7 @@ metadata:
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-06"
-  last_updated: "2026-08-08"
+  last_updated: "2026-11-06"
   updated_by: RBraga01
   reviewed_by: migmcc
   standard_edition: "AIAG & VDA SPC 1st Edition (2026) — transition; AIAG SPC 2nd Edition (2005) for legacy programmes"
@@ -207,22 +207,20 @@ own context, not an aspiration above 1.33.**
 
 **Where these numbers come from.** IATF 16949:2016 §9.1.1.1 requires manufacturing
 process studies and capability determination, but **does not state numeric acceptance
-values**. The ≥ 1.67 initial-study threshold comes from **AIAG PPAP 4th Edition**
-initial process study acceptance, and everything else is **customer-specific
-requirement**. Always work to the CSR, which can be stricter and which overrides these
-defaults. Do not cite a capability threshold as an IATF requirement in an audit or a
-customer submission — it is not one.
+values**. Consult the licensed **AIAG PPAP 4th Edition** and applicable
+customer-specific requirements for the accepted index, the exact boundary rule and
+any approval requirements. Treat the values below as screening guidance. Do not
+cite a capability threshold as an IATF requirement.
 
-**The index that matters for PPAP is Ppk, not Cpk.** Under the maturity progression
-above, an initial process study is by definition run before stability has been
-demonstrated over time, so the study you submit reports Pp/Ppk. Applying the 1.33
-established-production threshold to a PPAP initial study is the common and expensive
-error.
+**Select the initial-study index with the customer.** Report Pp/Ppk when stability
+has not been demonstrated. Use Cpk only with demonstrated stability and when the
+applicable criteria allow it. Do not use the established-production threshold as
+the PPAP initial-study decision rule.
 
 | Initial study Ppk | Interpretation | PPAP action |
 |-------------------|----------------|-------------|
-| ≥ 1.67 | Meets the initial study requirement | ✅ Submit |
-| 1.33 – 1.67 | **Below requirement** — not acceptable by default | ⚠️ Contact the customer *before* submission; corrective action, and containment if the customer requires it |
+| ≥ 1.67 | Candidate for acceptance | Verify the applicable boundary rule before submission; element 11 alone does not approve the PPAP |
+| 1.33 <= index < 1.67 | **Below requirement** — not acceptable by default | ⚠️ Contact the customer *before* submission; corrective action, and containment if the customer requires it |
 | < 1.33 | Does not meet requirement | ❌ Contact the customer; 100% inspection or containment; corrective action mandatory |
 
 For **established series production**, Cpk ≥ 1.33 is the usual ongoing acceptance
@@ -305,4 +303,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 |---------|------|--------|--------|
 | 1.0.0 | 2026-06-06 | @RBraga01 | Initial release |
 | 1.1.0 | 2026-06-06 | @migmcc | Added 100-part minimum requirement for valid capability study in Step 4; clarified in-control prerequisite before capability calculation |
-| 1.2.0 | 2026-08-08 | @RBraga01 | Updated acceptance criteria to distinguish initial-study Ppk from stable-production Cpk; corrected standards attribution and edition currency. |
+| 2.0.0 | 2026-11-06 | @RBraga01 | Distinguish initial-study Ppk from stable-production Cpk, define non-overlapping ranges and update standards attribution and edition. |

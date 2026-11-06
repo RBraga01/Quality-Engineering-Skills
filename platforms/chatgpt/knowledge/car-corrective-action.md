@@ -88,7 +88,7 @@ This is the core of the CAR. Use structured methodology:
 
 ```
 Root cause of occurrence:
-Why: Connector pin depth OOS → Why: insertion force insufficient → 
+Why: Connector pin depth OOS → Why: insertion force insufficient →
 Why: pneumatic jig set to wrong pressure → Why: pressure setpoint not in work instruction →
 Root cause: Work instruction for Station 3 does not specify jig pressure setpoint.
 

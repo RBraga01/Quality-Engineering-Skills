@@ -4,11 +4,11 @@ description: >-
   Conduct an internal audit by clause, answer ISO 9001 internal audit questions, or prepare
   evidence for §4 §5 §6 §7 §8 §9 §10. Provides key audit questions by clause, finding
   classification (Major NC / Minor NC / OFI), and audit report writing. Use when planning
-  or conducting an ISO 9001:2015 internal audit or preparing for third-party certification.
+  or conducting an ISO 9001:2015 internal audit or scoping the transition to ISO 9001:2026.
 license: MIT
 metadata:
   author: RBraga01
-  version: "1.2.0"
+  version: "1.3.0"
   iso-9001: "9.2"
   iatf-16949: "9.2.2"
   domain: quality-engineering
@@ -16,11 +16,11 @@ metadata:
   industries: automotive,electronics,aerospace,medical,general
   status: approved
   created: "2026-06-01"
-  last_updated: "2026-08-08"
+  last_updated: "2026-11-06"
   updated_by: RBraga01
   reviewed_by: migmcc
   standard_edition: "ISO 9001:2015 incl. Amd 1:2024 (climate action)"
-  edition_watch: "ISO 9001:2026 — FDIS approved 2026-07-15, publication expected 2026-09"
+  edition_watch: "ISO 9001:2026 published 2026-09-16; detailed checklist still uses 2015/Amd 1:2024"
 ---
 
 # ISO 9001:2015 Internal Audit
@@ -37,22 +37,15 @@ Plan, conduct, and document an ISO 9001:2015 internal audit using objective evid
 
 | Edition | Status | What it means for an audit today |
 |---|---|---|
-| ISO 9001:2015 | In force | The certifiable standard. Audit against this. |
-| ISO 9001:2015/Amd 1:2024 | In force | Adds the climate change determination to §4.1 and a note to §4.2. Already auditable — covered in the §4 questions below. |
-| ISO 9001:2026 | Not yet published | FDIS approved 15 July 2026; publication expected September 2026. **Do not audit against it yet.** |
+| ISO 9001:2015/Amd 1:2024 | Previous edition during certification transition | Use the checklist below when this is the agreed audit criterion. |
+| ISO 9001:2026 | Current edition, published 16 September 2026 | Use the applicable licensed 2026 text and approved audit criteria. |
 
-**Transition planning.** Once ISO 9001:2026 publishes, certified organisations are
-expected to have a three-year transition window (to approximately September 2029).
-If you are planning an audit programme that runs into 2027, raise transition
-readiness as a planning topic — not as a nonconformity, since an unpublished
-standard cannot be an audit criterion.
-
-The 2026 revision keeps the 2015 framework, the process approach and clauses 4–10
-substantially intact, so the transition burden for a compliant QMS is expected to be
-low. Reported additions include quality culture and ethical behaviour as leadership
-responsibilities, and climate change and sustainability made explicit in
-organisational context. **Treat that as orientation, not audit criteria** — confirm
-against the published standard when it is available, and update this skill then.
+**Transition planning.** Confirm the applicable edition with the audit programme
+owner before classifying any findings. Check the certification body's schedule
+for the [three-year transition described by ISO](https://www.iso.org/quality-management/iso-9001-2026).
+If the edition is unknown, ask and withhold a compliance verdict. Do not use the 2015 checklist as 2026 audit criteria.
+For a 2026 audit, request the approved criteria or relevant licensed excerpts.
+Track readiness gaps separately from nonconformities against the agreed criteria.
 
 ---
 
@@ -408,10 +401,10 @@ FINDINGS:
 
 Finding 1 — MAJOR NC
 Clause: §9.3 Management Review
-Requirement: ISO 9001 §9.3.2 requires management review to include analysis of 
+Requirement: ISO 9001 §9.3.2 requires management review to include analysis of
 quality objectives performance.
-Evidence: Management review minutes dated 2026-03-15 reviewed. Quality objective 
-tracking data was not included or referenced. Quality manager confirmed no objectives 
+Evidence: Management review minutes dated 2026-03-15 reviewed. Quality objective
+tracking data was not included or referenced. Quality manager confirmed no objectives
 were discussed at the last two management reviews.
 Finding: Systemic absence of quality objectives review in management review process.
 
@@ -471,3 +464,4 @@ Adapt all output sections to the chosen format. If the platform or session conte
 | 1.0.0 | 2026-06-01 | @RBraga01 | Initial release |
 | 1.1.0 | 2026-06-03 | @migmcc | Expanded clause-by-clause question bank and evidence anchors |
 | 1.2.0 | 2026-08-08 | @RBraga01 | Updated to ISO 9001:2015/Amd 1:2024 and added climate-change determination audit guidance. |
+| 1.3.0 | 2026-11-06 | @RBraga01 | Record ISO 9001:2026 publication and require explicit audit edition selection. |

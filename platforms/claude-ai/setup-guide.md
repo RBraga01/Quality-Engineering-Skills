@@ -23,29 +23,15 @@ This creates a private AI assistant that knows your quality engineering skills �
 
 ## Step 2 — Upload knowledge files
 
-1. Download the [`knowledge/`](knowledge/) folder from this repository
-2. Upload all 16 files to the project (drag & drop or use the upload button)
+The `platforms/claude-ai/knowledge/` folder contains **36 generated mirrors**
+of the canonical source, validated byte-for-byte by CI. It is not a 16-file
+upload package.
 
-| File | Content |
-|------|---------|
-| `8d-problem-solving.md` | Full 8D methodology D0–D8 |
-| `8d-template.md` | Fillable 8D report template |
-| `5why-root-cause.md` | 5-Why root cause analysis |
-| `fishbone-analysis.md` | Fishbone / Ishikawa 6M |
-| `is-is-not-scoping.md` | Is / Is-Not problem scoping |
-| `pfmea-process.md` | PFMEA 7-step AIAG-VDA 2019 |
-| `ap-table.md` | Action Priority table |
-| `action-priority-ap.md` | AP classification and OEM rules |
-| `ncr-writing.md` | Non-Conformance Report writing |
-| `car-corrective-action.md` | Corrective Action Request |
-| `8d-report-writing.md` | 8D customer report (OEM formats) |
-| `iso-9001-internal-audit.md` | ISO 9001 internal audit |
-| `iatf-16949-audit.md` | IATF 16949 supplemental audit |
-| `d0-d8-guide.md` | D0–D8 gate criteria reference |
-| `oem-requirements.md` | OEM-specific AP requirements |
-| `oem-formats.md` | OEM 8D submission formats |
-
----
+For manual setup, use the same **10-file consolidated export** in
+[`../chatgpt/export/`](../chatgpt/export/), including `00-INDEX.md`.
+Upload those ten Markdown files to your Claude.ai Project subject to
+your account's current file limits. All 23 skills, 8 agents and the
+supporting Markdown references/templates are represented.
 
 ## Step 3 — Test before using
 
@@ -62,9 +48,9 @@ Start a conversation with each of these to confirm everything is working:
 
 When the skills are updated in the [GitHub repository](https://github.com/RBraga01/Quality-Engineering-Skills):
 
-1. Download the updated files from `platforms/claude-ai/knowledge/`
+1. Download the updated files from `platforms/chatgpt/export/`
 2. Remove the old files from your Claude.ai project
-3. Upload the new versions
+3. Upload all ten regenerated Markdown files
 
 The Project Instructions stay the same — only the knowledge files change.
 
@@ -73,4 +59,4 @@ The Project Instructions stay the same — only the knowledge files change.
 ## Note on sharing
 
 Claude.ai Projects are private to your account by default. You can share a project link with other Claude users on your team.
-A Claude account is required — it is not anonymous like the ChatGPT GPT Store.
+A Claude account is required — ChatGPT GPTs also require account sign-in to chat.

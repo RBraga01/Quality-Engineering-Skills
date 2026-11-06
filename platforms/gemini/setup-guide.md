@@ -68,106 +68,24 @@ Deploy as a native sidebar in Google Docs, Sheets, and Gmail. Users open the sid
 
 1. Click **Project Settings** (gear icon) → enable **Show "appsscript.json" manifest file in editor**.
 2. In the editor, open `appsscript.json`.
-3. Replace the content with the contents of `platforms/gemini/workspace-addon-manifest.json` from this repository.
+3. Replace the content with the **canonical** [`platforms/gemini/appsscript.json`](appsscript.json). `workspace-addon-manifest.json` remains an identical compatibility copy; do not mix callbacks from a different sample.
 
-### Step 3 — Create the main script
+### Step 3 — Install the actual implementation
 
-Create a new file `Code.gs` and add the following:
+Copy the **entire** [`Code.gs`](Code.gs) from this repository into your Apps Script project.
+Do **not** use older snippets or a partial handler example: the manifest references the
+entry points implemented in that exact file. The full script contains the 8D, NCR, FMEA,
+audit and RCA cards and their submit handlers.
 
-```javascript
-const GEMINI_API_KEY = PropertiesService.getScriptProperties().getProperty('GEMINI_API_KEY');
-const GEMINI_MODEL = 'gemini-2.0-flash';
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+This first version is intentionally **stateless**: each Submit request sends the supplied
+text in a new Gemini request. The result card's **New request** button starts a fresh form,
+not a continuation of the previous investigation. Do not paste confidential supplier/customer
+content without permission to transmit it to Google.
 
-// Load system instructions from the repository (or paste inline)
-const SYSTEM_INSTRUCTIONS = `[PASTE CONTENT OF platforms/gemini/gemini-instructions.md HERE]`;
-
-function onHomepage(e) {
-  return buildCard('Quality Engineering Assistant', 
-    'Choose a mode to get started:', 
-    getMainMenuButtons());
-}
-
-function start8DCoach(e) {
-  const response = callGemini('Start the 8D Coach. Ask me D0 first.');
-  return buildCard('8D Coach', response, [backButton()]);
-}
-
-function startNCRWriter(e) {
-  const response = callGemini('Start NCR Writer mode. Ask me for the defect observations.');
-  return buildCard('NCR Writer', response, [backButton()]);
-}
-
-function startRCA(e) {
-  const response = callGemini('Start Root Cause Analysis mode. Ask me for the problem statement.');
-  return buildCard('Root Cause Analysis', response, [backButton()]);
-}
-
-function startAuditGuide(e) {
-  const response = callGemini('Start Audit Guide mode. Ask me which standard to audit.');
-  return buildCard('Audit Guide', response, [backButton()]);
-}
-
-function onDocOpen(e) { return onHomepage(e); }
-function onSheetOpen(e) { return onHomepage(e); }
-function onGmailMessage(e) { return onHomepage(e); }
-
-function callGemini(userMessage) {
-  const payload = {
-    system_instruction: { parts: [{ text: SYSTEM_INSTRUCTIONS }] },
-    contents: [{ role: 'user', parts: [{ text: userMessage }] }],
-    generationConfig: { temperature: 0.3, maxOutputTokens: 2048 }
-  };
-  
-  const options = {
-    method: 'post',
-    contentType: 'application/json',
-    payload: JSON.stringify(payload),
-    muteHttpExceptions: true
-  };
-  
-  const response = UrlFetchApp.fetch(GEMINI_API_URL, options);
-  const json = JSON.parse(response.getContentText());
-  
-  if (json.candidates && json.candidates[0]) {
-    return json.candidates[0].content.parts[0].text;
-  }
-  return 'Error: Could not reach Gemini API. Check your API key in Script Properties.';
-}
-
-function buildCard(title, text, buttons) {
-  return CardService.newCardBuilder()
-    .setHeader(CardService.newCardHeader().setTitle(title))
-    .addSection(
-      CardService.newCardSection()
-        .addWidget(CardService.newTextParagraph().setText(text))
-    )
-    .addSection(
-      CardService.newCardSection().addWidget(
-        buttons.reduce((row, btn) => row.addButton(btn), 
-          CardService.newButtonSet())
-      )
-    )
-    .build();
-}
-
-function getMainMenuButtons() {
-  return CardService.newButtonSet()
-    .addButton(CardService.newTextButton().setText('8D Coach').setOnClickAction(
-      CardService.newAction().setFunctionName('start8DCoach')))
-    .addButton(CardService.newTextButton().setText('NCR Writer').setOnClickAction(
-      CardService.newAction().setFunctionName('startNCRWriter')))
-    .addButton(CardService.newTextButton().setText('Root Cause').setOnClickAction(
-      CardService.newAction().setFunctionName('startRCA')))
-    .addButton(CardService.newTextButton().setText('Audit Guide').setOnClickAction(
-      CardService.newAction().setFunctionName('startAuditGuide')));
-}
-
-function backButton() {
-  return CardService.newTextButton().setText('← Back').setOnClickAction(
-    CardService.newAction().setFunctionName('onHomepage'));
-}
-```
+The model defaults to `gemini-3.1-flash-lite` (supported replacement in the 2026 Gemini
+deprecation guide). You can set `GEMINI_MODEL` in Script Properties to another
+supported model if your account and budget require it. Confirm current support and pricing
+before deployment.
 
 ### Step 4 — Add your API key
 
@@ -175,7 +93,7 @@ function backButton() {
 2. Click **Add script property**.
 3. Property name: `GEMINI_API_KEY`
 4. Value: your Gemini API key from [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
-5. Click **Save script properties**.
+5. Click **Save script properties**. Optionally add `GEMINI_MODEL` (for example `gemini-3.1-flash-lite`). The script never stores the key in the repository.
 
 ### Step 5 — Deploy
 

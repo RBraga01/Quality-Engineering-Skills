@@ -1,0 +1,12 @@
+{
+  "name": "quality-engineering",
+  "interface": { "displayName": "Quality Engineering" },
+  "plugins": [
+    {
+      "name": "quality-engineering-skills",
+      "source": { "source": "local", "path": "./" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -30,6 +30,9 @@ git clone https://github.com/RBraga01/Quality-Engineering-Skills.git
 
 Or [download as ZIP](https://github.com/RBraga01/Quality-Engineering-Skills/archive/refs/heads/master.zip).
 
+For the Codex plugin pilot, see the [plugin guide](.codex-plugin/README.md).
+To check how the skills respond to realistic inputs, run the [skill behavior scenarios](tests/skill-scenarios.md).
+
 ---
 
 ## What this solves

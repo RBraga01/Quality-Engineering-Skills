@@ -252,9 +252,9 @@ These include all variation sources (between-subgroup drift, shifts, etc.).
 
 | Cpk / Ppk | Sigma level (approx.) | DPPM (approx.) | Initial process study (PPAP) | Established series production |
 |-----------|----------------------|----------------|------------------------------|------------------------------|
-| ≥ 1.67 | 5σ | < 233 ppm | Meets requirement — submit | Comfortably capable |
-| 1.33 – 1.67 | 4σ | 233 – 6,210 ppm | **Below requirement** — contact customer before submission | Acceptable — monitor per control plan |
-| 1.00 – 1.33 | 3σ | 6,210 – 66,807 ppm | Does not meet — containment, corrective action, customer approval | Below acceptance — trigger the control plan reaction |
+| ≥ 1.67 | 5σ | < 233 ppm | Candidate for acceptance; verify the applicable boundary rule before submission | Comfortably capable |
+| 1.33 <= index < 1.67 | 4σ | 233 – 6,210 ppm | **Below requirement** — contact customer before submission | Acceptable — monitor per control plan |
+| 1.00 <= index < 1.33 | 3σ | 6,210 – 66,807 ppm | Does not meet — containment, corrective action, customer approval | Below acceptance — trigger the control plan reaction |
 | < 1.00 | < 3σ | > 66,807 ppm | Not capable — PPAP blocked, mandatory corrective action | Not capable — containment and corrective action |
 
 **Read the correct column.** The same index value means different things depending on

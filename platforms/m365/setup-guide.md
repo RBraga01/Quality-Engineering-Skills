@@ -33,6 +33,25 @@ server-side control over the model and prompts. Most users should use the declar
 
 ---
 
+### Mandatory API-plugin authentication registration
+
+This is an **experimental, self-hosted** option, independent of the preferred
+declarative agent. The published plugin-manifest.json has
+`auth.type = "ApiKeyPluginVault"` and a deliberate
+`reference_id = "REPLACE_WITH_MICROSOFT_AUTH_CONFIG_ID"` placeholder.
+It cannot authenticate until an admin registers an API key in the Microsoft
+Enterprise token store using Microsoft 365 Agents Toolkit or Teams Developer
+Portal and updates that reference in a **private deployment manifest**.
+The secret must match the Worker's `API_TOKEN`, but must never appear in
+a public plugin manifest.
+
+Microsoft's documentation describes this exact bearer-token/API-key pattern:
+https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/plugin-authentication-api-key
+
+Do not deploy without independent staging access approval, a rate limit and
+permission to transmit the test data to an external model. Never commit an
+actual token or auth-config ID.
+
 ## Track 0 — Deploy the API (do this first)
 
 The plugin calls a REST API. Deploy it with Cloudflare Workers before configuring the M365 plugin.
@@ -56,7 +75,8 @@ This deploys to `https://quality-engineering-assistant-api.<your-subdomain>.work
 
 ```bash
 wrangler secret put ANTHROPIC_API_KEY
-# Paste your Anthropic API key when prompted
+wrangler secret put API_TOKEN
+# Enter separate values using Wrangler's secret prompt, never in git.
 ```
 
 ### Step 3 — (Optional) Add a custom domain
@@ -65,7 +85,7 @@ For AppSource submission the API must be at `api.quality-engineering-skills.io`:
 
 1. In [Cloudflare dashboard](https://dash.cloudflare.com) → **Workers & Pages** → `quality-engineering-assistant-api` → **Settings** → **Triggers**
 2. Under **Custom Domains**, add `api.quality-engineering-skills.io`
-3. Update `platforms/m365/openapi.yaml` server URL to `https://api.quality-engineering-skills.io/v1`
+3. Update `platforms/m365/openapi.yaml` server URL to `https://api.quality-engineering-skills.io` (the Worker endpoints have no `/v1` prefix)
 
 For sideload testing, the `*.workers.dev` URL is sufficient — update `openapi.yaml` with that URL instead.
 
@@ -74,12 +94,19 @@ For sideload testing, the `*.workers.dev` URL is sufficient — update `openapi.
 ```bash
 curl -X POST https://<your-worker-url>/8d/coach \
   -H "Content-Type: application/json" \
+  -H "Authorization: Bearer <STAGING_TOKEN>" \
   -d '{"complaint_description":"customer returned parts with incorrect dimensions"}'
 ```
 
-Expected: a JSON response with `session_id`, `current_step`, and `message` fields.
+Expected: JSON with `mode: "single_turn"` and `message`. There is no server-side `session_id`, approval gate or stored history; each request starts a new question. Use a deliberately synthetic complaint for staging.
 
 ---
+
+## API capability boundary
+
+The advanced API currently supports **single-turn generation** for 8D coaching, RCA and audit questions, plus schema-validated independent evaluations for 8D, NCR and FMEA. It does **not** persist cases, user histories, D0–D8 transition state or human approvals. A new request cannot resume an earlier investigation; the schema intentionally has no `session_id` or `start_discipline`. A malformed or unparseable model verdict returns HTTP 502, not an invented Pass/Fail.
+
+This self-hosted API remains experimental and must be tested privately with synthetic data before use; the **declarative agent** is the separate, recommended M365 path.
 
 ## What this enables
 
