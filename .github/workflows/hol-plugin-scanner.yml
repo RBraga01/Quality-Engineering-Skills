@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: HOL Plugin Scanner
-        uses: hashgraph-online/ai-plugin-scanner-action@013b123a036a252a6d74ddb52836ee923498150c # v1
+        uses: hashgraph-online/ai-plugin-scanner-action@9a6d9e4f69118302d3d0b3013ec7a78c1ed52ea9 # v1
         with:
           plugin_dir: "."
           mode: scan
